@@ -2,7 +2,7 @@
 
 > Codebase for Payvision PHP SDK
 
-This is the official PHP SDK for the Payvision payment platform (<https://www.payvision.com>).
+This is the official PHP SDK for Payvision payments platform (<https://www.payvision.com>).
 It can be used to make use of the following features of the [Payvision API](https://developers.acehubpaymentservices.com/reference):
 
 - Make payment requests
