@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 /**
  * @copyright Copyright (c) 2018-2019 Payvision B.V. (https://www.payvision.com/)
- * @license see LICENCE.TXT
+ * @license see LICENSE.txt
  *
  * Warning! This file is auto-generated! Any changes made to this file will be deleted in the future!
  */
