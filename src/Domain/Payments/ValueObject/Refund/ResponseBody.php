@@ -4,21 +4,26 @@ declare(strict_types=1);
 
 /**
  * @copyright Copyright (c) 2018-2019 Payvision B.V. (https://www.payvision.com/)
- * @license see LICENSE.txt
+ * @license see LICENCE.TXT
  *
  * Warning! This file is auto-generated! Any changes made to this file will be deleted in the future!
  */
 
 namespace Payvision\SDK\Domain\Payments\ValueObject\Refund;
 
-use Payvision\SDK\Domain\Payments\ValueObject\BasicResponseCard;
+use Payvision\SDK\Domain\Payments\ValueObject\Error;
 
 class ResponseBody
 {
     /**
-     * @var BasicResponseCard
+     * @var ResponseCard
      */
     private $card;
+
+    /**
+     * @var Error
+     */
+    private $error;
 
     /**
      * @var ResponseTransaction
@@ -28,28 +33,39 @@ class ResponseBody
     /**
      * ResponseBody constructor.
      *
-     * @param BasicResponseCard $card
+     * @param ResponseCard $card
+     * @param Error $error
      * @param ResponseTransaction $transaction
      */
     public function __construct(
-        BasicResponseCard $card = null,
+        ResponseCard $card = null,
+        Error $error = null,
         ResponseTransaction $transaction = null
     ) {
         $this->card = $card;
+        $this->error = $error;
         $this->transaction = $transaction;
     }
 
     /**
-    * @return BasicResponseCard|null
-    */
+     * @return ResponseCard|null
+     */
     public function getCard()
     {
         return $this->card;
     }
 
     /**
-    * @return ResponseTransaction|null
-    */
+     * @return Error|null
+     */
+    public function getError()
+    {
+        return $this->error;
+    }
+
+    /**
+     * @return ResponseTransaction|null
+     */
     public function getTransaction()
     {
         return $this->transaction;

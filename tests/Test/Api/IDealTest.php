@@ -4,63 +4,44 @@ declare(strict_types=1);
 
 /**
  * @copyright Copyright (c) 2018-2019 Payvision B.V. (https://www.payvision.com/)
- * @license see LICENSE.txt
+ * @license see LICENCE.TXT
  */
 
 namespace Payvision\SDK\Test\Api;
 
 use Payvision\SDK\Application\Payments\Service\RequestBuilder;
-use Payvision\SDK\Domain\Payments\Service\Builder\Composite\Request\Object as RequestObjectBuilder;
-use Payvision\SDK\Domain\Payments\Service\Builder\Composite\Request\Refund as RefundObjectBuilder;
-use Payvision\SDK\Domain\Payments\ValueObject\Capture\ResponseRequest as CaptureResponseRequest;
-use Payvision\SDK\Domain\Payments\ValueObject\Request\Object;
-use Payvision\SDK\Domain\Payments\ValueObject\Response\Request as ResponseRequest;
+use Payvision\SDK\Domain\Payments\Service\Builder\Composite\Payment\Request as PaymentRequestBuilder;
+use Payvision\SDK\Domain\Payments\Service\Builder\Composite\Refund\Request as RefundRequestBuilder;
+use Payvision\SDK\Domain\Payments\ValueObject\Payment\Request as PaymentRequest;
+use Payvision\SDK\Domain\Payments\ValueObject\Payment\Response as PaymentResponse;
+use Payvision\SDK\Domain\Payments\ValueObject\Refund\Response as RefundResponseRequest;
 use Payvision\SDK\Exception\Api\ErrorResponse;
 use Payvision\SDK\Exception\ApiException;
 use Payvision\SDK\Exception\BuilderException;
 use Payvision\SDK\Exception\DataTypeException;
-use Payvision\SDK\Infrastructure\ApiConnection;
-use PHPUnit\Framework\TestCase;
-use ReflectionException;
 
-class IDealTest extends TestCase
+class IDealTest extends AbstractTestCase
 {
     /**
-     * @var ApiConnection
+     * @var PaymentRequestBuilder
      */
-    protected $apiConnection;
+    protected $paymentRequestBuilder;
 
     /**
-     * @var RequestObjectBuilder
+     * @var RefundRequestBuilder
      */
-    protected $requestObjectBuilder;
+    protected $refundRequestBuilder;
 
     /**
-     * @var RefundObjectBuilder
-     */
-    protected $refundObjectBuilder;
-
-    /**
-     * @throws DataTypeException
      * @return null
+     * @throws DataTypeException
      */
     protected function setUp()
     {
-        $envFile = __DIR__ . '/../../../.env.php';
-        if (!\file_exists($envFile)) {
-            $this->fail(".env.php not found. Please create one in order to run the API tests");
-        }
-        $credentials = include $envFile;
-        $this->apiConnection = new ApiConnection(
-            $credentials['username'],
-            $credentials['password'],
-            $credentials['businessId'],
-            ApiConnection::URI_TEST,
-            false
-        );
+        parent::setUp();
 
-        $this->requestObjectBuilder = new RequestObjectBuilder();
-        $this->refundObjectBuilder = new RefundObjectBuilder();
+        $this->paymentRequestBuilder = new PaymentRequestBuilder();
+        $this->refundRequestBuilder = new RefundRequestBuilder();
     }
 
     /**
@@ -68,22 +49,21 @@ class IDealTest extends TestCase
      * @throws ApiException
      * @throws BuilderException
      * @throws ErrorResponse
-     * @throws ReflectionException
      */
     public function testNewIdealPaymentShouldBePending(): array
     {
         // what to do with the business ID? It is required for the header, so it is required in the builder process,
         // but the API adds it automatically. Who's responsibility is it to supply the business ID?
         // Is it part of the initialization of the API or part of the request (as specified)?
-        $requestObject = $this->createFakeRequestObject();
+        $requestObject = $this->createFakePaymentRequest();
 
         $request = RequestBuilder::newPayment($requestObject);
 
-        /** @var ResponseRequest $response */
+        /** @var PaymentResponse $response */
         $response = $this->apiConnection->execute($request);
 
         $this->assertInstanceOf($request->getResponseObjectByStatusCode(200), $response);
-        $this->assertEquals(ResponseRequest::PENDING, $response->getResult());
+        $this->assertEquals(PaymentResponse::PENDING, $response->getResult());
 
         return [
             'id' => $response->getBody()->getTransaction()->getId(),
@@ -102,12 +82,12 @@ class IDealTest extends TestCase
      */
     public function testIdealPaymentWith1EuroShouldBeSuccessful(array $input)
     {
-        $request = RequestBuilder::getTransactionStatus($input['id']);
+        $request = RequestBuilder::getTransactionStatus($input['id'], $this->credentials['businessId']);
 
-        /** @var ResponseRequest $response */
+        /** @var PaymentResponse $response */
         $response = $this->apiConnection->execute($request);
         $this->assertInstanceOf($request->getResponseObjectByStatusCode(200), $response);
-        $this->assertEquals(ResponseRequest::OK, $response->getResult());
+        $this->assertEquals(PaymentResponse::OK, $response->getResult());
     }
 
     /**
@@ -120,15 +100,14 @@ class IDealTest extends TestCase
      */
     public function testIdealPaymentWith1EuroShouldHaveTransactions(array $input)
     {
-        $this->markTestSkipped('getPayments() is not yet implemented');
-        $request = RequestBuilder::getPayments($input['trackingCode']);
+        $request = RequestBuilder::getPayments($this->credentials['businessId'], $input['trackingCode']);
 
         $responses = $this->apiConnection->executeAndReturnArray($request);
         $this->assertCount(1, $responses);
-        /** @var ResponseRequest $response */
+        /** @var PaymentResponse $response */
         $response = $responses[0];
         $this->assertInstanceOf($request->getResponseObjectByStatusCode(200), $response);
-        $this->assertEquals(ResponseRequest::OK, $response->getResult());
+        $this->assertEquals(PaymentResponse::OK, $response->getResult());
         $this->assertSame($input['id'], $response->getBody()->getTransaction()->getId());
     }
 
@@ -138,41 +117,32 @@ class IDealTest extends TestCase
      * @throws ApiException
      * @throws BuilderException
      * @throws ErrorResponse
-     * @throws ReflectionException
      * @return null
      */
     public function testIdealRefund(array $input)
     {
-        $this->refundObjectBuilder->header()->setBusinessId('abc123');
-        $this->refundObjectBuilder->body()->transaction()
+        $this->refundRequestBuilder->header()->setBusinessId($this->credentials['businessId']);
+        $this->refundRequestBuilder->body()->transaction()
             ->setCurrencyCode('EUR')
             ->setAmount(1.00)
             ->setTrackingcode($this->generateTrackingCode());
-        $requestObject = $this->refundObjectBuilder->build();
+        $requestObject = $this->refundRequestBuilder->build();
 
         $request = RequestBuilder::refundTransaction($requestObject, $input['id']);
-        /** @var CaptureResponseRequest $response */
+        /** @var RefundResponseRequest $response */
         $response = $this->apiConnection->execute($request);
         $this->assertInstanceOf($request->getResponseObjectByStatusCode(200), $response);
-        $this->assertEquals(ResponseRequest::OK, $response->getResult());
+        $this->assertEquals(PaymentResponse::OK, $response->getResult());
         $this->assertEquals('refund', $response->getBody()->getTransaction()->getAction());
     }
 
-    protected function generateTrackingCode(): string
+    private function createFakePaymentRequest(): PaymentRequest
     {
-        return 'test.' . \microtime(true) . '.' . \rand(100000, 999999);
-    }
-
-    /**
-     * @return Object
-     */
-    private function createFakeRequestObject(): Object
-    {
-        $this->requestObjectBuilder->header()->setBusinessId('abc123');
-        $this->requestObjectBuilder->body()->bank()
+        $this->paymentRequestBuilder->header()->setBusinessId($this->credentials['businessId']);
+        $this->paymentRequestBuilder->body()->bank()
             ->setCountryCode('NL')
             ->setIssuerId(20);
-        $this->requestObjectBuilder->body()->transaction()
+        $this->paymentRequestBuilder->body()->transaction()
             ->setAmount(1.00)
             ->setPurchaseId('1234')
             ->setTrackingCode($this->generateTrackingCode())
@@ -180,8 +150,8 @@ class IDealTest extends TestCase
             ->setBrandId(3010)
             ->setDescriptor('DESC')
             ->setCurrencyCode('EUR');
-        $this->requestObjectBuilder->setAction(Object::ACTION_PAYMENT);
-        $requestObject = $this->requestObjectBuilder->build();
+        $this->paymentRequestBuilder->setAction(PaymentRequest::ACTION_PAYMENT);
+        $requestObject = $this->paymentRequestBuilder->build();
         return $requestObject;
     }
 }

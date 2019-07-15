@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 /**
  * @copyright Copyright (c) 2018-2019 Payvision B.V. (https://www.payvision.com/)
- * @license see LICENSE.txt
+ * @license see LICENCE.TXT
  *
  * Warning! This file is auto-generated! Any changes made to this file will be deleted in the future!
  */
@@ -86,64 +86,64 @@ class ResponseTransaction
     }
 
     /**
-    * @return string
-    */
+     * @return string
+     */
     public function getAction()
     {
         return $this->action;
     }
 
     /**
-    * @return float
-    */
+     * @return float
+     */
     public function getAmount()
     {
         return $this->amount;
     }
 
     /**
-    * @return string
-    */
+     * @return string
+     */
     public function getCurrencyCode()
     {
         return $this->currencyCode;
     }
 
     /**
-    * @return string
-    */
+     * @return string
+     */
     public function getId()
     {
         return $this->id;
     }
 
     /**
-    * @return string
-    */
+     * @return string
+     */
     public function getParentId()
     {
         return $this->parentId;
     }
 
     /**
-    * @return string
-    */
+     * @return string
+     */
     public function getTrackingCode()
     {
         return $this->trackingCode;
     }
 
     /**
-    * @return int|null
-    */
+     * @return int|null
+     */
     public function getBrandId()
     {
         return $this->brandId;
     }
 
     /**
-    * @return string|null
-    */
+     * @return string|null
+     */
     public function getDescriptor()
     {
         return $this->descriptor;

@@ -4,16 +4,16 @@ declare(strict_types=1);
 
 /**
  * @copyright Copyright (c) 2018-2019 Payvision B.V. (https://www.payvision.com/)
- * @license see LICENSE.txt
+ * @license see LICENCE.TXT
  */
 
 namespace Payvision\SDK\Domain\Webhook\ValueObject;
 
 use DateTime;
-use Payvision\SDK\Domain\Payments\ValueObject\Cancel\ResponseRequest as CancelResponseRequest;
-use Payvision\SDK\Domain\Payments\ValueObject\Capture\ResponseRequest as CaptureResponseRequest;
-use Payvision\SDK\Domain\Payments\ValueObject\Refund\ResponseRequest as RefundResponseRequest;
-use Payvision\SDK\Domain\Payments\ValueObject\Response\Request as ResponseRequest;
+use Payvision\SDK\Domain\Payments\ValueObject\Cancel\Response as CancelResponse;
+use Payvision\SDK\Domain\Payments\ValueObject\Capture\Response as CaptureResponse;
+use Payvision\SDK\Domain\Payments\ValueObject\Payment\Response as PaymentResponse;
+use Payvision\SDK\Domain\Payments\ValueObject\Refund\Response as RefundResponse;
 
 class Event
 {
@@ -28,7 +28,7 @@ class Event
     private $id;
 
     /**
-     * @var ResponseRequest|CancelResponseRequest|CaptureResponseRequest|RefundResponseRequest
+     * @var PaymentResponse|CancelResponse|CaptureResponse|RefundResponse
      */
     private $payload;
 
@@ -47,7 +47,7 @@ class Event
      *
      * @param DateTime $createTime
      * @param string $id
-     * @param ResponseRequest|CancelResponseRequest|CaptureResponseRequest|RefundResponseRequest $payload
+     * @param PaymentResponse|CancelResponse|CaptureResponse|RefundResponse $payload
      * @param string $type
      * @param string|null $message
      */
@@ -82,7 +82,7 @@ class Event
     }
 
     /**
-     * @return CancelResponseRequest|CaptureResponseRequest|RefundResponseRequest|ResponseRequest
+     * @return CancelResponse|CaptureResponse|RefundResponse|PaymentResponse
      */
     public function getPayload()
     {

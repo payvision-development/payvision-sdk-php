@@ -4,14 +4,14 @@ declare(strict_types=1);
 
 /**
  * @copyright Copyright (c) 2018-2019 Payvision B.V. (https://www.payvision.com/)
- * @license see LICENSE.txt
+ * @license see LICENCE.TXT
  */
 
 namespace Payvision\SDK\Test\Test\Unit\Application\Webhook\Service;
 
 use Payvision\SDK\Application\Reflection\JsonToObject;
 use Payvision\SDK\Application\Webhook\Service\EventBuilder;
-use Payvision\SDK\Domain\Payments\ValueObject\Response\Request as ResponseRequest;
+use Payvision\SDK\Domain\Payments\ValueObject\Payment\Response as PaymentResponse;
 use Payvision\SDK\Domain\Webhook\Service\Validator;
 use Payvision\SDK\Domain\Webhook\ValueObject\Event;
 use Payvision\SDK\Exception\BuilderException;
@@ -125,9 +125,9 @@ class EventBuilderTest extends TestCase
         self::assertSame('Transaction.Update', $responseObject->getType());
         self::assertSame('2019-01-15 13:35:07', $responseObject->getCreateTime()->format('Y-m-d H:i:s'));
         self::assertSame('A payment was updated.', $responseObject->getMessage());
-        /** @var ResponseRequest $payload */
+        /** @var PaymentResponse $payload */
         $payload = $responseObject->getPayload();
-        self::assertInstanceOf(ResponseRequest::class, $payload);
+        self::assertInstanceOf(PaymentResponse::class, $payload);
         self::assertSame(0, $payload->getResult());
         self::assertSame('Ok', $payload->getDescription());
         self::assertSame(

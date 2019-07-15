@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 /**
  * @copyright Copyright (c) 2018-2019 Payvision B.V. (https://www.payvision.com/)
- * @license see LICENSE.txt
+ * @license see LICENCE.TXT
  */
 
 namespace Payvision\SDK\Domain;
@@ -18,4 +18,10 @@ interface BrandRepository
      * @throws RepositoryException
      */
     public function getAll(): array;
+
+    /**
+     * @return Brand[]
+     * @throws RepositoryException
+     */
+    public function getAllForCategory(int $categoryId): array;
 }

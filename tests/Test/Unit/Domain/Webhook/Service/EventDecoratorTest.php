@@ -4,15 +4,15 @@ declare(strict_types=1);
 
 /**
  * @copyright Copyright (c) 2018-2019 Payvision B.V. (https://www.payvision.com/)
- * @license see LICENSE.txt
+ * @license see LICENCE.TXT
  */
 
 namespace Payvision\SDK\Test\Test\Unit\Domain\Webhook\Service;
 
-use Payvision\SDK\Domain\Payments\ValueObject\Cancel\ResponseRequest as CancelResponseRequest;
-use Payvision\SDK\Domain\Payments\ValueObject\Capture\ResponseRequest as CaptureResponseRequest;
-use Payvision\SDK\Domain\Payments\ValueObject\Refund\ResponseRequest as RefundResponseRequest;
-use Payvision\SDK\Domain\Payments\ValueObject\Response\Request as ResponseRequest;
+use Payvision\SDK\Domain\Payments\ValueObject\Cancel\Response as CancelResponse;
+use Payvision\SDK\Domain\Payments\ValueObject\Capture\Response as CaptureResponse;
+use Payvision\SDK\Domain\Payments\ValueObject\Payment\Response as PaymentResponse;
+use Payvision\SDK\Domain\Payments\ValueObject\Refund\Response as RefundResponse;
 use Payvision\SDK\Domain\Webhook\Service\EventDecorator;
 use Payvision\SDK\Domain\Webhook\ValueObject\Event;
 use Payvision\SDK\Exception\WebhookException;
@@ -102,7 +102,7 @@ class EventDecoratorTest extends TestCase
             EventDecorator::TYPE_CANCEL,
             EventDecorator::TYPE_CAPTURE,
             EventDecorator::TYPE_REFUND,
-            EventDecorator::TYPE_REQUEST,
+            EventDecorator::TYPE_PAYMENT,
         ];
 
         foreach ($types as $type) {
@@ -121,8 +121,8 @@ class EventDecoratorTest extends TestCase
                 case EventDecorator::TYPE_REFUND:
                     $this->subject->getRefundResponse();
                     break;
-                case EventDecorator::TYPE_REQUEST:
-                    $this->subject->getRequestResponse();
+                case EventDecorator::TYPE_PAYMENT:
+                    $this->subject->getPaymentResponse();
                     break;
             }
         }
@@ -133,10 +133,10 @@ class EventDecoratorTest extends TestCase
     public function payloadDataProvider(): array
     {
         return [
-            [CancelResponseRequest::class, EventDecorator::TYPE_CANCEL],
-            [CaptureResponseRequest::class, EventDecorator::TYPE_CAPTURE],
-            [RefundResponseRequest::class, EventDecorator::TYPE_REFUND],
-            [ResponseRequest::class, EventDecorator::TYPE_REQUEST],
+            [CancelResponse::class, EventDecorator::TYPE_CANCEL],
+            [CaptureResponse::class, EventDecorator::TYPE_CAPTURE],
+            [RefundResponse::class, EventDecorator::TYPE_REFUND],
+            [PaymentResponse::class, EventDecorator::TYPE_PAYMENT],
         ];
     }
 }

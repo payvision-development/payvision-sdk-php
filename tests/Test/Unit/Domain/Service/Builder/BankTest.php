@@ -9,7 +9,7 @@ declare(strict_types=1);
 
 namespace Payvision\SDK\Test\Unit\Domain\Service\Builder;
 
-use Payvision\SDK\Domain\Payments\Service\Builder\Bank as BankBuilder;
+use Payvision\SDK\Domain\Payments\Service\Builder\Payment\RequestBank as BankBuilder;
 use PHPUnit\Framework\TestCase;
 
 class BankTest extends TestCase

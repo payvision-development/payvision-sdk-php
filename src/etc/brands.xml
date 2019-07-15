@@ -1,11 +1,49 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
   ~ @copyright Copyright (c) 2018-2019 Payvision B.V. (https://www.payvision.com/)
-  ~ @license see LICENSE.txt
+  ~ @license see LICENCE.TXT
   -->
 <brands xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
         xsi:noNamespaceSchemaLocation="./brands.xsd">
-    <category name="Direct banking">
+    <category name="Cards" id="1">
+        <brand id="1010">
+            <name>VISA</name>
+            <async>false</async>
+        </brand>
+        <brand id="1011">
+            <name>Visa Electron</name>
+            <async>false</async>
+        </brand>
+        <brand id="1013">
+            <name>Visa Debit</name>
+            <async>false</async>
+        </brand>
+        <brand id="1015">
+            <name>VPay</name>
+            <async>false</async>
+        </brand>
+        <brand id="1020">
+            <name>MasterCard</name>
+            <async>false</async>
+        </brand>
+        <brand id="1023">
+            <name>MasterCard Debit</name>
+            <async>false</async>
+        </brand>
+        <brand id="1030">
+            <name>American Express</name>
+            <async>false</async>
+        </brand>
+        <brand id="1050">
+            <name>Maestro</name>
+            <async>false</async>
+        </brand>
+        <brand id="1210">
+            <name>BCMC</name>
+            <async>true</async>
+        </brand>
+    </category>
+    <category name="Direct banking" id="3">
         <brand id="3010">
             <name>iDeal</name>
             <async>true</async>
@@ -44,6 +82,18 @@
                     <description>Moneyou</description>
                 </issuer>
             </issuers>
+        </brand>
+    </category>
+    <category name="Wallet" id="4">
+        <brand id="4010">
+            <name>Paypal</name>
+            <async>true</async>
+        </brand>
+    </category>
+    <category name="Invoice/Post payment" id="5">
+        <brand id="5020">
+            <name>Afterpay</name>
+            <async>false</async>
         </brand>
     </category>
 </brands>

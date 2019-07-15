@@ -9,10 +9,11 @@ declare(strict_types=1);
 
 namespace Payvision\SDK\Test\Unit\Domain\Service\Builder;
 
-use Payvision\SDK\Domain\Payments\Service\Builder\Request\Object as RequestObjectBuilder;
-use Payvision\SDK\Domain\Payments\ValueObject\Payment\Body;
-use Payvision\SDK\Domain\Payments\ValueObject\Payment\Header;
-use Payvision\SDK\Domain\Payments\ValueObject\Request\Object as PaymentObject;
+use Payvision\SDK\Domain\Payments\Service\Builder\Payment\Request as PaymentRequestBuilder;
+use Payvision\SDK\Domain\Payments\ValueObject\Payment\Request as PaymentRequest;
+use Payvision\SDK\Domain\Payments\ValueObject\Payment\RequestBody as PaymentRequestBody;
+use Payvision\SDK\Domain\Payments\ValueObject\Payment\RequestTransaction as PaymentRequestTransaction;
+use Payvision\SDK\Domain\Payments\ValueObject\Request\Header as PaymentRequestHeader;
 use Payvision\SDK\Exception\BuilderException;
 use Payvision\SDK\Exception\DataTypeException;
 use PHPUnit\Framework\TestCase;
@@ -20,7 +21,7 @@ use PHPUnit\Framework\TestCase;
 class PaymentTest extends TestCase
 {
     /**
-     * @var RequestObjectBuilder
+     * @var PaymentRequestBuilder
      */
     private $builder;
 
@@ -29,7 +30,7 @@ class PaymentTest extends TestCase
      */
     protected function setUp()
     {
-        $this->builder = new RequestObjectBuilder();
+        $this->builder = new PaymentRequestBuilder();
     }
 
     /**
@@ -38,12 +39,16 @@ class PaymentTest extends TestCase
     public function testValidPaymentObject()
     {
         $paymentObject = $this->builder
-            ->setHeader(new Header('abc123'))
-            ->setBody(new Body())
-            ->setAction(PaymentObject::ACTION_PAYMENT)
+            ->setHeader(new PaymentRequestHeader('abc123'))
+            ->setBody(
+                new PaymentRequestBody(
+                    new PaymentRequestTransaction(1.00, 'xxx', 'EUR')
+                )
+            )
+            ->setAction(PaymentRequest::ACTION_PAYMENT)
             ->build();
 
-        $this->assertSame(PaymentObject::ACTION_PAYMENT, $paymentObject->getAction());
+        $this->assertSame(PaymentRequest::ACTION_PAYMENT, $paymentObject->getAction());
     }
 
     /**

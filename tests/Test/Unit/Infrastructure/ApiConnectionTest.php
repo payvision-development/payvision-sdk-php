@@ -22,13 +22,13 @@ use Payvision\SDK\Domain\Request;
 use Payvision\SDK\Exception\Api\ErrorResponse;
 use Payvision\SDK\Exception\ApiException;
 use Payvision\SDK\Exception\BuilderException;
-use Payvision\SDK\Exception\DataTypeException;
 use Payvision\SDK\Infrastructure\ApiConnection;
 use Payvision\SDK\Test\Unit\Application\Response\Fake as FakeResponse;
 use PHPUnit\Framework\MockObject\MockObject;
 use PHPUnit\Framework\TestCase;
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\StreamInterface;
+use ReflectionException;
 use ReflectionObject;
 
 class ApiConnectionTest extends TestCase
@@ -54,15 +54,14 @@ class ApiConnectionTest extends TestCase
     protected $mockedStream;
 
     /**
-     * @throws DataTypeException
+     * @throws ReflectionException
      * @return null
      */
     protected function setUp()
     {
         $this->subject = new ApiConnection(
             'username',
-            'password',
-            'businessId'
+            'password'
         );
 
         // Mock the client:
@@ -105,7 +104,6 @@ class ApiConnectionTest extends TestCase
                     'json' => [
                         'foo' => 'bar',
                         'header' => [
-                            'businessId' => 'businessId',
                             'abc' => '123',
                         ],
                         'body' => [
@@ -158,7 +156,6 @@ class ApiConnectionTest extends TestCase
                 [
                     'query' => [
                         'id' => '67890',
-                        'businessId' => 'businessId',
                     ],
                 ]
             );
@@ -280,7 +277,6 @@ class ApiConnectionTest extends TestCase
                     'json' => [
                         'foo' => 'bar',
                         'header' => [
-                            'businessId' => 'businessId',
                             'abc' => '123',
                         ],
                         'body' => [
@@ -339,7 +335,6 @@ class ApiConnectionTest extends TestCase
                     'json' => [
                         'foo' => 'bar',
                         'header' => [
-                            'businessId' => 'businessId',
                             'abc' => '123',
                         ],
                         'body' => [

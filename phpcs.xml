@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
-    @license see LICENSE.txt
-    @copyright Copyright (c) 2018-2019 Payvision B.V. (https://www.payvision.com/)
+    @copyright Copyright (c) 2018 Payvision B.V. (https://www.payvision.com/)
+    @license see LICENCE.TXT
  -->
 <ruleset>
     <!-- include root folder of project -->
@@ -13,6 +13,11 @@
 
     <!-- This code is generated and therefore excluded from static code analysis: -->
     <exclude-pattern>./src/Domain/Payments</exclude-pattern>
+    <exclude-pattern>./src/Domain/Checkouts</exclude-pattern>
+    <exclude-pattern>./src/Domain/Paymentlink</exclude-pattern>
+    <exclude-pattern>./src/Application/Payments</exclude-pattern>
+    <exclude-pattern>./src/Application/Checkouts</exclude-pattern>
+    <exclude-pattern>./src/Application/Paymentlink</exclude-pattern>
 
     <!-- Arguments -->
     <arg value="sp"/>

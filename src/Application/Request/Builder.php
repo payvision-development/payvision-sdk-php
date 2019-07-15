@@ -4,11 +4,13 @@ declare(strict_types=1);
 
 /**
  * @copyright Copyright (c) 2018-2019 Payvision B.V. (https://www.payvision.com/)
- * @license see LICENSE.txt
+ * @license see LICENCE.TXT
  */
 
 namespace Payvision\SDK\Application\Request;
 
+use DateTime;
+use Payvision\SDK\DataType\DataType;
 use ReflectionClass;
 use ReflectionException;
 use ReflectionMethod;
@@ -61,20 +63,44 @@ class Builder
     /**
      * @param string $methodName
      * @param object $object
-     * @return array|string|null
+     * @return mixed|null
      * @throws ReflectionException
      */
     private static function getValueForMethod(string $methodName, $object)
     {
-        $value = $object->{$methodName}();
+        return self::resolveValue($object->{$methodName}());
+    }
+
+    /**
+     * @param mixed $value
+     * @return mixed|null
+     * @throws ReflectionException
+     */
+    private static function resolveValue($value)
+    {
+        if ($value instanceof DataType) {
+            return $value->get();
+        }
+
+        if ($value instanceof DateTime) {
+            return $value->format('Y-m-d\TH:i:s\Z');
+        }
+
         if (\is_object($value)) {
             $value = self::reflectObject($value);
         }
 
-        if ($value !== '' && $value !== null && $value !== []) {
-            return \is_array($value) ? $value : (string)$value;
-        } else {
-            return null;
+        if (\is_array($value)) {
+            $newValue = [];
+            foreach ($value as $index => $originalValue) {
+                $newValue[$index] = self::resolveValue($originalValue);
+            }
+            $value = $newValue;
         }
+
+        if ($value !== '' && $value !== null && $value !== []) {
+            return $value;
+        }
+        return null;
     }
 }

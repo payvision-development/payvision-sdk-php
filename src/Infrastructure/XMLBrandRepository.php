@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 /**
  * @copyright Copyright (c) 2018-2019 Payvision B.V. (https://www.payvision.com/)
- * @license see LICENSE.txt
+ * @license see LICENCE.TXT
  */
 
 namespace Payvision\SDK\Infrastructure;
@@ -21,25 +21,51 @@ class XMLBrandRepository extends XMLRepository implements BrandRepository
     private $brands;
 
     /**
+     * @var array
+     */
+    private $brandsByCategoryId = [];
+
+    /**
      * @return Brand[]
      * @throws RepositoryException
      */
     public function getAll(): array
     {
-        if ($this->brands !== null) {
-            return $this->brands;
+        if ($this->brands === null) {
+            $this->brands = $this->getByXPath('//brands/category/brand');
         }
 
+        return $this->brands;
+    }
+
+    /**
+     * @return Brand[]
+     * @throws RepositoryException
+     */
+    public function getAllForCategory(int $categoryId): array
+    {
+        if (!\array_key_exists($categoryId, $this->brandsByCategoryId)) {
+            $this->brandsByCategoryId[$categoryId] = $this->getByXPath(
+                '//brands/category[@id="' . $categoryId . '"]/brand'
+            );
+        }
+
+        return $this->brandsByCategoryId[$categoryId];
+    }
+
+    private function getByXPath(string $xpath): array
+    {
+        $brands = [];
         $xml = $this->loadXML();
 
-        foreach ($xml->xpath('//brands/category/brand') as $brandNode) {
-            $this->brands[] = new Brand(
+        foreach ($xml->xpath($xpath) as $brandNode) {
+            $brands[] = new Brand(
                 (int)$brandNode->attributes()->id,
                 (string)$brandNode->name,
                 (string)$brandNode->async === 'true'
             );
         }
 
-        return $this->brands;
+        return $brands;
     }
 }

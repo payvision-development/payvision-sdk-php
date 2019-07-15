@@ -4,14 +4,12 @@ declare(strict_types=1);
 
 /**
  * @copyright Copyright (c) 2018-2019 Payvision B.V. (https://www.payvision.com/)
- * @license see LICENSE.txt
+ * @license see LICENCE.TXT
  *
  * Warning! This file is auto-generated! Any changes made to this file will be deleted in the future!
  */
 
 namespace Payvision\SDK\Domain\Payments\ValueObject;
-
-use DateTime;
 
 class Customer
 {
@@ -39,7 +37,7 @@ class Customer
     private $ipAddress;
 
     /**
-     * @var DateTime
+     * @var \Payvision\SDK\DataType\Date
      */
     private $birthDate;
 
@@ -54,7 +52,7 @@ class Customer
     private $customerId;
 
     /**
-     * @var int
+     * @var string
      */
     private $deviceType;
 
@@ -117,10 +115,10 @@ class Customer
      * Customer constructor.
      *
      * @param string $ipAddress
-     * @param DateTime $birthDate
+     * @param \Payvision\SDK\DataType\Date $birthDate
      * @param string $companyName
      * @param string $customerId
-     * @param int $deviceType
+     * @param string $deviceType
      * @param string $email
      * @param string $familyName
      * @param string $givenName
@@ -135,10 +133,10 @@ class Customer
      */
     public function __construct(
         string $ipAddress,
-        DateTime $birthDate = null,
+        \Payvision\SDK\DataType\Date $birthDate = null,
         string $companyName = null,
         string $customerId = null,
-        int $deviceType = null,
+        string $deviceType = null,
         string $email = null,
         string $familyName = null,
         string $givenName = null,
@@ -170,128 +168,128 @@ class Customer
     }
 
     /**
-    * @return string
-    */
+     * @return string
+     */
     public function getIpAddress()
     {
         return $this->ipAddress;
     }
 
     /**
-    * @return DateTime|null
-    */
+     * @return \Payvision\SDK\DataType\Date|null
+     */
     public function getBirthDate()
     {
         return $this->birthDate;
     }
 
     /**
-    * @return string|null
-    */
+     * @return string|null
+     */
     public function getCompanyName()
     {
         return $this->companyName;
     }
 
     /**
-    * @return string|null
-    */
+     * @return string|null
+     */
     public function getCustomerId()
     {
         return $this->customerId;
     }
 
     /**
-    * @return int|null
-    */
+     * @return string|null
+     */
     public function getDeviceType()
     {
         return $this->deviceType;
     }
 
     /**
-    * @return string|null
-    */
+     * @return string|null
+     */
     public function getEmail()
     {
         return $this->email;
     }
 
     /**
-    * @return string|null
-    */
+     * @return string|null
+     */
     public function getFamilyName()
     {
         return $this->familyName;
     }
 
     /**
-    * @return string|null
-    */
+     * @return string|null
+     */
     public function getGivenName()
     {
         return $this->givenName;
     }
 
     /**
-    * @return string|null
-    */
+     * @return string|null
+     */
     public function getHttpUserAgent()
     {
         return $this->httpUserAgent;
     }
 
     /**
-    * @return string|null
-    */
+     * @return string|null
+     */
     public function getIdentificationNumber()
     {
         return $this->identificationNumber;
     }
 
     /**
-    * @return int|null
-    */
+     * @return int|null
+     */
     public function getIdentificationTypeId()
     {
         return $this->identificationTypeId;
     }
 
     /**
-    * @return string|null
-    */
+     * @return string|null
+     */
     public function getMobileNumber()
     {
         return $this->mobileNumber;
     }
 
     /**
-    * @return string|null
-    */
+     * @return string|null
+     */
     public function getPhoneNumber()
     {
         return $this->phoneNumber;
     }
 
     /**
-    * @return string|null
-    */
+     * @return string|null
+     */
     public function getSex()
     {
         return $this->sex;
     }
 
     /**
-    * @return string|null
-    */
+     * @return string|null
+     */
     public function getTaxNumber()
     {
         return $this->taxNumber;
     }
 
     /**
-    * @return int|null
-    */
+     * @return int|null
+     */
     public function getType()
     {
         return $this->type;

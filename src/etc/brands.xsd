@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
   ~ @copyright Copyright (c) 2018-2019 Payvision B.V. (https://www.payvision.com/)
-  ~ @license see LICENSE.txt
+  ~ @license see LICENCE.TXT
   -->
 <xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" xmlns:xs="http://www.w3.org/2001/XMLSchema">
     <xs:element name="category" type="categoryType"/>
@@ -10,6 +10,7 @@
             <xs:element type="brandType" name="brand" minOccurs="1" maxOccurs="unbounded"/>
         </xs:sequence>
         <xs:attribute type="xs:string" name="name" use="required"/>
+        <xs:attribute type="xs:integer" name="id"/>
     </xs:complexType>
     <xs:element name="brands" type="brandsType"/>
     <xs:complexType name="brandsType">

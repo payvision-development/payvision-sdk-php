@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 /**
  * @copyright Copyright (c) 2018-2019 Payvision B.V. (https://www.payvision.com/)
- * @license see LICENSE.txt
+ * @license see LICENCE.TXT
  */
 
 // phpcs:disable ObjectCalisthenics.Metrics.MethodPerClassLimit.ObjectCalisthenics\Sniffs\Metrics\MethodPerClassLimitSniff
@@ -13,23 +13,16 @@ namespace Payvision\SDK\Infrastructure;
 
 use GuzzleHttp\Client;
 use Payvision\SDK\Application\Reflection\JsonToObject;
-use Payvision\SDK\DataType\LimitedString;
 use Payvision\SDK\Domain\Request;
 use Payvision\SDK\Exception\Api\ErrorResponse;
 use Payvision\SDK\Exception\ApiException;
 use Payvision\SDK\Exception\BuilderException;
-use Payvision\SDK\Exception\DataTypeException;
 use ReflectionException;
 
 class ApiConnection implements Connection
 {
     const URI_LIVE = 'https://connect.acehubpaymentservices.com/gateway/v3/';
     const URI_TEST = 'https://stagconnect.acehubpaymentservices.com/gateway/v3/';
-
-    /**
-     * @var string
-     */
-    private $businessId;
 
     /**
      * @var Client
@@ -56,19 +49,15 @@ class ApiConnection implements Connection
      *
      * @param string $userName
      * @param string $password
-     * @param string $businessId
      * @param string $baseUri
      * @param bool|resource $debug
-     * @throws DataTypeException
      */
     public function __construct(
         string $userName,
         string $password,
-        string $businessId,
         string $baseUri = self::URI_TEST,
         $debug = false
     ) {
-        $this->businessId = (new LimitedString($businessId, 50))->get();
         $this->debug = $debug;
         $this->client = new Client([
             'base_uri' => $baseUri,
@@ -122,21 +111,21 @@ class ApiConnection implements Connection
         $guzzleResponse = $this->client->get(
             $request->getUri(),
             [
-                'query' =>
-                    \array_merge(
-                        ['businessId' => $this->businessId],
-                        $request->getPathParams()
-                    ),
+                'query' => $request->getPathParams(),
             ]
         );
 
         $this->lastJsonRequest = $request->getPathParams();
         $this->lastStatusCode = $guzzleResponse->getStatusCode();
-
-        $json = \json_decode($guzzleResponse->getBody()->getContents(), true);
+        $contents = $guzzleResponse->getBody()->getContents();
+        $json = \json_decode($contents, true);
 
         if (!\is_array($json)) {
-            throw new ApiException('Response is not JSON', ApiException::INVALID_RESPONSE);
+            $this->logDebugData($this->lastJsonRequest, ['_raw_response' => $contents]);
+            throw new ApiException(
+                \sprintf('Response is not JSON: %1$s', $contents),
+                ApiException::INVALID_RESPONSE
+            );
         }
 
         return $json;
@@ -161,23 +150,18 @@ class ApiConnection implements Connection
 
         $this->lastJsonRequest = $jsonRequest;
         $this->lastStatusCode = $guzzleResponse->getStatusCode();
-
-        $json = \json_decode($guzzleResponse->getBody()->getContents(), true);
+        $contents = $guzzleResponse->getBody()->getContents();
+        $json = \json_decode($contents, true);
 
         if (!\is_array($json)) {
-            throw new ApiException('Response is not JSON', ApiException::INVALID_RESPONSE);
+            $this->logDebugData($this->lastJsonRequest, ['_raw_response' => $contents]);
+            throw new ApiException(
+                \sprintf('Response is not JSON: %1$s', $contents),
+                ApiException::INVALID_RESPONSE
+            );
         }
 
         return $json;
-    }
-
-    private function addBusinessId(array $jsonBody): array
-    {
-        if (\array_key_exists('header', $jsonBody)) {
-            $jsonBody['header']['businessId'] = $this->businessId;
-        }
-
-        return $jsonBody;
     }
 
     /**
@@ -299,7 +283,10 @@ class ApiConnection implements Connection
             $request->getParameters()
         );
 
-        $jsonRequest = $this->addBusinessId($jsonRequest);
+        if ($jsonRequest['body'] === []) {
+            unset($jsonRequest['body']);
+        }
+
         return $jsonRequest;
     }
 }

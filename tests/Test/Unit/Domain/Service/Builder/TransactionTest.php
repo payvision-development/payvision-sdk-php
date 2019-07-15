@@ -9,14 +9,14 @@ declare(strict_types=1);
 
 namespace Payvision\SDK\Test\Unit\Domain\Service\Builder;
 
-use Payvision\SDK\Domain\Payments\Service\Builder\Transaction as TransactionBuilder;
+use Payvision\SDK\Domain\Payments\Service\Builder\Payment\RequestTransaction as PaymentRequestTransactionBuilder;
 use Payvision\SDK\Exception\DataTypeException;
 use PHPUnit\Framework\TestCase;
 
 class TransactionTest extends TestCase
 {
     /**
-     * @var TransactionBuilder
+     * @var PaymentRequestTransactionBuilder
      */
     protected $builder;
 
@@ -25,7 +25,7 @@ class TransactionTest extends TestCase
      */
     protected function setUp()
     {
-        $this->builder = new TransactionBuilder();
+        $this->builder = new PaymentRequestTransactionBuilder();
     }
 
     /**

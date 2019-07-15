@@ -4,17 +4,16 @@ declare(strict_types=1);
 
 /**
  * @copyright Copyright (c) 2018-2019 Payvision B.V. (https://www.payvision.com/)
- * @license see LICENSE.txt
+ * @license see LICENCE.TXT
  */
 
 namespace Payvision\SDK\Application\Webhook\Service;
 
 use Payvision\SDK\Application\Reflection\JsonToObject;
-use Payvision\SDK\Domain\Payments\ValueObject\Cancel\ResponseRequest as CancelResponseRequest;
-use Payvision\SDK\Domain\Payments\ValueObject\Capture\ResponseRequest as CaptureResponseRequest;
-use Payvision\SDK\Domain\Payments\ValueObject\Refund\ResponseRequest as RefundResponseRequest;
-use Payvision\SDK\Domain\Payments\ValueObject\Response\Error as ResponseError;
-use Payvision\SDK\Domain\Payments\ValueObject\Response\Request as ResponseRequest;
+use Payvision\SDK\Domain\Payments\ValueObject\Cancel\Response as CancelResponse;
+use Payvision\SDK\Domain\Payments\ValueObject\Capture\Response as CaptureResponse;
+use Payvision\SDK\Domain\Payments\ValueObject\Payment\Response as PaymentResponse;
+use Payvision\SDK\Domain\Payments\ValueObject\Refund\Response as RefundResponse;
 use Payvision\SDK\Domain\Webhook\Service\EventDecorator;
 use Payvision\SDK\Domain\Webhook\ValueObject\Event;
 use Payvision\SDK\Exception\BuilderException;
@@ -75,23 +74,19 @@ class EventBuilder
      */
     public function getType(): string
     {
-        // Type depends on payload
-        if (\array_key_exists('error', $this->currentJson['payload']['body'])) {
-            return ResponseError::class;
-        }
-
+        // Type depends on payload:
         if (\array_key_exists('transaction', $this->currentJson['payload']['body'])) {
             $transaction = $this->currentJson['payload']['body']['transaction'];
             switch ($transaction['action']) {
                 case 'cancel':
-                    return CancelResponseRequest::class;
+                    return CancelResponse::class;
                 case 'capture':
-                    return CaptureResponseRequest::class;
+                    return CaptureResponse::class;
                 case 'authorize':
                 case 'payment':
-                    return ResponseRequest::class;
+                    return PaymentResponse::class;
                 case 'refund':
-                    return RefundResponseRequest::class;
+                    return RefundResponse::class;
             }
         }
 
