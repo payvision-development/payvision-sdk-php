@@ -6,11 +6,6 @@
 
 declare(strict_types=1);
 
-/**
- * @copyright Copyright (c) 2018 ISAAC Software Solutions B.V. (https://www.isaac.nl)
- * @license proprietary
- */
-
 namespace Payvision\SDK\Test\Unit\Application\Response;
 
 use Payvision\SDK\Test\Unit\Application\Response\Fake\Header;
