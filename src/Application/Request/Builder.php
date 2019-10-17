@@ -18,6 +18,7 @@ use ReflectionMethod;
 class Builder
 {
     /**
+     * @phpcsSuppress SlevomatCodingStandard.TypeHints.TypeHintDeclaration.MissingParameterTypeHint
      * @param object $object
      * @return array
      * @throws ReflectionException
@@ -28,6 +29,7 @@ class Builder
     }
 
     /**
+     * @phpcsSuppress SlevomatCodingStandard.TypeHints.TypeHintDeclaration.MissingParameterTypeHint
      * @param object $object
      * @return array
      * @throws ReflectionException
@@ -61,6 +63,7 @@ class Builder
     }
 
     /**
+     * @phpcsSuppress SlevomatCodingStandard.TypeHints.TypeHintDeclaration.MissingParameterTypeHint
      * @param string $methodName
      * @param object $object
      * @return mixed|null

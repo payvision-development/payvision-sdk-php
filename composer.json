@@ -2,12 +2,13 @@
     "name": "payvision/payvision-sdk-php",
     "description": "Payvision PHP SDK",
     "type": "library",
-    "version": "2.0.0",
+    "version": "2.0.1",
     "license": "MIT",
     "require": {
         "php": "^7.0.13|^7.1",
         "ext-simplexml": "*",
         "ext-json": "*",
+        "ext-curl": "*",
         "guzzlehttp/guzzle": "^6.3",
         "firebase/php-jwt": "^5.0"
     },

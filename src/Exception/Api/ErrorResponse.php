@@ -23,6 +23,7 @@ class ErrorResponse extends ApiException
     /**
      * ErrorResponse constructor.
      *
+     * @phpcsSuppress SlevomatCodingStandard.TypeHints.TypeHintDeclaration.MissingParameterTypeHint
      * @param object $errorResponse
      * @param string $message
      * @param int $code
@@ -39,6 +40,7 @@ class ErrorResponse extends ApiException
     }
 
     /**
+     * @phpcsSuppress SlevomatCodingStandard.TypeHints.TypeHintDeclaration.MissingReturnTypeHint
      * @return object
      */
     public function getErrorResponse()

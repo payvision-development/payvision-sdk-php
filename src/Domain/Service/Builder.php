@@ -12,6 +12,7 @@ namespace Payvision\SDK\Domain\Service;
 interface Builder
 {
     /**
+     * @phpcsSuppress SlevomatCodingStandard.TypeHints.TypeHintDeclaration.MissingReturnTypeHint
      * @return object
      */
     public function build();

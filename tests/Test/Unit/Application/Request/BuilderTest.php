@@ -54,13 +54,13 @@ class BuilderTest extends TestCase
      */
     public function testBasicReflection()
     {
-        $card = new PaymentRequestCard('001', 10, 2020, 'ISAAC', '123', '456');
+        $card = new PaymentRequestCard('001', 10, 2020, 'Foo', '123', '456');
         $result = Builder::toArray($card);
         $this->assertEquals([
             'cvv' => '001',
             'expiryMonth' => '10',
             'expiryYear' => '2020',
-            'holderName' => 'ISAAC',
+            'holderName' => 'Foo',
             'issueNumber' => '123',
             'number' => '456',
         ], $result);

@@ -110,9 +110,7 @@ class ApiConnection implements Connection
     {
         $guzzleResponse = $this->client->get(
             $request->getUri(),
-            [
-                'query' => $request->getPathParams(),
-            ]
+            $this->buildRequestArray($request)
         );
 
         $this->lastJsonRequest = $request->getPathParams();
@@ -142,10 +140,7 @@ class ApiConnection implements Connection
         $jsonRequest = $this->prepareJsonRequest($request);
         $guzzleResponse = $this->client->post(
             $request->getUri(),
-            [
-                'json' => $jsonRequest,
-                'query' => $request->getPathParams(),
-            ]
+            $this->buildRequestArray($request, $jsonRequest)
         );
 
         $this->lastJsonRequest = $jsonRequest;
@@ -288,5 +283,26 @@ class ApiConnection implements Connection
         }
 
         return $jsonRequest;
+    }
+
+    /**
+     * @param Request $request
+     * @param array $jsonRequest
+     * @return array
+     */
+    private function buildRequestArray(Request $request, array $jsonRequest = null): array
+    {
+        $returnValue = [
+            'query' => $request->getPathParams(),
+            'curl' => [
+                \CURLOPT_SSL_CIPHER_LIST => 'DEFAULT@SECLEVEL=1',
+            ],
+        ];
+
+        if ($jsonRequest !== null) {
+            $returnValue['json'] = $jsonRequest;
+        }
+
+        return $returnValue;
     }
 }

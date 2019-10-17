@@ -25,6 +25,7 @@ abstract class Basic implements Builder
     }
 
     /**
+     * @phpcsSuppress SlevomatCodingStandard.TypeHints.TypeHintDeclaration.MissingReturnTypeHint
      * @return object
      */
     final protected function buildAndReset()
@@ -87,6 +88,7 @@ abstract class Basic implements Builder
     }
 
     /**
+     * @phpcsSuppress SlevomatCodingStandard.TypeHints.TypeHintDeclaration.MissingReturnTypeHint
      * @return object
      */
     abstract protected function buildObject();
