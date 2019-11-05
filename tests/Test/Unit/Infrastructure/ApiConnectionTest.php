@@ -113,9 +113,6 @@ class ApiConnectionTest extends TestCase
                     'query' => [
                         'id' => '67890',
                     ],
-                    'curl' => [
-                        \CURLOPT_SSL_CIPHER_LIST => 'DEFAULT@SECLEVEL=1',
-                    ],
                 ]
             );
         $this->mockedResponse->method('getStatusCode')->willReturn(200);
@@ -159,9 +156,6 @@ class ApiConnectionTest extends TestCase
                 [
                     'query' => [
                         'id' => '67890',
-                    ],
-                    'curl' => [
-                        \CURLOPT_SSL_CIPHER_LIST => 'DEFAULT@SECLEVEL=1',
                     ],
                 ]
             );
@@ -292,9 +286,6 @@ class ApiConnectionTest extends TestCase
                     'query' => [
                         'id' => '67890',
                     ],
-                    'curl' => [
-                        \CURLOPT_SSL_CIPHER_LIST => 'DEFAULT@SECLEVEL=1',
-                    ],
                 ]
             );
         $this->mockedResponse->method('getStatusCode')->willReturn(200);
@@ -352,9 +343,6 @@ class ApiConnectionTest extends TestCase
                     ],
                     'query' => [
                         'id' => '67890',
-                    ],
-                    'curl' => [
-                        \CURLOPT_SSL_CIPHER_LIST => 'DEFAULT@SECLEVEL=1',
                     ],
                 ]
             );

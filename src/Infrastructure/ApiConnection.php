@@ -294,9 +294,6 @@ class ApiConnection implements Connection
     {
         $returnValue = [
             'query' => $request->getPathParams(),
-            'curl' => [
-                \CURLOPT_SSL_CIPHER_LIST => 'DEFAULT@SECLEVEL=1',
-            ],
         ];
 
         if ($jsonRequest !== null) {

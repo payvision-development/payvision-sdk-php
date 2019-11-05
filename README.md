@@ -217,6 +217,10 @@ to bottom:
     |      Response     |           Example: PaymentResponse
     +-------------------+
 
+### Troubleshooting
+
+See Troubleshooting.md
+
 ### Contributing
 
 If you have an issue or a feature request, feel free to create an issue.

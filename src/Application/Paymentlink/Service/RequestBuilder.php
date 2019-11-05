@@ -28,7 +28,7 @@ class RequestBuilder
     {
         $jsonBody = Builder::toArray($input);
         return new ApiRequest(
-            'paymentlink/links',
+            'paymentlinks',
             'POST',
             self::getParameters($jsonBody),
             $jsonBody['header'] ?? [],
@@ -53,7 +53,7 @@ class RequestBuilder
     ): ApiRequest
     {
         return new ApiRequest(
-            \str_replace('{id}', $id, 'paymentlink/links/{id}'),
+            \str_replace('{id}', $id, 'paymentlinks/{id}'),
             'GET',
             [],
             [],
@@ -80,7 +80,7 @@ class RequestBuilder
     {
         $jsonBody = Builder::toArray($input);
         return new ApiRequest(
-            \str_replace('{id}', $id, 'paymentlink/links/{id}/cancel'),
+            \str_replace('{id}', $id, 'paymentlinks/{id}/cancel'),
             'POST',
             self::getParameters($jsonBody),
             $jsonBody['header'] ?? [],
