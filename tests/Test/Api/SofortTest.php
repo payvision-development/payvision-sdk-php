@@ -9,9 +9,9 @@ declare(strict_types=1);
 
 namespace Payvision\SDK\Test\Api;
 
-class IDealTest extends AbstractPaymentTest
+class SofortTest extends AbstractPaymentTest
 {
-    const BRAND_ID = 3010;
+    const BRAND_ID = 3020;
 
     /**
      * @return null
@@ -21,7 +21,6 @@ class IDealTest extends AbstractPaymentTest
         parent::prepareFakePaymentRequest();
 
         $this->paymentRequestBuilder->body()->bank()
-            ->setCountryCode('NL')
-            ->setIssuerId(30);
+            ->setCountryCode('NL');
     }
 }
