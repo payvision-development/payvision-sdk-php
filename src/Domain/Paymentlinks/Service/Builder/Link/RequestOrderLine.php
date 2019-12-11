@@ -9,19 +9,28 @@ declare(strict_types=1);
  * Warning! This file is auto-generated! Any changes made to this file will be deleted in the future!
  */
 
-namespace Payvision\SDK\Domain\Payments\Service\Builder;
+namespace Payvision\SDK\Domain\Paymentlinks\Service\Builder\Link;
 
-use Payvision\SDK\Domain\Payments\ValueObject\OrderLine as OrderLineObject;
+use Payvision\SDK\Domain\Paymentlinks\ValueObject\Link\RequestOrderLine as RequestOrderLineObject;
 use Payvision\SDK\Domain\Service\Builder\Basic;
 
-class OrderLine extends Basic
+class RequestOrderLine extends Basic
 {
     /**
-     * @return OrderLineObject
+     * @return RequestOrderLineObject
      */
-    public function build(): OrderLineObject
+    public function build(): RequestOrderLineObject
     {
         return $this->buildAndReset();
+    }
+
+    /**
+     * @param string $currencyCode
+     * @return self
+     */
+    public function setCurrencyCode(string $currencyCode): self
+    {
+        return $this->set('currencyCode', $currencyCode);
     }
 
     /**
@@ -31,6 +40,15 @@ class OrderLine extends Basic
     public function setDescription(string $description): self
     {
         return $this->set('description', $description);
+    }
+
+    /**
+     * @param float $discountAmount
+     * @return self
+     */
+    public function setDiscountAmount(float $discountAmount): self
+    {
+        return $this->set('discountAmount', $discountAmount);
     }
 
     /**
@@ -52,6 +70,15 @@ class OrderLine extends Basic
     }
 
     /**
+     * @param string $productName
+     * @return self
+     */
+    public function setProductName(string $productName): self
+    {
+        return $this->set('productName', $productName);
+    }
+
+    /**
      * @param string $purchaseType
      * @return self
      */
@@ -67,6 +94,24 @@ class OrderLine extends Basic
     public function setQuantity(int $quantity): self
     {
         return $this->set('quantity', $quantity);
+    }
+
+    /**
+     * @param int $sequenceNumber
+     * @return self
+     */
+    public function setSequenceNumber(int $sequenceNumber): self
+    {
+        return $this->set('sequenceNumber', $sequenceNumber);
+    }
+
+    /**
+     * @param float $shippingAmount
+     * @return self
+     */
+    public function setShippingAmount(float $shippingAmount): self
+    {
+        return $this->set('shippingAmount', $shippingAmount);
     }
 
     /**
@@ -88,16 +133,21 @@ class OrderLine extends Basic
     }
 
     /**
-     * @return OrderLineObject
+     * @return RequestOrderLineObject
      */
-    protected function buildObject(): OrderLineObject
+    protected function buildObject(): RequestOrderLineObject
     {
-        return new OrderLineObject(
+        return new RequestOrderLineObject(
+            $this->get('currencyCode'),
             $this->get('description'),
+            $this->get('discountAmount'),
             $this->get('itemAmount'),
             $this->get('productCode'),
+            $this->get('productName'),
             $this->get('purchaseType'),
             $this->get('quantity'),
+            $this->get('sequenceNumber'),
+            $this->get('shippingAmount'),
             $this->get('taxPercentage'),
             $this->get('totalAmount')
         );

@@ -133,7 +133,7 @@ class BuilderTest extends TestCase
                                         'purchaseType' => 'PT1',
                                         'quantity' => 1,
                                         'taxPercentage' => 19,
-                                        'totalAmount' => 10.0,
+                                        'itemAmount' => 10.0,
                                     ],
                                     [
                                         'description' => 'Description #2',
@@ -141,7 +141,7 @@ class BuilderTest extends TestCase
                                         'purchaseType' => 'PT2',
                                         'quantity' => 2,
                                         'taxPercentage' => 21,
-                                        'totalAmount' => 15.0,
+                                        'itemAmount' => 15.0,
                                     ],
                                 ],
                         ],
@@ -199,7 +199,7 @@ class BuilderTest extends TestCase
                     ->setPurchaseType('PT1')
                     ->setQuantity(1)
                     ->setTaxPercentage(19)
-                    ->setTotalAmount(10.00)
+                    ->setItemAmount(10.00)
                     ->build(),
                 $this->orderLineBuilder
                     ->setDescription('Description #2')
@@ -207,7 +207,7 @@ class BuilderTest extends TestCase
                     ->setPurchaseType('PT2')
                     ->setQuantity(2)
                     ->setTaxPercentage(21)
-                    ->setTotalAmount(15.00)
+                    ->setItemAmount(15.00)
                     ->build(),
             ]);
         $this->paymentRequestBuilder->setAction(PaymentRequest::ACTION_PAYMENT);

@@ -87,6 +87,14 @@
             <name>Sofort</name>
             <async>true</async>
         </brand>
+        <brand id="3025">
+            <name>Giropay</name>
+            <async>true</async>
+        </brand>
+        <brand id="3030">
+            <name>EPS</name>
+            <async>true</async>
+        </brand>
     </category>
     <category name="Wallet" id="4">
         <brand id="4010">
