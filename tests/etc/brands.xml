@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  ~ @copyright Copyright (c) 2018-2019 Payvision B.V. (https://www.payvision.com/)
+  ~ @license see LICENCE.TXT
+  -->
+<brands xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="./../../src/etc/brands.xsd">
+    <category name="Cards" id="1">
+        <brand id="1000">
+            <name>FooCard</name>
+            <async>true</async>
+        </brand>
+        <brand id="1001">
+            <name>BarCard</name>
+            <async>false</async>
+        </brand>
+    </category>
+    <category name="Direct Banking" id="3">
+        <brand id="9990">
+            <name>Foo</name>
+            <async>true</async>
+            <issuers>
+                <issuer id="10">
+                    <description>Issuer #1</description>
+                </issuer>
+                <issuer id="20">
+                    <description>Issuer #2</description>
+                </issuer>
+            </issuers>
+        </brand>
+        <brand id="9991">
+            <name>Bar</name>
+            <async>false</async>
+        </brand>
+        <brand id="9992">
+            <name>Baz</name>
+            <async>true</async>
+        </brand>
+    </category>
+</brands>

@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  ~ @copyright Copyright (c) 2018-2019 Payvision B.V. (https://www.payvision.com/)
+  ~ @license see LICENCE.TXT
+  -->
+<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+    <xs:element name="category" type="categoryType"/>
+    <xs:complexType name="categoryType">
+        <xs:sequence>
+            <xs:element type="brandType" name="brand" minOccurs="1" maxOccurs="unbounded"/>
+        </xs:sequence>
+        <xs:attribute type="xs:string" name="name" use="required"/>
+        <xs:attribute type="xs:integer" name="id"/>
+    </xs:complexType>
+    <xs:element name="brands" type="brandsType"/>
+    <xs:complexType name="brandsType">
+        <xs:sequence>
+            <xs:element type="categoryType" name="category" minOccurs="1" maxOccurs="unbounded"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="brandType">
+        <xs:sequence>
+            <xs:element type="xs:string" name="name">
+                <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                        <xs:minLength value="1"/>
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:element>
+            <xs:element type="xs:boolean" name="async" minOccurs="0"/>
+            <xs:element type="issuersType" name="issuers" minOccurs="0"/>
+        </xs:sequence>
+        <xs:attribute type="xs:string" name="id" use="required"/>
+    </xs:complexType>
+    <xs:complexType name="issuerType">
+        <xs:sequence>
+            <xs:element type="xs:string" name="description">
+                <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                        <xs:minLength value="1"/>
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:element>
+        </xs:sequence>
+        <xs:attribute type="xs:integer" name="id" use="required"/>
+    </xs:complexType>
+    <xs:complexType name="issuersType">
+        <xs:sequence>
+            <xs:element type="issuerType" name="issuer" minOccurs="1" maxOccurs="unbounded"/>
+        </xs:sequence>
+    </xs:complexType>
+</xs:schema>
