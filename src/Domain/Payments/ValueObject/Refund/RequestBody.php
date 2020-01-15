@@ -1,0 +1,57 @@
+<?php
+
+declare(strict_types=1);
+
+/**
+ * @copyright Copyright (c) 2018-2020 Payvision B.V. (https://www.payvision.com/)
+ * @license see LICENCE.TXT
+ *
+ * Warning! This file is auto-generated! Any changes made to this file will be deleted in the future!
+ */
+
+namespace Payvision\SDK\Domain\Payments\ValueObject\Refund;
+
+use Payvision\SDK\Domain\Payments\ValueObject\Order;
+
+class RequestBody
+{
+    /**
+     * @var RequestTransaction
+     */
+    private $transaction;
+
+    /**
+     * @var Order
+     */
+    private $order;
+
+    /**
+     * RequestBody constructor.
+     *
+     * @param RequestTransaction $transaction
+     * @param Order $order
+     */
+    public function __construct(
+        RequestTransaction $transaction,
+        Order $order = null
+    ) {
+        $this->transaction = $transaction;
+        $this->order = $order;
+    }
+
+    /**
+     * @return RequestTransaction
+     */
+    public function getTransaction()
+    {
+        return $this->transaction;
+    }
+
+    /**
+     * @return Order|null
+     */
+    public function getOrder()
+    {
+        return $this->order;
+    }
+}
