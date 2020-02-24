@@ -111,7 +111,8 @@ To do this we need to transform our payment request to an API request:
     
 Now we have an API Request that we can execute using our API Connection:
 
-    $apiResponse = $apiConnection->execute($apiRequest);
+    $requestHeaders = []; // Optional request headers
+    $apiResponse = $apiConnection->execute($apiRequest, $requestHeaders);
 
 ### Handling the responses
 

@@ -61,7 +61,7 @@ class Marshaller
             return JsonToObject::build($targetObject, $json);
         } catch (Exception $exception) {
             throw new Exception(
-                \sprintf('Error while marshalling object: %1', $exception->getMessage())
+                \sprintf('Error while marshalling object: %s', $exception->getMessage())
             );
         }
     }

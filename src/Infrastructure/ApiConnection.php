@@ -70,15 +70,16 @@ class ApiConnection implements Connection
 
     /**
      * @param Request $request
+     * @param array $requestHeaders
      * @return mixed
      * @throws ApiException
      * @throws BuilderException
      * @throws ErrorResponse
      */
-    public function execute(Request $request)
+    public function execute(Request $request, array $requestHeaders = [])
     {
         $this->validateResponseClasses($request);
-        $jsonResponse = $this->doRequest($request);
+        $jsonResponse = $this->doRequest($request, $requestHeaders);
         return $this->handleResponse($jsonResponse, $request);
     }
 
@@ -103,14 +104,15 @@ class ApiConnection implements Connection
 
     /**
      * @param Request $request
+     * @param RequestHeaderCollection $requestHeaderCollection
      * @return array
      * @throws ApiException
      */
-    private function get(Request $request): array
+    private function get(Request $request, RequestHeaderCollection $requestHeaderCollection): array
     {
         $guzzleResponse = $this->client->get(
             $request->getUri(),
-            $this->buildRequestArray($request)
+            $this->buildRequestArray($request, $requestHeaderCollection)
         );
 
         $this->lastJsonRequest = $request->getPathParams();
@@ -119,7 +121,7 @@ class ApiConnection implements Connection
         $json = \json_decode($contents, true);
 
         if (!\is_array($json)) {
-            $this->logDebugData($this->lastJsonRequest, ['_raw_response' => $contents]);
+            $this->logDebugData($this->lastJsonRequest, ['_raw_response' => $contents], $requestHeaderCollection);
             throw new ApiException(
                 \sprintf('Response is not JSON: %1$s', $contents),
                 ApiException::INVALID_RESPONSE
@@ -131,16 +133,17 @@ class ApiConnection implements Connection
 
     /**
      * @param Request $request
+     * @param RequestHeaderCollection $requestHeaderCollection
      * @return array
      * @throws ApiException
      */
-    private function post(Request $request): array
+    private function post(Request $request, RequestHeaderCollection $requestHeaderCollection): array
     {
         // Build request according to request object
         $jsonRequest = $this->prepareJsonRequest($request);
         $guzzleResponse = $this->client->post(
             $request->getUri(),
-            $this->buildRequestArray($request, $jsonRequest)
+            $this->buildRequestArray($request, $requestHeaderCollection, $jsonRequest)
         );
 
         $this->lastJsonRequest = $jsonRequest;
@@ -149,7 +152,7 @@ class ApiConnection implements Connection
         $json = \json_decode($contents, true);
 
         if (!\is_array($json)) {
-            $this->logDebugData($this->lastJsonRequest, ['_raw_response' => $contents]);
+            $this->logDebugData($this->lastJsonRequest, ['_raw_response' => $contents], $requestHeaderCollection);
             throw new ApiException(
                 \sprintf('Response is not JSON: %1$s', $contents),
                 ApiException::INVALID_RESPONSE
@@ -162,13 +165,23 @@ class ApiConnection implements Connection
     /**
      * @param array $jsonRequest
      * @param array $jsonResponse
+     * @param RequestHeaderCollection $requestHeaderCollection
      * @return null
      */
-    private function logDebugData(array $jsonRequest, array $jsonResponse)
-    {
+    private function logDebugData(
+        array $jsonRequest,
+        array $jsonResponse,
+        RequestHeaderCollection $requestHeaderCollection
+    ) {
         $debugData = \sprintf(
-            '%1$sRequest:%1$s%2$s%1$sResponse:%1$s%3$s%1$s',
+            '%1$s%2$sRequest:%1$s%3$s%1$sResponse:%1$s%4$s%1$s',
             \PHP_EOL,
+            \count($requestHeaderCollection) > 0 ?
+                \sprintf(
+                    'Request headers:%1$s%2$s%1$s',
+                    \PHP_EOL,
+                    \json_encode($requestHeaderCollection->getHeaders(), \JSON_PRETTY_PRINT)
+                ) : '',
             \json_encode($jsonRequest, \JSON_PRETTY_PRINT),
             \json_encode($jsonResponse, \JSON_PRETTY_PRINT)
         );
@@ -237,17 +250,19 @@ class ApiConnection implements Connection
 
     /**
      * @param Request $request
+     * @param array $requestHeaders
      * @return array
      * @throws ApiException
      */
-    private function doRequest(Request $request): array
+    private function doRequest(Request $request, array $requestHeaders = []): array
     {
+        $requestHeaderCollection = $this->buildRequestHeaderCollection($requestHeaders);
         switch ($request->getMethod()) {
             case Request::METHOD_GET:
-                $jsonResponse = $this->get($request);
+                $jsonResponse = $this->get($request, $requestHeaderCollection);
                 break;
             case Request::METHOD_POST:
-                $jsonResponse = $this->post($request);
+                $jsonResponse = $this->post($request, $requestHeaderCollection);
                 break;
             default:
                 throw new ApiException(
@@ -258,7 +273,7 @@ class ApiConnection implements Connection
         }
 
         if ($this->debug) {
-            $this->logDebugData($this->lastJsonRequest, $jsonResponse);
+            $this->logDebugData($this->lastJsonRequest, $jsonResponse, $requestHeaderCollection);
         }
 
         return $jsonResponse;
@@ -287,19 +302,40 @@ class ApiConnection implements Connection
 
     /**
      * @param Request $request
+     * @param RequestHeaderCollection $requestHeaderCollection
      * @param array $jsonRequest
      * @return array
      */
-    private function buildRequestArray(Request $request, array $jsonRequest = null): array
-    {
+    private function buildRequestArray(
+        Request $request,
+        RequestHeaderCollection $requestHeaderCollection,
+        array $jsonRequest = null
+    ): array {
         $returnValue = [
             'query' => $request->getPathParams(),
         ];
+
+        if (\count($requestHeaderCollection) > 0) {
+            $returnValue['headers'] = $requestHeaderCollection->getHeaders();
+        }
 
         if ($jsonRequest !== null) {
             $returnValue['json'] = $jsonRequest;
         }
 
         return $returnValue;
+    }
+
+    /**
+     * @param string[],array<string> $headers
+     * @return RequestHeaderCollection
+     */
+    private function buildRequestHeaderCollection(array $headers): RequestHeaderCollection
+    {
+        $requestHeader = new RequestHeaderCollection();
+        foreach ($headers as $key => $value) {
+            $requestHeader->add($key, $value);
+        }
+        return $requestHeader;
     }
 }
