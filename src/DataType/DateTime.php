@@ -32,5 +32,6 @@ class DateTime implements DataType
     {
         return $this->value->format('Y-m-d\TH:i:s\Z');
     }
+
     // phpcs:enable SlevomatCodingStandard.TypeHints.TypeHintDeclaration.MissingReturnTypeHint
 }

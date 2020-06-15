@@ -62,5 +62,6 @@ class LimitedString implements DataType
     {
         return $this->str;
     }
+
     // phpcs:enable SlevomatCodingStandard.TypeHints.TypeHintDeclaration.MissingReturnTypeHint
 }

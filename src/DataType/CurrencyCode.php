@@ -221,5 +221,6 @@ class CurrencyCode extends AbstractCode implements DataType
     {
         return $this->currencyCode;
     }
+
     // phpcs:enable SlevomatCodingStandard.TypeHints.TypeHintDeclaration.MissingReturnTypeHint
 }

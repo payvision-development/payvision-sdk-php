@@ -310,5 +310,6 @@ class CountryCode extends AbstractCode implements DataType
     {
         return $this->countryCode;
     }
+
     // phpcs:enable SlevomatCodingStandard.TypeHints.TypeHintDeclaration.MissingReturnTypeHint
 }

@@ -16,7 +16,7 @@ use Payvision\SDK\Domain\Payments\ValueObject\Payment\ResponseCard;
 use Payvision\SDK\Domain\Payments\ValueObject\Error;
 use Payvision\SDK\Domain\Payments\ValueObject\Payment\ResponseRedirect;
 use Payvision\SDK\Domain\Payments\ValueObject\Payment\ResponseThreeDSecure;
-use Payvision\SDK\Domain\Payments\ValueObject\Payment\ResponseQr;
+use Payvision\SDK\Domain\Payments\ValueObject\Payment\ResponseToken;
 
 class ResponseBody
 {
@@ -46,7 +46,7 @@ class ResponseBody
     private $threeDSecure;
 
     /**
-     * @var ResponseQr
+     * @var ResponseToken
      */
     private $token;
 
@@ -63,7 +63,7 @@ class ResponseBody
      * @param Error $error
      * @param ResponseRedirect $redirect
      * @param ResponseThreeDSecure $threeDSecure
-     * @param ResponseQr $token
+     * @param ResponseToken $token
      * @param ResponseTransaction $transaction
      */
     public function __construct(
@@ -72,7 +72,7 @@ class ResponseBody
         Error $error = null,
         ResponseRedirect $redirect = null,
         ResponseThreeDSecure $threeDSecure = null,
-        ResponseQr $token = null,
+        ResponseToken $token = null,
         ResponseTransaction $transaction = null
     ) {
         $this->bank = $bank;
@@ -125,7 +125,7 @@ class ResponseBody
     }
 
     /**
-     * @return ResponseQr|null
+     * @return ResponseToken|null
      */
     public function getToken()
     {

@@ -17,7 +17,7 @@ use Payvision\SDK\Domain\Payments\Service\Builder\Payment\ResponseCard as Respon
 use Payvision\SDK\Domain\Payments\Service\Builder\Error as ErrorBuilder;
 use Payvision\SDK\Domain\Payments\Service\Builder\Payment\ResponseRedirect as ResponseRedirectBuilder;
 use Payvision\SDK\Domain\Payments\Service\Builder\Payment\ResponseThreeDSecure as ResponseThreeDSecureBuilder;
-use Payvision\SDK\Domain\Payments\Service\Builder\Payment\ResponseQr as ResponseQrBuilder;
+use Payvision\SDK\Domain\Payments\Service\Builder\Payment\ResponseToken as ResponseTokenBuilder;
 use Payvision\SDK\Domain\Payments\Service\Builder\Status\ResponseTransaction as ResponseTransactionBuilder;
 use Payvision\SDK\Domain\Service\Builder\Basic;
 
@@ -74,7 +74,7 @@ class ResponseBody extends Basic
     private $isThreeDSecureBuilderTouched = false;
 
     /**
-     * @var ResponseQrBuilder
+     * @var ResponseTokenBuilder
      */
     private $tokenBuilder;
 
@@ -100,7 +100,7 @@ class ResponseBody extends Basic
         $this->errorBuilder = new ErrorBuilder();
         $this->redirectBuilder = new ResponseRedirectBuilder();
         $this->threeDSecureBuilder = new ResponseThreeDSecureBuilder();
-        $this->tokenBuilder = new ResponseQrBuilder();
+        $this->tokenBuilder = new ResponseTokenBuilder();
         $this->transactionBuilder = new ResponseTransactionBuilder();
     }
 
@@ -158,9 +158,9 @@ class ResponseBody extends Basic
     }
 
     /**
-     * @return ResponseQrBuilder
+     * @return ResponseTokenBuilder
      */
-    public function token(): ResponseQrBuilder
+    public function token(): ResponseTokenBuilder
     {
         $this->isTokenBuilderTouched = true;
         return $this->tokenBuilder;

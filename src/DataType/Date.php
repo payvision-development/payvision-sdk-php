@@ -32,5 +32,6 @@ class Date implements DataType
     {
         return $this->value->format('Y-m-d');
     }
+
     // phpcs:enable SlevomatCodingStandard.TypeHints.TypeHintDeclaration.MissingReturnTypeHint
 }

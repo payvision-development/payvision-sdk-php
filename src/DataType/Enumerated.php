@@ -50,5 +50,6 @@ class Enumerated implements DataType
     {
         return $this->value;
     }
+
     // phpcs:enable SlevomatCodingStandard.TypeHints.TypeHintDeclaration.MissingReturnTypeHint
 }

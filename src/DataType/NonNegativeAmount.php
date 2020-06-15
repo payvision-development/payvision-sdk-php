@@ -56,5 +56,6 @@ class NonNegativeAmount implements DataType
     {
         return $this->amount;
     }
+
     // phpcs:enable SlevomatCodingStandard.TypeHints.TypeHintDeclaration.MissingReturnTypeHint
 }

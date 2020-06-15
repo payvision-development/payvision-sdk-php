@@ -17,7 +17,7 @@ use Payvision\SDK\Domain\Payments\ValueObject\Payment\ResponseCard;
 use Payvision\SDK\Domain\Payments\ValueObject\Error;
 use Payvision\SDK\Domain\Payments\ValueObject\Payment\ResponseRedirect;
 use Payvision\SDK\Domain\Payments\ValueObject\Payment\ResponseThreeDSecure;
-use Payvision\SDK\Domain\Payments\ValueObject\Payment\ResponseQr;
+use Payvision\SDK\Domain\Payments\ValueObject\Payment\ResponseToken;
 use Payvision\SDK\Domain\Payments\ValueObject\Status\ResponseTransaction;
 use Payvision\SDK\Domain\Service\Builder\Basic;
 
@@ -77,10 +77,10 @@ class ResponseBody extends Basic
     }
 
     /**
-     * @param ResponseQr $token
+     * @param ResponseToken $token
      * @return self
      */
-    public function setToken(ResponseQr $token): self
+    public function setToken(ResponseToken $token): self
     {
         return $this->set('token', $token);
     }

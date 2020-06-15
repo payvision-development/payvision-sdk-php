@@ -245,5 +245,6 @@ class LanguageCode extends AbstractCode implements DataType
     {
         return $this->languageCode;
     }
+
     // phpcs:enable SlevomatCodingStandard.TypeHints.TypeHintDeclaration.MissingReturnTypeHint
 }

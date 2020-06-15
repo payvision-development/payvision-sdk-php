@@ -39,5 +39,6 @@ class Url implements DataType
     {
         return $this->url;
     }
+
     // phpcs:enable SlevomatCodingStandard.TypeHints.TypeHintDeclaration.MissingReturnTypeHint
 }

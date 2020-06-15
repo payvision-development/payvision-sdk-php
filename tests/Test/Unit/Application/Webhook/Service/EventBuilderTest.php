@@ -137,5 +137,6 @@ class EventBuilderTest extends TestCase
         self::assertNull($payload->getBody()->getBank()->getBic());
         self::assertNull($payload->getBody()->getBank()->getIban());
     }
+
     // phpcs:enable ObjectCalisthenics.Files.FunctionLength.ObjectCalisthenics\Sniffs\Files\FunctionLengthSniff
 }
