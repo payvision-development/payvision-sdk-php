@@ -26,153 +26,153 @@ class RequestTransaction extends Basic
 
     /**
      * @param float $amount
-     * @return self
+     * @return RequestTransaction
      */
-    public function setAmount(float $amount): self
+    public function setAmount(float $amount): RequestTransaction
     {
         return $this->set('amount', $amount);
     }
 
     /**
      * @param string $trackingCode
-     * @return self
+     * @return RequestTransaction
      */
-    public function setTrackingCode(string $trackingCode): self
+    public function setTrackingCode(string $trackingCode): RequestTransaction
     {
         return $this->set('trackingCode', $trackingCode);
     }
 
     /**
      * @param string $currencyCode
-     * @return self
+     * @return RequestTransaction
      */
-    public function setCurrencyCode(string $currencyCode): self
+    public function setCurrencyCode(string $currencyCode): RequestTransaction
     {
         return $this->set('currencyCode', $currencyCode);
     }
 
     /**
      * @param string $returnUrl
-     * @return self
+     * @return RequestTransaction
      */
-    public function setReturnUrl(string $returnUrl): self
+    public function setReturnUrl(string $returnUrl): RequestTransaction
     {
         return $this->set('returnUrl', $returnUrl);
     }
 
     /**
      * @param bool $tokenize
-     * @return self
+     * @return RequestTransaction
      */
-    public function setTokenize(bool $tokenize): self
+    public function setTokenize(bool $tokenize): RequestTransaction
     {
         return $this->set('tokenize', $tokenize);
     }
 
     /**
      * @param string $token
-     * @return self
+     * @return RequestTransaction
      */
-    public function setToken(string $token): self
+    public function setToken(string $token): RequestTransaction
     {
         return $this->set('token', $token);
     }
 
     /**
      * @param int $storeId
-     * @return self
+     * @return RequestTransaction
      */
-    public function setStoreId(int $storeId): self
+    public function setStoreId(int $storeId): RequestTransaction
     {
         return $this->set('storeId', $storeId);
     }
 
     /**
      * @param string $source
-     * @return self
+     * @return RequestTransaction
      */
-    public function setSource(string $source): self
+    public function setSource(string $source): RequestTransaction
     {
         return $this->set('source', $source);
     }
 
     /**
      * @param int $payTimeout
-     * @return self
+     * @return RequestTransaction
      */
-    public function setPayTimeout(int $payTimeout): self
+    public function setPayTimeout(int $payTimeout): RequestTransaction
     {
         return $this->set('payTimeout', $payTimeout);
     }
 
     /**
      * @param string $purchaseId
-     * @return self
+     * @return RequestTransaction
      */
-    public function setPurchaseId(string $purchaseId): self
+    public function setPurchaseId(string $purchaseId): RequestTransaction
     {
         return $this->set('purchaseId', $purchaseId);
     }
 
     /**
      * @param int $brandId
-     * @return self
+     * @return RequestTransaction
      */
-    public function setBrandId(int $brandId): self
+    public function setBrandId(int $brandId): RequestTransaction
     {
         return $this->set('brandId', $brandId);
     }
 
     /**
      * @param string $notifyUrl
-     * @return self
+     * @return RequestTransaction
      */
-    public function setNotifyUrl(string $notifyUrl): self
+    public function setNotifyUrl(string $notifyUrl): RequestTransaction
     {
         return $this->set('notifyUrl', $notifyUrl);
     }
 
     /**
      * @param string $languageCode
-     * @return self
+     * @return RequestTransaction
      */
-    public function setLanguageCode(string $languageCode): self
+    public function setLanguageCode(string $languageCode): RequestTransaction
     {
         return $this->set('languageCode', $languageCode);
     }
 
     /**
      * @param string $invoiceId
-     * @return self
+     * @return RequestTransaction
      */
-    public function setInvoiceId(string $invoiceId): self
+    public function setInvoiceId(string $invoiceId): RequestTransaction
     {
         return $this->set('invoiceId', $invoiceId);
     }
 
     /**
      * @param string $descriptor
-     * @return self
+     * @return RequestTransaction
      */
-    public function setDescriptor(string $descriptor): self
+    public function setDescriptor(string $descriptor): RequestTransaction
     {
         return $this->set('descriptor', $descriptor);
     }
 
     /**
      * @param string $countryCode
-     * @return self
+     * @return RequestTransaction
      */
-    public function setCountryCode(string $countryCode): self
+    public function setCountryCode(string $countryCode): RequestTransaction
     {
         return $this->set('countryCode', $countryCode);
     }
 
     /**
      * @param string $type
-     * @return self
+     * @return RequestTransaction
      */
-    public function setType(string $type): self
+    public function setType(string $type): RequestTransaction
     {
         return $this->set('type', $type);
     }

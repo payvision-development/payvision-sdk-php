@@ -13,11 +13,11 @@ namespace Payvision\SDK\Domain\Checkouts\ValueObject\Checkout;
 
 class Response
 {
-    const ABANDONED = 4;
-    const PENDING = 2;
-    const COMPLETED = 0;
-    const INPUT_ERROR = -1;
-    const UNEXPECTED_ERROR = -7;
+    public const ABANDONED = 4;
+    public const PENDING = 2;
+    public const COMPLETED = 0;
+    public const INPUT_ERROR = -1;
+    public const UNEXPECTED_ERROR = -7;
 
     /**
      * @var ResponseBody
@@ -62,7 +62,7 @@ class Response
     /**
      * @return ResponseBody
      */
-    public function getBody()
+    public function getBody(): ResponseBody
     {
         return $this->body;
     }
@@ -70,7 +70,7 @@ class Response
     /**
      * @return string
      */
-    public function getDescription()
+    public function getDescription(): string
     {
         return $this->description;
     }
@@ -78,7 +78,7 @@ class Response
     /**
      * @return ResponseHeader
      */
-    public function getHeader()
+    public function getHeader(): ResponseHeader
     {
         return $this->header;
     }
@@ -86,7 +86,7 @@ class Response
     /**
      * @return int
      */
-    public function getResult()
+    public function getResult(): int
     {
         return $this->result;
     }

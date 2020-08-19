@@ -4,17 +4,20 @@ declare(strict_types=1);
 
 namespace Payvision\SDK\Test\Api;
 
+use Exception;
 use Payvision\SDK\Application\Payments\Service\RequestBuilder;
 use Payvision\SDK\Domain\Payments\Service\Builder\Composite\Payment\Request as PaymentRequestBuilder;
 use Payvision\SDK\Domain\Payments\Service\Builder\Composite\Refund\Request as RefundRequestBuilder;
 use Payvision\SDK\Domain\Payments\ValueObject\Payment\Request as PaymentRequest;
 use Payvision\SDK\Domain\Payments\ValueObject\Payment\Response as PaymentResponse;
 use Payvision\SDK\Exception\Api\ErrorResponse;
-use Payvision\SDK\Exception\DataTypeException;
+use Payvision\SDK\Exception\ApiException;
+use Payvision\SDK\Exception\BuilderException;
+use ReflectionException;
 
 abstract class AbstractPaymentTest extends AbstractTestCase
 {
-    const BRAND_ID = 0;
+    public const BRAND_ID = 0;
 
     /**
      * @var PaymentRequestBuilder
@@ -26,11 +29,7 @@ abstract class AbstractPaymentTest extends AbstractTestCase
      */
     protected $refundRequestBuilder;
 
-    /**
-     * @return null
-     * @throws DataTypeException
-     */
-    protected function setUp()
+    protected function setUp(): void
     {
         parent::setUp();
 
@@ -44,12 +43,10 @@ abstract class AbstractPaymentTest extends AbstractTestCase
         return $this->paymentRequestBuilder->build();
     }
 
-    /**
-     * @return null
-     */
-    protected function prepareFakePaymentRequest()
+    protected function prepareFakePaymentRequest(): void
     {
         $this->paymentRequestBuilder->header()->setBusinessId($this->credentials['businessId']);
+        $this->paymentRequestBuilder->body()->transaction()->setStoreId(1);
         $this->paymentRequestBuilder->body()->transaction()
             ->setAmount(1.00)
             ->setPurchaseId('1234')
@@ -62,9 +59,13 @@ abstract class AbstractPaymentTest extends AbstractTestCase
     }
 
     /**
-     * @return null
+     * @throws ApiException
+     * @throws BuilderException
+     * @throws ErrorResponse
+     * @throws ReflectionException
+     * @throws Exception
      */
-    public function testPaymentCreationSuccessful()
+    public function testPaymentCreationSuccessful(): void
     {
         $requestObject = $this->createFakePaymentRequest();
         $request = RequestBuilder::newPayment($requestObject);
@@ -72,14 +73,17 @@ abstract class AbstractPaymentTest extends AbstractTestCase
         /** @var PaymentResponse $response */
         $response = $this->apiConnection->execute($request);
 
-        $this->assertInstanceOf($request->getResponseObjectByStatusCode(200), $response);
-        $this->assertEquals(PaymentResponse::PENDING, $response->getResult());
+        self::assertInstanceOf($request->getResponseObjectByStatusCode(200), $response);
+        self::assertEquals(PaymentResponse::PENDING, $response->getResult());
     }
 
     /**
-     * @return null
+     * @throws ErrorResponse
+     * @throws ApiException
+     * @throws BuilderException
+     * @throws ReflectionException
      */
-    public function testPaymentCreationFailed()
+    public function testPaymentCreationFailed(): void
     {
         $this->prepareFakePaymentRequest();
         $this->paymentRequestBuilder->body()->transaction()

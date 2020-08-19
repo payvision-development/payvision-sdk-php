@@ -3,7 +3,7 @@
 declare(strict_types=1);
 
 /**
- * @copyright Copyright (c) 2018-2019 Payvision B.V. (https://www.payvision.com/)
+ * @copyright Copyright (c) 2018-2020 Payvision B.V. (https://www.payvision.com/)
  * @license see LICENCE.TXT
  */
 
@@ -17,9 +17,8 @@ class XMLBrandRepositoryTest extends TestCase
 {
     /**
      * @throws RepositoryException
-     * @return null
      */
-    public function testGetAllWithNonExistingFile()
+    public function testGetAllWithNonExistingFile(): void
     {
         $repository = new XMLBrandRepository('/path/to/non/existing/file.xml');
         $this->expectException(RepositoryException::class);
@@ -29,41 +28,39 @@ class XMLBrandRepositoryTest extends TestCase
 
     /**
      * @throws RepositoryException
-     * @return null
      */
-    public function testGetAllWithExistingFile()
+    public function testGetAllWithExistingFile(): void
     {
         $repository = $this->getRepository();
         $results = $repository->getAll();
 
-        $this->assertCount(5, $results);
-        $this->assertSame(9990, $results[2]->getBrandId());
-        $this->assertSame('Foo', $results[2]->getBrandName());
-        $this->assertTrue($results[2]->isASync());
-        $this->assertSame(9991, $results[3]->getBrandId());
-        $this->assertSame('Bar', $results[3]->getBrandName());
-        $this->assertFalse($results[3]->isASync());
-        $this->assertSame(9992, $results[4]->getBrandId());
-        $this->assertSame('Baz', $results[4]->getBrandName());
-        $this->assertTrue($results[4]->isASync());
+        self::assertCount(5, $results);
+        self::assertSame(9990, $results[2]->getBrandId());
+        self::assertSame('Foo', $results[2]->getBrandName());
+        self::assertTrue($results[2]->isASync());
+        self::assertSame(9991, $results[3]->getBrandId());
+        self::assertSame('Bar', $results[3]->getBrandName());
+        self::assertFalse($results[3]->isASync());
+        self::assertSame(9992, $results[4]->getBrandId());
+        self::assertSame('Baz', $results[4]->getBrandName());
+        self::assertTrue($results[4]->isASync());
     }
 
     /**
      * @throws RepositoryException
-     * @return null
      */
-    public function testGetAllForSpecificCategory()
+    public function testGetAllForSpecificCategory(): void
     {
         $repository = $this->getRepository();
         $results = $repository->getAllForCategory(1);
 
-        $this->assertCount(2, $results);
-        $this->assertSame(1000, $results[0]->getBrandId());
-        $this->assertSame('FooCard', $results[0]->getBrandName());
-        $this->assertTrue($results[0]->isASync());
-        $this->assertSame(1001, $results[1]->getBrandId());
-        $this->assertSame('BarCard', $results[1]->getBrandName());
-        $this->assertFalse($results[1]->isASync());
+        self::assertCount(2, $results);
+        self::assertSame(1000, $results[0]->getBrandId());
+        self::assertSame('FooCard', $results[0]->getBrandName());
+        self::assertTrue($results[0]->isASync());
+        self::assertSame(1001, $results[1]->getBrandId());
+        self::assertSame('BarCard', $results[1]->getBrandName());
+        self::assertFalse($results[1]->isASync());
     }
 
     /**

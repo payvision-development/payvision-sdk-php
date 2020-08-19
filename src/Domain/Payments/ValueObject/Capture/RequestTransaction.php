@@ -56,7 +56,7 @@ class RequestTransaction
     /**
      * @return float
      */
-    public function getAmount()
+    public function getAmount(): float
     {
         return $this->amount;
     }
@@ -64,7 +64,7 @@ class RequestTransaction
     /**
      * @return string
      */
-    public function getCurrencyCode()
+    public function getCurrencyCode(): string
     {
         return $this->currencyCode;
     }
@@ -72,7 +72,7 @@ class RequestTransaction
     /**
      * @return string
      */
-    public function getTrackingCode()
+    public function getTrackingCode(): string
     {
         return $this->trackingCode;
     }
@@ -80,7 +80,7 @@ class RequestTransaction
     /**
      * @return string|null
      */
-    public function getInvoiceId()
+    public function getInvoiceId(): ?string
     {
         return $this->invoiceId;
     }

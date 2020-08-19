@@ -32,7 +32,7 @@ class ResponseQr
     /**
      * @return string
      */
-    public function getResource()
+    public function getResource(): string
     {
         return $this->resource;
     }

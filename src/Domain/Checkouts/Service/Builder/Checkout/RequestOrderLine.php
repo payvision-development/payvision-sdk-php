@@ -26,108 +26,108 @@ class RequestOrderLine extends Basic
 
     /**
      * @param string $currencyCode
-     * @return self
+     * @return RequestOrderLine
      */
-    public function setCurrencyCode(string $currencyCode): self
+    public function setCurrencyCode(string $currencyCode): RequestOrderLine
     {
         return $this->set('currencyCode', $currencyCode);
     }
 
     /**
      * @param string $description
-     * @return self
+     * @return RequestOrderLine
      */
-    public function setDescription(string $description): self
+    public function setDescription(string $description): RequestOrderLine
     {
         return $this->set('description', $description);
     }
 
     /**
      * @param float $discountAmount
-     * @return self
+     * @return RequestOrderLine
      */
-    public function setDiscountAmount(float $discountAmount): self
+    public function setDiscountAmount(float $discountAmount): RequestOrderLine
     {
         return $this->set('discountAmount', $discountAmount);
     }
 
     /**
      * @param float $itemAmount
-     * @return self
+     * @return RequestOrderLine
      */
-    public function setItemAmount(float $itemAmount): self
+    public function setItemAmount(float $itemAmount): RequestOrderLine
     {
         return $this->set('itemAmount', $itemAmount);
     }
 
     /**
      * @param string $productCode
-     * @return self
+     * @return RequestOrderLine
      */
-    public function setProductCode(string $productCode): self
+    public function setProductCode(string $productCode): RequestOrderLine
     {
         return $this->set('productCode', $productCode);
     }
 
     /**
      * @param string $productName
-     * @return self
+     * @return RequestOrderLine
      */
-    public function setProductName(string $productName): self
+    public function setProductName(string $productName): RequestOrderLine
     {
         return $this->set('productName', $productName);
     }
 
     /**
      * @param string $purchaseType
-     * @return self
+     * @return RequestOrderLine
      */
-    public function setPurchaseType(string $purchaseType): self
+    public function setPurchaseType(string $purchaseType): RequestOrderLine
     {
         return $this->set('purchaseType', $purchaseType);
     }
 
     /**
      * @param int $quantity
-     * @return self
+     * @return RequestOrderLine
      */
-    public function setQuantity(int $quantity): self
+    public function setQuantity(int $quantity): RequestOrderLine
     {
         return $this->set('quantity', $quantity);
     }
 
     /**
      * @param int $sequenceNumber
-     * @return self
+     * @return RequestOrderLine
      */
-    public function setSequenceNumber(int $sequenceNumber): self
+    public function setSequenceNumber(int $sequenceNumber): RequestOrderLine
     {
         return $this->set('sequenceNumber', $sequenceNumber);
     }
 
     /**
      * @param float $shippingAmount
-     * @return self
+     * @return RequestOrderLine
      */
-    public function setShippingAmount(float $shippingAmount): self
+    public function setShippingAmount(float $shippingAmount): RequestOrderLine
     {
         return $this->set('shippingAmount', $shippingAmount);
     }
 
     /**
      * @param float $taxPercentage
-     * @return self
+     * @return RequestOrderLine
      */
-    public function setTaxPercentage(float $taxPercentage): self
+    public function setTaxPercentage(float $taxPercentage): RequestOrderLine
     {
         return $this->set('taxPercentage', $taxPercentage);
     }
 
     /**
      * @param float $totalAmount
-     * @return self
+     * @return RequestOrderLine
      */
-    public function setTotalAmount(float $totalAmount): self
+    public function setTotalAmount(float $totalAmount): RequestOrderLine
     {
         return $this->set('totalAmount', $totalAmount);
     }

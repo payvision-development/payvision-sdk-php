@@ -3,7 +3,7 @@
 declare(strict_types=1);
 
 /**
- * @copyright Copyright (c) 2018-2019 Payvision B.V. (https://www.payvision.com/)
+ * @copyright Copyright (c) 2018-2020 Payvision B.V. (https://www.payvision.com/)
  * @license see LICENCE.TXT
  */
 
@@ -17,28 +17,25 @@ class LanguageCodeTest extends TestCase
 {
     /**
      * @throws DataTypeException
-     * @return null
      */
-    public function testNullValue()
+    public function testNullValue(): void
     {
-        $this->assertNull((new LanguageCode(null))->get());
+        self::assertNull((new LanguageCode(null))->get());
     }
 
     /**
      * @throws DataTypeException
-     * @return null
      */
-    public function testKnownCountry()
+    public function testKnownCountry(): void
     {
         $languageCode = new LanguageCode('nl');
-        $this->assertSame('nl', $languageCode->get());
+        self::assertSame('nl', $languageCode->get());
     }
 
     /**
      * @throws DataTypeException
-     * @return null
      */
-    public function testUnknownCountry()
+    public function testUnknownCountry(): void
     {
         $this->expectException(DataTypeException::class);
         $this->expectExceptionCode(DataTypeException::UNKNOWN_LANGUAGE);

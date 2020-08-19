@@ -3,13 +3,12 @@
 declare(strict_types=1);
 
 /**
- * @copyright Copyright (c) 2018-2019 Payvision B.V. (https://www.payvision.com/)
+ * @copyright Copyright (c) 2018-2020 Payvision B.V. (https://www.payvision.com/)
  * @license see LICENCE.TXT
  */
 
 namespace Payvision\SDK\Test\Api;
 
-use Payvision\SDK\Exception\DataTypeException;
 use Payvision\SDK\Infrastructure\ApiConnection;
 use PHPUnit\Framework\TestCase;
 
@@ -30,11 +29,7 @@ abstract class AbstractTestCase extends TestCase
      */
     protected $debug = false;
 
-    /**
-     * @throws DataTypeException
-     * @return null
-     */
-    protected function setUp()
+    protected function setUp(): void
     {
         $envFile = __DIR__ . '/../../../.env.php';
         if (!\file_exists($envFile)) {

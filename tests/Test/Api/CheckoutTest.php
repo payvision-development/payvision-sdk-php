@@ -3,7 +3,7 @@
 declare(strict_types=1);
 
 /**
- * @copyright Copyright (c) 2018-2019 Payvision B.V. (https://www.payvision.com/)
+ * @copyright Copyright (c) 2018-2020 Payvision B.V. (https://www.payvision.com/)
  * @license see LICENCE.TXT
  */
 
@@ -20,6 +20,7 @@ use Payvision\SDK\Domain\Checkouts\ValueObject\Status\Response as StatusResponse
 use Payvision\SDK\Exception\Api\ErrorResponse;
 use Payvision\SDK\Exception\ApiException;
 use Payvision\SDK\Exception\BuilderException;
+use ReflectionException;
 
 class CheckoutTest extends AbstractTestCase
 {
@@ -27,6 +28,7 @@ class CheckoutTest extends AbstractTestCase
      * @throws ApiException
      * @throws ErrorResponse
      * @throws BuilderException
+     * @throws ReflectionException
      */
     public function testCallToCheckoutEndpointReturnsCheckoutResponseObject(): array
     {
@@ -35,8 +37,8 @@ class CheckoutTest extends AbstractTestCase
         /** @var CheckoutResponse $response */
         $response = $this->apiConnection->execute($apiRequest);
 
-        $this->assertInstanceOf(CheckoutResponse::class, $response);
-        $this->assertSame(CheckoutResponse::PENDING, $response->getResult());
+        self::assertInstanceOf(CheckoutResponse::class, $response);
+        self::assertSame(CheckoutResponse::PENDING, $response->getResult());
 
         return [
             'checkoutId' => $response->getBody()->getCheckout()->getCheckoutId(),
@@ -48,16 +50,16 @@ class CheckoutTest extends AbstractTestCase
      * @throws ApiException
      * @throws BuilderException
      * @throws ErrorResponse
+     * @throws ReflectionException
      * @depends testCallToCheckoutEndpointReturnsCheckoutResponseObject
-     * @return null
      */
-    public function testCheckoutStatusIsPending(array $input)
+    public function testCheckoutStatusIsPending(array $input): void
     {
         $apiRequest = RequestBuilder::getCheckoutStatus($input['checkoutId'], $this->credentials['businessId']);
         /** @var StatusResponse $response */
         $response = $this->apiConnection->execute($apiRequest);
-        $this->assertInstanceOf(StatusResponse::class, $response);
-        $this->assertSame(StatusResponse::PENDING, $response->getResult());
+        self::assertInstanceOf(StatusResponse::class, $response);
+        self::assertSame(StatusResponse::PENDING, $response->getResult());
     }
 
     /**
@@ -65,7 +67,7 @@ class CheckoutTest extends AbstractTestCase
      */
     private function createRequestObject(): CheckoutRequestObject
     {
-        $requestObject = new CheckoutRequestObject(
+        return new CheckoutRequestObject(
             new CheckoutRequestBody(
                 new CheckoutRequestCheckout(
                     ['1010', '1020', '1030'],
@@ -80,6 +82,5 @@ class CheckoutTest extends AbstractTestCase
             ),
             new Header($this->credentials['businessId'])
         );
-        return $requestObject;
     }
 }

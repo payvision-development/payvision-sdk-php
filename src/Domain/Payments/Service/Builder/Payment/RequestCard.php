@@ -26,54 +26,54 @@ class RequestCard extends Basic
 
     /**
      * @param string $cvv
-     * @return self
+     * @return RequestCard
      */
-    public function setCvv(string $cvv): self
+    public function setCvv(string $cvv): RequestCard
     {
         return $this->set('cvv', $cvv);
     }
 
     /**
      * @param int $expiryMonth
-     * @return self
+     * @return RequestCard
      */
-    public function setExpiryMonth(int $expiryMonth): self
+    public function setExpiryMonth(int $expiryMonth): RequestCard
     {
         return $this->set('expiryMonth', $expiryMonth);
     }
 
     /**
      * @param int $expiryYear
-     * @return self
+     * @return RequestCard
      */
-    public function setExpiryYear(int $expiryYear): self
+    public function setExpiryYear(int $expiryYear): RequestCard
     {
         return $this->set('expiryYear', $expiryYear);
     }
 
     /**
      * @param string $holderName
-     * @return self
+     * @return RequestCard
      */
-    public function setHolderName(string $holderName): self
+    public function setHolderName(string $holderName): RequestCard
     {
         return $this->set('holderName', $holderName);
     }
 
     /**
      * @param string $issueNumber
-     * @return self
+     * @return RequestCard
      */
-    public function setIssueNumber(string $issueNumber): self
+    public function setIssueNumber(string $issueNumber): RequestCard
     {
         return $this->set('issueNumber', $issueNumber);
     }
 
     /**
      * @param string $number
-     * @return self
+     * @return RequestCard
      */
-    public function setNumber(string $number): self
+    public function setNumber(string $number): RequestCard
     {
         return $this->set('number', $number);
     }

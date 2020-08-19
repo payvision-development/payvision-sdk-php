@@ -56,7 +56,7 @@ class RequestLink
     /**
      * @return int[]
      */
-    public function getBrandIds()
+    public function getBrandIds(): array
     {
         return $this->brandIds;
     }
@@ -64,7 +64,7 @@ class RequestLink
     /**
      * @return string
      */
-    public function getReturnUrl()
+    public function getReturnUrl(): string
     {
         return $this->returnUrl;
     }
@@ -72,7 +72,7 @@ class RequestLink
     /**
      * @return string|null
      */
-    public function getDuration()
+    public function getDuration(): ?string
     {
         return $this->duration;
     }
@@ -80,7 +80,7 @@ class RequestLink
     /**
      * @return string|null
      */
-    public function getExpirationTime()
+    public function getExpirationTime(): ?string
     {
         return $this->expirationTime;
     }

@@ -3,7 +3,7 @@
 declare(strict_types=1);
 
 /**
- * @copyright Copyright (c) 2018-2019 Payvision B.V. (https://www.payvision.com/)
+ * @copyright Copyright (c) 2018-2020 Payvision B.V. (https://www.payvision.com/)
  * @license see LICENCE.TXT
  */
 
@@ -32,10 +32,7 @@ class EventBuilderTest extends TestCase
      */
     protected $subject;
 
-    /**
-     * @return null
-     */
-    protected function setUp()
+    protected function setUp(): void
     {
         $this->mockedValidator = $this->getMockBuilder(Validator::class)->disableOriginalConstructor()->getMock();
         $this->mockedValidator->method('validateWebhook')->willReturn(true);
@@ -48,9 +45,8 @@ class EventBuilderTest extends TestCase
     /**
      * @throws BuilderException
      * @throws ReflectionException
-     * @return null
      */
-    public function testMissingTransactionShouldThrowException()
+    public function testMissingTransactionShouldThrowException(): void
     {
         $this->expectException(WebhookException::class);
         $this->expectExceptionCode(WebhookException::UNKNOWN_PAYLOAD);
@@ -83,11 +79,9 @@ class EventBuilderTest extends TestCase
     /**
      * @throws BuilderException
      * @throws ReflectionException
-     * @return null
      */
-    public function testBuildResponse()
+    public function testBuildResponse(): void
     {
-        /** @var Event $responseObject */
         $responseObject = $this->subject->generateEvent(
             '{
 	"Id": "07be5002-ebd6-4ff6-a7bc-7d1665f656e0",

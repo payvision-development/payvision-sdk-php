@@ -30,36 +30,36 @@ class ResponsePaymentBody extends Basic
 
     /**
      * @param ResponsePaymentBank $bank
-     * @return self
+     * @return ResponsePaymentBody
      */
-    public function setBank(ResponsePaymentBank $bank): self
+    public function setBank(ResponsePaymentBank $bank): ResponsePaymentBody
     {
         return $this->set('bank', $bank);
     }
 
     /**
      * @param ResponsePaymentCard $card
-     * @return self
+     * @return ResponsePaymentBody
      */
-    public function setCard(ResponsePaymentCard $card): self
+    public function setCard(ResponsePaymentCard $card): ResponsePaymentBody
     {
         return $this->set('card', $card);
     }
 
     /**
      * @param ResponsePaymentError $error
-     * @return self
+     * @return ResponsePaymentBody
      */
-    public function setError(ResponsePaymentError $error): self
+    public function setError(ResponsePaymentError $error): ResponsePaymentBody
     {
         return $this->set('error', $error);
     }
 
     /**
      * @param ResponsePaymentTransaction $transaction
-     * @return self
+     * @return ResponsePaymentBody
      */
-    public function setTransaction(ResponsePaymentTransaction $transaction): self
+    public function setTransaction(ResponsePaymentTransaction $transaction): ResponsePaymentBody
     {
         return $this->set('transaction', $transaction);
     }

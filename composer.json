@@ -2,10 +2,10 @@
     "name": "payvision/payvision-sdk-php",
     "description": "Payvision PHP SDK",
     "type": "library",
-    "version": "4.1.1",
+    "version": "5.0.0",
     "license": "MIT",
     "require": {
-        "php": "^7.0.13|^7.1",
+        "php": "^7.2.5|^7.3",
         "ext-simplexml": "*",
         "ext-json": "*",
         "ext-curl": "*",
@@ -23,6 +23,11 @@
         }
     },
     "require-dev": {
-        "phpunit/phpunit": "^6.5"
+        "phpunit/phpunit": "^8.5",
+        "dealerdirect/phpcodesniffer-composer-installer": "^0.7.0",
+        "object-calisthenics/phpcs-calisthenics-rules": "^3.8",
+        "phpcompatibility/php-compatibility": "^9.3",
+        "slevomat/coding-standard": "^6.3",
+        "squizlabs/php_codesniffer": "^3.5"
     }
 }

@@ -3,8 +3,8 @@
 declare(strict_types=1);
 
 /**
- * @copyright Copyright (c) 2018-2019 Payvision B.V. (https://www.payvision.com/)
- * @license proprietary
+ * @copyright Copyright (c) 2018-2020 Payvision B.V. (https://www.payvision.com/)
+ * @license see LICENCE.TXT
  */
 
 namespace Payvision\SDK\Test\Unit\DataType;
@@ -17,28 +17,25 @@ class EnumeratedTest extends TestCase
 {
     /**
      * @throws DataTypeException
-     * @return null
      */
-    public function testNullValue()
+    public function testNullValue(): void
     {
-        $this->assertNull((new Enumerated(null, []))->get());
+        self::assertNull((new Enumerated(null, []))->get());
     }
 
     /**
      * @throws DataTypeException
-     * @return null
      */
-    public function testValidValue()
+    public function testValidValue(): void
     {
         $enum = (new Enumerated('Foo', ['Foo', 'Bar']))->get();
-        $this->assertSame('Foo', $enum);
+        self::assertSame('Foo', $enum);
     }
 
     /**
      * @throws DataTypeException
-     * @return null
      */
-    public function testInvalidValue()
+    public function testInvalidValue(): void
     {
         $this->expectException(DataTypeException::class);
         $this->expectExceptionCode(DataTypeException::VALUE_NOT_ALLOWED);

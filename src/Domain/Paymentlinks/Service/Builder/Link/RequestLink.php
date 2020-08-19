@@ -26,36 +26,36 @@ class RequestLink extends Basic
 
     /**
      * @param int[] $brandIds
-     * @return self
+     * @return RequestLink
      */
-    public function setBrandIds(array $brandIds): self
+    public function setBrandIds(array $brandIds): RequestLink
     {
         return $this->set('brandIds', $brandIds);
     }
 
     /**
      * @param string $returnUrl
-     * @return self
+     * @return RequestLink
      */
-    public function setReturnUrl(string $returnUrl): self
+    public function setReturnUrl(string $returnUrl): RequestLink
     {
         return $this->set('returnUrl', $returnUrl);
     }
 
     /**
      * @param string $duration
-     * @return self
+     * @return RequestLink
      */
-    public function setDuration(string $duration): self
+    public function setDuration(string $duration): RequestLink
     {
         return $this->set('duration', $duration);
     }
 
     /**
      * @param string $expirationTime
-     * @return self
+     * @return RequestLink
      */
-    public function setExpirationTime(string $expirationTime): self
+    public function setExpirationTime(string $expirationTime): RequestLink
     {
         return $this->set('expirationTime', $expirationTime);
     }

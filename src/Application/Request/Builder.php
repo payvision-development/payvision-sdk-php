@@ -3,7 +3,7 @@
 declare(strict_types=1);
 
 /**
- * @copyright Copyright (c) 2018-2019 Payvision B.V. (https://www.payvision.com/)
+ * @copyright Copyright (c) 2018-2020 Payvision B.V. (https://www.payvision.com/)
  * @license see LICENCE.TXT
  */
 
@@ -50,7 +50,7 @@ class Builder
         }
 
         foreach ($reflection->getMethods(ReflectionMethod::IS_PUBLIC) as $method) {
-            if (\substr($method->getName(), 0, 3) === 'get') {
+            if (\strpos($method->getName(), 'get') === 0) {
                 $key = \lcfirst(\substr($method->getName(), 3));
                 $value = self::getValueForMethod($method->getName(), $object);
                 if ($value !== null) {

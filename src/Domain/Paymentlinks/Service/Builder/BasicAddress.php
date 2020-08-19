@@ -26,144 +26,144 @@ class BasicAddress extends Basic
 
     /**
      * @param string $ipAddress
-     * @return self
+     * @return BasicAddress
      */
-    public function setIpAddress(string $ipAddress): self
+    public function setIpAddress(string $ipAddress): BasicAddress
     {
         return $this->set('ipAddress', $ipAddress);
     }
 
     /**
      * @param \Payvision\SDK\DataType\Date $birthDate
-     * @return self
+     * @return BasicAddress
      */
-    public function setBirthDate(\Payvision\SDK\DataType\Date $birthDate): self
+    public function setBirthDate(\Payvision\SDK\DataType\Date $birthDate): BasicAddress
     {
         return $this->set('birthDate', $birthDate);
     }
 
     /**
      * @param string $companyName
-     * @return self
+     * @return BasicAddress
      */
-    public function setCompanyName(string $companyName): self
+    public function setCompanyName(string $companyName): BasicAddress
     {
         return $this->set('companyName', $companyName);
     }
 
     /**
      * @param string $customerId
-     * @return self
+     * @return BasicAddress
      */
-    public function setCustomerId(string $customerId): self
+    public function setCustomerId(string $customerId): BasicAddress
     {
         return $this->set('customerId', $customerId);
     }
 
     /**
      * @param string $deviceType
-     * @return self
+     * @return BasicAddress
      */
-    public function setDeviceType(string $deviceType): self
+    public function setDeviceType(string $deviceType): BasicAddress
     {
         return $this->set('deviceType', $deviceType);
     }
 
     /**
      * @param string $email
-     * @return self
+     * @return BasicAddress
      */
-    public function setEmail(string $email): self
+    public function setEmail(string $email): BasicAddress
     {
         return $this->set('email', $email);
     }
 
     /**
      * @param string $familyName
-     * @return self
+     * @return BasicAddress
      */
-    public function setFamilyName(string $familyName): self
+    public function setFamilyName(string $familyName): BasicAddress
     {
         return $this->set('familyName', $familyName);
     }
 
     /**
      * @param string $givenName
-     * @return self
+     * @return BasicAddress
      */
-    public function setGivenName(string $givenName): self
+    public function setGivenName(string $givenName): BasicAddress
     {
         return $this->set('givenName', $givenName);
     }
 
     /**
      * @param string $httpUserAgent
-     * @return self
+     * @return BasicAddress
      */
-    public function setHttpUserAgent(string $httpUserAgent): self
+    public function setHttpUserAgent(string $httpUserAgent): BasicAddress
     {
         return $this->set('httpUserAgent', $httpUserAgent);
     }
 
     /**
      * @param string $identificationNumber
-     * @return self
+     * @return BasicAddress
      */
-    public function setIdentificationNumber(string $identificationNumber): self
+    public function setIdentificationNumber(string $identificationNumber): BasicAddress
     {
         return $this->set('identificationNumber', $identificationNumber);
     }
 
     /**
      * @param int $identificationTypeId
-     * @return self
+     * @return BasicAddress
      */
-    public function setIdentificationTypeId(int $identificationTypeId): self
+    public function setIdentificationTypeId(int $identificationTypeId): BasicAddress
     {
         return $this->set('identificationTypeId', $identificationTypeId);
     }
 
     /**
      * @param string $mobileNumber
-     * @return self
+     * @return BasicAddress
      */
-    public function setMobileNumber(string $mobileNumber): self
+    public function setMobileNumber(string $mobileNumber): BasicAddress
     {
         return $this->set('mobileNumber', $mobileNumber);
     }
 
     /**
      * @param string $phoneNumber
-     * @return self
+     * @return BasicAddress
      */
-    public function setPhoneNumber(string $phoneNumber): self
+    public function setPhoneNumber(string $phoneNumber): BasicAddress
     {
         return $this->set('phoneNumber', $phoneNumber);
     }
 
     /**
      * @param string $sex
-     * @return self
+     * @return BasicAddress
      */
-    public function setSex(string $sex): self
+    public function setSex(string $sex): BasicAddress
     {
         return $this->set('sex', $sex);
     }
 
     /**
      * @param string $taxNumber
-     * @return self
+     * @return BasicAddress
      */
-    public function setTaxNumber(string $taxNumber): self
+    public function setTaxNumber(string $taxNumber): BasicAddress
     {
         return $this->set('taxNumber', $taxNumber);
     }
 
     /**
      * @param int $type
-     * @return self
+     * @return BasicAddress
      */
-    public function setType(int $type): self
+    public function setType(int $type): BasicAddress
     {
         return $this->set('type', $type);
     }

@@ -28,27 +28,27 @@ class Request extends Basic
 
     /**
      * @param string $action
-     * @return self
+     * @return Request
      */
-    public function setAction(string $action): self
+    public function setAction(string $action): Request
     {
         return $this->set('action', $action);
     }
 
     /**
      * @param RequestBody $body
-     * @return self
+     * @return Request
      */
-    public function setBody(RequestBody $body): self
+    public function setBody(RequestBody $body): Request
     {
         return $this->set('body', $body);
     }
 
     /**
      * @param Header $header
-     * @return self
+     * @return Request
      */
-    public function setHeader(Header $header): self
+    public function setHeader(Header $header): Request
     {
         return $this->set('header', $header);
     }

@@ -40,7 +40,7 @@ class RequestQr
     /**
      * @return bool
      */
-    public function getGenerate()
+    public function getGenerate(): bool
     {
         return $this->generate;
     }
@@ -48,7 +48,7 @@ class RequestQr
     /**
      * @return int|null
      */
-    public function getSize()
+    public function getSize(): ?int
     {
         return $this->size;
     }

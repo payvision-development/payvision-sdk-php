@@ -3,7 +3,7 @@
 declare(strict_types=1);
 
 /**
- * @copyright Copyright (c) 2018-2019 Payvision B.V. (https://www.payvision.com/)
+ * @copyright Copyright (c) 2018-2020 Payvision B.V. (https://www.payvision.com/)
  * @license see LICENCE.TXT
  */
 
@@ -17,29 +17,26 @@ class AmountTest extends TestCase
 {
     /**
      * @throws DataTypeException
-     * @return null
      */
-    public function testNullValue()
+    public function testNullValue(): void
     {
-        $this->assertNull((new NonNegativeAmount(null))->get());
+        self::assertNull((new NonNegativeAmount(null))->get());
     }
 
     /**
      * @throws DataTypeException
-     * @return null
      */
-    public function testPositiveAmount()
+    public function testPositiveAmount(): void
     {
         $amount = new NonNegativeAmount(10.50);
-        $this->assertEquals(10.50, $amount->get());
-        $this->assertSame(10.50, $amount->get());
+        self::assertEquals(10.50, $amount->get());
+        self::assertSame(10.50, $amount->get());
     }
 
     /**
      * @throws DataTypeException
-     * @return null
      */
-    public function testNegativeAmount()
+    public function testNegativeAmount(): void
     {
         $this->expectException(DataTypeException::class);
         $this->expectExceptionCode(DataTypeException::AMOUNT_CANNOT_BE_NEGATIVE);

@@ -30,36 +30,36 @@ class ResponseBody extends Basic
 
     /**
      * @param ResponseCheckout $checkout
-     * @return self
+     * @return ResponseBody
      */
-    public function setCheckout(ResponseCheckout $checkout): self
+    public function setCheckout(ResponseCheckout $checkout): ResponseBody
     {
         return $this->set('checkout', $checkout);
     }
 
     /**
      * @param Error $error
-     * @return self
+     * @return ResponseBody
      */
-    public function setError(Error $error): self
+    public function setError(Error $error): ResponseBody
     {
         return $this->set('error', $error);
     }
 
     /**
      * @param Response[] $payments
-     * @return self
+     * @return ResponseBody
      */
-    public function setPayments(array $payments): self
+    public function setPayments(array $payments): ResponseBody
     {
         return $this->set('payments', $payments);
     }
 
     /**
      * @param ResponseTransaction $transaction
-     * @return self
+     * @return ResponseBody
      */
-    public function setTransaction(ResponseTransaction $transaction): self
+    public function setTransaction(ResponseTransaction $transaction): ResponseBody
     {
         return $this->set('transaction', $transaction);
     }

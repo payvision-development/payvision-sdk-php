@@ -40,7 +40,7 @@ class ResponseRedirect
     /**
      * @return string|null
      */
-    public function getMethod()
+    public function getMethod(): ?string
     {
         return $this->method;
     }
@@ -48,7 +48,7 @@ class ResponseRedirect
     /**
      * @return string|null
      */
-    public function getUrl()
+    public function getUrl(): ?string
     {
         return $this->url;
     }

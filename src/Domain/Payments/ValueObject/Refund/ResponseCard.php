@@ -72,7 +72,7 @@ class ResponseCard
     /**
      * @return string|null
      */
-    public function getApprovalCode()
+    public function getApprovalCode(): ?string
     {
         return $this->approvalCode;
     }
@@ -80,7 +80,7 @@ class ResponseCard
     /**
      * @return string|null
      */
-    public function getExpiryMonth()
+    public function getExpiryMonth(): ?string
     {
         return $this->expiryMonth;
     }
@@ -88,7 +88,7 @@ class ResponseCard
     /**
      * @return string|null
      */
-    public function getExpiryYear()
+    public function getExpiryYear(): ?string
     {
         return $this->expiryYear;
     }
@@ -96,7 +96,7 @@ class ResponseCard
     /**
      * @return string|null
      */
-    public function getFirstSixDigits()
+    public function getFirstSixDigits(): ?string
     {
         return $this->firstSixDigits;
     }
@@ -104,7 +104,7 @@ class ResponseCard
     /**
      * @return string|null
      */
-    public function getHolderName()
+    public function getHolderName(): ?string
     {
         return $this->holderName;
     }
@@ -112,7 +112,7 @@ class ResponseCard
     /**
      * @return string|null
      */
-    public function getLastFourDigits()
+    public function getLastFourDigits(): ?string
     {
         return $this->lastFourDigits;
     }

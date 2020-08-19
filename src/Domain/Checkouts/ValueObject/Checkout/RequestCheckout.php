@@ -66,7 +66,7 @@ class RequestCheckout
     /**
      * @return int[]
      */
-    public function getBrandIds()
+    public function getBrandIds(): array
     {
         return $this->brandIds;
     }
@@ -74,7 +74,7 @@ class RequestCheckout
     /**
      * @return string
      */
-    public function getReturnUrl()
+    public function getReturnUrl(): string
     {
         return $this->returnUrl;
     }
@@ -82,7 +82,7 @@ class RequestCheckout
     /**
      * @return OneClick|null
      */
-    public function getOneClick()
+    public function getOneClick(): ?OneClick
     {
         return $this->oneClick;
     }
@@ -90,7 +90,7 @@ class RequestCheckout
     /**
      * @return bool|null
      */
-    public function getThreeDSecure()
+    public function getThreeDSecure(): ?bool
     {
         return $this->threeDSecure;
     }
@@ -98,7 +98,7 @@ class RequestCheckout
     /**
      * @return string|null
      */
-    public function getTokenize()
+    public function getTokenize(): ?string
     {
         return $this->tokenize;
     }

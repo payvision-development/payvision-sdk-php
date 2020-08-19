@@ -83,7 +83,7 @@ class RequestBody
     /**
      * @return RequestTransaction
      */
-    public function getTransaction()
+    public function getTransaction(): RequestTransaction
     {
         return $this->transaction;
     }
@@ -91,7 +91,7 @@ class RequestBody
     /**
      * @return RequestLink
      */
-    public function getLink()
+    public function getLink(): RequestLink
     {
         return $this->link;
     }
@@ -99,7 +99,7 @@ class RequestBody
     /**
      * @return BasicAddress|null
      */
-    public function getBillingAddress()
+    public function getBillingAddress(): ?BasicAddress
     {
         return $this->billingAddress;
     }
@@ -107,7 +107,7 @@ class RequestBody
     /**
      * @return BasicCustomer|null
      */
-    public function getCustomer()
+    public function getCustomer(): ?BasicCustomer
     {
         return $this->customer;
     }
@@ -115,7 +115,7 @@ class RequestBody
     /**
      * @return RequestDba|null
      */
-    public function getDba()
+    public function getDba(): ?RequestDba
     {
         return $this->dba;
     }
@@ -123,7 +123,7 @@ class RequestBody
     /**
      * @return RequestOrder|null
      */
-    public function getOrder()
+    public function getOrder(): ?RequestOrder
     {
         return $this->order;
     }
@@ -131,7 +131,7 @@ class RequestBody
     /**
      * @return BasicAddress|null
      */
-    public function getShippingAddress()
+    public function getShippingAddress(): ?BasicAddress
     {
         return $this->shippingAddress;
     }

@@ -3,17 +3,16 @@
 declare(strict_types=1);
 
 /**
- * @copyright Copyright (c) 2018-2019 Payvision B.V. (https://www.payvision.com/)
- * @license proprietary
+ * @copyright Copyright (c) 2018-2020 Payvision B.V. (https://www.payvision.com/)
+ * @license see LICENCE.TXT
  */
-
-// phpcs:ignoreFile
 
 namespace Payvision\SDK\Test\Unit\Application\Reflection;
 
 use Payvision\SDK\Application\Reflection\JsonToObject;
 use Payvision\SDK\Domain\Checkouts\ValueObject\Checkout\ResponseTransaction;
 use Payvision\SDK\Domain\Checkouts\ValueObject\Payment\Response;
+use Payvision\SDK\Domain\Checkouts\ValueObject\Payment\ResponseBody as CheckoutResponseBody;
 use Payvision\SDK\Domain\Checkouts\ValueObject\Status\Response as CheckoutStatusResponse;
 use Payvision\SDK\Domain\Checkouts\ValueObject\Status\ResponseBody;
 use Payvision\SDK\Domain\Payments\ValueObject\Payment\Response as PaymentResponse;
@@ -32,12 +31,12 @@ use ReflectionException;
 class JsonToObjectTest extends TestCase
 {
     // phpcs:disable ObjectCalisthenics.Files.FunctionLength.ObjectCalisthenics\Sniffs\Files\FunctionLengthSniff
+
     /**
      * @throws BuilderException
      * @throws ReflectionException
-     * @return null
      */
-    public function testBuildPaymentResponse()
+    public function testBuildPaymentResponse(): void
     {
         $targetObject = PaymentResponse::class;
         $jsonData = [
@@ -66,36 +65,36 @@ class JsonToObjectTest extends TestCase
         /** @var PaymentResponse $response */
         $response = JsonToObject::build($targetObject, $jsonData);
 
-        $this->assertSame($jsonData['result'], $response->getResult());
-        $this->assertSame($jsonData['description'], $response->getDescription());
-        $this->assertSame(
+        self::assertSame($jsonData['result'], $response->getResult());
+        self::assertSame($jsonData['description'], $response->getDescription());
+        self::assertSame(
             '2018-12-10T10:17:43Z',
             $response->getHeader()->getRequestTimestamp()->get()
         );
-        $this->assertSame($jsonData['body']['redirect']['method'], $response->getBody()->getRedirect()->getMethod());
-        $this->assertSame($jsonData['body']['redirect']['url'], $response->getBody()->getRedirect()->getUrl());
-        $this->assertSame(
+        self::assertSame($jsonData['body']['redirect']['method'], $response->getBody()->getRedirect()->getMethod());
+        self::assertSame($jsonData['body']['redirect']['url'], $response->getBody()->getRedirect()->getUrl());
+        self::assertSame(
             $jsonData['body']['transaction']['descriptor'],
             $response->getBody()->getTransaction()->getDescriptor()
         );
-        $this->assertEquals(
+        self::assertEquals(
             $jsonData['body']['transaction']['amount'],
             $response->getBody()->getTransaction()->getAmount()
         );
-        $this->assertSame(
+        self::assertSame(
             $jsonData['body']['transaction']['brandId'],
             $response->getBody()->getTransaction()->getBrandId()
         );
-        $this->assertSame(
+        self::assertSame(
             $jsonData['body']['transaction']['currencyCode'],
             $response->getBody()->getTransaction()->getCurrencyCode()
         );
-        $this->assertSame(
+        self::assertSame(
             $jsonData['body']['transaction']['action'],
             $response->getBody()->getTransaction()->getAction()
         );
-        $this->assertSame($jsonData['body']['transaction']['id'], $response->getBody()->getTransaction()->getId());
-        $this->assertSame(
+        self::assertSame($jsonData['body']['transaction']['id'], $response->getBody()->getTransaction()->getId());
+        self::assertSame(
             $jsonData['body']['transaction']['trackingCode'],
             $response->getBody()->getTransaction()->getTrackingCode()
         );
@@ -106,9 +105,8 @@ class JsonToObjectTest extends TestCase
     /**
      * @throws BuilderException
      * @throws ReflectionException
-     * @return null
      */
-    public function testArrayInTargetClass()
+    public function testArrayInTargetClass(): void
     {
         /** @var ObjectWithArray $result */
         $result = JsonToObject::build(
@@ -118,16 +116,15 @@ class JsonToObjectTest extends TestCase
             ]
         );
 
-        $this->assertInstanceOf(ObjectWithArray::class, $result);
-        $this->assertSame([100, 200, 300], $result->getFoo());
+        self::assertInstanceOf(ObjectWithArray::class, $result);
+        self::assertSame([100, 200, 300], $result->getFoo());
     }
 
     /**
      * @throws BuilderException
      * @throws ReflectionException
-     * @return null
      */
-    public function testTypedArrayInTargetClass()
+    public function testTypedArrayInTargetClass(): void
     {
         /** @var ObjectWithTypedArray $result */
         $result = JsonToObject::build(
@@ -137,16 +134,15 @@ class JsonToObjectTest extends TestCase
             ]
         );
 
-        $this->assertInstanceOf(ObjectWithTypedArray::class, $result);
-        $this->assertSame([100, 200, 300], $result->getFoo());
+        self::assertInstanceOf(ObjectWithTypedArray::class, $result);
+        self::assertSame([100, 200, 300], $result->getFoo());
     }
 
     /**
      * @throws BuilderException
      * @throws ReflectionException
-     * @return null
      */
-    public function testArrayWithObjectsInTargetClass()
+    public function testArrayWithObjectsInTargetClass(): void
     {
         $data = [
             0 => ["name" => "Bar"],
@@ -170,9 +166,8 @@ class JsonToObjectTest extends TestCase
     /**
      * @throws BuilderException
      * @throws ReflectionException
-     * @return null
      */
-    public function testArrayWithObjectsFromDifferentNamespaceInTargetClass()
+    public function testArrayWithObjectsFromDifferentNamespaceInTargetClass(): void
     {
         $barData = [
             0 => ["name" => "Bar 1"],
@@ -196,9 +191,8 @@ class JsonToObjectTest extends TestCase
     /**
      * @throws BuilderException
      * @throws ReflectionException
-     * @return null
      */
-    public function testArrayWithObjectsFromDifferentNamespacesInTargetClass()
+    public function testArrayWithObjectsFromDifferentNamespacesInTargetClass(): void
     {
         $barData = [
             0 => ["name" => "Bar 1"],
@@ -225,12 +219,13 @@ class JsonToObjectTest extends TestCase
         }
     }
 
+    // phpcs:disable ObjectCalisthenics.Files.FunctionLength.ObjectCalisthenics\Sniffs\Files\FunctionLengthSniff
+
     /**
      * @throws BuilderException
      * @throws ReflectionException
-     * @return null
      */
-    public function testAdvancedUseCase()
+    public function testAdvancedUseCase(): void
     {
         // This is a use case from a real situation:
         $json = \json_decode('{
@@ -302,7 +297,8 @@ class JsonToObjectTest extends TestCase
         self::assertInstanceOf(ResponseBody::class, $result->getBody());
         self::assertInstanceOf(ResponseTransaction::class, $result->getBody()->getTransaction());
         self::assertInstanceOf(Response::class, $result->getBody()->getPayments()[0]);
-        self::assertInstanceOf(\Payvision\SDK\Domain\Checkouts\ValueObject\Payment\ResponseBody::class,
-            $result->getBody()->getPayments()[0]->getBody());
+        self::assertInstanceOf(CheckoutResponseBody::class, $result->getBody()->getPayments()[0]->getBody());
     }
+
+    // phpcs:enable ObjectCalisthenics.Files.FunctionLength.ObjectCalisthenics\Sniffs\Files\FunctionLengthSniff
 }

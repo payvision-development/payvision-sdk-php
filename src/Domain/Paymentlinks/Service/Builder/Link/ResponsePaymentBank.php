@@ -26,45 +26,45 @@ class ResponsePaymentBank extends Basic
 
     /**
      * @param string $accountHolderName
-     * @return self
+     * @return ResponsePaymentBank
      */
-    public function setAccountHolderName(string $accountHolderName): self
+    public function setAccountHolderName(string $accountHolderName): ResponsePaymentBank
     {
         return $this->set('accountHolderName', $accountHolderName);
     }
 
     /**
      * @param string $bic
-     * @return self
+     * @return ResponsePaymentBank
      */
-    public function setBic(string $bic): self
+    public function setBic(string $bic): ResponsePaymentBank
     {
         return $this->set('bic', $bic);
     }
 
     /**
      * @param string $countryCode
-     * @return self
+     * @return ResponsePaymentBank
      */
-    public function setCountryCode(string $countryCode): self
+    public function setCountryCode(string $countryCode): ResponsePaymentBank
     {
         return $this->set('countryCode', $countryCode);
     }
 
     /**
      * @param string $iban
-     * @return self
+     * @return ResponsePaymentBank
      */
-    public function setIban(string $iban): self
+    public function setIban(string $iban): ResponsePaymentBank
     {
         return $this->set('iban', $iban);
     }
 
     /**
      * @param string $name
-     * @return self
+     * @return ResponsePaymentBank
      */
-    public function setName(string $name): self
+    public function setName(string $name): ResponsePaymentBank
     {
         return $this->set('name', $name);
     }

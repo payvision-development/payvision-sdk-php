@@ -26,63 +26,63 @@ class OrderLine extends Basic
 
     /**
      * @param string $description
-     * @return self
+     * @return OrderLine
      */
-    public function setDescription(string $description): self
+    public function setDescription(string $description): OrderLine
     {
         return $this->set('description', $description);
     }
 
     /**
      * @param float $itemAmount
-     * @return self
+     * @return OrderLine
      */
-    public function setItemAmount(float $itemAmount): self
+    public function setItemAmount(float $itemAmount): OrderLine
     {
         return $this->set('itemAmount', $itemAmount);
     }
 
     /**
      * @param string $productCode
-     * @return self
+     * @return OrderLine
      */
-    public function setProductCode(string $productCode): self
+    public function setProductCode(string $productCode): OrderLine
     {
         return $this->set('productCode', $productCode);
     }
 
     /**
      * @param string $purchaseType
-     * @return self
+     * @return OrderLine
      */
-    public function setPurchaseType(string $purchaseType): self
+    public function setPurchaseType(string $purchaseType): OrderLine
     {
         return $this->set('purchaseType', $purchaseType);
     }
 
     /**
      * @param int $quantity
-     * @return self
+     * @return OrderLine
      */
-    public function setQuantity(int $quantity): self
+    public function setQuantity(int $quantity): OrderLine
     {
         return $this->set('quantity', $quantity);
     }
 
     /**
      * @param float $taxPercentage
-     * @return self
+     * @return OrderLine
      */
-    public function setTaxPercentage(float $taxPercentage): self
+    public function setTaxPercentage(float $taxPercentage): OrderLine
     {
         return $this->set('taxPercentage', $taxPercentage);
     }
 
     /**
      * @param float $totalAmount
-     * @return self
+     * @return OrderLine
      */
-    public function setTotalAmount(float $totalAmount): self
+    public function setTotalAmount(float $totalAmount): OrderLine
     {
         return $this->set('totalAmount', $totalAmount);
     }

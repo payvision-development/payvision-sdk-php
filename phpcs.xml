@@ -1,9 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
-    @copyright Copyright (c) 2018 Payvision B.V. (https://www.payvision.com/)
+    @copyright Copyright (c) 2018-2020 Payvision B.V. (https://www.payvision.com/)
     @license see LICENCE.TXT
  -->
 <ruleset>
+    <description>PHP_CodeSniffer ruleset for Payvision PHP SDK</description>
+
     <!-- include root folder of project -->
     <file>src</file>
     <file>tests</file>
@@ -25,6 +27,10 @@
 
     <!-- PSR2 standard -->
     <rule ref="PSR2"/>
+
+    <!-- PHP compatibility -->
+    <rule ref="PHPCompatibility"/>
+    <config name="testVersion" value="7.2-"/>
 
     <!-- Extra rules -->
     <rule ref="Generic.Arrays.ArrayIndent"/>
@@ -99,17 +105,18 @@
         </properties>
     </rule>
     <rule ref="SlevomatCodingStandard.TypeHints.ReturnTypeHintSpacing"/>
-    <rule ref="SlevomatCodingStandard.TypeHints.TypeHintDeclaration.MissingParameterTypeHint"/>
-    <rule ref="SlevomatCodingStandard.TypeHints.TypeHintDeclaration.MissingPropertyTypeHint"/>
-    <rule ref="SlevomatCodingStandard.TypeHints.TypeHintDeclaration.MissingReturnTypeHint"/>
+    <rule ref="SlevomatCodingStandard.TypeHints.ReturnTypeHintSpacing"/>
+    <rule ref="SlevomatCodingStandard.TypeHints.ParameterTypeHint.MissingAnyTypeHint"/>
+    <rule ref="SlevomatCodingStandard.TypeHints.PropertyTypeHint.MissingAnyTypeHint"/>
+    <rule ref="SlevomatCodingStandard.TypeHints.ReturnTypeHint.MissingAnyTypeHint"/>
     <rule ref="SlevomatCodingStandard.TypeHints.UselessConstantTypeHint"/>
-    <rule ref="SlevomatCodingStandard.Types.EmptyLinesAroundTypeBraces">
+    <rule ref="SlevomatCodingStandard.Classes.EmptyLinesAroundClassBraces">
         <properties>
             <property name="linesCountAfterOpeningBrace" value="0"/>
             <property name="linesCountBeforeClosingBrace" value="0"/>
         </properties>
     </rule>
-    <rule ref="SlevomatCodingStandard.ControlStructures.DisallowEqualOperators"/>
+    <rule ref="SlevomatCodingStandard.Operators.DisallowEqualOperators"/>
     <rule ref="SlevomatCodingStandard.ControlStructures.DisallowYodaComparison"/>
     <rule ref="SlevomatCodingStandard.ControlStructures.RequireShortTernaryOperator"/>
     <rule ref="SlevomatCodingStandard.PHP.TypeCast"/>

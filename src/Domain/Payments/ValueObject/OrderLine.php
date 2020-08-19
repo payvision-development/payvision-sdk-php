@@ -80,7 +80,7 @@ class OrderLine
     /**
      * @return string
      */
-    public function getDescription()
+    public function getDescription(): string
     {
         return $this->description;
     }
@@ -88,7 +88,7 @@ class OrderLine
     /**
      * @return float
      */
-    public function getItemAmount()
+    public function getItemAmount(): float
     {
         return $this->itemAmount;
     }
@@ -96,7 +96,7 @@ class OrderLine
     /**
      * @return string
      */
-    public function getProductCode()
+    public function getProductCode(): string
     {
         return $this->productCode;
     }
@@ -104,7 +104,7 @@ class OrderLine
     /**
      * @return string
      */
-    public function getPurchaseType()
+    public function getPurchaseType(): string
     {
         return $this->purchaseType;
     }
@@ -112,7 +112,7 @@ class OrderLine
     /**
      * @return int
      */
-    public function getQuantity()
+    public function getQuantity(): int
     {
         return $this->quantity;
     }
@@ -120,7 +120,7 @@ class OrderLine
     /**
      * @return float
      */
-    public function getTaxPercentage()
+    public function getTaxPercentage(): float
     {
         return $this->taxPercentage;
     }
@@ -128,7 +128,7 @@ class OrderLine
     /**
      * @return float|null
      */
-    public function getTotalAmount()
+    public function getTotalAmount(): ?float
     {
         return $this->totalAmount;
     }

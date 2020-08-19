@@ -13,13 +13,13 @@ namespace Payvision\SDK\Domain\Paymentlinks\ValueObject\Link;
 
 class ResponseLink
 {
-    const READY = 'READY';
-    const PAID = 'PAID';
-    const CANCELLED = 'CANCELLED';
-    const DECLINED = 'DECLINED';
-    const DECLINEDBYCUSTOMER = 'DECLINEDBYCUSTOMER';
-    const EXPIRED = 'EXPIRED';
-    const PENDING = 'PENDING';
+    public const READY = 'READY';
+    public const PAID = 'PAID';
+    public const CANCELLED = 'CANCELLED';
+    public const DECLINED = 'DECLINED';
+    public const DECLINEDBYCUSTOMER = 'DECLINEDBYCUSTOMER';
+    public const EXPIRED = 'EXPIRED';
+    public const PENDING = 'PENDING';
 
     /**
      * @var int[]
@@ -72,7 +72,7 @@ class ResponseLink
     /**
      * @return int[]
      */
-    public function getBrandIds()
+    public function getBrandIds(): array
     {
         return $this->brandIds;
     }
@@ -80,7 +80,7 @@ class ResponseLink
     /**
      * @return \Payvision\SDK\DataType\DateTime
      */
-    public function getExpirationTime()
+    public function getExpirationTime(): \Payvision\SDK\DataType\DateTime
     {
         return $this->expirationTime;
     }
@@ -88,7 +88,7 @@ class ResponseLink
     /**
      * @return string
      */
-    public function getLinkId()
+    public function getLinkId(): string
     {
         return $this->linkId;
     }
@@ -96,7 +96,7 @@ class ResponseLink
     /**
      * @return ResponseRedirect
      */
-    public function getRedirect()
+    public function getRedirect(): ResponseRedirect
     {
         return $this->redirect;
     }
@@ -104,7 +104,7 @@ class ResponseLink
     /**
      * @return string
      */
-    public function getStatus()
+    public function getStatus(): string
     {
         return $this->status;
     }

@@ -26,99 +26,99 @@ class ResponsePaymentCard extends Basic
 
     /**
      * @param string $approvalCode
-     * @return self
+     * @return ResponsePaymentCard
      */
-    public function setApprovalCode(string $approvalCode): self
+    public function setApprovalCode(string $approvalCode): ResponsePaymentCard
     {
         return $this->set('approvalCode', $approvalCode);
     }
 
     /**
      * @param string $avsAuthorizationEntity
-     * @return self
+     * @return ResponsePaymentCard
      */
-    public function setAvsAuthorizationEntity(string $avsAuthorizationEntity): self
+    public function setAvsAuthorizationEntity(string $avsAuthorizationEntity): ResponsePaymentCard
     {
         return $this->set('avsAuthorizationEntity', $avsAuthorizationEntity);
     }
 
     /**
      * @param string $avsResult
-     * @return self
+     * @return ResponsePaymentCard
      */
-    public function setAvsResult(string $avsResult): self
+    public function setAvsResult(string $avsResult): ResponsePaymentCard
     {
         return $this->set('avsResult', $avsResult);
     }
 
     /**
      * @param string $cvvResult
-     * @return self
+     * @return ResponsePaymentCard
      */
-    public function setCvvResult(string $cvvResult): self
+    public function setCvvResult(string $cvvResult): ResponsePaymentCard
     {
         return $this->set('cvvResult', $cvvResult);
     }
 
     /**
      * @param string $expiryMonth
-     * @return self
+     * @return ResponsePaymentCard
      */
-    public function setExpiryMonth(string $expiryMonth): self
+    public function setExpiryMonth(string $expiryMonth): ResponsePaymentCard
     {
         return $this->set('expiryMonth', $expiryMonth);
     }
 
     /**
      * @param string $expiryYear
-     * @return self
+     * @return ResponsePaymentCard
      */
-    public function setExpiryYear(string $expiryYear): self
+    public function setExpiryYear(string $expiryYear): ResponsePaymentCard
     {
         return $this->set('expiryYear', $expiryYear);
     }
 
     /**
      * @param string $firstSixDigits
-     * @return self
+     * @return ResponsePaymentCard
      */
-    public function setFirstSixDigits(string $firstSixDigits): self
+    public function setFirstSixDigits(string $firstSixDigits): ResponsePaymentCard
     {
         return $this->set('firstSixDigits', $firstSixDigits);
     }
 
     /**
      * @param string $holderName
-     * @return self
+     * @return ResponsePaymentCard
      */
-    public function setHolderName(string $holderName): self
+    public function setHolderName(string $holderName): ResponsePaymentCard
     {
         return $this->set('holderName', $holderName);
     }
 
     /**
      * @param string $lastFourDigits
-     * @return self
+     * @return ResponsePaymentCard
      */
-    public function setLastFourDigits(string $lastFourDigits): self
+    public function setLastFourDigits(string $lastFourDigits): ResponsePaymentCard
     {
         return $this->set('lastFourDigits', $lastFourDigits);
     }
 
     /**
      * @param string $recurringAdvice
-     * @return self
+     * @return ResponsePaymentCard
      */
-    public function setRecurringAdvice(string $recurringAdvice): self
+    public function setRecurringAdvice(string $recurringAdvice): ResponsePaymentCard
     {
         return $this->set('recurringAdvice', $recurringAdvice);
     }
 
     /**
      * @param string $threeDResult
-     * @return self
+     * @return ResponsePaymentCard
      */
-    public function setThreeDResult(string $threeDResult): self
+    public function setThreeDResult(string $threeDResult): ResponsePaymentCard
     {
         return $this->set('threeDResult', $threeDResult);
     }

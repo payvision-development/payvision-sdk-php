@@ -61,7 +61,7 @@ class ResponseBody
     /**
      * @return ResponseCheckout|null
      */
-    public function getCheckout()
+    public function getCheckout(): ?ResponseCheckout
     {
         return $this->checkout;
     }
@@ -69,7 +69,7 @@ class ResponseBody
     /**
      * @return Error|null
      */
-    public function getError()
+    public function getError(): ?Error
     {
         return $this->error;
     }
@@ -77,7 +77,7 @@ class ResponseBody
     /**
      * @return Response[]|null
      */
-    public function getPayments()
+    public function getPayments(): ?array
     {
         return $this->payments;
     }
@@ -85,7 +85,7 @@ class ResponseBody
     /**
      * @return ResponseTransaction|null
      */
-    public function getTransaction()
+    public function getTransaction(): ?ResponseTransaction
     {
         return $this->transaction;
     }

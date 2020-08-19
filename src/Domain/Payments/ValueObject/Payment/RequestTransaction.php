@@ -160,7 +160,7 @@ class RequestTransaction
     /**
      * @return float
      */
-    public function getAmount()
+    public function getAmount(): float
     {
         return $this->amount;
     }
@@ -168,7 +168,7 @@ class RequestTransaction
     /**
      * @return string
      */
-    public function getTrackingCode()
+    public function getTrackingCode(): string
     {
         return $this->trackingCode;
     }
@@ -176,7 +176,7 @@ class RequestTransaction
     /**
      * @return string
      */
-    public function getCurrencyCode()
+    public function getCurrencyCode(): string
     {
         return $this->currencyCode;
     }
@@ -184,7 +184,7 @@ class RequestTransaction
     /**
      * @return string|null
      */
-    public function getReturnUrl()
+    public function getReturnUrl(): ?string
     {
         return $this->returnUrl;
     }
@@ -192,7 +192,7 @@ class RequestTransaction
     /**
      * @return bool|null
      */
-    public function getTokenize()
+    public function getTokenize(): ?bool
     {
         return $this->tokenize;
     }
@@ -200,7 +200,7 @@ class RequestTransaction
     /**
      * @return string|null
      */
-    public function getToken()
+    public function getToken(): ?string
     {
         return $this->token;
     }
@@ -208,7 +208,7 @@ class RequestTransaction
     /**
      * @return int|null
      */
-    public function getStoreId()
+    public function getStoreId(): ?int
     {
         return $this->storeId;
     }
@@ -216,7 +216,7 @@ class RequestTransaction
     /**
      * @return string|null
      */
-    public function getSource()
+    public function getSource(): ?string
     {
         return $this->source;
     }
@@ -224,7 +224,7 @@ class RequestTransaction
     /**
      * @return int|null
      */
-    public function getPayTimeout()
+    public function getPayTimeout(): ?int
     {
         return $this->payTimeout;
     }
@@ -232,7 +232,7 @@ class RequestTransaction
     /**
      * @return string|null
      */
-    public function getPurchaseId()
+    public function getPurchaseId(): ?string
     {
         return $this->purchaseId;
     }
@@ -240,7 +240,7 @@ class RequestTransaction
     /**
      * @return int|null
      */
-    public function getBrandId()
+    public function getBrandId(): ?int
     {
         return $this->brandId;
     }
@@ -248,7 +248,7 @@ class RequestTransaction
     /**
      * @return string|null
      */
-    public function getNotifyUrl()
+    public function getNotifyUrl(): ?string
     {
         return $this->notifyUrl;
     }
@@ -256,7 +256,7 @@ class RequestTransaction
     /**
      * @return string|null
      */
-    public function getLanguageCode()
+    public function getLanguageCode(): ?string
     {
         return $this->languageCode;
     }
@@ -264,7 +264,7 @@ class RequestTransaction
     /**
      * @return string|null
      */
-    public function getInvoiceId()
+    public function getInvoiceId(): ?string
     {
         return $this->invoiceId;
     }
@@ -272,7 +272,7 @@ class RequestTransaction
     /**
      * @return string|null
      */
-    public function getDescriptor()
+    public function getDescriptor(): ?string
     {
         return $this->descriptor;
     }
@@ -280,7 +280,7 @@ class RequestTransaction
     /**
      * @return string|null
      */
-    public function getCountryCode()
+    public function getCountryCode(): ?string
     {
         return $this->countryCode;
     }
@@ -288,7 +288,7 @@ class RequestTransaction
     /**
      * @return string|null
      */
-    public function getType()
+    public function getType(): ?string
     {
         return $this->type;
     }

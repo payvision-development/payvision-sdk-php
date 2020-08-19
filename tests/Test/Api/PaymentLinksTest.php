@@ -3,7 +3,7 @@
 declare(strict_types=1);
 
 /**
- * @copyright Copyright (c) 2018-2019 Payvision B.V. (https://www.payvision.com/)
+ * @copyright Copyright (c) 2018-2020 Payvision B.V. (https://www.payvision.com/)
  * @license see LICENCE.TXT
  */
 
@@ -19,7 +19,7 @@ use Payvision\SDK\Domain\Paymentlinks\ValueObject\Status\Response as StatusRespo
 use Payvision\SDK\Exception\Api\ErrorResponse;
 use Payvision\SDK\Exception\ApiException;
 use Payvision\SDK\Exception\BuilderException;
-use Payvision\SDK\Exception\DataTypeException;
+use ReflectionException;
 
 class PaymentLinksTest extends AbstractTestCase
 {
@@ -33,11 +33,7 @@ class PaymentLinksTest extends AbstractTestCase
      */
     private $cancelRequestBuilder;
 
-    /**
-     * @return null
-     * @throws DataTypeException
-     */
-    protected function setUp()
+    protected function setUp(): void
     {
         parent::setUp();
 
@@ -46,14 +42,16 @@ class PaymentLinksTest extends AbstractTestCase
     }
 
     /**
-     * @throws ApiException
-     * @throws ErrorResponse
-     * @throws BuilderException
      * @return LinkResponse
+     * @throws BuilderException
+     * @throws ErrorResponse
+     * @throws ReflectionException
+     * @throws ApiException
      */
     public function testMakePaymentLinkRequest(): LinkResponse
     {
         $this->linkRequestBuilder->header()->setBusinessId($this->credentials['businessId']);
+        $this->linkRequestBuilder->body()->transaction()->setStoreId(1);
         $this->linkRequestBuilder->body()->link()
             ->setReturnUrl('https://www.example.com')
             ->setBrandIds([1010, 1011, 1020, 1030, 1050, 3010]);
@@ -81,10 +79,10 @@ class PaymentLinksTest extends AbstractTestCase
      * @throws ApiException
      * @throws BuilderException
      * @throws ErrorResponse
+     * @throws ReflectionException
      * @depends testMakePaymentLinkRequest
-     * @return null
      */
-    public function testGetPaymentLinkStatus(LinkResponse $response)
+    public function testGetPaymentLinkStatus(LinkResponse $response): void
     {
         $apiRequest = RequestBuilder::getLinkStatus(
             $response->getBody()->getLink()->getLinkId(),
@@ -103,10 +101,10 @@ class PaymentLinksTest extends AbstractTestCase
      * @throws ApiException
      * @throws BuilderException
      * @throws ErrorResponse
+     * @throws ReflectionException
      * @depends testMakePaymentLinkRequest
-     * @return null
      */
-    public function testCancelPaymentLink(LinkResponse $response)
+    public function testCancelPaymentLink(LinkResponse $response): void
     {
         $this->cancelRequestBuilder->header()->setBusinessId($this->credentials['businessId']);
         $cancelRequest = $this->cancelRequestBuilder->build();

@@ -38,108 +38,108 @@ class RequestBody extends Basic
 
     /**
      * @param RequestTransaction $transaction
-     * @return self
+     * @return RequestBody
      */
-    public function setTransaction(RequestTransaction $transaction): self
+    public function setTransaction(RequestTransaction $transaction): RequestBody
     {
         return $this->set('transaction', $transaction);
     }
 
     /**
      * @param RequestBank $bank
-     * @return self
+     * @return RequestBody
      */
-    public function setBank(RequestBank $bank): self
+    public function setBank(RequestBank $bank): RequestBody
     {
         return $this->set('bank', $bank);
     }
 
     /**
      * @param RequestBillingAddress $billingAddress
-     * @return self
+     * @return RequestBody
      */
-    public function setBillingAddress(RequestBillingAddress $billingAddress): self
+    public function setBillingAddress(RequestBillingAddress $billingAddress): RequestBody
     {
         return $this->set('billingAddress', $billingAddress);
     }
 
     /**
      * @param RequestCard $card
-     * @return self
+     * @return RequestBody
      */
-    public function setCard(RequestCard $card): self
+    public function setCard(RequestCard $card): RequestBody
     {
         return $this->set('card', $card);
     }
 
     /**
      * @param Customer $customer
-     * @return self
+     * @return RequestBody
      */
-    public function setCustomer(Customer $customer): self
+    public function setCustomer(Customer $customer): RequestBody
     {
         return $this->set('customer', $customer);
     }
 
     /**
      * @param RequestDba $dba
-     * @return self
+     * @return RequestBody
      */
-    public function setDba(RequestDba $dba): self
+    public function setDba(RequestDba $dba): RequestBody
     {
         return $this->set('dba', $dba);
     }
 
     /**
      * @param RequestOption $option
-     * @return self
+     * @return RequestBody
      */
-    public function setOption(RequestOption $option): self
+    public function setOption(RequestOption $option): RequestBody
     {
         return $this->set('option', $option);
     }
 
     /**
      * @param Order $order
-     * @return self
+     * @return RequestBody
      */
-    public function setOrder(Order $order): self
+    public function setOrder(Order $order): RequestBody
     {
         return $this->set('order', $order);
     }
 
     /**
      * @param RequestQr $qr
-     * @return self
+     * @return RequestBody
      */
-    public function setQr(RequestQr $qr): self
+    public function setQr(RequestQr $qr): RequestBody
     {
         return $this->set('qr', $qr);
     }
 
     /**
      * @param RequestShippingAddress $shippingAddress
-     * @return self
+     * @return RequestBody
      */
-    public function setShippingAddress(RequestShippingAddress $shippingAddress): self
+    public function setShippingAddress(RequestShippingAddress $shippingAddress): RequestBody
     {
         return $this->set('shippingAddress', $shippingAddress);
     }
 
     /**
      * @param RequestThreeDSecure $threeDSecure
-     * @return self
+     * @return RequestBody
      */
-    public function setThreeDSecure(RequestThreeDSecure $threeDSecure): self
+    public function setThreeDSecure(RequestThreeDSecure $threeDSecure): RequestBody
     {
         return $this->set('threeDSecure', $threeDSecure);
     }
 
     /**
      * @param RequestWallet $wallet
-     * @return self
+     * @return RequestBody
      */
-    public function setWallet(RequestWallet $wallet): self
+    public function setWallet(RequestWallet $wallet): RequestBody
     {
         return $this->set('wallet', $wallet);
     }

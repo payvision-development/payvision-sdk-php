@@ -3,7 +3,7 @@
 declare(strict_types=1);
 
 /**
- * @copyright Copyright (c) 2018-2019 Payvision B.V. (https://www.payvision.com/)
+ * @copyright Copyright (c) 2018-2020 Payvision B.V. (https://www.payvision.com/)
  * @license see LICENCE.TXT
  */
 
@@ -18,166 +18,166 @@ use Payvision\SDK\Exception\DataTypeException;
  */
 class CurrencyCode extends AbstractCode implements DataType
 {
-    const UAE_DIRHAM = "AED";
-    const AFGHANI = "AFN";
-    const ALBANIAN_LEK = "ALL";
-    const ARMENIAN_DRAM = "AMD";
-    const NETHERLANDS_ANTILLIAN_GUILDER = "ANG";
-    const KWANZA = "AOA";
-    const ARGENTINE_PESO = "ARS";
-    const AUSTRALIAN_DOLLAR = "AUD";
-    const ARUBAN_GUILDER = "AWG";
-    const AZERBAIJANIAN_NEW_MANAT = "AZN";
-    const CONVERTIBLE_MARKS = "BAM";
-    const BARBADOS_DOLLAR = "BBD";
-    const TAKA = "BDT";
-    const BULGARIAN_LEV = "BGN";
-    const BAHRAINI_DINAR = "BHD";
-    const BURUNDI_FRANC = "BIF";
-    const BERMUDA_DOLLAR = "BMD";
-    const BRUNEI_DOLLAR = "BND";
-    const BOLIVIANO = "BOB";
-    const MVDOL = "BOV";
-    const BRAZILIAN_REAL = "BRL";
-    const BAHAMIAN_DOLLAR = "BSD";
-    const NGULTRUM = "BTN";
-    const PULA = "BWP";
-    const BELARUSSIAN_RUBLE = "BYN";
-    const BELIZE_DOLLAR = "BZD";
-    const CANADIAN_DOLLAR = "CAD";
-    const CONGO_FRANCS = "CDF";
-    const SWISS_FRANC = "CHF";
-    const UNIDADES_DE_FOMENTO = "CLF";
-    const CHILEAN_PESO = "CLP";
-    const YUAN_RENMINBI = "CNY";
-    const COLOMBIAN_PESO = "COP";
-    const COSTA_RICAN_COLON = "CRC";
-    const CUBAN_CONVERTIBLE_PESO = "CUC";
-    const CUBAN_PESO = "CUP";
-    const CAPE_VERDE_ESCUDO = "CVE";
-    const CZECH_KORUNA = "CZK";
-    const DJIBOUTI_FRANC = "DJF";
-    const DANISH_KRONE = "DKK";
-    const DOMINICAN_PESO = "DOP";
-    const ALGERIAN_DINAR = "DZD";
-    const EGYPTIAN_POUND = "EGP";
-    const NAKFA = "ERN";
-    const ETHIOPIAN_BIRR = "ETB";
-    const EURO = "EUR";
-    const FIJI_DOLLAR = "FJD";
-    const FALKLAND_ISLANDS_POUND = "FKP";
-    const POUND_STERLING = "GBP";
-    const GEORGIAN_LARI = "GEL";
-    const GHANA_CEDI = "GHS";
-    const GIBRALTAR_POUND = "GIP";
-    const DALASI = "GMD";
-    const GUINEA_FRANC = "GNF";
-    const QUETZAL = "GTQ";
-    const GUYANA_DOLLAR = "GYD";
-    const HONG_KONG_DOLLAR = "HKD";
-    const LEMPIRA = "HNL";
-    const KUNA = "HRK";
-    const GOURDE = "HTG";
-    const FORINT = "HUF";
-    const RUPIAH = "IDR";
-    const SHEKEL = "ILS";
-    const INDIAN_RUPEE = "INR";
-    const IRAQI_DINAR = "IQD";
-    const IRANIAN_RIAL = "IRR";
-    const ICELAND_KRONA = "ISK";
-    const JAMAICAN_DOLLAR = "JMD";
-    const JORDANIAN_DINAR = "JOD";
-    const YEN = "JPY";
-    const KENYAN_SHILLING = "KES";
-    const SOM = "KGS";
-    const RIEL = "KHR";
-    const COMORO_FRANC = "KMF";
-    const NORTH_KOREAN_WON = "KPW";
-    const KOREAN_WON = "KRW";
-    const KUWAITI_DINAR = "KWD";
-    const CAYMAN_ISLANDS_DOLLAR = "KYD";
-    const KAZAKHSTANIAN_TENGE = "KZT";
-    const KIP = "LAK";
-    const LEBANESE_POUND = "LBP";
-    const SRI_LANKA_RUPEE = "LKR";
-    const LIBERIAN_DOLLAR = "LRD";
-    const LOTI = "LSL";
-    const LIBYAN_DINAR = "LYD";
-    const MOROCCAN_DIRHAM = "MAD";
-    const MOLDOVAN_LEU = "MDL";
-    const MALAGASY_AGIARY = "MGA";
-    const MACEDONIAN_DENAR = "MKD";
-    const KYAT = "MMK";
-    const TUGRIK = "MNT";
-    const PATACA = "MOP";
-    const OUGUIYA = "MRU";
-    const MAURITIUS_RUPEE = "MUR";
-    const RUFIYAA = "MVR";
-    const KWACHA = "MWK";
-    const MEXICAN_PESO = "MXN";
-    const MALAYSIAN_RINGGIT = "MYR";
-    const METICAL = "MZN";
-    const NAMIBIAN_DOLLAR = "NAD";
-    const NAIRA = "NGN";
-    const CORDOBA_ORO = "NIO";
-    const NORWEGIAN_KRONE = "NOK";
-    const NEPALESE_RUPEE = "NPR";
-    const NEW_ZEALAND_DOLLAR = "NZD";
-    const RIAL_OMANI = "OMR";
-    const BALBOA = "PAB";
-    const NUEVO_SOL = "PEN";
-    const KINA = "PGK";
-    const PHILIPPINE_PESO = "PHP";
-    const PAKISTAN_RUPEE = "PKR";
-    const ZLOTY = "PLN";
-    const GUARANI = "PYG";
-    const QATARI_RIAL = "QAR";
-    const ROMANIAN_LEU = "RON";
-    const SERBIAN_DINAR = "RSD";
-    const RUSSIAN_RUBLE = "RUB";
-    const RWANDA_FRANC = "RWF";
-    const SAUDI_RIYAL = "SAR";
-    const SOLOMON_ISLANDS_DOLLAR = "SBD";
-    const SEYCHELLES_RUPEE = "SCR";
-    const SUDANESE_POUND = "SDG";
-    const SWEDISH_KRONA = "SEK";
-    const SINGAPORE_DOLLAR = "SGD";
-    const SAINT_HELENA_POUND = "SHP";
-    const LEONE = "SLL";
-    const SOMALI_SHILLING = "SOS";
-    const SURINAM_DOLLAR = "SRD";
-    const SOUTH_SUDANESE_POUND = "SSP";
-    const DOBRA = "STN";
-    const EL_SALVADOR_COLON = "SVC";
-    const SYRIAN_POUND = "SYP";
-    const LILANGENI = "SZL";
-    const BAHT = "THB";
-    const SOMONI = "TJS";
-    const TURKMENISTANI_MANAT = "TMT";
-    const TUNISIAN_DINAR = "TND";
-    const PAANGA = "TOP";
-    const NEW_TURKISH_LIRA = "TRY";
-    const TRINIDAD_AND_TOBAGO_DOLLAR = "TTD";
-    const NEW_TAIWAN_DOLLAR = "TWD";
-    const TANZANIAN_SHILLING = "TZS";
-    const UKRAINIAN_HRYVNA = "UAH";
-    const UGANDA_SHILLING = "UGX";
-    const US_DOLLAR = "USD";
-    const URUGUAYAN_PESO = "UYU";
-    const UZBEKISTAN_SUM = "UZS";
-    const VENEZUELAN_BOLIVAR_FUERTE = "VEF";
-    const DONG = "VND";
-    const VATU = "VUV";
-    const TALA = "WST";
-    const CFA_FRANC_BEAC = "XAF";
-    const EAST_CARIBBEAN_DOLLAR = "XCD";
-    const SDR_SPECIAL_DRAWING_RIGHT = "XDR";
-    const CFA_FRANC_BCEAO = "XOF";
-    const CFP_FRANC = "XPF";
-    const YEMENI_RIAL = "YER";
-    const SOUTH_AFRICAN_RAND = "ZAR";
-    const ZAMBIA_KWACHA = "ZMW";
-    const ZIMBABWE_DOLLAR = "ZWL";
+    public const UAE_DIRHAM = "AED";
+    public const AFGHANI = "AFN";
+    public const ALBANIAN_LEK = "ALL";
+    public const ARMENIAN_DRAM = "AMD";
+    public const NETHERLANDS_ANTILLIAN_GUILDER = "ANG";
+    public const KWANZA = "AOA";
+    public const ARGENTINE_PESO = "ARS";
+    public const AUSTRALIAN_DOLLAR = "AUD";
+    public const ARUBAN_GUILDER = "AWG";
+    public const AZERBAIJANIAN_NEW_MANAT = "AZN";
+    public const CONVERTIBLE_MARKS = "BAM";
+    public const BARBADOS_DOLLAR = "BBD";
+    public const TAKA = "BDT";
+    public const BULGARIAN_LEV = "BGN";
+    public const BAHRAINI_DINAR = "BHD";
+    public const BURUNDI_FRANC = "BIF";
+    public const BERMUDA_DOLLAR = "BMD";
+    public const BRUNEI_DOLLAR = "BND";
+    public const BOLIVIANO = "BOB";
+    public const MVDOL = "BOV";
+    public const BRAZILIAN_REAL = "BRL";
+    public const BAHAMIAN_DOLLAR = "BSD";
+    public const NGULTRUM = "BTN";
+    public const PULA = "BWP";
+    public const BELARUSSIAN_RUBLE = "BYN";
+    public const BELIZE_DOLLAR = "BZD";
+    public const CANADIAN_DOLLAR = "CAD";
+    public const CONGO_FRANCS = "CDF";
+    public const SWISS_FRANC = "CHF";
+    public const UNIDADES_DE_FOMENTO = "CLF";
+    public const CHILEAN_PESO = "CLP";
+    public const YUAN_RENMINBI = "CNY";
+    public const COLOMBIAN_PESO = "COP";
+    public const COSTA_RICAN_COLON = "CRC";
+    public const CUBAN_CONVERTIBLE_PESO = "CUC";
+    public const CUBAN_PESO = "CUP";
+    public const CAPE_VERDE_ESCUDO = "CVE";
+    public const CZECH_KORUNA = "CZK";
+    public const DJIBOUTI_FRANC = "DJF";
+    public const DANISH_KRONE = "DKK";
+    public const DOMINICAN_PESO = "DOP";
+    public const ALGERIAN_DINAR = "DZD";
+    public const EGYPTIAN_POUND = "EGP";
+    public const NAKFA = "ERN";
+    public const ETHIOPIAN_BIRR = "ETB";
+    public const EURO = "EUR";
+    public const FIJI_DOLLAR = "FJD";
+    public const FALKLAND_ISLANDS_POUND = "FKP";
+    public const POUND_STERLING = "GBP";
+    public const GEORGIAN_LARI = "GEL";
+    public const GHANA_CEDI = "GHS";
+    public const GIBRALTAR_POUND = "GIP";
+    public const DALASI = "GMD";
+    public const GUINEA_FRANC = "GNF";
+    public const QUETZAL = "GTQ";
+    public const GUYANA_DOLLAR = "GYD";
+    public const HONG_KONG_DOLLAR = "HKD";
+    public const LEMPIRA = "HNL";
+    public const KUNA = "HRK";
+    public const GOURDE = "HTG";
+    public const FORINT = "HUF";
+    public const RUPIAH = "IDR";
+    public const SHEKEL = "ILS";
+    public const INDIAN_RUPEE = "INR";
+    public const IRAQI_DINAR = "IQD";
+    public const IRANIAN_RIAL = "IRR";
+    public const ICELAND_KRONA = "ISK";
+    public const JAMAICAN_DOLLAR = "JMD";
+    public const JORDANIAN_DINAR = "JOD";
+    public const YEN = "JPY";
+    public const KENYAN_SHILLING = "KES";
+    public const SOM = "KGS";
+    public const RIEL = "KHR";
+    public const COMORO_FRANC = "KMF";
+    public const NORTH_KOREAN_WON = "KPW";
+    public const KOREAN_WON = "KRW";
+    public const KUWAITI_DINAR = "KWD";
+    public const CAYMAN_ISLANDS_DOLLAR = "KYD";
+    public const KAZAKHSTANIAN_TENGE = "KZT";
+    public const KIP = "LAK";
+    public const LEBANESE_POUND = "LBP";
+    public const SRI_LANKA_RUPEE = "LKR";
+    public const LIBERIAN_DOLLAR = "LRD";
+    public const LOTI = "LSL";
+    public const LIBYAN_DINAR = "LYD";
+    public const MOROCCAN_DIRHAM = "MAD";
+    public const MOLDOVAN_LEU = "MDL";
+    public const MALAGASY_AGIARY = "MGA";
+    public const MACEDONIAN_DENAR = "MKD";
+    public const KYAT = "MMK";
+    public const TUGRIK = "MNT";
+    public const PATACA = "MOP";
+    public const OUGUIYA = "MRU";
+    public const MAURITIUS_RUPEE = "MUR";
+    public const RUFIYAA = "MVR";
+    public const KWACHA = "MWK";
+    public const MEXICAN_PESO = "MXN";
+    public const MALAYSIAN_RINGGIT = "MYR";
+    public const METICAL = "MZN";
+    public const NAMIBIAN_DOLLAR = "NAD";
+    public const NAIRA = "NGN";
+    public const CORDOBA_ORO = "NIO";
+    public const NORWEGIAN_KRONE = "NOK";
+    public const NEPALESE_RUPEE = "NPR";
+    public const NEW_ZEALAND_DOLLAR = "NZD";
+    public const RIAL_OMANI = "OMR";
+    public const BALBOA = "PAB";
+    public const NUEVO_SOL = "PEN";
+    public const KINA = "PGK";
+    public const PHILIPPINE_PESO = "PHP";
+    public const PAKISTAN_RUPEE = "PKR";
+    public const ZLOTY = "PLN";
+    public const GUARANI = "PYG";
+    public const QATARI_RIAL = "QAR";
+    public const ROMANIAN_LEU = "RON";
+    public const SERBIAN_DINAR = "RSD";
+    public const RUSSIAN_RUBLE = "RUB";
+    public const RWANDA_FRANC = "RWF";
+    public const SAUDI_RIYAL = "SAR";
+    public const SOLOMON_ISLANDS_DOLLAR = "SBD";
+    public const SEYCHELLES_RUPEE = "SCR";
+    public const SUDANESE_POUND = "SDG";
+    public const SWEDISH_KRONA = "SEK";
+    public const SINGAPORE_DOLLAR = "SGD";
+    public const SAINT_HELENA_POUND = "SHP";
+    public const LEONE = "SLL";
+    public const SOMALI_SHILLING = "SOS";
+    public const SURINAM_DOLLAR = "SRD";
+    public const SOUTH_SUDANESE_POUND = "SSP";
+    public const DOBRA = "STN";
+    public const EL_SALVADOR_COLON = "SVC";
+    public const SYRIAN_POUND = "SYP";
+    public const LILANGENI = "SZL";
+    public const BAHT = "THB";
+    public const SOMONI = "TJS";
+    public const TURKMENISTANI_MANAT = "TMT";
+    public const TUNISIAN_DINAR = "TND";
+    public const PAANGA = "TOP";
+    public const NEW_TURKISH_LIRA = "TRY";
+    public const TRINIDAD_AND_TOBAGO_DOLLAR = "TTD";
+    public const NEW_TAIWAN_DOLLAR = "TWD";
+    public const TANZANIAN_SHILLING = "TZS";
+    public const UKRAINIAN_HRYVNA = "UAH";
+    public const UGANDA_SHILLING = "UGX";
+    public const US_DOLLAR = "USD";
+    public const URUGUAYAN_PESO = "UYU";
+    public const UZBEKISTAN_SUM = "UZS";
+    public const VENEZUELAN_BOLIVAR_FUERTE = "VEF";
+    public const DONG = "VND";
+    public const VATU = "VUV";
+    public const TALA = "WST";
+    public const CFA_FRANC_BEAC = "XAF";
+    public const EAST_CARIBBEAN_DOLLAR = "XCD";
+    public const SDR_SPECIAL_DRAWING_RIGHT = "XDR";
+    public const CFA_FRANC_BCEAO = "XOF";
+    public const CFP_FRANC = "XPF";
+    public const YEMENI_RIAL = "YER";
+    public const SOUTH_AFRICAN_RAND = "ZAR";
+    public const ZAMBIA_KWACHA = "ZMW";
+    public const ZIMBABWE_DOLLAR = "ZWL";
 
     /**
      * @var string
@@ -198,9 +198,8 @@ class CurrencyCode extends AbstractCode implements DataType
     /**
      * @param string $currencyCode
      * @throws DataTypeException
-     * @return null
      */
-    public function set(string $currencyCode = null)
+    public function set(string $currencyCode = null): void
     {
         if ($currencyCode !== null && !\array_key_exists($currencyCode, $this->getConstants())) {
             throw new DataTypeException(
@@ -212,15 +211,11 @@ class CurrencyCode extends AbstractCode implements DataType
         $this->currencyCode = $currencyCode;
     }
 
-    // phpcs:disable SlevomatCodingStandard.TypeHints.TypeHintDeclaration.MissingReturnTypeHint
-
     /**
      * @return string|null
      */
-    public function get()
+    public function get(): ?string
     {
         return $this->currencyCode;
     }
-
-    // phpcs:enable SlevomatCodingStandard.TypeHints.TypeHintDeclaration.MissingReturnTypeHint
 }

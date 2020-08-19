@@ -13,8 +13,8 @@ namespace Payvision\SDK\Domain\Paymentlinks\ValueObject\Link;
 
 class RequestTransaction
 {
-    const AUTHORIZATION_MODE_AUTHORIZE = 'authorize';
-    const AUTHORIZATION_MODE_PAYMENT = 'payment';
+    public const AUTHORIZATION_MODE_AUTHORIZE = 'authorize';
+    public const AUTHORIZATION_MODE_PAYMENT = 'payment';
 
     /**
      * @var float
@@ -99,7 +99,7 @@ class RequestTransaction
     /**
      * @return float
      */
-    public function getAmount()
+    public function getAmount(): float
     {
         return $this->amount;
     }
@@ -107,7 +107,7 @@ class RequestTransaction
     /**
      * @return string
      */
-    public function getAuthorizationMode()
+    public function getAuthorizationMode(): string
     {
         return $this->authorizationMode;
     }
@@ -115,7 +115,7 @@ class RequestTransaction
     /**
      * @return string
      */
-    public function getCurrencyCode()
+    public function getCurrencyCode(): string
     {
         return $this->currencyCode;
     }
@@ -123,7 +123,7 @@ class RequestTransaction
     /**
      * @return string
      */
-    public function getTrackingCode()
+    public function getTrackingCode(): string
     {
         return $this->trackingCode;
     }
@@ -131,7 +131,7 @@ class RequestTransaction
     /**
      * @return string|null
      */
-    public function getCountryCode()
+    public function getCountryCode(): ?string
     {
         return $this->countryCode;
     }
@@ -139,7 +139,7 @@ class RequestTransaction
     /**
      * @return string|null
      */
-    public function getDescriptor()
+    public function getDescriptor(): ?string
     {
         return $this->descriptor;
     }
@@ -147,7 +147,7 @@ class RequestTransaction
     /**
      * @return string|null
      */
-    public function getInvoiceId()
+    public function getInvoiceId(): ?string
     {
         return $this->invoiceId;
     }
@@ -155,7 +155,7 @@ class RequestTransaction
     /**
      * @return int|null
      */
-    public function getStoreId()
+    public function getStoreId(): ?int
     {
         return $this->storeId;
     }
@@ -163,7 +163,7 @@ class RequestTransaction
     /**
      * @return string|null
      */
-    public function getType()
+    public function getType(): ?string
     {
         return $this->type;
     }

@@ -26,18 +26,18 @@ class ResponsePaymentError extends Basic
 
     /**
      * @param int $code
-     * @return self
+     * @return ResponsePaymentError
      */
-    public function setCode(int $code): self
+    public function setCode(int $code): ResponsePaymentError
     {
         return $this->set('code', $code);
     }
 
     /**
      * @param string $message
-     * @return self
+     * @return ResponsePaymentError
      */
-    public function setMessage(string $message): self
+    public function setMessage(string $message): ResponsePaymentError
     {
         return $this->set('message', $message);
     }

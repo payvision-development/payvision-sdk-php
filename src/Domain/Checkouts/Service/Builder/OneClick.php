@@ -26,36 +26,36 @@ class OneClick extends Basic
 
     /**
      * @param bool $requireCvv
-     * @return self
+     * @return OneClick
      */
-    public function setRequireCvv(bool $requireCvv): self
+    public function setRequireCvv(bool $requireCvv): OneClick
     {
         return $this->set('requireCvv', $requireCvv);
     }
 
     /**
      * @param bool $threeDSecure
-     * @return self
+     * @return OneClick
      */
-    public function setThreeDSecure(bool $threeDSecure): self
+    public function setThreeDSecure(bool $threeDSecure): OneClick
     {
         return $this->set('threeDSecure', $threeDSecure);
     }
 
     /**
      * @param string[] $tokens
-     * @return self
+     * @return OneClick
      */
-    public function setTokens(array $tokens): self
+    public function setTokens(array $tokens): OneClick
     {
         return $this->set('tokens', $tokens);
     }
 
     /**
      * @param bool $useCustomerTokens
-     * @return self
+     * @return OneClick
      */
-    public function setUseCustomerTokens(bool $useCustomerTokens): self
+    public function setUseCustomerTokens(bool $useCustomerTokens): OneClick
     {
         return $this->set('useCustomerTokens', $useCustomerTokens);
     }

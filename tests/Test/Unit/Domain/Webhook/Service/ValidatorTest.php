@@ -3,7 +3,7 @@
 declare(strict_types=1);
 
 /**
- * @copyright Copyright (c) 2018-2019 Payvision B.V. (https://www.payvision.com/)
+ * @copyright Copyright (c) 2018-2020 Payvision B.V. (https://www.payvision.com/)
  * @license see LICENCE.TXT
  */
 
@@ -20,10 +20,7 @@ class ValidatorTest extends TestCase
      */
     private $subject;
 
-    /**
-     * @return null
-     */
-    protected function setUp()
+    protected function setUp(): void
     {
         $this->subject = new Validator();
     }
@@ -34,9 +31,8 @@ class ValidatorTest extends TestCase
      * @param string $body
      * @throws WebhookException
      * @dataProvider validateWebhookDataProvider
-     * @return null
      */
-    public function testValidateWebhook(string $eventSignature, string $secret, string $body)
+    public function testValidateWebhook(string $eventSignature, string $secret, string $body): void
     {
         self::assertTrue($this->subject->validateWebhook($eventSignature, $secret, $body));
     }

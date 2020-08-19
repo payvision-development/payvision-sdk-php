@@ -40,7 +40,7 @@ class ResponseThreeDSecure
     /**
      * @return string|null
      */
-    public function getEnrollmentResult()
+    public function getEnrollmentResult(): ?string
     {
         return $this->enrollmentResult;
     }
@@ -48,7 +48,7 @@ class ResponseThreeDSecure
     /**
      * @return string|null
      */
-    public function getValidationResult()
+    public function getValidationResult(): ?string
     {
         return $this->validationResult;
     }

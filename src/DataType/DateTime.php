@@ -3,7 +3,7 @@
 declare(strict_types=1);
 
 /**
- * @copyright Copyright (c) 2018-2019 Payvision B.V. (https://www.payvision.com/)
+ * @copyright Copyright (c) 2018-2020 Payvision B.V. (https://www.payvision.com/)
  * @license see LICENCE.TXT
  */
 
@@ -23,15 +23,11 @@ class DateTime implements DataType
         $this->value = new BaseDateTime($value);
     }
 
-    // phpcs:disable SlevomatCodingStandard.TypeHints.TypeHintDeclaration.MissingReturnTypeHint
-
     /**
      * @return string|null
      */
-    public function get()
+    public function get(): ?string
     {
         return $this->value->format('Y-m-d\TH:i:s\Z');
     }
-
-    // phpcs:enable SlevomatCodingStandard.TypeHints.TypeHintDeclaration.MissingReturnTypeHint
 }

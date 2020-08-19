@@ -26,18 +26,18 @@ class RequestWallet extends Basic
 
     /**
      * @param string $accountIdentifier
-     * @return self
+     * @return RequestWallet
      */
-    public function setAccountIdentifier(string $accountIdentifier): self
+    public function setAccountIdentifier(string $accountIdentifier): RequestWallet
     {
         return $this->set('accountIdentifier', $accountIdentifier);
     }
 
     /**
      * @param string $accountKey
-     * @return self
+     * @return RequestWallet
      */
-    public function setAccountKey(string $accountKey): self
+    public function setAccountKey(string $accountKey): RequestWallet
     {
         return $this->set('accountKey', $accountKey);
     }

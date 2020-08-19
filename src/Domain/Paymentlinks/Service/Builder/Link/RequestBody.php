@@ -32,63 +32,63 @@ class RequestBody extends Basic
 
     /**
      * @param RequestTransaction $transaction
-     * @return self
+     * @return RequestBody
      */
-    public function setTransaction(RequestTransaction $transaction): self
+    public function setTransaction(RequestTransaction $transaction): RequestBody
     {
         return $this->set('transaction', $transaction);
     }
 
     /**
      * @param RequestLink $link
-     * @return self
+     * @return RequestBody
      */
-    public function setLink(RequestLink $link): self
+    public function setLink(RequestLink $link): RequestBody
     {
         return $this->set('link', $link);
     }
 
     /**
      * @param BasicAddress $billingAddress
-     * @return self
+     * @return RequestBody
      */
-    public function setBillingAddress(BasicAddress $billingAddress): self
+    public function setBillingAddress(BasicAddress $billingAddress): RequestBody
     {
         return $this->set('billingAddress', $billingAddress);
     }
 
     /**
      * @param BasicCustomer $customer
-     * @return self
+     * @return RequestBody
      */
-    public function setCustomer(BasicCustomer $customer): self
+    public function setCustomer(BasicCustomer $customer): RequestBody
     {
         return $this->set('customer', $customer);
     }
 
     /**
      * @param RequestDba $dba
-     * @return self
+     * @return RequestBody
      */
-    public function setDba(RequestDba $dba): self
+    public function setDba(RequestDba $dba): RequestBody
     {
         return $this->set('dba', $dba);
     }
 
     /**
      * @param RequestOrder $order
-     * @return self
+     * @return RequestBody
      */
-    public function setOrder(RequestOrder $order): self
+    public function setOrder(RequestOrder $order): RequestBody
     {
         return $this->set('order', $order);
     }
 
     /**
      * @param BasicAddress $shippingAddress
-     * @return self
+     * @return RequestBody
      */
-    public function setShippingAddress(BasicAddress $shippingAddress): self
+    public function setShippingAddress(BasicAddress $shippingAddress): RequestBody
     {
         return $this->set('shippingAddress', $shippingAddress);
     }

@@ -54,9 +54,9 @@ class Request extends Basic
 
     /**
      * @param string $action
-     * @return self
+     * @return Request
      */
-    public function setAction(string $action): self
+    public function setAction(string $action): Request
     {
         return $this->set('action', $action);
     }

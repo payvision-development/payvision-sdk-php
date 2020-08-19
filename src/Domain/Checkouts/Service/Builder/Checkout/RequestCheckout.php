@@ -27,45 +27,45 @@ class RequestCheckout extends Basic
 
     /**
      * @param int[] $brandIds
-     * @return self
+     * @return RequestCheckout
      */
-    public function setBrandIds(array $brandIds): self
+    public function setBrandIds(array $brandIds): RequestCheckout
     {
         return $this->set('brandIds', $brandIds);
     }
 
     /**
      * @param string $returnUrl
-     * @return self
+     * @return RequestCheckout
      */
-    public function setReturnUrl(string $returnUrl): self
+    public function setReturnUrl(string $returnUrl): RequestCheckout
     {
         return $this->set('returnUrl', $returnUrl);
     }
 
     /**
      * @param OneClick $oneClick
-     * @return self
+     * @return RequestCheckout
      */
-    public function setOneClick(OneClick $oneClick): self
+    public function setOneClick(OneClick $oneClick): RequestCheckout
     {
         return $this->set('oneClick', $oneClick);
     }
 
     /**
      * @param bool $threeDSecure
-     * @return self
+     * @return RequestCheckout
      */
-    public function setThreeDSecure(bool $threeDSecure): self
+    public function setThreeDSecure(bool $threeDSecure): RequestCheckout
     {
         return $this->set('threeDSecure', $threeDSecure);
     }
 
     /**
      * @param string $tokenize
-     * @return self
+     * @return RequestCheckout
      */
-    public function setTokenize(string $tokenize): self
+    public function setTokenize(string $tokenize): RequestCheckout
     {
         return $this->set('tokenize', $tokenize);
     }

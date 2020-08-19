@@ -64,7 +64,7 @@ class ResponsePaymentTransaction
     /**
      * @return float
      */
-    public function getAmount()
+    public function getAmount(): float
     {
         return $this->amount;
     }
@@ -72,7 +72,7 @@ class ResponsePaymentTransaction
     /**
      * @return int
      */
-    public function getBrandId()
+    public function getBrandId(): int
     {
         return $this->brandId;
     }
@@ -80,7 +80,7 @@ class ResponsePaymentTransaction
     /**
      * @return string
      */
-    public function getCurrencyCode()
+    public function getCurrencyCode(): string
     {
         return $this->currencyCode;
     }
@@ -88,7 +88,7 @@ class ResponsePaymentTransaction
     /**
      * @return string
      */
-    public function getId()
+    public function getId(): string
     {
         return $this->id;
     }
@@ -96,7 +96,7 @@ class ResponsePaymentTransaction
     /**
      * @return string
      */
-    public function getTrackingCode()
+    public function getTrackingCode(): string
     {
         return $this->trackingCode;
     }

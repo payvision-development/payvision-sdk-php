@@ -3,8 +3,8 @@
 declare(strict_types=1);
 
 /**
- * @copyright Copyright (c) 2018-2019 Payvision B.V. (https://www.payvision.com/)
- * @license proprietary
+ * @copyright Copyright (c) 2018-2020 Payvision B.V. (https://www.payvision.com/)
+ * @license see LICENCE.TXT
  */
 
 namespace Payvision\SDK\Test\Unit\Domain\Service\Builder;
@@ -25,18 +25,12 @@ class PaymentTest extends TestCase
      */
     private $builder;
 
-    /**
-     * @return null
-     */
-    protected function setUp()
+    protected function setUp(): void
     {
         $this->builder = new PaymentRequestBuilder();
     }
 
-    /**
-     * @return null
-     */
-    public function testValidPaymentObject()
+    public function testValidPaymentObject(): void
     {
         $paymentObject = $this->builder
             ->setHeader(new PaymentRequestHeader('abc123'))
@@ -48,13 +42,10 @@ class PaymentTest extends TestCase
             ->setAction(PaymentRequest::ACTION_PAYMENT)
             ->build();
 
-        $this->assertSame(PaymentRequest::ACTION_PAYMENT, $paymentObject->getAction());
+        self::assertSame(PaymentRequest::ACTION_PAYMENT, $paymentObject->getAction());
     }
 
-    /**
-     * @return null
-     */
-    public function testInvalidPaymentObject()
+    public function testInvalidPaymentObject(): void
     {
         $this->markTestSkipped('Data validation is not yet implemented in generated builders');
         $this->expectException(DataTypeException::class);
@@ -63,10 +54,7 @@ class PaymentTest extends TestCase
             ->build();
     }
 
-    /**
-     * @return null
-     */
-    public function testMissingParameters()
+    public function testMissingParameters(): void
     {
         $this->markTestSkipped('Data validation is not yet implemented in generated builders');
         $this->expectException(BuilderException::class);

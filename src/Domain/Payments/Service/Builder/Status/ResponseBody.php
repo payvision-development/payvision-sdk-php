@@ -33,63 +33,63 @@ class ResponseBody extends Basic
 
     /**
      * @param ResponseBank $bank
-     * @return self
+     * @return ResponseBody
      */
-    public function setBank(ResponseBank $bank): self
+    public function setBank(ResponseBank $bank): ResponseBody
     {
         return $this->set('bank', $bank);
     }
 
     /**
      * @param ResponseCard $card
-     * @return self
+     * @return ResponseBody
      */
-    public function setCard(ResponseCard $card): self
+    public function setCard(ResponseCard $card): ResponseBody
     {
         return $this->set('card', $card);
     }
 
     /**
      * @param Error $error
-     * @return self
+     * @return ResponseBody
      */
-    public function setError(Error $error): self
+    public function setError(Error $error): ResponseBody
     {
         return $this->set('error', $error);
     }
 
     /**
      * @param ResponseRedirect $redirect
-     * @return self
+     * @return ResponseBody
      */
-    public function setRedirect(ResponseRedirect $redirect): self
+    public function setRedirect(ResponseRedirect $redirect): ResponseBody
     {
         return $this->set('redirect', $redirect);
     }
 
     /**
      * @param ResponseThreeDSecure $threeDSecure
-     * @return self
+     * @return ResponseBody
      */
-    public function setThreeDSecure(ResponseThreeDSecure $threeDSecure): self
+    public function setThreeDSecure(ResponseThreeDSecure $threeDSecure): ResponseBody
     {
         return $this->set('threeDSecure', $threeDSecure);
     }
 
     /**
      * @param ResponseToken $token
-     * @return self
+     * @return ResponseBody
      */
-    public function setToken(ResponseToken $token): self
+    public function setToken(ResponseToken $token): ResponseBody
     {
         return $this->set('token', $token);
     }
 
     /**
      * @param ResponseTransaction $transaction
-     * @return self
+     * @return ResponseBody
      */
-    public function setTransaction(ResponseTransaction $transaction): self
+    public function setTransaction(ResponseTransaction $transaction): ResponseBody
     {
         return $this->set('transaction', $transaction);
     }

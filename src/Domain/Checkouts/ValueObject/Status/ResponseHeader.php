@@ -32,7 +32,7 @@ class ResponseHeader
     /**
      * @return \Payvision\SDK\DataType\DateTime
      */
-    public function getRequestTimestamp()
+    public function getRequestTimestamp(): \Payvision\SDK\DataType\DateTime
     {
         return $this->requestTimestamp;
     }

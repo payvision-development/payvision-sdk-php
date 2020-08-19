@@ -26,9 +26,9 @@ class BasicResponseHeader extends Basic
 
     /**
      * @param \Payvision\SDK\DataType\DateTime $requestTimestamp
-     * @return self
+     * @return BasicResponseHeader
      */
-    public function setRequestTimestamp(\Payvision\SDK\DataType\DateTime $requestTimestamp): self
+    public function setRequestTimestamp(\Payvision\SDK\DataType\DateTime $requestTimestamp): BasicResponseHeader
     {
         return $this->set('requestTimestamp', $requestTimestamp);
     }

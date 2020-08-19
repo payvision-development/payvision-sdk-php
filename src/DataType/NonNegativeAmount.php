@@ -3,7 +3,7 @@
 declare(strict_types=1);
 
 /**
- * @copyright Copyright (c) 2018-2019 Payvision B.V. (https://www.payvision.com/)
+ * @copyright Copyright (c) 2018-2020 Payvision B.V. (https://www.payvision.com/)
  * @license see LICENCE.TXT
  */
 
@@ -23,7 +23,6 @@ class NonNegativeAmount implements DataType
      *
      * @param float $amount
      * @throws DataTypeException
-     * @return null
      */
     public function __construct(float $amount = null)
     {
@@ -33,9 +32,8 @@ class NonNegativeAmount implements DataType
     /**
      * @param float $amount
      * @throws DataTypeException
-     * @return null
      */
-    public function set(float $amount = null)
+    public function set(float $amount = null): void
     {
         if ($amount < 0) {
             throw new DataTypeException(
@@ -47,15 +45,11 @@ class NonNegativeAmount implements DataType
         $this->amount = $amount;
     }
 
-    // phpcs:disable SlevomatCodingStandard.TypeHints.TypeHintDeclaration.MissingReturnTypeHint
-
     /**
      * @return float|null
      */
-    public function get()
+    public function get(): ?float
     {
         return $this->amount;
     }
-
-    // phpcs:enable SlevomatCodingStandard.TypeHints.TypeHintDeclaration.MissingReturnTypeHint
 }

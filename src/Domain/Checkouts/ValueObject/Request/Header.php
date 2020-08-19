@@ -32,7 +32,7 @@ class Header
     /**
      * @return string
      */
-    public function getBusinessId()
+    public function getBusinessId(): string
     {
         return $this->businessId;
     }

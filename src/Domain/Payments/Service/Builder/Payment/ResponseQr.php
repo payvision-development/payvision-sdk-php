@@ -26,9 +26,9 @@ class ResponseQr extends Basic
 
     /**
      * @param string $resource
-     * @return self
+     * @return ResponseQr
      */
-    public function setResource(string $resource): self
+    public function setResource(string $resource): ResponseQr
     {
         return $this->set('resource', $resource);
     }

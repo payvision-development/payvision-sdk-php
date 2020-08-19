@@ -28,36 +28,36 @@ class Response extends Basic
 
     /**
      * @param ResponseBody $body
-     * @return self
+     * @return Response
      */
-    public function setBody(ResponseBody $body): self
+    public function setBody(ResponseBody $body): Response
     {
         return $this->set('body', $body);
     }
 
     /**
      * @param string $description
-     * @return self
+     * @return Response
      */
-    public function setDescription(string $description): self
+    public function setDescription(string $description): Response
     {
         return $this->set('description', $description);
     }
 
     /**
      * @param BasicResponseHeader $header
-     * @return self
+     * @return Response
      */
-    public function setHeader(BasicResponseHeader $header): self
+    public function setHeader(BasicResponseHeader $header): Response
     {
         return $this->set('header', $header);
     }
 
     /**
      * @param int $result
-     * @return self
+     * @return Response
      */
-    public function setResult(int $result): self
+    public function setResult(int $result): Response
     {
         return $this->set('result', $result);
     }

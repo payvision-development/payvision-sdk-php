@@ -26,18 +26,18 @@ class Error extends Basic
 
     /**
      * @param int $code
-     * @return self
+     * @return Error
      */
-    public function setCode(int $code): self
+    public function setCode(int $code): Error
     {
         return $this->set('code', $code);
     }
 
     /**
      * @param string $message
-     * @return self
+     * @return Error
      */
-    public function setMessage(string $message): self
+    public function setMessage(string $message): Error
     {
         return $this->set('message', $message);
     }

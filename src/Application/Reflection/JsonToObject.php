@@ -3,7 +3,7 @@
 declare(strict_types=1);
 
 /**
- * @copyright Copyright (c) 2018-2019 Payvision B.V. (https://www.payvision.com/)
+ * @copyright Copyright (c) 2018-2020 Payvision B.V. (https://www.payvision.com/)
  * @license see LICENCE.TXT
  */
 
@@ -94,10 +94,8 @@ class JsonToObject
     private static function getType(ReflectionParameter $parameter): string
     {
         foreach (self::$parameterMapping as $parameterName => $callback) {
-            if ($parameterName === $parameter->getName()) {
-                if (\is_callable($callback)) {
-                    return $callback($parameter);
-                }
+            if (\is_callable($callback) && ($parameterName === $parameter->getName())) {
+                return $callback($parameter);
             }
         }
 

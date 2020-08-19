@@ -26,117 +26,117 @@ class RequestTransaction extends Basic
 
     /**
      * @param float $amount
-     * @return self
+     * @return RequestTransaction
      */
-    public function setAmount(float $amount): self
+    public function setAmount(float $amount): RequestTransaction
     {
         return $this->set('amount', $amount);
     }
 
     /**
      * @param string $authorizationMode
-     * @return self
+     * @return RequestTransaction
      */
-    public function setAuthorizationMode(string $authorizationMode): self
+    public function setAuthorizationMode(string $authorizationMode): RequestTransaction
     {
         return $this->set('authorizationMode', $authorizationMode);
     }
 
     /**
      * @param string $currencyCode
-     * @return self
+     * @return RequestTransaction
      */
-    public function setCurrencyCode(string $currencyCode): self
+    public function setCurrencyCode(string $currencyCode): RequestTransaction
     {
         return $this->set('currencyCode', $currencyCode);
     }
 
     /**
      * @param string $trackingCode
-     * @return self
+     * @return RequestTransaction
      */
-    public function setTrackingCode(string $trackingCode): self
+    public function setTrackingCode(string $trackingCode): RequestTransaction
     {
         return $this->set('trackingCode', $trackingCode);
     }
 
     /**
      * @param string $countryCode
-     * @return self
+     * @return RequestTransaction
      */
-    public function setCountryCode(string $countryCode): self
+    public function setCountryCode(string $countryCode): RequestTransaction
     {
         return $this->set('countryCode', $countryCode);
     }
 
     /**
      * @param string $descriptor
-     * @return self
+     * @return RequestTransaction
      */
-    public function setDescriptor(string $descriptor): self
+    public function setDescriptor(string $descriptor): RequestTransaction
     {
         return $this->set('descriptor', $descriptor);
     }
 
     /**
      * @param string $invoiceId
-     * @return self
+     * @return RequestTransaction
      */
-    public function setInvoiceId(string $invoiceId): self
+    public function setInvoiceId(string $invoiceId): RequestTransaction
     {
         return $this->set('invoiceId', $invoiceId);
     }
 
     /**
      * @param string $languageCode
-     * @return self
+     * @return RequestTransaction
      */
-    public function setLanguageCode(string $languageCode): self
+    public function setLanguageCode(string $languageCode): RequestTransaction
     {
         return $this->set('languageCode', $languageCode);
     }
 
     /**
      * @param string $notifyUrl
-     * @return self
+     * @return RequestTransaction
      */
-    public function setNotifyUrl(string $notifyUrl): self
+    public function setNotifyUrl(string $notifyUrl): RequestTransaction
     {
         return $this->set('notifyUrl', $notifyUrl);
     }
 
     /**
      * @param string $purchaseId
-     * @return self
+     * @return RequestTransaction
      */
-    public function setPurchaseId(string $purchaseId): self
+    public function setPurchaseId(string $purchaseId): RequestTransaction
     {
         return $this->set('purchaseId', $purchaseId);
     }
 
     /**
      * @param string $source
-     * @return self
+     * @return RequestTransaction
      */
-    public function setSource(string $source): self
+    public function setSource(string $source): RequestTransaction
     {
         return $this->set('source', $source);
     }
 
     /**
      * @param int $storeId
-     * @return self
+     * @return RequestTransaction
      */
-    public function setStoreId(int $storeId): self
+    public function setStoreId(int $storeId): RequestTransaction
     {
         return $this->set('storeId', $storeId);
     }
 
     /**
      * @param string $type
-     * @return self
+     * @return RequestTransaction
      */
-    public function setType(string $type): self
+    public function setType(string $type): RequestTransaction
     {
         return $this->set('type', $type);
     }

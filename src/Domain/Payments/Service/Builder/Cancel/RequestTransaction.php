@@ -26,9 +26,9 @@ class RequestTransaction extends Basic
 
     /**
      * @param string $trackingCode
-     * @return self
+     * @return RequestTransaction
      */
-    public function setTrackingCode(string $trackingCode): self
+    public function setTrackingCode(string $trackingCode): RequestTransaction
     {
         return $this->set('trackingCode', $trackingCode);
     }

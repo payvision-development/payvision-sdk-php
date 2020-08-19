@@ -3,7 +3,7 @@
 declare(strict_types=1);
 
 /**
- * @copyright Copyright (c) 2018-2019 Payvision B.V. (https://www.payvision.com/)
+ * @copyright Copyright (c) 2018-2020 Payvision B.V. (https://www.payvision.com/)
  * @license see LICENCE.TXT
  */
 
@@ -222,9 +222,8 @@ class LanguageCode extends AbstractCode implements DataType
     /**
      * @param string $languageCode
      * @throws DataTypeException
-     * @return null
      */
-    public function set(string $languageCode = null)
+    public function set(string $languageCode = null): void
     {
         if ($languageCode !== null && !\array_key_exists($languageCode, $this->getConstants())) {
             throw new DataTypeException(
@@ -236,15 +235,11 @@ class LanguageCode extends AbstractCode implements DataType
         $this->languageCode = $languageCode;
     }
 
-    // phpcs:disable SlevomatCodingStandard.TypeHints.TypeHintDeclaration.MissingReturnTypeHint
-
     /**
      * @return string|null
      */
-    public function get()
+    public function get(): ?string
     {
         return $this->languageCode;
     }
-
-    // phpcs:enable SlevomatCodingStandard.TypeHints.TypeHintDeclaration.MissingReturnTypeHint
 }

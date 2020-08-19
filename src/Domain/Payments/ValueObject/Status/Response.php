@@ -56,7 +56,7 @@ class Response
     /**
      * @return ResponseBody
      */
-    public function getBody()
+    public function getBody(): ResponseBody
     {
         return $this->body;
     }
@@ -64,7 +64,7 @@ class Response
     /**
      * @return string
      */
-    public function getDescription()
+    public function getDescription(): string
     {
         return $this->description;
     }
@@ -72,7 +72,7 @@ class Response
     /**
      * @return ResponseHeader
      */
-    public function getHeader()
+    public function getHeader(): ResponseHeader
     {
         return $this->header;
     }
@@ -80,7 +80,7 @@ class Response
     /**
      * @return int
      */
-    public function getResult()
+    public function getResult(): int
     {
         return $this->result;
     }

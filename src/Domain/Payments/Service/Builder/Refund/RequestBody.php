@@ -28,18 +28,18 @@ class RequestBody extends Basic
 
     /**
      * @param RequestTransaction $transaction
-     * @return self
+     * @return RequestBody
      */
-    public function setTransaction(RequestTransaction $transaction): self
+    public function setTransaction(RequestTransaction $transaction): RequestBody
     {
         return $this->set('transaction', $transaction);
     }
 
     /**
      * @param Order $order
-     * @return self
+     * @return RequestBody
      */
-    public function setOrder(Order $order): self
+    public function setOrder(Order $order): RequestBody
     {
         return $this->set('order', $order);
     }

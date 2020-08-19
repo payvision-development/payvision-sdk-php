@@ -26,18 +26,18 @@ class ResponseThreeDSecure extends Basic
 
     /**
      * @param string $enrollmentResult
-     * @return self
+     * @return ResponseThreeDSecure
      */
-    public function setEnrollmentResult(string $enrollmentResult): self
+    public function setEnrollmentResult(string $enrollmentResult): ResponseThreeDSecure
     {
         return $this->set('enrollmentResult', $enrollmentResult);
     }
 
     /**
      * @param string $validationResult
-     * @return self
+     * @return ResponseThreeDSecure
      */
-    public function setValidationResult(string $validationResult): self
+    public function setValidationResult(string $validationResult): ResponseThreeDSecure
     {
         return $this->set('validationResult', $validationResult);
     }

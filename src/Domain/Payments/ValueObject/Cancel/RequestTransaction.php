@@ -32,7 +32,7 @@ class RequestTransaction
     /**
      * @return string
      */
-    public function getTrackingCode()
+    public function getTrackingCode(): string
     {
         return $this->trackingCode;
     }

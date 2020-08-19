@@ -15,10 +15,10 @@ use Payvision\SDK\Domain\Paymentlinks\ValueObject\BasicResponseHeader;
 
 class Response
 {
-    const SUCCESS = 0;
-    const INPUT_ERROR = -1;
-    const BAD_REQUEST = -1;
-    const UNEXPECTED_ERROR = -7;
+    public const SUCCESS = 0;
+    public const INPUT_ERROR = -1;
+    public const BAD_REQUEST = -1;
+    public const UNEXPECTED_ERROR = -7;
 
     /**
      * @var ResponseBody
@@ -63,7 +63,7 @@ class Response
     /**
      * @return ResponseBody
      */
-    public function getBody()
+    public function getBody(): ResponseBody
     {
         return $this->body;
     }
@@ -71,7 +71,7 @@ class Response
     /**
      * @return string
      */
-    public function getDescription()
+    public function getDescription(): string
     {
         return $this->description;
     }
@@ -79,7 +79,7 @@ class Response
     /**
      * @return BasicResponseHeader
      */
-    public function getHeader()
+    public function getHeader(): BasicResponseHeader
     {
         return $this->header;
     }
@@ -87,7 +87,7 @@ class Response
     /**
      * @return int
      */
-    public function getResult()
+    public function getResult(): int
     {
         return $this->result;
     }

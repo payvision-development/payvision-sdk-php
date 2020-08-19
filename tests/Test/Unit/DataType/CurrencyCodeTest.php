@@ -3,7 +3,7 @@
 declare(strict_types=1);
 
 /**
- * @copyright Copyright (c) 2018-2019 Payvision B.V. (https://www.payvision.com/)
+ * @copyright Copyright (c) 2018-2020 Payvision B.V. (https://www.payvision.com/)
  * @license see LICENCE.TXT
  */
 
@@ -17,28 +17,25 @@ class CurrencyCodeTest extends TestCase
 {
     /**
      * @throws DataTypeException
-     * @return null
      */
-    public function testNullValue()
+    public function testNullValue(): void
     {
-        $this->assertNull((new CurrencyCode(null))->get());
+        self::assertNull((new CurrencyCode(null))->get());
     }
 
     /**
      * @throws DataTypeException
-     * @return null
      */
-    public function testKnownCurrency()
+    public function testKnownCurrency(): void
     {
         $currency = new CurrencyCode('EUR');
-        $this->assertSame('EUR', $currency->get());
+        self::assertSame('EUR', $currency->get());
     }
 
     /**
      * @throws DataTypeException
-     * @return null
      */
-    public function testUnknownCurrency()
+    public function testUnknownCurrency(): void
     {
         $this->expectException(DataTypeException::class);
         $this->expectExceptionCode(DataTypeException::UNKNOWN_CURRENCY);

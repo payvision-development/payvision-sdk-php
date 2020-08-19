@@ -3,11 +3,11 @@
 declare(strict_types=1);
 
 /**
- * @copyright Copyright (c) 2018-2019 Payvision B.V. (https://www.payvision.com/)
+ * @copyright Copyright (c) 2018-2020 Payvision B.V. (https://www.payvision.com/)
  * @license see LICENCE.TXT
  */
 
-namespace Payvision\SDK\Test\Test\Unit\Domain\Webhook\Service;
+namespace Payvision\SDK\Test\Unit\Domain\Webhook\Service;
 
 use Payvision\SDK\Domain\Payments\ValueObject\Cancel\Response as CancelResponse;
 use Payvision\SDK\Domain\Payments\ValueObject\Capture\Response as CaptureResponse;
@@ -31,12 +31,9 @@ class EventDecoratorTest extends TestCase
      */
     private $mockedEvent;
 
-    /**
-     * @return null
-     */
-    protected function setUp()
+    protected function setUp(): void
     {
-        $this->mockedEvent = self::getMockBuilder(Event::class)
+        $this->mockedEvent = $this->getMockBuilder(Event::class)
             ->disableOriginalConstructor()
             ->getMock();
 
@@ -48,13 +45,12 @@ class EventDecoratorTest extends TestCase
      * @param string $expectedType
      * @throws WebhookException
      * @dataProvider payloadDataProvider
-     * @return null
      */
-    public function testEventTypeShouldBeCorrect(string $payloadClassName, string $expectedType)
+    public function testEventTypeShouldBeCorrect(string $payloadClassName, string $expectedType): void
     {
         $this->mockedEvent->method('getPayload')
             ->willReturn(
-                self::getMockBuilder($payloadClassName)
+                $this->getMockBuilder($payloadClassName)
                     ->disableOriginalConstructor()
                     ->getMock()
             );
@@ -64,13 +60,12 @@ class EventDecoratorTest extends TestCase
 
     /**
      * @throws WebhookException
-     * @return null
      */
-    public function testUnkownPayloadShouldThrowException()
+    public function testUnkownPayloadShouldThrowException(): void
     {
         $this->mockedEvent->method('getPayload')
             ->willReturn(
-                self::getMockBuilder('Foo')
+                $this->getMockBuilder('Foo')
                     ->disableOriginalConstructor()
                     ->getMock()
             );
@@ -87,13 +82,12 @@ class EventDecoratorTest extends TestCase
      * @param string $validType
      * @throws WebhookException
      * @dataProvider payloadDataProvider
-     * @return null
      */
-    public function testExceptionShouldBeThrownForIncorrectPayload(string $payloadClassName, string $validType)
+    public function testExceptionShouldBeThrownForIncorrectPayload(string $payloadClassName, string $validType): void
     {
         $this->mockedEvent->method('getPayload')
             ->willReturn(
-                self::getMockBuilder($payloadClassName)
+                $this->getMockBuilder($payloadClassName)
                     ->disableOriginalConstructor()
                     ->getMock()
             );

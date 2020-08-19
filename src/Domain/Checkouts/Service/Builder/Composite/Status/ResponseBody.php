@@ -85,9 +85,9 @@ class ResponseBody extends Basic
 
     /**
      * @param Response[] $payments
-     * @return self
+     * @return ResponseBody
      */
-    public function setPayments(array $payments): self
+    public function setPayments(array $payments): ResponseBody
     {
         return $this->set('payments', $payments);
     }

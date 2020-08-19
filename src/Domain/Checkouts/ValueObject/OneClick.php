@@ -56,7 +56,7 @@ class OneClick
     /**
      * @return bool|null
      */
-    public function getRequireCvv()
+    public function getRequireCvv(): ?bool
     {
         return $this->requireCvv;
     }
@@ -64,7 +64,7 @@ class OneClick
     /**
      * @return bool|null
      */
-    public function getThreeDSecure()
+    public function getThreeDSecure(): ?bool
     {
         return $this->threeDSecure;
     }
@@ -72,7 +72,7 @@ class OneClick
     /**
      * @return string[]|null
      */
-    public function getTokens()
+    public function getTokens(): ?array
     {
         return $this->tokens;
     }
@@ -80,7 +80,7 @@ class OneClick
     /**
      * @return bool|null
      */
-    public function getUseCustomerTokens()
+    public function getUseCustomerTokens(): ?bool
     {
         return $this->useCustomerTokens;
     }

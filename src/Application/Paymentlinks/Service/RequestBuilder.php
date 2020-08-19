@@ -18,14 +18,16 @@ use Payvision\SDK\Domain\Paymentlinks\ValueObject\Status\Response as StatusRespo
 use Payvision\SDK\Domain\Paymentlinks\ValueObject\Cancel\Response as CancelResponse;
 use Payvision\SDK\Application\Request\Builder;
 use Payvision\SDK\Application\ApiRequest;
+use ReflectionException;
 
 class RequestBuilder
 {
+    /**
+     * @throws ReflectionException
+     */
     public static function newLink(
         LinkRequest $input
-        
-    ): ApiRequest
-    {
+    ): ApiRequest {
         $jsonBody = Builder::toArray($input);
         return new ApiRequest(
             'paymentlinks',
@@ -46,12 +48,14 @@ class RequestBuilder
         );
     }
 
+    /**
+     * @throws ReflectionException
+     */
     public static function getLinkStatus(
         
         string $id,
         string $businessId
-    ): ApiRequest
-    {
+    ): ApiRequest {
         return new ApiRequest(
             \str_replace('{id}', $id, 'paymentlinks/{id}'),
             'GET',
@@ -73,11 +77,13 @@ class RequestBuilder
         );
     }
 
+    /**
+     * @throws ReflectionException
+     */
     public static function cancelLink(
         CancelRequest $input,
         string $id
-    ): ApiRequest
-    {
+    ): ApiRequest {
         $jsonBody = Builder::toArray($input);
         return new ApiRequest(
             \str_replace('{id}', $id, 'paymentlinks/{id}/cancel'),

@@ -27,81 +27,81 @@ class RequestShippingAddress extends Basic
 
     /**
      * @param string $city
-     * @return self
+     * @return RequestShippingAddress
      */
-    public function setCity(string $city): self
+    public function setCity(string $city): RequestShippingAddress
     {
         return $this->set('city', $city);
     }
 
     /**
      * @param string $countryCode
-     * @return self
+     * @return RequestShippingAddress
      */
-    public function setCountryCode(string $countryCode): self
+    public function setCountryCode(string $countryCode): RequestShippingAddress
     {
         return $this->set('countryCode', $countryCode);
     }
 
     /**
      * @param Customer $customer
-     * @return self
+     * @return RequestShippingAddress
      */
-    public function setCustomer(Customer $customer): self
+    public function setCustomer(Customer $customer): RequestShippingAddress
     {
         return $this->set('customer', $customer);
     }
 
     /**
      * @param string $houseNumber
-     * @return self
+     * @return RequestShippingAddress
      */
-    public function setHouseNumber(string $houseNumber): self
+    public function setHouseNumber(string $houseNumber): RequestShippingAddress
     {
         return $this->set('houseNumber', $houseNumber);
     }
 
     /**
      * @param string $houseNumberSuffix
-     * @return self
+     * @return RequestShippingAddress
      */
-    public function setHouseNumberSuffix(string $houseNumberSuffix): self
+    public function setHouseNumberSuffix(string $houseNumberSuffix): RequestShippingAddress
     {
         return $this->set('houseNumberSuffix', $houseNumberSuffix);
     }
 
     /**
      * @param string $stateCode
-     * @return self
+     * @return RequestShippingAddress
      */
-    public function setStateCode(string $stateCode): self
+    public function setStateCode(string $stateCode): RequestShippingAddress
     {
         return $this->set('stateCode', $stateCode);
     }
 
     /**
      * @param string $street
-     * @return self
+     * @return RequestShippingAddress
      */
-    public function setStreet(string $street): self
+    public function setStreet(string $street): RequestShippingAddress
     {
         return $this->set('street', $street);
     }
 
     /**
      * @param string $streetInfo
-     * @return self
+     * @return RequestShippingAddress
      */
-    public function setStreetInfo(string $streetInfo): self
+    public function setStreetInfo(string $streetInfo): RequestShippingAddress
     {
         return $this->set('streetInfo', $streetInfo);
     }
 
     /**
      * @param string $zip
-     * @return self
+     * @return RequestShippingAddress
      */
-    public function setZip(string $zip): self
+    public function setZip(string $zip): RequestShippingAddress
     {
         return $this->set('zip', $zip);
     }

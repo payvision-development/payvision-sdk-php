@@ -42,7 +42,7 @@ class ResponseBody
     /**
      * @return Error|null
      */
-    public function getError()
+    public function getError(): ?Error
     {
         return $this->error;
     }
@@ -50,7 +50,7 @@ class ResponseBody
     /**
      * @return ResponseTransaction|null
      */
-    public function getTransaction()
+    public function getTransaction(): ?ResponseTransaction
     {
         return $this->transaction;
     }

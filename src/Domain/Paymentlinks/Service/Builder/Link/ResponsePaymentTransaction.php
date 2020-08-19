@@ -26,45 +26,45 @@ class ResponsePaymentTransaction extends Basic
 
     /**
      * @param float $amount
-     * @return self
+     * @return ResponsePaymentTransaction
      */
-    public function setAmount(float $amount): self
+    public function setAmount(float $amount): ResponsePaymentTransaction
     {
         return $this->set('amount', $amount);
     }
 
     /**
      * @param int $brandId
-     * @return self
+     * @return ResponsePaymentTransaction
      */
-    public function setBrandId(int $brandId): self
+    public function setBrandId(int $brandId): ResponsePaymentTransaction
     {
         return $this->set('brandId', $brandId);
     }
 
     /**
      * @param string $currencyCode
-     * @return self
+     * @return ResponsePaymentTransaction
      */
-    public function setCurrencyCode(string $currencyCode): self
+    public function setCurrencyCode(string $currencyCode): ResponsePaymentTransaction
     {
         return $this->set('currencyCode', $currencyCode);
     }
 
     /**
      * @param string $id
-     * @return self
+     * @return ResponsePaymentTransaction
      */
-    public function setId(string $id): self
+    public function setId(string $id): ResponsePaymentTransaction
     {
         return $this->set('id', $id);
     }
 
     /**
      * @param string $trackingCode
-     * @return self
+     * @return ResponsePaymentTransaction
      */
-    public function setTrackingCode(string $trackingCode): self
+    public function setTrackingCode(string $trackingCode): ResponsePaymentTransaction
     {
         return $this->set('trackingCode', $trackingCode);
     }

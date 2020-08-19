@@ -26,18 +26,18 @@ class ResponseRedirect extends Basic
 
     /**
      * @param string $method
-     * @return self
+     * @return ResponseRedirect
      */
-    public function setMethod(string $method): self
+    public function setMethod(string $method): ResponseRedirect
     {
         return $this->set('method', $method);
     }
 
     /**
      * @param string $url
-     * @return self
+     * @return ResponseRedirect
      */
-    public function setUrl(string $url): self
+    public function setUrl(string $url): ResponseRedirect
     {
         return $this->set('url', $url);
     }

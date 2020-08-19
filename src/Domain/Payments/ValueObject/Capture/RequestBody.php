@@ -32,7 +32,7 @@ class RequestBody
     /**
      * @return RequestTransaction
      */
-    public function getTransaction()
+    public function getTransaction(): RequestTransaction
     {
         return $this->transaction;
     }

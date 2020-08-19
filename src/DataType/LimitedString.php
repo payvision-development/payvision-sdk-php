@@ -3,7 +3,7 @@
 declare(strict_types=1);
 
 /**
- * @copyright Copyright (c) 2018-2019 Payvision B.V. (https://www.payvision.com/)
+ * @copyright Copyright (c) 2018-2020 Payvision B.V. (https://www.payvision.com/)
  * @license see LICENCE.TXT
  */
 
@@ -39,9 +39,8 @@ class LimitedString implements DataType
     /**
      * @param string $str
      * @throws DataTypeException
-     * @return null
      */
-    private function set(string $str = null)
+    private function set(string $str = null): void
     {
         if (\strlen((string)$str) > $this->maxLength) {
             throw new DataTypeException(
@@ -53,15 +52,11 @@ class LimitedString implements DataType
         $this->str = $str;
     }
 
-    // phpcs:disable SlevomatCodingStandard.TypeHints.TypeHintDeclaration.MissingReturnTypeHint
-
     /**
      * @return string|null
      */
-    public function get()
+    public function get(): ?string
     {
         return $this->str;
     }
-
-    // phpcs:enable SlevomatCodingStandard.TypeHints.TypeHintDeclaration.MissingReturnTypeHint
 }

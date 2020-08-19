@@ -56,7 +56,7 @@ class ResponseTransaction
     /**
      * @return float
      */
-    public function getAmount()
+    public function getAmount(): float
     {
         return $this->amount;
     }
@@ -64,7 +64,7 @@ class ResponseTransaction
     /**
      * @return string
      */
-    public function getAuthorizationMode()
+    public function getAuthorizationMode(): string
     {
         return $this->authorizationMode;
     }
@@ -72,7 +72,7 @@ class ResponseTransaction
     /**
      * @return string
      */
-    public function getCurrencyCode()
+    public function getCurrencyCode(): string
     {
         return $this->currencyCode;
     }
@@ -80,7 +80,7 @@ class ResponseTransaction
     /**
      * @return string
      */
-    public function getTrackingCode()
+    public function getTrackingCode(): string
     {
         return $this->trackingCode;
     }

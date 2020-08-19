@@ -42,7 +42,7 @@ class RequestBody
     /**
      * @return RequestTransaction
      */
-    public function getTransaction()
+    public function getTransaction(): RequestTransaction
     {
         return $this->transaction;
     }
@@ -50,7 +50,7 @@ class RequestBody
     /**
      * @return Order|null
      */
-    public function getOrder()
+    public function getOrder(): ?Order
     {
         return $this->order;
     }

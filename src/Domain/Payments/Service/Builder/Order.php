@@ -27,9 +27,9 @@ class Order extends Basic
 
     /**
      * @param OrderLine[] $orderLines
-     * @return self
+     * @return Order
      */
-    public function setOrderLines(array $orderLines): self
+    public function setOrderLines(array $orderLines): Order
     {
         return $this->set('orderLines', $orderLines);
     }

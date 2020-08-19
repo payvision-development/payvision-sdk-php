@@ -28,18 +28,18 @@ class ResponseBody extends Basic
 
     /**
      * @param Error $error
-     * @return self
+     * @return ResponseBody
      */
-    public function setError(Error $error): self
+    public function setError(Error $error): ResponseBody
     {
         return $this->set('error', $error);
     }
 
     /**
      * @param ResponseTransaction $transaction
-     * @return self
+     * @return ResponseBody
      */
-    public function setTransaction(ResponseTransaction $transaction): self
+    public function setTransaction(ResponseTransaction $transaction): ResponseBody
     {
         return $this->set('transaction', $transaction);
     }

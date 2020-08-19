@@ -88,7 +88,7 @@ class ResponseTransaction
     /**
      * @return string
      */
-    public function getAction()
+    public function getAction(): string
     {
         return $this->action;
     }
@@ -96,7 +96,7 @@ class ResponseTransaction
     /**
      * @return float
      */
-    public function getAmount()
+    public function getAmount(): float
     {
         return $this->amount;
     }
@@ -104,7 +104,7 @@ class ResponseTransaction
     /**
      * @return string
      */
-    public function getCurrencyCode()
+    public function getCurrencyCode(): string
     {
         return $this->currencyCode;
     }
@@ -112,7 +112,7 @@ class ResponseTransaction
     /**
      * @return string
      */
-    public function getId()
+    public function getId(): string
     {
         return $this->id;
     }
@@ -120,7 +120,7 @@ class ResponseTransaction
     /**
      * @return string
      */
-    public function getParentId()
+    public function getParentId(): string
     {
         return $this->parentId;
     }
@@ -128,7 +128,7 @@ class ResponseTransaction
     /**
      * @return string
      */
-    public function getTrackingCode()
+    public function getTrackingCode(): string
     {
         return $this->trackingCode;
     }
@@ -136,7 +136,7 @@ class ResponseTransaction
     /**
      * @return int|null
      */
-    public function getBrandId()
+    public function getBrandId(): ?int
     {
         return $this->brandId;
     }
@@ -144,7 +144,7 @@ class ResponseTransaction
     /**
      * @return string|null
      */
-    public function getDescriptor()
+    public function getDescriptor(): ?string
     {
         return $this->descriptor;
     }

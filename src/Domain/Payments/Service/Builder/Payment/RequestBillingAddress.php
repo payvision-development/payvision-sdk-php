@@ -26,72 +26,72 @@ class RequestBillingAddress extends Basic
 
     /**
      * @param string $city
-     * @return self
+     * @return RequestBillingAddress
      */
-    public function setCity(string $city): self
+    public function setCity(string $city): RequestBillingAddress
     {
         return $this->set('city', $city);
     }
 
     /**
      * @param string $countryCode
-     * @return self
+     * @return RequestBillingAddress
      */
-    public function setCountryCode(string $countryCode): self
+    public function setCountryCode(string $countryCode): RequestBillingAddress
     {
         return $this->set('countryCode', $countryCode);
     }
 
     /**
      * @param string $houseNumber
-     * @return self
+     * @return RequestBillingAddress
      */
-    public function setHouseNumber(string $houseNumber): self
+    public function setHouseNumber(string $houseNumber): RequestBillingAddress
     {
         return $this->set('houseNumber', $houseNumber);
     }
 
     /**
      * @param string $houseNumberSuffix
-     * @return self
+     * @return RequestBillingAddress
      */
-    public function setHouseNumberSuffix(string $houseNumberSuffix): self
+    public function setHouseNumberSuffix(string $houseNumberSuffix): RequestBillingAddress
     {
         return $this->set('houseNumberSuffix', $houseNumberSuffix);
     }
 
     /**
      * @param string $stateCode
-     * @return self
+     * @return RequestBillingAddress
      */
-    public function setStateCode(string $stateCode): self
+    public function setStateCode(string $stateCode): RequestBillingAddress
     {
         return $this->set('stateCode', $stateCode);
     }
 
     /**
      * @param string $street
-     * @return self
+     * @return RequestBillingAddress
      */
-    public function setStreet(string $street): self
+    public function setStreet(string $street): RequestBillingAddress
     {
         return $this->set('street', $street);
     }
 
     /**
      * @param string $streetInfo
-     * @return self
+     * @return RequestBillingAddress
      */
-    public function setStreetInfo(string $streetInfo): self
+    public function setStreetInfo(string $streetInfo): RequestBillingAddress
     {
         return $this->set('streetInfo', $streetInfo);
     }
 
     /**
      * @param string $zip
-     * @return self
+     * @return RequestBillingAddress
      */
-    public function setZip(string $zip): self
+    public function setZip(string $zip): RequestBillingAddress
     {
         return $this->set('zip', $zip);
     }

@@ -42,7 +42,7 @@ class Request
     /**
      * @return RequestBody
      */
-    public function getBody()
+    public function getBody(): RequestBody
     {
         return $this->body;
     }
@@ -50,7 +50,7 @@ class Request
     /**
      * @return Header
      */
-    public function getHeader()
+    public function getHeader(): Header
     {
         return $this->header;
     }

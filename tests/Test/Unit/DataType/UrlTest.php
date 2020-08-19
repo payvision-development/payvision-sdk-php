@@ -3,7 +3,7 @@
 declare(strict_types=1);
 
 /**
- * @copyright Copyright (c) 2018-2019 Payvision B.V. (https://www.payvision.com/)
+ * @copyright Copyright (c) 2018-2020 Payvision B.V. (https://www.payvision.com/)
  * @license see LICENCE.TXT
  */
 
@@ -17,32 +17,29 @@ class UrlTest extends TestCase
 {
     /**
      * @throws DataTypeException
-     * @return null
      */
-    public function testNullValue()
+    public function testNullValue(): void
     {
-        $this->assertNull((new Url(null))->get());
+        self::assertNull((new Url(null))->get());
     }
 
     /**
      * @param string $input
      * @throws DataTypeException
      * @dataProvider validUrlDataProvider()
-     * @return null
      */
-    public function testValidUrl(string $input)
+    public function testValidUrl(string $input): void
     {
         $url = new Url($input);
-        $this->assertSame($input, $url->get());
+        self::assertSame($input, $url->get());
     }
 
     /**
      * @param string $input
      * @throws DataTypeException
      * @dataProvider invalidUrlDataProvider()
-     * @return null
      */
-    public function testInvalidUrl(string $input)
+    public function testInvalidUrl(string $input): void
     {
         $this->expectException(DataTypeException::class);
         $this->expectExceptionCode(DataTypeException::INVALID_URL);

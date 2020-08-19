@@ -3,8 +3,8 @@
 declare(strict_types=1);
 
 /**
- * @copyright Copyright (c) 2018-2019 Payvision B.V. (https://www.payvision.com/)
- * @license proprietary
+ * @copyright Copyright (c) 2018-2020 Payvision B.V. (https://www.payvision.com/)
+ * @license see LICENCE.TXT
  */
 
 namespace Payvision\SDK\Test\Unit\Infrastructure;
@@ -55,9 +55,8 @@ class ApiConnectionTest extends TestCase
 
     /**
      * @throws ReflectionException
-     * @return null
      */
-    protected function setUp()
+    protected function setUp(): void
     {
         $this->subject = new ApiConnection(
             'username',
@@ -87,9 +86,8 @@ class ApiConnectionTest extends TestCase
      * @throws ApiException
      * @throws BuilderException
      * @throws ErrorResponse
-     * @return null
      */
-    public function testPostRequest()
+    public function testPostRequest(): void
     {
         // Setup:
         $request = $this->createApiRequestObject(Request::METHOD_POST);
@@ -129,20 +127,19 @@ class ApiConnectionTest extends TestCase
         /** @var FakeResponse $response */
         $response = $this->subject->execute($request);
 
-        $this->assertInstanceOf(FakeResponse::class, $response);
-        $this->assertSame(2, $response->getResult());
-        $this->assertSame('Hello World', $response->getHeader()->getTestArgument());
-        $this->assertSame('Example', $response->getDescription());
-        $this->assertSame('2018-12-10 10:17:43', $response->getHeader()->getRequestTimestamp()->format('Y-m-d H:i:s'));
+        self::assertInstanceOf(FakeResponse::class, $response);
+        self::assertSame(2, $response->getResult());
+        self::assertSame('Hello World', $response->getHeader()->getTestArgument());
+        self::assertSame('Example', $response->getDescription());
+        self::assertSame('2018-12-10 10:17:43', $response->getHeader()->getRequestTimestamp()->format('Y-m-d H:i:s'));
     }
 
     /**
      * @throws ApiException
      * @throws BuilderException
      * @throws ErrorResponse
-     * @return null
      */
-    public function testGetRequest()
+    public function testGetRequest(): void
     {
         // Setup:
         $request = $this->createApiRequestObject(Request::METHOD_GET);
@@ -173,20 +170,19 @@ class ApiConnectionTest extends TestCase
         /** @var FakeResponse $response */
         $response = $this->subject->execute($request);
 
-        $this->assertInstanceOf(FakeResponse::class, $response);
-        $this->assertSame(2, $response->getResult());
-        $this->assertSame('Hello World', $response->getHeader()->getTestArgument());
-        $this->assertSame('Example', $response->getDescription());
-        $this->assertSame('2018-12-10 10:17:43', $response->getHeader()->getRequestTimestamp()->format('Y-m-d H:i:s'));
+        self::assertInstanceOf(FakeResponse::class, $response);
+        self::assertSame(2, $response->getResult());
+        self::assertSame('Hello World', $response->getHeader()->getTestArgument());
+        self::assertSame('Example', $response->getDescription());
+        self::assertSame('2018-12-10 10:17:43', $response->getHeader()->getRequestTimestamp()->format('Y-m-d H:i:s'));
     }
 
     /**
      * @throws ApiException
      * @throws BuilderException
      * @throws ErrorResponse
-     * @return null
      */
-    public function testMissingResponseObject()
+    public function testMissingResponseObject(): void
     {
         // Setup:
         $request = $this->createApiRequestObject(Request::METHOD_GET, []);
@@ -208,9 +204,8 @@ class ApiConnectionTest extends TestCase
      * @throws ApiException
      * @throws BuilderException
      * @throws ErrorResponse
-     * @return null
      */
-    public function testInvalidResponseShouldThrowError()
+    public function testInvalidResponseShouldThrowError(): void
     {
         // Setup:
         $request = $this->createApiRequestObject(Request::METHOD_GET, [400 => FakeResponse::class]);
@@ -240,9 +235,8 @@ class ApiConnectionTest extends TestCase
      * @throws ApiException
      * @throws BuilderException
      * @throws ErrorResponse
-     * @return null
      */
-    public function testNonJsonResponseShouldThrowException()
+    public function testNonJsonResponseShouldThrowException(): void
     {
         // Setup:
         $request = $this->createApiRequestObject(Request::METHOD_GET, [400 => FakeResponse::class]);
@@ -260,9 +254,8 @@ class ApiConnectionTest extends TestCase
      * @throws ApiException
      * @throws BuilderException
      * @throws ErrorResponse
-     * @return null
      */
-    public function testTolerantReader()
+    public function testTolerantReader(): void
     {
         // Setup:
         $request = $this->createApiRequestObject();
@@ -308,19 +301,18 @@ class ApiConnectionTest extends TestCase
         /** @var FakeResponse $response */
         $response = $this->subject->execute($request);
 
-        $this->assertInstanceOf(FakeResponse::class, $response);
-        $this->assertSame(2, $response->getResult());
-        $this->assertSame('Example', $response->getDescription());
-        $this->assertSame('2018-12-10 10:17:43', $response->getHeader()->getRequestTimestamp()->format('Y-m-d H:i:s'));
+        self::assertInstanceOf(FakeResponse::class, $response);
+        self::assertSame(2, $response->getResult());
+        self::assertSame('Example', $response->getDescription());
+        self::assertSame('2018-12-10 10:17:43', $response->getHeader()->getRequestTimestamp()->format('Y-m-d H:i:s'));
     }
 
     /**
      * @throws ApiException
      * @throws BuilderException
      * @throws ErrorResponse
-     * @return null
      */
-    public function testExceptionOnMissingRequiredField()
+    public function testExceptionOnMissingRequiredField(): void
     {
         // Setup:
         $request = $this->createApiRequestObject();
@@ -366,7 +358,7 @@ class ApiConnectionTest extends TestCase
         string $method = Request::METHOD_POST,
         array $responseObjectTypes = [200 => FakeResponse::class]
     ): ApiRequest {
-        $request = new ApiRequest(
+        return new ApiRequest(
             'endpoint',
             $method,
             ['foo' => 'bar'],
@@ -375,6 +367,5 @@ class ApiConnectionTest extends TestCase
             ['id' => '67890'],
             $responseObjectTypes
         );
-        return $request;
     }
 }

@@ -27,9 +27,9 @@ class RequestOrder extends Basic
 
     /**
      * @param RequestOrderLine[] $orderlines
-     * @return self
+     * @return RequestOrder
      */
-    public function setOrderlines(array $orderlines): self
+    public function setOrderlines(array $orderlines): RequestOrder
     {
         return $this->set('orderlines', $orderlines);
     }

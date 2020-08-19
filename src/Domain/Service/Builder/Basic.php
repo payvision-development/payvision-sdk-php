@@ -3,8 +3,8 @@
 declare(strict_types=1);
 
 /**
- * @copyright Copyright (c) 2018-2019 Payvision B.V. (https://www.payvision.com/)
- * @license proprietary
+ * @copyright Copyright (c) 2018-2020 Payvision B.V. (https://www.payvision.com/)
+ * @license see LICENCE.TXT
  */
 
 namespace Payvision\SDK\Domain\Service\Builder;
@@ -35,10 +35,7 @@ abstract class Basic implements Builder
         return $object;
     }
 
-    /**
-     * @return null
-     */
-    protected function reset()
+    protected function reset(): void
     {
         $this->properties = [];
     }
@@ -70,9 +67,8 @@ abstract class Basic implements Builder
     /**
      * @param array $properties
      * @throws BuilderException
-     * @return null
      */
-    protected function validateRequiredProperties(array $properties)
+    protected function validateRequiredProperties(array $properties): void
     {
         foreach ($properties as $property) {
             if ($this->get($property) === null) {

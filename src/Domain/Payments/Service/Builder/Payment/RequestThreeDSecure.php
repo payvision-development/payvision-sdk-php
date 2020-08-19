@@ -26,36 +26,36 @@ class RequestThreeDSecure extends Basic
 
     /**
      * @param string $avv
-     * @return self
+     * @return RequestThreeDSecure
      */
-    public function setAvv(string $avv): self
+    public function setAvv(string $avv): RequestThreeDSecure
     {
         return $this->set('avv', $avv);
     }
 
     /**
      * @param bool $checkEnrollment
-     * @return self
+     * @return RequestThreeDSecure
      */
-    public function setCheckEnrollment(bool $checkEnrollment): self
+    public function setCheckEnrollment(bool $checkEnrollment): RequestThreeDSecure
     {
         return $this->set('checkEnrollment', $checkEnrollment);
     }
 
     /**
      * @param int $eci
-     * @return self
+     * @return RequestThreeDSecure
      */
-    public function setEci(int $eci): self
+    public function setEci(int $eci): RequestThreeDSecure
     {
         return $this->set('eci', $eci);
     }
 
     /**
      * @param string $xid
-     * @return self
+     * @return RequestThreeDSecure
      */
-    public function setXid(string $xid): self
+    public function setXid(string $xid): RequestThreeDSecure
     {
         return $this->set('xid', $xid);
     }

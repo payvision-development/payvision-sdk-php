@@ -3,8 +3,8 @@
 declare(strict_types=1);
 
 /**
- * @copyright Copyright (c) 2018-2019 Payvision B.V. (https://www.payvision.com/)
- * @license proprietary
+ * @copyright Copyright (c) 2018-2020 Payvision B.V. (https://www.payvision.com/)
+ * @license see LICENCE.TXT
  */
 
 namespace Payvision\SDK\Test\Unit\Domain\Service\Builder;
@@ -19,25 +19,19 @@ class BankTest extends TestCase
      */
     private $builder;
 
-    /**
-     * @return null
-     */
-    protected function setUp()
+    protected function setUp(): void
     {
         $this->builder = new BankBuilder();
     }
 
-    /**
-     * @return null
-     */
-    public function testValidBank()
+    public function testValidBank(): void
     {
         $bankObject = $this->builder
             ->setCountryCode('NL')
             ->setIssuerId(20)
             ->build();
 
-        $this->assertSame(20, $bankObject->getIssuerId());
-        $this->assertSame('NL', $bankObject->getCountryCode());
+        self::assertSame(20, $bankObject->getIssuerId());
+        self::assertSame('NL', $bankObject->getCountryCode());
     }
 }

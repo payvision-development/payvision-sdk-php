@@ -3,7 +3,7 @@
 declare(strict_types=1);
 
 /**
- * @copyright Copyright (c) 2018-2019 Payvision B.V. (https://www.payvision.com/)
+ * @copyright Copyright (c) 2018-2020 Payvision B.V. (https://www.payvision.com/)
  * @license see LICENCE.TXT
  */
 
@@ -19,6 +19,7 @@ use Payvision\SDK\Exception\Api\ErrorResponse;
 use Payvision\SDK\Exception\ApiException;
 use Payvision\SDK\Exception\BuilderException;
 use Payvision\SDK\Exception\DataTypeException;
+use ReflectionException;
 
 class AfterpayTest extends AbstractTestCase
 {
@@ -27,11 +28,7 @@ class AfterpayTest extends AbstractTestCase
      */
     private $paymentRequestBuilder;
 
-    /**
-     * @return null
-     * @throws DataTypeException
-     */
-    protected function setUp()
+    protected function setUp(): void
     {
         parent::setUp();
 
@@ -40,14 +37,15 @@ class AfterpayTest extends AbstractTestCase
 
     /**
      * @throws ApiException
-     * @throws ErrorResponse
      * @throws BuilderException
-     * @return null
+     * @throws ErrorResponse
+     * @throws ReflectionException
      */
-    public function testMakePaymentRequest()
+    public function testMakePaymentRequest(): void
     {
         $this->paymentRequestBuilder->setAction('payment');
         $this->paymentRequestBuilder->header()->setBusinessId($this->credentials['businessId']);
+        $this->paymentRequestBuilder->body()->transaction()->setStoreId(1);
         $this->paymentRequestBuilder->body()->transaction()
             ->setAmount(50.00)
             ->setBrandId(5020)

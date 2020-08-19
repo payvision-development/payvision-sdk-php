@@ -40,7 +40,7 @@ class ResponseToken
     /**
      * @return string
      */
-    public function getDisplayHint()
+    public function getDisplayHint(): string
     {
         return $this->displayHint;
     }
@@ -48,7 +48,7 @@ class ResponseToken
     /**
      * @return string
      */
-    public function getToken()
+    public function getToken(): string
     {
         return $this->token;
     }

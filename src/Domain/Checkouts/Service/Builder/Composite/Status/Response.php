@@ -63,9 +63,9 @@ class Response extends Basic
 
     /**
      * @param string $description
-     * @return self
+     * @return Response
      */
-    public function setDescription(string $description): self
+    public function setDescription(string $description): Response
     {
         return $this->set('description', $description);
     }
@@ -81,9 +81,9 @@ class Response extends Basic
 
     /**
      * @param int $result
-     * @return self
+     * @return Response
      */
-    public function setResult(int $result): self
+    public function setResult(int $result): Response
     {
         return $this->set('result', $result);
     }

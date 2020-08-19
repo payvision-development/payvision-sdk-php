@@ -3,7 +3,7 @@
 declare(strict_types=1);
 
 /**
- * @copyright Copyright (c) 2018-2019 Payvision B.V. (https://www.payvision.com/)
+ * @copyright Copyright (c) 2018-2020 Payvision B.V. (https://www.payvision.com/)
  * @license see LICENCE.TXT
  */
 
@@ -166,13 +166,12 @@ class ApiConnection implements Connection
      * @param array $jsonRequest
      * @param array $jsonResponse
      * @param RequestHeaderCollection $requestHeaderCollection
-     * @return null
      */
     private function logDebugData(
         array $jsonRequest,
         array $jsonResponse,
         RequestHeaderCollection $requestHeaderCollection
-    ) {
+    ): void {
         $debugData = \sprintf(
             '%1$s%2$sRequest:%1$s%3$s%1$sResponse:%1$s%4$s%1$s',
             \PHP_EOL,
@@ -198,9 +197,8 @@ class ApiConnection implements Connection
     /**
      * @param Request $request
      * @throws ApiException
-     * @return null
      */
-    private function validateResponseClasses(Request $request)
+    private function validateResponseClasses(Request $request): void
     {
         if ($request->getResponseObjectTypes() === []) {
             throw new ApiException(

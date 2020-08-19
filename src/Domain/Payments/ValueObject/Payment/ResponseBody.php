@@ -90,7 +90,7 @@ class ResponseBody
     /**
      * @return ResponseBank|null
      */
-    public function getBank()
+    public function getBank(): ?ResponseBank
     {
         return $this->bank;
     }
@@ -98,7 +98,7 @@ class ResponseBody
     /**
      * @return ResponseCard|null
      */
-    public function getCard()
+    public function getCard(): ?ResponseCard
     {
         return $this->card;
     }
@@ -106,7 +106,7 @@ class ResponseBody
     /**
      * @return Error|null
      */
-    public function getError()
+    public function getError(): ?Error
     {
         return $this->error;
     }
@@ -114,7 +114,7 @@ class ResponseBody
     /**
      * @return ResponseQr|null
      */
-    public function getQr()
+    public function getQr(): ?ResponseQr
     {
         return $this->qr;
     }
@@ -122,7 +122,7 @@ class ResponseBody
     /**
      * @return ResponseRedirect|null
      */
-    public function getRedirect()
+    public function getRedirect(): ?ResponseRedirect
     {
         return $this->redirect;
     }
@@ -130,7 +130,7 @@ class ResponseBody
     /**
      * @return ResponseThreeDSecure|null
      */
-    public function getThreeDSecure()
+    public function getThreeDSecure(): ?ResponseThreeDSecure
     {
         return $this->threeDSecure;
     }
@@ -138,7 +138,7 @@ class ResponseBody
     /**
      * @return ResponseToken|null
      */
-    public function getToken()
+    public function getToken(): ?ResponseToken
     {
         return $this->token;
     }
@@ -146,7 +146,7 @@ class ResponseBody
     /**
      * @return ResponseTransaction|null
      */
-    public function getTransaction()
+    public function getTransaction(): ?ResponseTransaction
     {
         return $this->transaction;
     }

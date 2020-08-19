@@ -26,90 +26,90 @@ class RequestDba extends Basic
 
     /**
      * @param string $city
-     * @return self
+     * @return RequestDba
      */
-    public function setCity(string $city): self
+    public function setCity(string $city): RequestDba
     {
         return $this->set('city', $city);
     }
 
     /**
      * @param string $countryCode
-     * @return self
+     * @return RequestDba
      */
-    public function setCountryCode(string $countryCode): self
+    public function setCountryCode(string $countryCode): RequestDba
     {
         return $this->set('countryCode', $countryCode);
     }
 
     /**
      * @param string $email
-     * @return self
+     * @return RequestDba
      */
-    public function setEmail(string $email): self
+    public function setEmail(string $email): RequestDba
     {
         return $this->set('email', $email);
     }
 
     /**
      * @param string $name
-     * @return self
+     * @return RequestDba
      */
-    public function setName(string $name): self
+    public function setName(string $name): RequestDba
     {
         return $this->set('name', $name);
     }
 
     /**
      * @param string $phoneNumber
-     * @return self
+     * @return RequestDba
      */
-    public function setPhoneNumber(string $phoneNumber): self
+    public function setPhoneNumber(string $phoneNumber): RequestDba
     {
         return $this->set('phoneNumber', $phoneNumber);
     }
 
     /**
      * @param string $shortName
-     * @return self
+     * @return RequestDba
      */
-    public function setShortName(string $shortName): self
+    public function setShortName(string $shortName): RequestDba
     {
         return $this->set('shortName', $shortName);
     }
 
     /**
      * @param string $stateCode
-     * @return self
+     * @return RequestDba
      */
-    public function setStateCode(string $stateCode): self
+    public function setStateCode(string $stateCode): RequestDba
     {
         return $this->set('stateCode', $stateCode);
     }
 
     /**
      * @param string $street
-     * @return self
+     * @return RequestDba
      */
-    public function setStreet(string $street): self
+    public function setStreet(string $street): RequestDba
     {
         return $this->set('street', $street);
     }
 
     /**
      * @param string $subMerchantId
-     * @return self
+     * @return RequestDba
      */
-    public function setSubMerchantId(string $subMerchantId): self
+    public function setSubMerchantId(string $subMerchantId): RequestDba
     {
         return $this->set('subMerchantId', $subMerchantId);
     }
 
     /**
      * @param string $zip
-     * @return self
+     * @return RequestDba
      */
-    public function setZip(string $zip): self
+    public function setZip(string $zip): RequestDba
     {
         return $this->set('zip', $zip);
     }

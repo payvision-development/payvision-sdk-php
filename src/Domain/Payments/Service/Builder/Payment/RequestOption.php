@@ -26,81 +26,81 @@ class RequestOption extends Basic
 
     /**
      * @param string $brandName
-     * @return self
+     * @return RequestOption
      */
-    public function setBrandName(string $brandName): self
+    public function setBrandName(string $brandName): RequestOption
     {
         return $this->set('brandName', $brandName);
     }
 
     /**
      * @param string $cartBorderColor
-     * @return self
+     * @return RequestOption
      */
-    public function setCartBorderColor(string $cartBorderColor): self
+    public function setCartBorderColor(string $cartBorderColor): RequestOption
     {
         return $this->set('cartBorderColor', $cartBorderColor);
     }
 
     /**
      * @param string $countryRestriction
-     * @return self
+     * @return RequestOption
      */
-    public function setCountryRestriction(string $countryRestriction): self
+    public function setCountryRestriction(string $countryRestriction): RequestOption
     {
         return $this->set('countryRestriction', $countryRestriction);
     }
 
     /**
      * @param string $headerImage
-     * @return self
+     * @return RequestOption
      */
-    public function setHeaderImage(string $headerImage): self
+    public function setHeaderImage(string $headerImage): RequestOption
     {
         return $this->set('headerImage', $headerImage);
     }
 
     /**
      * @param string $locale
-     * @return self
+     * @return RequestOption
      */
-    public function setLocale(string $locale): self
+    public function setLocale(string $locale): RequestOption
     {
         return $this->set('locale', $locale);
     }
 
     /**
      * @param int $minAgeRestriction
-     * @return self
+     * @return RequestOption
      */
-    public function setMinAgeRestriction(int $minAgeRestriction): self
+    public function setMinAgeRestriction(int $minAgeRestriction): RequestOption
     {
         return $this->set('minAgeRestriction', $minAgeRestriction);
     }
 
     /**
      * @param int $noShipping
-     * @return self
+     * @return RequestOption
      */
-    public function setNoShipping(int $noShipping): self
+    public function setNoShipping(int $noShipping): RequestOption
     {
         return $this->set('noShipping', $noShipping);
     }
 
     /**
      * @param int $processingType
-     * @return self
+     * @return RequestOption
      */
-    public function setProcessingType(int $processingType): self
+    public function setProcessingType(int $processingType): RequestOption
     {
         return $this->set('processingType', $processingType);
     }
 
     /**
      * @param int $quantity
-     * @return self
+     * @return RequestOption
      */
-    public function setQuantity(int $quantity): self
+    public function setQuantity(int $quantity): RequestOption
     {
         return $this->set('quantity', $quantity);
     }

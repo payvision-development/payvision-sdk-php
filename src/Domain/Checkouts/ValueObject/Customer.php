@@ -13,23 +13,23 @@ namespace Payvision\SDK\Domain\Checkouts\ValueObject;
 
 class Customer
 {
-    const SEX_MALE = 'M';
-    const SEX_FEMALE = 'F';
+    public const SEX_MALE = 'M';
+    public const SEX_FEMALE = 'F';
 
-    const IDENTIFICATION_TYPE_PASSPORT = 1;
-    const IDENTIFICATION_TYPE_DRIVERS_LICENCE = 2;
-    const IDENTIFICATION_TYPE_ID_CARD = 3;
-    const IDENTIFICATION_TYPE_TAX_STATEMENT = 4;
+    public const IDENTIFICATION_TYPE_PASSPORT = 1;
+    public const IDENTIFICATION_TYPE_DRIVERS_LICENCE = 2;
+    public const IDENTIFICATION_TYPE_ID_CARD = 3;
+    public const IDENTIFICATION_TYPE_TAX_STATEMENT = 4;
 
-    const CUSTOMER_TYPE_PERSONAL = 1;
-    const CUSTOMER_TYPE_COMPANY = 2;
+    public const CUSTOMER_TYPE_PERSONAL = 1;
+    public const CUSTOMER_TYPE_COMPANY = 2;
 
-    const DEVICE_TYPE_DESKTOP_WEB = 1;
-    const DEVICE_TYPE_DESKTOP_APP = 2;
-    const DEVICE_TYPE_MOBILE_WEB = 3;
-    const DEVICE_TYPE_MOBILE_APP = 4;
-    const DEVICE_TYPE_TABLET_WEB = 5;
-    const DEVICE_TYPE_TABLET_APP = 6;
+    public const DEVICE_TYPE_DESKTOP_WEB = 1;
+    public const DEVICE_TYPE_DESKTOP_APP = 2;
+    public const DEVICE_TYPE_MOBILE_WEB = 3;
+    public const DEVICE_TYPE_MOBILE_APP = 4;
+    public const DEVICE_TYPE_TABLET_WEB = 5;
+    public const DEVICE_TYPE_TABLET_APP = 6;
 
     /**
      * @var string
@@ -170,7 +170,7 @@ class Customer
     /**
      * @return string
      */
-    public function getIpAddress()
+    public function getIpAddress(): string
     {
         return $this->ipAddress;
     }
@@ -178,7 +178,7 @@ class Customer
     /**
      * @return \Payvision\SDK\DataType\Date|null
      */
-    public function getBirthDate()
+    public function getBirthDate(): ?\Payvision\SDK\DataType\Date
     {
         return $this->birthDate;
     }
@@ -186,7 +186,7 @@ class Customer
     /**
      * @return string|null
      */
-    public function getCompanyName()
+    public function getCompanyName(): ?string
     {
         return $this->companyName;
     }
@@ -194,7 +194,7 @@ class Customer
     /**
      * @return string|null
      */
-    public function getCustomerId()
+    public function getCustomerId(): ?string
     {
         return $this->customerId;
     }
@@ -202,7 +202,7 @@ class Customer
     /**
      * @return string|null
      */
-    public function getDeviceType()
+    public function getDeviceType(): ?string
     {
         return $this->deviceType;
     }
@@ -210,7 +210,7 @@ class Customer
     /**
      * @return string|null
      */
-    public function getEmail()
+    public function getEmail(): ?string
     {
         return $this->email;
     }
@@ -218,7 +218,7 @@ class Customer
     /**
      * @return string|null
      */
-    public function getFamilyName()
+    public function getFamilyName(): ?string
     {
         return $this->familyName;
     }
@@ -226,7 +226,7 @@ class Customer
     /**
      * @return string|null
      */
-    public function getGivenName()
+    public function getGivenName(): ?string
     {
         return $this->givenName;
     }
@@ -234,7 +234,7 @@ class Customer
     /**
      * @return string|null
      */
-    public function getHttpUserAgent()
+    public function getHttpUserAgent(): ?string
     {
         return $this->httpUserAgent;
     }
@@ -242,7 +242,7 @@ class Customer
     /**
      * @return string|null
      */
-    public function getIdentificationNumber()
+    public function getIdentificationNumber(): ?string
     {
         return $this->identificationNumber;
     }
@@ -250,7 +250,7 @@ class Customer
     /**
      * @return int|null
      */
-    public function getIdentificationTypeId()
+    public function getIdentificationTypeId(): ?int
     {
         return $this->identificationTypeId;
     }
@@ -258,7 +258,7 @@ class Customer
     /**
      * @return string|null
      */
-    public function getMobileNumber()
+    public function getMobileNumber(): ?string
     {
         return $this->mobileNumber;
     }
@@ -266,7 +266,7 @@ class Customer
     /**
      * @return string|null
      */
-    public function getPhoneNumber()
+    public function getPhoneNumber(): ?string
     {
         return $this->phoneNumber;
     }
@@ -274,7 +274,7 @@ class Customer
     /**
      * @return string|null
      */
-    public function getSex()
+    public function getSex(): ?string
     {
         return $this->sex;
     }
@@ -282,7 +282,7 @@ class Customer
     /**
      * @return string|null
      */
-    public function getTaxNumber()
+    public function getTaxNumber(): ?string
     {
         return $this->taxNumber;
     }
@@ -290,7 +290,7 @@ class Customer
     /**
      * @return int|null
      */
-    public function getType()
+    public function getType(): ?int
     {
         return $this->type;
     }

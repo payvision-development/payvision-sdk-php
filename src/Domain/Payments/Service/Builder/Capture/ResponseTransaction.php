@@ -26,72 +26,72 @@ class ResponseTransaction extends Basic
 
     /**
      * @param string $action
-     * @return self
+     * @return ResponseTransaction
      */
-    public function setAction(string $action): self
+    public function setAction(string $action): ResponseTransaction
     {
         return $this->set('action', $action);
     }
 
     /**
      * @param float $amount
-     * @return self
+     * @return ResponseTransaction
      */
-    public function setAmount(float $amount): self
+    public function setAmount(float $amount): ResponseTransaction
     {
         return $this->set('amount', $amount);
     }
 
     /**
      * @param string $currencyCode
-     * @return self
+     * @return ResponseTransaction
      */
-    public function setCurrencyCode(string $currencyCode): self
+    public function setCurrencyCode(string $currencyCode): ResponseTransaction
     {
         return $this->set('currencyCode', $currencyCode);
     }
 
     /**
      * @param string $id
-     * @return self
+     * @return ResponseTransaction
      */
-    public function setId(string $id): self
+    public function setId(string $id): ResponseTransaction
     {
         return $this->set('id', $id);
     }
 
     /**
      * @param string $parentId
-     * @return self
+     * @return ResponseTransaction
      */
-    public function setParentId(string $parentId): self
+    public function setParentId(string $parentId): ResponseTransaction
     {
         return $this->set('parentId', $parentId);
     }
 
     /**
      * @param string $trackingCode
-     * @return self
+     * @return ResponseTransaction
      */
-    public function setTrackingCode(string $trackingCode): self
+    public function setTrackingCode(string $trackingCode): ResponseTransaction
     {
         return $this->set('trackingCode', $trackingCode);
     }
 
     /**
      * @param int $brandId
-     * @return self
+     * @return ResponseTransaction
      */
-    public function setBrandId(int $brandId): self
+    public function setBrandId(int $brandId): ResponseTransaction
     {
         return $this->set('brandId', $brandId);
     }
 
     /**
      * @param string $descriptor
-     * @return self
+     * @return ResponseTransaction
      */
-    public function setDescriptor(string $descriptor): self
+    public function setDescriptor(string $descriptor): ResponseTransaction
     {
         return $this->set('descriptor', $descriptor);
     }

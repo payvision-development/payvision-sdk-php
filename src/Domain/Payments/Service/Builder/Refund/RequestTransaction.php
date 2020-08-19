@@ -26,27 +26,27 @@ class RequestTransaction extends Basic
 
     /**
      * @param float $amount
-     * @return self
+     * @return RequestTransaction
      */
-    public function setAmount(float $amount): self
+    public function setAmount(float $amount): RequestTransaction
     {
         return $this->set('amount', $amount);
     }
 
     /**
      * @param string $currencyCode
-     * @return self
+     * @return RequestTransaction
      */
-    public function setCurrencyCode(string $currencyCode): self
+    public function setCurrencyCode(string $currencyCode): RequestTransaction
     {
         return $this->set('currencyCode', $currencyCode);
     }
 
     /**
      * @param string $trackingCode
-     * @return self
+     * @return RequestTransaction
      */
-    public function setTrackingCode(string $trackingCode): self
+    public function setTrackingCode(string $trackingCode): RequestTransaction
     {
         return $this->set('trackingCode', $trackingCode);
     }

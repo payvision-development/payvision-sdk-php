@@ -120,7 +120,7 @@ class RequestOrderLine
     /**
      * @return string|null
      */
-    public function getCurrencyCode()
+    public function getCurrencyCode(): ?string
     {
         return $this->currencyCode;
     }
@@ -128,7 +128,7 @@ class RequestOrderLine
     /**
      * @return string|null
      */
-    public function getDescription()
+    public function getDescription(): ?string
     {
         return $this->description;
     }
@@ -136,7 +136,7 @@ class RequestOrderLine
     /**
      * @return float|null
      */
-    public function getDiscountAmount()
+    public function getDiscountAmount(): ?float
     {
         return $this->discountAmount;
     }
@@ -144,7 +144,7 @@ class RequestOrderLine
     /**
      * @return float|null
      */
-    public function getItemAmount()
+    public function getItemAmount(): ?float
     {
         return $this->itemAmount;
     }
@@ -152,7 +152,7 @@ class RequestOrderLine
     /**
      * @return string|null
      */
-    public function getProductCode()
+    public function getProductCode(): ?string
     {
         return $this->productCode;
     }
@@ -160,7 +160,7 @@ class RequestOrderLine
     /**
      * @return string|null
      */
-    public function getProductName()
+    public function getProductName(): ?string
     {
         return $this->productName;
     }
@@ -168,7 +168,7 @@ class RequestOrderLine
     /**
      * @return string|null
      */
-    public function getPurchaseType()
+    public function getPurchaseType(): ?string
     {
         return $this->purchaseType;
     }
@@ -176,7 +176,7 @@ class RequestOrderLine
     /**
      * @return int|null
      */
-    public function getQuantity()
+    public function getQuantity(): ?int
     {
         return $this->quantity;
     }
@@ -184,7 +184,7 @@ class RequestOrderLine
     /**
      * @return int|null
      */
-    public function getSequenceNumber()
+    public function getSequenceNumber(): ?int
     {
         return $this->sequenceNumber;
     }
@@ -192,7 +192,7 @@ class RequestOrderLine
     /**
      * @return float|null
      */
-    public function getShippingAmount()
+    public function getShippingAmount(): ?float
     {
         return $this->shippingAmount;
     }
@@ -200,7 +200,7 @@ class RequestOrderLine
     /**
      * @return float|null
      */
-    public function getTaxPercentage()
+    public function getTaxPercentage(): ?float
     {
         return $this->taxPercentage;
     }
@@ -208,7 +208,7 @@ class RequestOrderLine
     /**
      * @return float|null
      */
-    public function getTotalAmount()
+    public function getTotalAmount(): ?float
     {
         return $this->totalAmount;
     }

@@ -63,9 +63,9 @@ class ResponsePayment extends Basic
 
     /**
      * @param string $description
-     * @return self
+     * @return ResponsePayment
      */
-    public function setDescription(string $description): self
+    public function setDescription(string $description): ResponsePayment
     {
         return $this->set('description', $description);
     }
@@ -81,9 +81,9 @@ class ResponsePayment extends Basic
 
     /**
      * @param int $result
-     * @return self
+     * @return ResponsePayment
      */
-    public function setResult(int $result): self
+    public function setResult(int $result): ResponsePayment
     {
         return $this->set('result', $result);
     }

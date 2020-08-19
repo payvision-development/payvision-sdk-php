@@ -32,7 +32,7 @@ class RequestOrder
     /**
      * @return RequestOrderLine[]|null
      */
-    public function getOrderlines()
+    public function getOrderlines(): ?array
     {
         return $this->orderlines;
     }

@@ -3,7 +3,7 @@
 declare(strict_types=1);
 
 /**
- * @copyright Copyright (c) 2018-2019 Payvision B.V. (https://www.payvision.com/)
+ * @copyright Copyright (c) 2018-2020 Payvision B.V. (https://www.payvision.com/)
  * @license see LICENCE.TXT
  */
 
@@ -11,12 +11,9 @@ namespace Payvision\SDK\Test\Api;
 
 class SofortTest extends AbstractPaymentTest
 {
-    const BRAND_ID = 3020;
+    public const BRAND_ID = 3020;
 
-    /**
-     * @return null
-     */
-    protected function prepareFakePaymentRequest()
+    protected function prepareFakePaymentRequest(): void
     {
         parent::prepareFakePaymentRequest();
 

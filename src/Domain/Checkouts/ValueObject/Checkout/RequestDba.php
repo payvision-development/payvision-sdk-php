@@ -104,7 +104,7 @@ class RequestDba
     /**
      * @return string|null
      */
-    public function getCity()
+    public function getCity(): ?string
     {
         return $this->city;
     }
@@ -112,7 +112,7 @@ class RequestDba
     /**
      * @return string|null
      */
-    public function getCountryCode()
+    public function getCountryCode(): ?string
     {
         return $this->countryCode;
     }
@@ -120,7 +120,7 @@ class RequestDba
     /**
      * @return string|null
      */
-    public function getEmail()
+    public function getEmail(): ?string
     {
         return $this->email;
     }
@@ -128,7 +128,7 @@ class RequestDba
     /**
      * @return string|null
      */
-    public function getName()
+    public function getName(): ?string
     {
         return $this->name;
     }
@@ -136,7 +136,7 @@ class RequestDba
     /**
      * @return string|null
      */
-    public function getPhoneNumber()
+    public function getPhoneNumber(): ?string
     {
         return $this->phoneNumber;
     }
@@ -144,7 +144,7 @@ class RequestDba
     /**
      * @return string|null
      */
-    public function getShortName()
+    public function getShortName(): ?string
     {
         return $this->shortName;
     }
@@ -152,7 +152,7 @@ class RequestDba
     /**
      * @return string|null
      */
-    public function getStateCode()
+    public function getStateCode(): ?string
     {
         return $this->stateCode;
     }
@@ -160,7 +160,7 @@ class RequestDba
     /**
      * @return string|null
      */
-    public function getStreet()
+    public function getStreet(): ?string
     {
         return $this->street;
     }
@@ -168,7 +168,7 @@ class RequestDba
     /**
      * @return string|null
      */
-    public function getSubMerchantId()
+    public function getSubMerchantId(): ?string
     {
         return $this->subMerchantId;
     }
@@ -176,7 +176,7 @@ class RequestDba
     /**
      * @return string|null
      */
-    public function getZip()
+    public function getZip(): ?string
     {
         return $this->zip;
     }

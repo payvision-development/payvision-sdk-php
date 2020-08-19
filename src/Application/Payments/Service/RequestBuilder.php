@@ -22,14 +22,16 @@ use Payvision\SDK\Domain\Payments\ValueObject\Refund\Response as RefundResponse;
 use Payvision\SDK\Domain\Payments\ValueObject\Status\Response as StatusResponse;
 use Payvision\SDK\Application\Request\Builder;
 use Payvision\SDK\Application\ApiRequest;
+use ReflectionException;
 
 class RequestBuilder
 {
+    /**
+     * @throws ReflectionException
+     */
     public static function newPayment(
         PaymentRequest $input
-        
-    ): ApiRequest
-    {
+    ): ApiRequest {
         $jsonBody = Builder::toArray($input);
         return new ApiRequest(
             'payments',
@@ -49,11 +51,13 @@ class RequestBuilder
         );
     }
 
+    /**
+     * @throws ReflectionException
+     */
     public static function captureTransaction(
         CaptureRequest $input,
         string $id
-    ): ApiRequest
-    {
+    ): ApiRequest {
         $jsonBody = Builder::toArray($input);
         return new ApiRequest(
             \str_replace('{id}', $id, 'payments/{id}/capture'),
@@ -73,11 +77,13 @@ class RequestBuilder
         );
     }
 
+    /**
+     * @throws ReflectionException
+     */
     public static function cancelTransaction(
         CancelRequest $input,
         string $id
-    ): ApiRequest
-    {
+    ): ApiRequest {
         $jsonBody = Builder::toArray($input);
         return new ApiRequest(
             \str_replace('{id}', $id, 'payments/{id}/cancel'),
@@ -97,11 +103,13 @@ class RequestBuilder
         );
     }
 
+    /**
+     * @throws ReflectionException
+     */
     public static function refundTransaction(
         RefundRequest $input,
         string $id
-    ): ApiRequest
-    {
+    ): ApiRequest {
         $jsonBody = Builder::toArray($input);
         return new ApiRequest(
             \str_replace('{id}', $id, 'payments/{id}/refund'),
@@ -121,13 +129,14 @@ class RequestBuilder
         );
     }
 
+    /**
+     * @throws ReflectionException
+     */
     public static function getPayments(
-        
         
         string $businessId,
         string $trackingCode
-    ): ApiRequest
-    {
+    ): ApiRequest {
         return new ApiRequest(
             'payments',
             'GET',
@@ -149,12 +158,14 @@ class RequestBuilder
         );
     }
 
+    /**
+     * @throws ReflectionException
+     */
     public static function getTransactionStatus(
         
         string $id,
         string $businessId
-    ): ApiRequest
-    {
+    ): ApiRequest {
         return new ApiRequest(
             \str_replace('{id}', $id, 'payments/{id}'),
             'GET',

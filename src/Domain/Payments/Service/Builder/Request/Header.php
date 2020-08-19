@@ -26,9 +26,9 @@ class Header extends Basic
 
     /**
      * @param string $businessId
-     * @return self
+     * @return Header
      */
-    public function setBusinessId(string $businessId): self
+    public function setBusinessId(string $businessId): Header
     {
         return $this->set('businessId', $businessId);
     }

@@ -26,18 +26,18 @@ class RequestQr extends Basic
 
     /**
      * @param bool $generate
-     * @return self
+     * @return RequestQr
      */
-    public function setGenerate(bool $generate): self
+    public function setGenerate(bool $generate): RequestQr
     {
         return $this->set('generate', $generate);
     }
 
     /**
      * @param int $size
-     * @return self
+     * @return RequestQr
      */
-    public function setSize(int $size): self
+    public function setSize(int $size): RequestQr
     {
         return $this->set('size', $size);
     }

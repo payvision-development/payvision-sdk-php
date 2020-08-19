@@ -26,54 +26,54 @@ class ResponseCard extends Basic
 
     /**
      * @param string $approvalCode
-     * @return self
+     * @return ResponseCard
      */
-    public function setApprovalCode(string $approvalCode): self
+    public function setApprovalCode(string $approvalCode): ResponseCard
     {
         return $this->set('approvalCode', $approvalCode);
     }
 
     /**
      * @param string $expiryMonth
-     * @return self
+     * @return ResponseCard
      */
-    public function setExpiryMonth(string $expiryMonth): self
+    public function setExpiryMonth(string $expiryMonth): ResponseCard
     {
         return $this->set('expiryMonth', $expiryMonth);
     }
 
     /**
      * @param string $expiryYear
-     * @return self
+     * @return ResponseCard
      */
-    public function setExpiryYear(string $expiryYear): self
+    public function setExpiryYear(string $expiryYear): ResponseCard
     {
         return $this->set('expiryYear', $expiryYear);
     }
 
     /**
      * @param string $firstSixDigits
-     * @return self
+     * @return ResponseCard
      */
-    public function setFirstSixDigits(string $firstSixDigits): self
+    public function setFirstSixDigits(string $firstSixDigits): ResponseCard
     {
         return $this->set('firstSixDigits', $firstSixDigits);
     }
 
     /**
      * @param string $holderName
-     * @return self
+     * @return ResponseCard
      */
-    public function setHolderName(string $holderName): self
+    public function setHolderName(string $holderName): ResponseCard
     {
         return $this->set('holderName', $holderName);
     }
 
     /**
      * @param string $lastFourDigits
-     * @return self
+     * @return ResponseCard
      */
-    public function setLastFourDigits(string $lastFourDigits): self
+    public function setLastFourDigits(string $lastFourDigits): ResponseCard
     {
         return $this->set('lastFourDigits', $lastFourDigits);
     }

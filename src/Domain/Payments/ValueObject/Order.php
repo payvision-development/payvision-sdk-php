@@ -32,7 +32,7 @@ class Order
     /**
      * @return OrderLine[]
      */
-    public function getOrderLines()
+    public function getOrderLines(): array
     {
         return $this->orderLines;
     }

@@ -3,7 +3,7 @@
 declare(strict_types=1);
 
 /**
- * @copyright Copyright (c) 2018-2019 Payvision B.V. (https://www.payvision.com/)
+ * @copyright Copyright (c) 2018-2020 Payvision B.V. (https://www.payvision.com/)
  * @license see LICENCE.TXT
  */
 
@@ -39,10 +39,7 @@ class BuilderTest extends TestCase
      */
     private $orderLineBuilder;
 
-    /**
-     * @return null
-     */
-    protected function setUp()
+    protected function setUp(): void
     {
         $this->paymentRequestBuilder = new PaymentRequestBuilder();
         $this->orderLineBuilder = new OrderLineBuilder();
@@ -50,13 +47,12 @@ class BuilderTest extends TestCase
 
     /**
      * @throws ReflectionException
-     * @return null
      */
-    public function testBasicReflection()
+    public function testBasicReflection(): void
     {
         $card = new PaymentRequestCard('001', 10, 2020, 'Foo', '123', '456');
         $result = Builder::toArray($card);
-        $this->assertEquals([
+        self::assertEquals([
             'cvv' => '001',
             'expiryMonth' => '10',
             'expiryYear' => '2020',
@@ -68,9 +64,8 @@ class BuilderTest extends TestCase
 
     /**
      * @throws ReflectionException
-     * @return null
      */
-    public function testNestedReflection()
+    public function testNestedReflection(): void
     {
         $requestObject = new PaymentRequest(
             PaymentRequest::ACTION_PAYMENT,
@@ -81,7 +76,7 @@ class BuilderTest extends TestCase
         );
 
         $result = Builder::toArray($requestObject);
-        $this->assertEquals([
+        self::assertEquals([
             'header' =>
                 [
                     'businessId' => 'abc123',
@@ -99,11 +94,10 @@ class BuilderTest extends TestCase
 
     /**
      * @throws ReflectionException
-     * @return null
      */
-    public function testPaymentRequest()
+    public function testPaymentRequest(): void
     {
-        $this->assertEquals([
+        self::assertEquals([
             'header' =>
                 [
                     'businessId' => 'abc123',
@@ -117,11 +111,12 @@ class BuilderTest extends TestCase
                         ],
                     'transaction' =>
                         [
-                            'amount' => '1',
+                            'amount' => 1.0,
                             'trackingCode' => 'foo456',
                             'returnUrl' => 'https://www.example.com',
-                            'brandId' => '3010',
+                            'brandId' => 3010,
                             'currencyCode' => 'EUR',
+                            'storeId' => 1,
                         ],
                     'order' =>
                         [
@@ -152,11 +147,10 @@ class BuilderTest extends TestCase
 
     /**
      * @throws ReflectionException
-     * @return null
      */
-    public function testCheckoutRequest()
+    public function testCheckoutRequest(): void
     {
-        $this->assertEquals([
+        self::assertEquals([
             'header' =>
                 [
                     'businessId' => 'abc123',
@@ -186,6 +180,8 @@ class BuilderTest extends TestCase
             ->setCountryCode('NL')
             ->setIssuerId(20);
         $this->paymentRequestBuilder->body()->transaction()
+            ->setStoreId(1);
+        $this->paymentRequestBuilder->body()->transaction()
             ->setAmount(1.00)
             ->setTrackingCode('foo456')
             ->setReturnUrl('https://www.example.com')
@@ -211,8 +207,7 @@ class BuilderTest extends TestCase
                     ->build(),
             ]);
         $this->paymentRequestBuilder->setAction(PaymentRequest::ACTION_PAYMENT);
-        $requestObject = $this->paymentRequestBuilder->build();
-        return $requestObject;
+        return $this->paymentRequestBuilder->build();
     }
 
     private function createFakeCheckoutRequest(): CheckoutRequest

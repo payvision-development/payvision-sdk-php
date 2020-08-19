@@ -30,36 +30,36 @@ class ResponseBody extends Basic
 
     /**
      * @param ResponseBank $bank
-     * @return self
+     * @return ResponseBody
      */
-    public function setBank(ResponseBank $bank): self
+    public function setBank(ResponseBank $bank): ResponseBody
     {
         return $this->set('bank', $bank);
     }
 
     /**
      * @param ResponseCard $card
-     * @return self
+     * @return ResponseBody
      */
-    public function setCard(ResponseCard $card): self
+    public function setCard(ResponseCard $card): ResponseBody
     {
         return $this->set('card', $card);
     }
 
     /**
      * @param Error $error
-     * @return self
+     * @return ResponseBody
      */
-    public function setError(Error $error): self
+    public function setError(Error $error): ResponseBody
     {
         return $this->set('error', $error);
     }
 
     /**
      * @param ResponseTransaction $transaction
-     * @return self
+     * @return ResponseBody
      */
-    public function setTransaction(ResponseTransaction $transaction): self
+    public function setTransaction(ResponseTransaction $transaction): ResponseBody
     {
         return $this->set('transaction', $transaction);
     }

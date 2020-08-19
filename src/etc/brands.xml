@@ -81,6 +81,9 @@
                 <issuer id="120">
                     <description>Moneyou</description>
                 </issuer>
+                <issuer id="130">
+                    <description>Handelsbanken</description>
+                </issuer>
             </issuers>
         </brand>
         <brand id="3020">

@@ -28,36 +28,36 @@ class ResponsePayment extends Basic
 
     /**
      * @param ResponsePaymentBody $body
-     * @return self
+     * @return ResponsePayment
      */
-    public function setBody(ResponsePaymentBody $body): self
+    public function setBody(ResponsePaymentBody $body): ResponsePayment
     {
         return $this->set('body', $body);
     }
 
     /**
      * @param string $description
-     * @return self
+     * @return ResponsePayment
      */
-    public function setDescription(string $description): self
+    public function setDescription(string $description): ResponsePayment
     {
         return $this->set('description', $description);
     }
 
     /**
      * @param ResponsePaymentHeader $header
-     * @return self
+     * @return ResponsePayment
      */
-    public function setHeader(ResponsePaymentHeader $header): self
+    public function setHeader(ResponsePaymentHeader $header): ResponsePayment
     {
         return $this->set('header', $header);
     }
 
     /**
      * @param int $result
-     * @return self
+     * @return ResponsePayment
      */
-    public function setResult(int $result): self
+    public function setResult(int $result): ResponsePayment
     {
         return $this->set('result', $result);
     }

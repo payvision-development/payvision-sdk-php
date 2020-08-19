@@ -56,7 +56,7 @@ class RequestThreeDSecure
     /**
      * @return string|null
      */
-    public function getAvv()
+    public function getAvv(): ?string
     {
         return $this->avv;
     }
@@ -64,7 +64,7 @@ class RequestThreeDSecure
     /**
      * @return bool|null
      */
-    public function getCheckEnrollment()
+    public function getCheckEnrollment(): ?bool
     {
         return $this->checkEnrollment;
     }
@@ -72,7 +72,7 @@ class RequestThreeDSecure
     /**
      * @return int|null
      */
-    public function getEci()
+    public function getEci(): ?int
     {
         return $this->eci;
     }
@@ -80,7 +80,7 @@ class RequestThreeDSecure
     /**
      * @return string|null
      */
-    public function getXid()
+    public function getXid(): ?string
     {
         return $this->xid;
     }

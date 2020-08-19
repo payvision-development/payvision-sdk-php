@@ -34,72 +34,72 @@ class RequestBody extends Basic
 
     /**
      * @param RequestCheckout $checkout
-     * @return self
+     * @return RequestBody
      */
-    public function setCheckout(RequestCheckout $checkout): self
+    public function setCheckout(RequestCheckout $checkout): RequestBody
     {
         return $this->set('checkout', $checkout);
     }
 
     /**
      * @param RequestTransaction $transaction
-     * @return self
+     * @return RequestBody
      */
-    public function setTransaction(RequestTransaction $transaction): self
+    public function setTransaction(RequestTransaction $transaction): RequestBody
     {
         return $this->set('transaction', $transaction);
     }
 
     /**
      * @param RequestBillingAddress $billingAddress
-     * @return self
+     * @return RequestBody
      */
-    public function setBillingAddress(RequestBillingAddress $billingAddress): self
+    public function setBillingAddress(RequestBillingAddress $billingAddress): RequestBody
     {
         return $this->set('billingAddress', $billingAddress);
     }
 
     /**
      * @param Customer $customer
-     * @return self
+     * @return RequestBody
      */
-    public function setCustomer(Customer $customer): self
+    public function setCustomer(Customer $customer): RequestBody
     {
         return $this->set('customer', $customer);
     }
 
     /**
      * @param RequestDba $dba
-     * @return self
+     * @return RequestBody
      */
-    public function setDba(RequestDba $dba): self
+    public function setDba(RequestDba $dba): RequestBody
     {
         return $this->set('dba', $dba);
     }
 
     /**
      * @param RequestOption $option
-     * @return self
+     * @return RequestBody
      */
-    public function setOption(RequestOption $option): self
+    public function setOption(RequestOption $option): RequestBody
     {
         return $this->set('option', $option);
     }
 
     /**
      * @param RequestOrder $order
-     * @return self
+     * @return RequestBody
      */
-    public function setOrder(RequestOrder $order): self
+    public function setOrder(RequestOrder $order): RequestBody
     {
         return $this->set('order', $order);
     }
 
     /**
      * @param RequestShippingAddress $shippingAddress
-     * @return self
+     * @return RequestBody
      */
-    public function setShippingAddress(RequestShippingAddress $shippingAddress): self
+    public function setShippingAddress(RequestShippingAddress $shippingAddress): RequestBody
     {
         return $this->set('shippingAddress', $shippingAddress);
     }

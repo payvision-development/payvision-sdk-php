@@ -26,18 +26,18 @@ class ResponseToken extends Basic
 
     /**
      * @param string $displayHint
-     * @return self
+     * @return ResponseToken
      */
-    public function setDisplayHint(string $displayHint): self
+    public function setDisplayHint(string $displayHint): ResponseToken
     {
         return $this->set('displayHint', $displayHint);
     }
 
     /**
      * @param string $token
-     * @return self
+     * @return ResponseToken
      */
-    public function setToken(string $token): self
+    public function setToken(string $token): ResponseToken
     {
         return $this->set('token', $token);
     }

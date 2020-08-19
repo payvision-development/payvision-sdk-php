@@ -42,27 +42,27 @@ class ResponseLink extends Basic
 
     /**
      * @param int[] $brandIds
-     * @return self
+     * @return ResponseLink
      */
-    public function setBrandIds(array $brandIds): self
+    public function setBrandIds(array $brandIds): ResponseLink
     {
         return $this->set('brandIds', $brandIds);
     }
 
     /**
      * @param \Payvision\SDK\DataType\DateTime $expirationTime
-     * @return self
+     * @return ResponseLink
      */
-    public function setExpirationTime(\Payvision\SDK\DataType\DateTime $expirationTime): self
+    public function setExpirationTime(\Payvision\SDK\DataType\DateTime $expirationTime): ResponseLink
     {
         return $this->set('expirationTime', $expirationTime);
     }
 
     /**
      * @param string $linkId
-     * @return self
+     * @return ResponseLink
      */
-    public function setLinkId(string $linkId): self
+    public function setLinkId(string $linkId): ResponseLink
     {
         return $this->set('linkId', $linkId);
     }
@@ -78,9 +78,9 @@ class ResponseLink extends Basic
 
     /**
      * @param string $status
-     * @return self
+     * @return ResponseLink
      */
-    public function setStatus(string $status): self
+    public function setStatus(string $status): ResponseLink
     {
         return $this->set('status', $status);
     }

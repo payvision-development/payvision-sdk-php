@@ -26,99 +26,99 @@ class RequestBank extends Basic
 
     /**
      * @param string $accountHolderName
-     * @return self
+     * @return RequestBank
      */
-    public function setAccountHolderName(string $accountHolderName): self
+    public function setAccountHolderName(string $accountHolderName): RequestBank
     {
         return $this->set('accountHolderName', $accountHolderName);
     }
 
     /**
      * @param string $accountNumber
-     * @return self
+     * @return RequestBank
      */
-    public function setAccountNumber(string $accountNumber): self
+    public function setAccountNumber(string $accountNumber): RequestBank
     {
         return $this->set('accountNumber', $accountNumber);
     }
 
     /**
      * @param string $bankCode
-     * @return self
+     * @return RequestBank
      */
-    public function setBankCode(string $bankCode): self
+    public function setBankCode(string $bankCode): RequestBank
     {
         return $this->set('bankCode', $bankCode);
     }
 
     /**
      * @param string $bic
-     * @return self
+     * @return RequestBank
      */
-    public function setBic(string $bic): self
+    public function setBic(string $bic): RequestBank
     {
         return $this->set('bic', $bic);
     }
 
     /**
      * @param string $countryCode
-     * @return self
+     * @return RequestBank
      */
-    public function setCountryCode(string $countryCode): self
+    public function setCountryCode(string $countryCode): RequestBank
     {
         return $this->set('countryCode', $countryCode);
     }
 
     /**
      * @param \Payvision\SDK\DataType\Date $dateCollection
-     * @return self
+     * @return RequestBank
      */
-    public function setDateCollection(\Payvision\SDK\DataType\Date $dateCollection): self
+    public function setDateCollection(\Payvision\SDK\DataType\Date $dateCollection): RequestBank
     {
         return $this->set('dateCollection', $dateCollection);
     }
 
     /**
      * @param \Payvision\SDK\DataType\Date $dateMandateSigned
-     * @return self
+     * @return RequestBank
      */
-    public function setDateMandateSigned(\Payvision\SDK\DataType\Date $dateMandateSigned): self
+    public function setDateMandateSigned(\Payvision\SDK\DataType\Date $dateMandateSigned): RequestBank
     {
         return $this->set('dateMandateSigned', $dateMandateSigned);
     }
 
     /**
      * @param string $iban
-     * @return self
+     * @return RequestBank
      */
-    public function setIban(string $iban): self
+    public function setIban(string $iban): RequestBank
     {
         return $this->set('iban', $iban);
     }
 
     /**
      * @param int $issuerId
-     * @return self
+     * @return RequestBank
      */
-    public function setIssuerId(int $issuerId): self
+    public function setIssuerId(int $issuerId): RequestBank
     {
         return $this->set('issuerId', $issuerId);
     }
 
     /**
      * @param string $mandateId
-     * @return self
+     * @return RequestBank
      */
-    public function setMandateId(string $mandateId): self
+    public function setMandateId(string $mandateId): RequestBank
     {
         return $this->set('mandateId', $mandateId);
     }
 
     /**
      * @param string $name
-     * @return self
+     * @return RequestBank
      */
-    public function setName(string $name): self
+    public function setName(string $name): RequestBank
     {
         return $this->set('name', $name);
     }

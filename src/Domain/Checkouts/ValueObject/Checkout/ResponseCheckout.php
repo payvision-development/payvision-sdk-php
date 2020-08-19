@@ -82,7 +82,7 @@ class ResponseCheckout
     /**
      * @return int[]
      */
-    public function getBrandIds()
+    public function getBrandIds(): array
     {
         return $this->brandIds;
     }
@@ -90,7 +90,7 @@ class ResponseCheckout
     /**
      * @return string
      */
-    public function getCheckoutId()
+    public function getCheckoutId(): string
     {
         return $this->checkoutId;
     }
@@ -98,7 +98,7 @@ class ResponseCheckout
     /**
      * @return \Payvision\SDK\DataType\DateTime
      */
-    public function getExpirationTime()
+    public function getExpirationTime(): \Payvision\SDK\DataType\DateTime
     {
         return $this->expirationTime;
     }
@@ -106,7 +106,7 @@ class ResponseCheckout
     /**
      * @return ResponseRedirect
      */
-    public function getRedirect()
+    public function getRedirect(): ResponseRedirect
     {
         return $this->redirect;
     }
@@ -114,7 +114,7 @@ class ResponseCheckout
     /**
      * @return OneClick|null
      */
-    public function getOneClick()
+    public function getOneClick(): ?OneClick
     {
         return $this->oneClick;
     }
@@ -122,7 +122,7 @@ class ResponseCheckout
     /**
      * @return bool|null
      */
-    public function getThreeDSecure()
+    public function getThreeDSecure(): ?bool
     {
         return $this->threeDSecure;
     }
@@ -130,7 +130,7 @@ class ResponseCheckout
     /**
      * @return string|null
      */
-    public function getTokenize()
+    public function getTokenize(): ?string
     {
         return $this->tokenize;
     }

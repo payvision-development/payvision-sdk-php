@@ -3,7 +3,7 @@
 declare(strict_types=1);
 
 /**
- * @copyright Copyright (c) 2018-2019 Payvision B.V. (https://www.payvision.com/)
+ * @copyright Copyright (c) 2018-2020 Payvision B.V. (https://www.payvision.com/)
  * @license see LICENCE.TXT
  */
 
@@ -17,9 +17,8 @@ class XMLIssuerRepositoryTest extends TestCase
 {
     /**
      * @throws RepositoryException
-     * @return null
      */
-    public function testGetAllWithNonExistingFile()
+    public function testGetAllWithNonExistingFile(): void
     {
         $repository = new XMLIssuerRepository('/path/to/non/existing/file.xml');
         $this->expectException(RepositoryException::class);
@@ -29,17 +28,16 @@ class XMLIssuerRepositoryTest extends TestCase
 
     /**
      * @throws RepositoryException
-     * @return null
      */
-    public function testGetAllWithExistingFile()
+    public function testGetAllWithExistingFile(): void
     {
         $repository = new XMLIssuerRepository(__DIR__ . '/../../../etc/brands.xml');
         $results = $repository->getAll();
 
-        $this->assertCount(2, $results);
-        $this->assertSame(10, $results[0]->getIssuerId());
-        $this->assertSame('Issuer #1', $results[0]->getDescription());
-        $this->assertSame(20, $results[1]->getIssuerId());
-        $this->assertSame('Issuer #2', $results[1]->getDescription());
+        self::assertCount(2, $results);
+        self::assertSame(10, $results[0]->getIssuerId());
+        self::assertSame('Issuer #1', $results[0]->getDescription());
+        self::assertSame(20, $results[1]->getIssuerId());
+        self::assertSame('Issuer #2', $results[1]->getDescription());
     }
 }

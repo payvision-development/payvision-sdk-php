@@ -56,7 +56,7 @@ class ResponsePayment
     /**
      * @return ResponsePaymentBody
      */
-    public function getBody()
+    public function getBody(): ResponsePaymentBody
     {
         return $this->body;
     }
@@ -64,7 +64,7 @@ class ResponsePayment
     /**
      * @return string
      */
-    public function getDescription()
+    public function getDescription(): string
     {
         return $this->description;
     }
@@ -72,7 +72,7 @@ class ResponsePayment
     /**
      * @return ResponsePaymentHeader
      */
-    public function getHeader()
+    public function getHeader(): ResponsePaymentHeader
     {
         return $this->header;
     }
@@ -80,7 +80,7 @@ class ResponsePayment
     /**
      * @return int
      */
-    public function getResult()
+    public function getResult(): int
     {
         return $this->result;
     }

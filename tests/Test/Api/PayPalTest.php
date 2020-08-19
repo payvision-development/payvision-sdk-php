@@ -3,7 +3,7 @@
 declare(strict_types=1);
 
 /**
- * @copyright Copyright (c) 2018-2019 Payvision B.V. (https://www.payvision.com/)
+ * @copyright Copyright (c) 2018-2020 Payvision B.V. (https://www.payvision.com/)
  * @license see LICENCE.TXT
  */
 
@@ -15,7 +15,6 @@ use Payvision\SDK\Domain\Payments\ValueObject\Payment\Response as PaymentRespons
 use Payvision\SDK\Exception\Api\ErrorResponse;
 use Payvision\SDK\Exception\ApiException;
 use Payvision\SDK\Exception\BuilderException;
-use Payvision\SDK\Exception\DataTypeException;
 use Payvision\SDK\Test\Api\AbstractTestCase;
 use ReflectionException;
 
@@ -26,11 +25,7 @@ class PayPalTest extends AbstractTestCase
      */
     private $paymentRequestBuilder;
 
-    /**
-     * @return null
-     * @throws DataTypeException
-     */
-    protected function setUp()
+    protected function setUp(): void
     {
         parent::setUp();
 
@@ -39,15 +34,15 @@ class PayPalTest extends AbstractTestCase
 
     /**
      * @throws ApiException
-     * @throws ErrorResponse
      * @throws BuilderException
+     * @throws ErrorResponse
      * @throws ReflectionException
-     * @return null
      */
-    public function testMakePaymentRequest()
+    public function testMakePaymentRequest(): void
     {
         $this->paymentRequestBuilder->setAction('payment');
         $this->paymentRequestBuilder->header()->setBusinessId($this->credentials['businessId']);
+        $this->paymentRequestBuilder->body()->transaction()->setStoreId(1);
         $this->paymentRequestBuilder->body()->transaction()
             ->setAmount(1.00)
             ->setBrandId(4010)
@@ -61,10 +56,10 @@ class PayPalTest extends AbstractTestCase
         $response = $this->apiConnection->execute($apiRequest);
 
         self::assertInstanceOf(PaymentResponse::class, $response);
-        self::assertTrue(\is_array($response->getBody()->getRedirect()->getFields()));
+        self::assertIsArray($response->getBody()->getRedirect()->getFields());
         foreach ($response->getBody()->getRedirect()->getFields() as $key => $value) {
-            self::assertTrue(\is_string($key));
-            self::assertTrue(\is_string($value));
+            self::assertIsString($key);
+            self::assertIsString($value);
         }
     }
 }

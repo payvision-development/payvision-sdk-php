@@ -54,27 +54,27 @@ class ResponseCheckout extends Basic
 
     /**
      * @param int[] $brandIds
-     * @return self
+     * @return ResponseCheckout
      */
-    public function setBrandIds(array $brandIds): self
+    public function setBrandIds(array $brandIds): ResponseCheckout
     {
         return $this->set('brandIds', $brandIds);
     }
 
     /**
      * @param string $checkoutId
-     * @return self
+     * @return ResponseCheckout
      */
-    public function setCheckoutId(string $checkoutId): self
+    public function setCheckoutId(string $checkoutId): ResponseCheckout
     {
         return $this->set('checkoutId', $checkoutId);
     }
 
     /**
      * @param \Payvision\SDK\DataType\DateTime $expirationTime
-     * @return self
+     * @return ResponseCheckout
      */
-    public function setExpirationTime(\Payvision\SDK\DataType\DateTime $expirationTime): self
+    public function setExpirationTime(\Payvision\SDK\DataType\DateTime $expirationTime): ResponseCheckout
     {
         return $this->set('expirationTime', $expirationTime);
     }
@@ -99,18 +99,18 @@ class ResponseCheckout extends Basic
 
     /**
      * @param bool $threeDSecure
-     * @return self
+     * @return ResponseCheckout
      */
-    public function setThreeDSecure(bool $threeDSecure): self
+    public function setThreeDSecure(bool $threeDSecure): ResponseCheckout
     {
         return $this->set('threeDSecure', $threeDSecure);
     }
 
     /**
      * @param string $tokenize
-     * @return self
+     * @return ResponseCheckout
      */
-    public function setTokenize(string $tokenize): self
+    public function setTokenize(string $tokenize): ResponseCheckout
     {
         return $this->set('tokenize', $tokenize);
     }

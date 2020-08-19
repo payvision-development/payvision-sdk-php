@@ -59,7 +59,7 @@ class ResponseBody
     /**
      * @return ResponseBank|null
      */
-    public function getBank()
+    public function getBank(): ?ResponseBank
     {
         return $this->bank;
     }
@@ -67,7 +67,7 @@ class ResponseBody
     /**
      * @return ResponseCard|null
      */
-    public function getCard()
+    public function getCard(): ?ResponseCard
     {
         return $this->card;
     }
@@ -75,7 +75,7 @@ class ResponseBody
     /**
      * @return Error|null
      */
-    public function getError()
+    public function getError(): ?Error
     {
         return $this->error;
     }
@@ -83,7 +83,7 @@ class ResponseBody
     /**
      * @return ResponseTransaction|null
      */
-    public function getTransaction()
+    public function getTransaction(): ?ResponseTransaction
     {
         return $this->transaction;
     }

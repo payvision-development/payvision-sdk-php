@@ -15,8 +15,8 @@ use Payvision\SDK\Domain\Payments\ValueObject\Request\Header;
 
 class Request
 {
-    const ACTION_PAYMENT = 'payment';
-    const ACTION_AUTHORIZE = 'authorize';
+    public const ACTION_PAYMENT = 'payment';
+    public const ACTION_AUTHORIZE = 'authorize';
 
     /**
      * @var string
@@ -53,7 +53,7 @@ class Request
     /**
      * @return string
      */
-    public function getAction()
+    public function getAction(): string
     {
         return $this->action;
     }
@@ -61,7 +61,7 @@ class Request
     /**
      * @return RequestBody
      */
-    public function getBody()
+    public function getBody(): RequestBody
     {
         return $this->body;
     }
@@ -69,7 +69,7 @@ class Request
     /**
      * @return Header
      */
-    public function getHeader()
+    public function getHeader(): Header
     {
         return $this->header;
     }

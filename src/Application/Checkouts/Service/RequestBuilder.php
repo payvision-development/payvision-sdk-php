@@ -16,14 +16,16 @@ use Payvision\SDK\Domain\Checkouts\ValueObject\Checkout\Response as CheckoutResp
 use Payvision\SDK\Domain\Checkouts\ValueObject\Status\Response as StatusResponse;
 use Payvision\SDK\Application\Request\Builder;
 use Payvision\SDK\Application\ApiRequest;
+use ReflectionException;
 
 class RequestBuilder
 {
+    /**
+     * @throws ReflectionException
+     */
     public static function newCheckout(
         CheckoutRequest $input
-        
-    ): ApiRequest
-    {
+    ): ApiRequest {
         $jsonBody = Builder::toArray($input);
         return new ApiRequest(
             'checkouts',
@@ -41,12 +43,14 @@ class RequestBuilder
         );
     }
 
+    /**
+     * @throws ReflectionException
+     */
     public static function getCheckoutStatus(
         
         string $id,
         string $businessId
-    ): ApiRequest
-    {
+    ): ApiRequest {
         return new ApiRequest(
             \str_replace('{id}', $id, 'checkouts/{id}'),
             'GET',

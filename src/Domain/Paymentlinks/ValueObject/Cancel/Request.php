@@ -34,7 +34,7 @@ class Request
     /**
      * @return Header
      */
-    public function getHeader()
+    public function getHeader(): Header
     {
         return $this->header;
     }

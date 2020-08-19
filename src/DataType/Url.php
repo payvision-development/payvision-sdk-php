@@ -3,7 +3,7 @@
 declare(strict_types=1);
 
 /**
- * @copyright Copyright (c) 2018-2019 Payvision B.V. (https://www.payvision.com/)
+ * @copyright Copyright (c) 2018-2020 Payvision B.V. (https://www.payvision.com/)
  * @license see LICENCE.TXT
  */
 
@@ -18,6 +18,10 @@ class Url implements DataType
      */
     protected $url;
 
+    /**
+     * @param string|null $url
+     * @throws DataTypeException
+     */
     public function __construct(string $url = null)
     {
         if ($url !== null && !\filter_var($url, \FILTER_VALIDATE_URL)) {
@@ -30,15 +34,11 @@ class Url implements DataType
         $this->url = $url;
     }
 
-    // phpcs:disable SlevomatCodingStandard.TypeHints.TypeHintDeclaration.MissingReturnTypeHint
-
     /**
-     * @return null|string
+     * @return string|null
      */
-    public function get()
+    public function get(): ?string
     {
         return $this->url;
     }
-
-    // phpcs:enable SlevomatCodingStandard.TypeHints.TypeHintDeclaration.MissingReturnTypeHint
 }

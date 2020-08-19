@@ -13,17 +13,17 @@ namespace Payvision\SDK\Domain\Checkouts\ValueObject\Checkout;
 
 class RequestTransaction
 {
-    const SOURCE_ECOMMERCE = 'EC';
-    const SOURCE_MAIL_ORDER = 'MO';
-    const SOURCE_TELEPHONE_ORDER = 'TO';
+    public const SOURCE_ECOMMERCE = 'EC';
+    public const SOURCE_MAIL_ORDER = 'MO';
+    public const SOURCE_TELEPHONE_ORDER = 'TO';
 
-    const TYPE_SINGLE = 'SINGLE';
-    const TYPE_FIRST = 'FIRST';
-    const TYPE_RECURRING = 'RECURRING';
-    const TYPE_LAST = 'LAST';
+    public const TYPE_SINGLE = 'SINGLE';
+    public const TYPE_FIRST = 'FIRST';
+    public const TYPE_RECURRING = 'RECURRING';
+    public const TYPE_LAST = 'LAST';
 
-    const AUTHORIZATION_MODE_AUTHORIZE = 'authorize';
-    const AUTHORIZATION_MODE_PAYMENT = 'payment';
+    public const AUTHORIZATION_MODE_AUTHORIZE = 'authorize';
+    public const AUTHORIZATION_MODE_PAYMENT = 'payment';
 
     /**
      * @var float
@@ -140,7 +140,7 @@ class RequestTransaction
     /**
      * @return float
      */
-    public function getAmount()
+    public function getAmount(): float
     {
         return $this->amount;
     }
@@ -148,7 +148,7 @@ class RequestTransaction
     /**
      * @return string
      */
-    public function getAuthorizationMode()
+    public function getAuthorizationMode(): string
     {
         return $this->authorizationMode;
     }
@@ -156,7 +156,7 @@ class RequestTransaction
     /**
      * @return string
      */
-    public function getCurrencyCode()
+    public function getCurrencyCode(): string
     {
         return $this->currencyCode;
     }
@@ -164,7 +164,7 @@ class RequestTransaction
     /**
      * @return string
      */
-    public function getTrackingCode()
+    public function getTrackingCode(): string
     {
         return $this->trackingCode;
     }
@@ -172,7 +172,7 @@ class RequestTransaction
     /**
      * @return string|null
      */
-    public function getCountryCode()
+    public function getCountryCode(): ?string
     {
         return $this->countryCode;
     }
@@ -180,7 +180,7 @@ class RequestTransaction
     /**
      * @return string|null
      */
-    public function getDescriptor()
+    public function getDescriptor(): ?string
     {
         return $this->descriptor;
     }
@@ -188,7 +188,7 @@ class RequestTransaction
     /**
      * @return string|null
      */
-    public function getInvoiceId()
+    public function getInvoiceId(): ?string
     {
         return $this->invoiceId;
     }
@@ -196,7 +196,7 @@ class RequestTransaction
     /**
      * @return string|null
      */
-    public function getLanguageCode()
+    public function getLanguageCode(): ?string
     {
         return $this->languageCode;
     }
@@ -204,7 +204,7 @@ class RequestTransaction
     /**
      * @return string|null
      */
-    public function getNotifyUrl()
+    public function getNotifyUrl(): ?string
     {
         return $this->notifyUrl;
     }
@@ -212,7 +212,7 @@ class RequestTransaction
     /**
      * @return string|null
      */
-    public function getPurchaseId()
+    public function getPurchaseId(): ?string
     {
         return $this->purchaseId;
     }
@@ -220,7 +220,7 @@ class RequestTransaction
     /**
      * @return string|null
      */
-    public function getSource()
+    public function getSource(): ?string
     {
         return $this->source;
     }
@@ -228,7 +228,7 @@ class RequestTransaction
     /**
      * @return int|null
      */
-    public function getStoreId()
+    public function getStoreId(): ?int
     {
         return $this->storeId;
     }
@@ -236,7 +236,7 @@ class RequestTransaction
     /**
      * @return string|null
      */
-    public function getType()
+    public function getType(): ?string
     {
         return $this->type;
     }

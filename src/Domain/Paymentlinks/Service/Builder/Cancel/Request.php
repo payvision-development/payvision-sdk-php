@@ -27,9 +27,9 @@ class Request extends Basic
 
     /**
      * @param Header $header
-     * @return self
+     * @return Request
      */
-    public function setHeader(Header $header): self
+    public function setHeader(Header $header): Request
     {
         return $this->set('header', $header);
     }
