@@ -24,17 +24,25 @@ class ResponsePaymentError
     private $message;
 
     /**
+     * @var string
+     */
+    private $detailedMessage;
+
+    /**
      * ResponsePaymentError constructor.
      *
      * @param int $code
      * @param string $message
+     * @param string $detailedMessage
      */
     public function __construct(
         int $code,
-        string $message
+        string $message,
+        string $detailedMessage = null
     ) {
         $this->code = $code;
         $this->message = $message;
+        $this->detailedMessage = $detailedMessage;
     }
 
     /**
@@ -51,5 +59,13 @@ class ResponsePaymentError
     public function getMessage(): string
     {
         return $this->message;
+    }
+
+    /**
+     * @return string|null
+     */
+    public function getDetailedMessage(): ?string
+    {
+        return $this->detailedMessage;
     }
 }

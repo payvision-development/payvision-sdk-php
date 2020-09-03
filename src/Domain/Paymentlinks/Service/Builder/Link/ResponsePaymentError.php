@@ -43,13 +43,23 @@ class ResponsePaymentError extends Basic
     }
 
     /**
+     * @param string $detailedMessage
+     * @return ResponsePaymentError
+     */
+    public function setDetailedMessage(string $detailedMessage): ResponsePaymentError
+    {
+        return $this->set('detailedMessage', $detailedMessage);
+    }
+
+    /**
      * @return ResponsePaymentErrorObject
      */
     protected function buildObject(): ResponsePaymentErrorObject
     {
         return new ResponsePaymentErrorObject(
             $this->get('code'),
-            $this->get('message')
+            $this->get('message'),
+            $this->get('detailedMessage')
         );
     }
 }

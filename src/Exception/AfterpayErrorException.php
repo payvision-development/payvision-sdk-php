@@ -11,7 +11,6 @@ namespace Payvision\SDK\Exception;
 
 use Exception;
 
-class RepositoryException extends Exception
+class AfterpayErrorException extends Exception
 {
-    public const FILE_NOT_FOUND = 4100;
 }

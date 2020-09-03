@@ -13,9 +13,9 @@ use Exception;
 
 class WebhookException extends Exception
 {
-    const UNKNOWN_PAYLOAD = 5100;
-    const UNEXPECTED_PAYLOAD = 5101;
-    const JWT_NOT_VALIDATED = 5102;
-    const VALIDATION_FAILED = 5103;
-    const MISSING_CHECKSUM = 5104;
+    public const UNKNOWN_PAYLOAD = 5100;
+    public const UNEXPECTED_PAYLOAD = 5101;
+    public const JWT_NOT_VALIDATED = 5102;
+    public const VALIDATION_FAILED = 5103;
+    public const MISSING_CHECKSUM = 5104;
 }

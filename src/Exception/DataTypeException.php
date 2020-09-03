@@ -13,11 +13,11 @@ use Exception;
 
 class DataTypeException extends Exception
 {
-    const UNKNOWN_COUNTRY = 3100;
-    const UNKNOWN_CURRENCY = 3101;
-    const UNKNOWN_LANGUAGE = 3102;
-    const AMOUNT_CANNOT_BE_NEGATIVE = 3103;
-    const STRING_TOO_LONG = 3104;
-    const VALUE_NOT_ALLOWED = 3105;
-    const INVALID_URL = 3106;
+    public const UNKNOWN_COUNTRY = 3100;
+    public const UNKNOWN_CURRENCY = 3101;
+    public const UNKNOWN_LANGUAGE = 3102;
+    public const AMOUNT_CANNOT_BE_NEGATIVE = 3103;
+    public const STRING_TOO_LONG = 3104;
+    public const VALUE_NOT_ALLOWED = 3105;
+    public const INVALID_URL = 3106;
 }

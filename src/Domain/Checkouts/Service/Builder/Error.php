@@ -43,13 +43,23 @@ class Error extends Basic
     }
 
     /**
+     * @param string $detailedMessage
+     * @return Error
+     */
+    public function setDetailedMessage(string $detailedMessage): Error
+    {
+        return $this->set('detailedMessage', $detailedMessage);
+    }
+
+    /**
      * @return ErrorObject
      */
     protected function buildObject(): ErrorObject
     {
         return new ErrorObject(
             $this->get('code'),
-            $this->get('message')
+            $this->get('message'),
+            $this->get('detailedMessage')
         );
     }
 }

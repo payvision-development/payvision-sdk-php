@@ -2,7 +2,7 @@
     "name": "payvision/payvision-sdk-php",
     "description": "Payvision PHP SDK",
     "type": "library",
-    "version": "5.0.0",
+    "version": "5.1.0",
     "license": "MIT",
     "require": {
         "php": "^7.2.5|^7.3",
