@@ -77,7 +77,7 @@ class AfterpayErrorMessageHelper
      */
     protected static function extractMessageCode(string $message): string
     {
-        if (\preg_match('/^(field\.)?(?P<code>[a-z]+\.[a-z.]+)/', $message, $matches)) {
+        if (\preg_match('/^(field\.)?(?P<code>[a-z]+\.[a-z0-9.]+)/', $message, $matches)) {
             return $matches['code'];
         }
         throw new AfterpayErrorException('Unable to handle Afterpay error code: ' . $message);

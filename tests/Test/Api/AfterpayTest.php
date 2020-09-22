@@ -14,11 +14,12 @@ namespace Payvision\SDK\Test\Api;
 use Payvision\SDK\Application\Payments\Service\RequestBuilder;
 use Payvision\SDK\DataType\Date;
 use Payvision\SDK\Domain\Payments\Service\Builder\Composite\Payment\Request as PaymentRequestBuilder;
+use Payvision\SDK\Domain\Payments\Service\Builder\OrderLine as OrderLineBuilder;
+use Payvision\SDK\Domain\Payments\ValueObject\Customer;
 use Payvision\SDK\Domain\Payments\ValueObject\Payment\Response as PaymentResponse;
 use Payvision\SDK\Exception\Api\ErrorResponse;
 use Payvision\SDK\Exception\ApiException;
 use Payvision\SDK\Exception\BuilderException;
-use Payvision\SDK\Exception\DataTypeException;
 use ReflectionException;
 
 class AfterpayTest extends AbstractTestCase
@@ -28,11 +29,17 @@ class AfterpayTest extends AbstractTestCase
      */
     private $paymentRequestBuilder;
 
+    /**
+     * @var OrderLineBuilder
+     */
+    private $orderLineBuilder;
+
     protected function setUp(): void
     {
         parent::setUp();
 
         $this->paymentRequestBuilder = new PaymentRequestBuilder();
+        $this->orderLineBuilder = new OrderLineBuilder();
     }
 
     /**
@@ -45,8 +52,9 @@ class AfterpayTest extends AbstractTestCase
     {
         $this->paymentRequestBuilder->setAction('payment');
         $this->paymentRequestBuilder->header()->setBusinessId($this->credentials['businessId']);
-        $this->paymentRequestBuilder->body()->transaction()->setStoreId(1);
         $this->paymentRequestBuilder->body()->transaction()
+            ->setStoreId(1)
+            ->setLanguageCode('nl')
             ->setAmount(50.00)
             ->setBrandId(5020)
             ->setTrackingCode($this->generateTrackingCode())
@@ -57,6 +65,7 @@ class AfterpayTest extends AbstractTestCase
             ->setIpAddress('127.0.0.1')
             ->setGivenName('John')
             ->setFamilyName('Doe')
+            ->setSex(Customer::SEX_MALE)
             ->setBirthDate((new Date('35 years ago')))
             ->setEmail('john.doe@example.com')
             ->setPhoneNumber('+31 (0)40 1234567');
@@ -72,6 +81,25 @@ class AfterpayTest extends AbstractTestCase
             ->setStreet('Marconilaan')
             ->setHouseNumber('16')
             ->setZip('5621 AA');
+        $this->paymentRequestBuilder->body()->shippingAddress()->customer()
+            ->setIpAddress('127.0.0.1')
+            ->setGivenName('John')
+            ->setFamilyName('Doe')
+            ->setSex(Customer::SEX_MALE)
+            ->setBirthDate((new Date('35 years ago')))
+            ->setEmail('john.doe@example.com')
+            ->setPhoneNumber('+31 (0)40 1234567');
+        $this->paymentRequestBuilder->body()->order()->setOrderLines([
+            $this->orderLineBuilder
+                ->setDescription('Order Line')
+                ->setItemAmount(50.00)
+                ->setTotalAmount(50.00)
+                ->setProductCode('ABC123')
+                ->setQuantity(1)
+                ->setPurchaseType('4') // Temporary value, needs to be deleted as soon as the backend of payvision is fixed
+                ->setTaxPercentage(21.00)
+                ->build(),
+        ]);
 
         $requestObject = $this->paymentRequestBuilder->build();
         $apiRequest = RequestBuilder::newPayment($requestObject);

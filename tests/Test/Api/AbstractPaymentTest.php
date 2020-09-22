@@ -45,9 +45,10 @@ abstract class AbstractPaymentTest extends AbstractTestCase
 
     protected function prepareFakePaymentRequest(): void
     {
-        $this->paymentRequestBuilder->header()->setBusinessId($this->credentials['businessId']);
-        $this->paymentRequestBuilder->body()->transaction()->setStoreId(1);
+        $this->paymentRequestBuilder->header()
+            ->setBusinessId($this->credentials['businessId']);
         $this->paymentRequestBuilder->body()->transaction()
+            ->setStoreId(1)
             ->setAmount(1.00)
             ->setPurchaseId('1234')
             ->setTrackingCode($this->generateTrackingCode())

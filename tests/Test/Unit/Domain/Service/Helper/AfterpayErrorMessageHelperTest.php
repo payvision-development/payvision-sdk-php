@@ -27,6 +27,11 @@ class AfterpayErrorMessageHelperTest extends TestCase
         self::assertSame($expected, AfterpayErrorMessageHelper::extractMessageCodes($errorCode));
     }
 
+    // phpcs:disable ObjectCalisthenics.Files.FunctionLength.ObjectCalisthenics\Sniffs\Files\FunctionLengthSniff
+
+    /**
+     * @return array|array[]
+     */
     public function afterpayExtractMessageCodeProvider(): array
     {
         return [
@@ -42,8 +47,26 @@ class AfterpayErrorMessageHelperTest extends TestCase
                     AfterpayErrorMessageHelper::BILLTO_HOUSENUMBERADDITION_MISSING,
                 ],
             ],
+            'phone number 1 missing' => [
+                'field.billto.phonenumber1.missing (Het telefoonnummer ontbreekt)',
+                [AfterpayErrorMessageHelper::BILLTO_PHONENUMBER1_MISSING],
+            ],
+            'phone number 1 invalid' => [
+                'field.billto.phonenumber1.invalid (fixed line and/or mobile number is invalid)',
+                [AfterpayErrorMessageHelper::BILLTO_PHONENUMBER1_INVALID],
+            ],
+            'phone number 2 missing' => [
+                'field.billto.phonenumber2.missing (Het telefoonnummer ontbreekt)',
+                [AfterpayErrorMessageHelper::BILLTO_PHONENUMBER2_MISSING],
+            ],
+            'phone number 2 invalid' => [
+                'field.billto.phonenumber2.invalid (fixed line and/or mobile number is invalid)',
+                [AfterpayErrorMessageHelper::BILLTO_PHONENUMBER2_INVALID],
+            ],
         ];
     }
+
+    // phpcs:enable ObjectCalisthenics.Files.FunctionLength.ObjectCalisthenics\Sniffs\Files\FunctionLengthSniff
 
     /**
      * @param string $message
@@ -68,7 +91,7 @@ class AfterpayErrorMessageHelperTest extends TestCase
             'Non parsable error code' => [
                 'housenumberaddition_missing',
                 'Unable to handle Afterpay error code: housenumberaddition_missing',
-            ]
+            ],
         ];
     }
 }
