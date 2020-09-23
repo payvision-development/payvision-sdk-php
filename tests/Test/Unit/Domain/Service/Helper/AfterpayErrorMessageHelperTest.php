@@ -63,6 +63,14 @@ class AfterpayErrorMessageHelperTest extends TestCase
                 'field.billto.phonenumber2.invalid (fixed line and/or mobile number is invalid)',
                 [AfterpayErrorMessageHelper::BILLTO_PHONENUMBER2_INVALID],
             ],
+            'Fixed string message' => [
+                'age is under 18',
+                [AfterpayErrorMessageHelper::AGE_IS_UNDER_18]
+            ],
+            'Fixed string message in caps' => [
+                'INVALID E-MAIL ADDRESS',
+                [AfterpayErrorMessageHelper::INVALID_EMAIL_ADDRESS]
+            ],
         ];
     }
 

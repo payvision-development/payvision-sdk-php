@@ -13,6 +13,18 @@ use Payvision\SDK\Exception\AfterpayErrorException;
 
 class AfterpayErrorMessageHelper
 {
+    // Error code: 300400800
+    public const AGE_IS_UNDER_18 = 'age.under.18';
+    public const INCORRECT_ADDRESS = 'incorrect.address';
+    public const MAXIMUM_OPEN_ORDERS_REACHED = 'maximum.open.orders.reached';
+    public const NO_RESPONSE_FROM_AQUIRER = 'no.response.from.aquirer';
+    public const ORDER_IS_NOT_ACCEPTED_BY_AFTERPAY = 'order.is.not.accepted';
+    public const TRANSACTION_DECLINED_BY_AUTHORIZATION_SYSTEM = 'transaction.declined';
+
+    // Error code: 300102000
+    public const INVALID_EMAIL_ADDRESS = 'invalid.email.address';
+
+    // Error code: 100400030
     public const BILLTO_CITY_MISSING = 'billto.city.missing';
     public const BILLTO_HOUSENUMBER_INVALID = 'billto.housenumber.invalid';
     public const BILLTO_HOUSENUMBER_MISSING = 'billto.housenumber.missing';
@@ -57,6 +69,19 @@ class AfterpayErrorMessageHelper
     public const SHIPTO_POSTALCODE_MISSING = 'shipto.postalcode.missing';
     public const SHIPTO_STREETNAME_MISSING = 'shipto.streetname.missing';
 
+    protected const FIXED_STRING_MESSAGES = [
+        // Error code: 300400800.
+        'age is under 18' => self::AGE_IS_UNDER_18,
+        'incorrect address' => self::INCORRECT_ADDRESS,
+        'maximum open orders reached' => self::MAXIMUM_OPEN_ORDERS_REACHED,
+        'no response from aquirer' => self::NO_RESPONSE_FROM_AQUIRER,
+        'order is not accepted by afterpay' => self::ORDER_IS_NOT_ACCEPTED_BY_AFTERPAY,
+        'transaction declined by authorization system' => self::TRANSACTION_DECLINED_BY_AUTHORIZATION_SYSTEM,
+
+        // Error code: 300102000.
+        'invalid e-mail address' => self::INVALID_EMAIL_ADDRESS,
+    ];
+
     /**
      * @param string $errorDetail
      * @return array
@@ -67,7 +92,7 @@ class AfterpayErrorMessageHelper
         $result = [];
         $messages = \explode('|', $errorDetail);
         foreach ($messages as $message) {
-            $result[] = self::extractMessageCode(\trim($message));
+            $result[] = self::extractMessageCode(\strtolower(\trim($message)));
         }
         return $result;
     }
@@ -77,6 +102,9 @@ class AfterpayErrorMessageHelper
      */
     protected static function extractMessageCode(string $message): string
     {
+        if (\array_key_exists($message, self::FIXED_STRING_MESSAGES)) {
+            return self::FIXED_STRING_MESSAGES[$message];
+        }
         if (\preg_match('/^(field\.)?(?P<code>[a-z]+\.[a-z0-9.]+)/', $message, $matches)) {
             return $matches['code'];
         }
