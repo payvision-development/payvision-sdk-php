@@ -13,13 +13,13 @@ namespace Payvision\SDK\Domain\Paymentlinks\ValueObject\Link;
 
 class ResponseLink
 {
-    public const READY = 'READY';
-    public const PAID = 'PAID';
-    public const CANCELLED = 'CANCELLED';
-    public const DECLINED = 'DECLINED';
-    public const DECLINEDBYCUSTOMER = 'DECLINEDBYCUSTOMER';
-    public const EXPIRED = 'EXPIRED';
-    public const PENDING = 'PENDING';
+    const READY = 'READY';
+    const PAID = 'PAID';
+    const CANCELLED = 'CANCELLED';
+    const DECLINED = 'DECLINED';
+    const DECLINEDBYCUSTOMER = 'DECLINEDBYCUSTOMER';
+    const EXPIRED = 'EXPIRED';
+    const PENDING = 'PENDING';
 
     /**
      * @var int[]

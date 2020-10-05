@@ -58,7 +58,7 @@ class ResponseBody
     /**
      * @return Error|null
      */
-    public function getError(): ?Error
+    public function getError()
     {
         return $this->error;
     }
@@ -66,7 +66,7 @@ class ResponseBody
     /**
      * @return ResponseLink|null
      */
-    public function getLink(): ?ResponseLink
+    public function getLink()
     {
         return $this->link;
     }
@@ -74,7 +74,7 @@ class ResponseBody
     /**
      * @return ResponsePayment[]|null
      */
-    public function getPayments(): ?array
+    public function getPayments()
     {
         return $this->payments;
     }
@@ -82,7 +82,7 @@ class ResponseBody
     /**
      * @return ResponseTransaction|null
      */
-    public function getTransaction(): ?ResponseTransaction
+    public function getTransaction()
     {
         return $this->transaction;
     }

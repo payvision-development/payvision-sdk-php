@@ -64,7 +64,7 @@ class ResponsePaymentBank
     /**
      * @return string|null
      */
-    public function getAccountHolderName(): ?string
+    public function getAccountHolderName()
     {
         return $this->accountHolderName;
     }
@@ -72,7 +72,7 @@ class ResponsePaymentBank
     /**
      * @return string|null
      */
-    public function getBic(): ?string
+    public function getBic()
     {
         return $this->bic;
     }
@@ -80,7 +80,7 @@ class ResponsePaymentBank
     /**
      * @return string|null
      */
-    public function getCountryCode(): ?string
+    public function getCountryCode()
     {
         return $this->countryCode;
     }
@@ -88,7 +88,7 @@ class ResponsePaymentBank
     /**
      * @return string|null
      */
-    public function getIban(): ?string
+    public function getIban()
     {
         return $this->iban;
     }
@@ -96,7 +96,7 @@ class ResponsePaymentBank
     /**
      * @return string|null
      */
-    public function getName(): ?string
+    public function getName()
     {
         return $this->name;
     }

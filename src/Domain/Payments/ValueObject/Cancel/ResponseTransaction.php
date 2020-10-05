@@ -104,7 +104,7 @@ class ResponseTransaction
     /**
      * @return int|null
      */
-    public function getBrandId(): ?int
+    public function getBrandId()
     {
         return $this->brandId;
     }
@@ -112,7 +112,7 @@ class ResponseTransaction
     /**
      * @return string|null
      */
-    public function getDescriptor(): ?string
+    public function getDescriptor()
     {
         return $this->descriptor;
     }

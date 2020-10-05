@@ -17,7 +17,7 @@ use ReflectionException;
 
 abstract class AbstractPaymentTest extends AbstractTestCase
 {
-    public const BRAND_ID = 0;
+    const BRAND_ID = 0;
 
     /**
      * @var PaymentRequestBuilder
@@ -29,7 +29,7 @@ abstract class AbstractPaymentTest extends AbstractTestCase
      */
     protected $refundRequestBuilder;
 
-    protected function setUp(): void
+    protected function setUp()
     {
         parent::setUp();
 
@@ -43,7 +43,7 @@ abstract class AbstractPaymentTest extends AbstractTestCase
         return $this->paymentRequestBuilder->build();
     }
 
-    protected function prepareFakePaymentRequest(): void
+    protected function prepareFakePaymentRequest()
     {
         $this->paymentRequestBuilder->header()
             ->setBusinessId($this->credentials['businessId']);
@@ -66,7 +66,7 @@ abstract class AbstractPaymentTest extends AbstractTestCase
      * @throws ReflectionException
      * @throws Exception
      */
-    public function testPaymentCreationSuccessful(): void
+    public function testPaymentCreationSuccessful()
     {
         $requestObject = $this->createFakePaymentRequest();
         $request = RequestBuilder::newPayment($requestObject);
@@ -84,7 +84,7 @@ abstract class AbstractPaymentTest extends AbstractTestCase
      * @throws BuilderException
      * @throws ReflectionException
      */
-    public function testPaymentCreationFailed(): void
+    public function testPaymentCreationFailed()
     {
         $this->prepareFakePaymentRequest();
         $this->paymentRequestBuilder->body()->transaction()

@@ -56,7 +56,7 @@ class ResponsePaymentBody
     /**
      * @return ResponsePaymentBank|null
      */
-    public function getBank(): ?ResponsePaymentBank
+    public function getBank()
     {
         return $this->bank;
     }
@@ -64,7 +64,7 @@ class ResponsePaymentBody
     /**
      * @return ResponsePaymentCard|null
      */
-    public function getCard(): ?ResponsePaymentCard
+    public function getCard()
     {
         return $this->card;
     }
@@ -72,7 +72,7 @@ class ResponsePaymentBody
     /**
      * @return ResponsePaymentError|null
      */
-    public function getError(): ?ResponsePaymentError
+    public function getError()
     {
         return $this->error;
     }
@@ -80,7 +80,7 @@ class ResponsePaymentBody
     /**
      * @return ResponsePaymentTransaction|null
      */
-    public function getTransaction(): ?ResponsePaymentTransaction
+    public function getTransaction()
     {
         return $this->transaction;
     }

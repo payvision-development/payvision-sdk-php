@@ -13,17 +13,17 @@ namespace Payvision\SDK\Domain\Checkouts\ValueObject\Checkout;
 
 class RequestTransaction
 {
-    public const SOURCE_ECOMMERCE = 'EC';
-    public const SOURCE_MAIL_ORDER = 'MO';
-    public const SOURCE_TELEPHONE_ORDER = 'TO';
+    const SOURCE_ECOMMERCE = 'EC';
+    const SOURCE_MAIL_ORDER = 'MO';
+    const SOURCE_TELEPHONE_ORDER = 'TO';
 
-    public const TYPE_SINGLE = 'SINGLE';
-    public const TYPE_FIRST = 'FIRST';
-    public const TYPE_RECURRING = 'RECURRING';
-    public const TYPE_LAST = 'LAST';
+    const TYPE_SINGLE = 'SINGLE';
+    const TYPE_FIRST = 'FIRST';
+    const TYPE_RECURRING = 'RECURRING';
+    const TYPE_LAST = 'LAST';
 
-    public const AUTHORIZATION_MODE_AUTHORIZE = 'authorize';
-    public const AUTHORIZATION_MODE_PAYMENT = 'payment';
+    const AUTHORIZATION_MODE_AUTHORIZE = 'authorize';
+    const AUTHORIZATION_MODE_PAYMENT = 'payment';
 
     /**
      * @var float
@@ -172,7 +172,7 @@ class RequestTransaction
     /**
      * @return string|null
      */
-    public function getCountryCode(): ?string
+    public function getCountryCode()
     {
         return $this->countryCode;
     }
@@ -180,7 +180,7 @@ class RequestTransaction
     /**
      * @return string|null
      */
-    public function getDescriptor(): ?string
+    public function getDescriptor()
     {
         return $this->descriptor;
     }
@@ -188,7 +188,7 @@ class RequestTransaction
     /**
      * @return string|null
      */
-    public function getInvoiceId(): ?string
+    public function getInvoiceId()
     {
         return $this->invoiceId;
     }
@@ -196,7 +196,7 @@ class RequestTransaction
     /**
      * @return string|null
      */
-    public function getLanguageCode(): ?string
+    public function getLanguageCode()
     {
         return $this->languageCode;
     }
@@ -204,7 +204,7 @@ class RequestTransaction
     /**
      * @return string|null
      */
-    public function getNotifyUrl(): ?string
+    public function getNotifyUrl()
     {
         return $this->notifyUrl;
     }
@@ -212,7 +212,7 @@ class RequestTransaction
     /**
      * @return string|null
      */
-    public function getPurchaseId(): ?string
+    public function getPurchaseId()
     {
         return $this->purchaseId;
     }
@@ -220,7 +220,7 @@ class RequestTransaction
     /**
      * @return string|null
      */
-    public function getSource(): ?string
+    public function getSource()
     {
         return $this->source;
     }
@@ -228,7 +228,7 @@ class RequestTransaction
     /**
      * @return int|null
      */
-    public function getStoreId(): ?int
+    public function getStoreId()
     {
         return $this->storeId;
     }
@@ -236,7 +236,7 @@ class RequestTransaction
     /**
      * @return string|null
      */
-    public function getType(): ?string
+    public function getType()
     {
         return $this->type;
     }

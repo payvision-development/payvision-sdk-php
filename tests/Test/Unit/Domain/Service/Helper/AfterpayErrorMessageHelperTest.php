@@ -22,7 +22,7 @@ class AfterpayErrorMessageHelperTest extends TestCase
      * @throws AfterpayErrorException
      * @dataProvider afterpayExtractMessageCodeProvider
      */
-    public function testExtractMessageCodes(string $errorCode, array $expected): void
+    public function testExtractMessageCodes(string $errorCode, array $expected)
     {
         self::assertSame($expected, AfterpayErrorMessageHelper::extractMessageCodes($errorCode));
     }
@@ -82,7 +82,7 @@ class AfterpayErrorMessageHelperTest extends TestCase
      * @throws AfterpayErrorException
      * @dataProvider afterpayExtractMessageCodeExceptionProvider
      */
-    public function testExtractMessageCodesException(string $message, string $expected): void
+    public function testExtractMessageCodesException(string $message, string $expected)
     {
         $this->expectException(AfterpayErrorException::class);
         try {

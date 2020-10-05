@@ -18,7 +18,7 @@ class LimitedStringTest extends TestCase
     /**
      * @throws DataTypeException
      */
-    public function testNullValue(): void
+    public function testNullValue()
     {
         self::assertNull((new LimitedString(null, 255))->get());
     }
@@ -30,7 +30,7 @@ class LimitedStringTest extends TestCase
      * @throws DataTypeException
      * @dataProvider stringDataProvider50()
      */
-    public function testInput(string $input, string $expectedResult, bool $expectException = false): void
+    public function testInput(string $input, string $expectedResult, bool $expectException = false)
     {
         if ($expectException) {
             $this->expectException(DataTypeException::class);

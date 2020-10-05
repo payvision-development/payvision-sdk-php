@@ -82,7 +82,7 @@ class RequestCheckout
     /**
      * @return OneClick|null
      */
-    public function getOneClick(): ?OneClick
+    public function getOneClick()
     {
         return $this->oneClick;
     }
@@ -90,7 +90,7 @@ class RequestCheckout
     /**
      * @return bool|null
      */
-    public function getThreeDSecure(): ?bool
+    public function getThreeDSecure()
     {
         return $this->threeDSecure;
     }
@@ -98,7 +98,7 @@ class RequestCheckout
     /**
      * @return string|null
      */
-    public function getTokenize(): ?string
+    public function getTokenize()
     {
         return $this->tokenize;
     }

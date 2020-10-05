@@ -72,7 +72,7 @@ class RequestCard
     /**
      * @return string|null
      */
-    public function getCvv(): ?string
+    public function getCvv()
     {
         return $this->cvv;
     }
@@ -80,7 +80,7 @@ class RequestCard
     /**
      * @return int|null
      */
-    public function getExpiryMonth(): ?int
+    public function getExpiryMonth()
     {
         return $this->expiryMonth;
     }
@@ -88,7 +88,7 @@ class RequestCard
     /**
      * @return int|null
      */
-    public function getExpiryYear(): ?int
+    public function getExpiryYear()
     {
         return $this->expiryYear;
     }
@@ -96,7 +96,7 @@ class RequestCard
     /**
      * @return string|null
      */
-    public function getHolderName(): ?string
+    public function getHolderName()
     {
         return $this->holderName;
     }
@@ -104,7 +104,7 @@ class RequestCard
     /**
      * @return string|null
      */
-    public function getIssueNumber(): ?string
+    public function getIssueNumber()
     {
         return $this->issueNumber;
     }
@@ -112,7 +112,7 @@ class RequestCard
     /**
      * @return string|null
      */
-    public function getNumber(): ?string
+    public function getNumber()
     {
         return $this->number;
     }

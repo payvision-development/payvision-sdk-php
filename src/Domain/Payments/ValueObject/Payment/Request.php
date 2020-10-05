@@ -15,8 +15,8 @@ use Payvision\SDK\Domain\Payments\ValueObject\Request\Header;
 
 class Request
 {
-    public const ACTION_PAYMENT = 'payment';
-    public const ACTION_AUTHORIZE = 'authorize';
+    const ACTION_PAYMENT = 'payment';
+    const ACTION_AUTHORIZE = 'authorize';
 
     /**
      * @var string

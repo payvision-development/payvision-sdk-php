@@ -40,7 +40,7 @@ class RequestWallet
     /**
      * @return string|null
      */
-    public function getAccountIdentifier(): ?string
+    public function getAccountIdentifier()
     {
         return $this->accountIdentifier;
     }
@@ -48,7 +48,7 @@ class RequestWallet
     /**
      * @return string|null
      */
-    public function getAccountKey(): ?string
+    public function getAccountKey()
     {
         return $this->accountKey;
     }

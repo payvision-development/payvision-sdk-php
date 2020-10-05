@@ -112,7 +112,7 @@ class ResponsePaymentCard
     /**
      * @return string|null
      */
-    public function getApprovalCode(): ?string
+    public function getApprovalCode()
     {
         return $this->approvalCode;
     }
@@ -120,7 +120,7 @@ class ResponsePaymentCard
     /**
      * @return string|null
      */
-    public function getAvsAuthorizationEntity(): ?string
+    public function getAvsAuthorizationEntity()
     {
         return $this->avsAuthorizationEntity;
     }
@@ -128,7 +128,7 @@ class ResponsePaymentCard
     /**
      * @return string|null
      */
-    public function getAvsResult(): ?string
+    public function getAvsResult()
     {
         return $this->avsResult;
     }
@@ -136,7 +136,7 @@ class ResponsePaymentCard
     /**
      * @return string|null
      */
-    public function getCvvResult(): ?string
+    public function getCvvResult()
     {
         return $this->cvvResult;
     }
@@ -144,7 +144,7 @@ class ResponsePaymentCard
     /**
      * @return string|null
      */
-    public function getExpiryMonth(): ?string
+    public function getExpiryMonth()
     {
         return $this->expiryMonth;
     }
@@ -152,7 +152,7 @@ class ResponsePaymentCard
     /**
      * @return string|null
      */
-    public function getExpiryYear(): ?string
+    public function getExpiryYear()
     {
         return $this->expiryYear;
     }
@@ -160,7 +160,7 @@ class ResponsePaymentCard
     /**
      * @return string|null
      */
-    public function getFirstSixDigits(): ?string
+    public function getFirstSixDigits()
     {
         return $this->firstSixDigits;
     }
@@ -168,7 +168,7 @@ class ResponsePaymentCard
     /**
      * @return string|null
      */
-    public function getHolderName(): ?string
+    public function getHolderName()
     {
         return $this->holderName;
     }
@@ -176,7 +176,7 @@ class ResponsePaymentCard
     /**
      * @return string|null
      */
-    public function getLastFourDigits(): ?string
+    public function getLastFourDigits()
     {
         return $this->lastFourDigits;
     }
@@ -184,7 +184,7 @@ class ResponsePaymentCard
     /**
      * @return string|null
      */
-    public function getRecurringAdvice(): ?string
+    public function getRecurringAdvice()
     {
         return $this->recurringAdvice;
     }
@@ -192,7 +192,7 @@ class ResponsePaymentCard
     /**
      * @return string|null
      */
-    public function getThreeDResult(): ?string
+    public function getThreeDResult()
     {
         return $this->threeDResult;
     }

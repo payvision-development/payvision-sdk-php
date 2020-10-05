@@ -88,7 +88,7 @@ class RequestBillingAddress
     /**
      * @return string|null
      */
-    public function getCity(): ?string
+    public function getCity()
     {
         return $this->city;
     }
@@ -96,7 +96,7 @@ class RequestBillingAddress
     /**
      * @return string|null
      */
-    public function getCountryCode(): ?string
+    public function getCountryCode()
     {
         return $this->countryCode;
     }
@@ -104,7 +104,7 @@ class RequestBillingAddress
     /**
      * @return string|null
      */
-    public function getHouseNumber(): ?string
+    public function getHouseNumber()
     {
         return $this->houseNumber;
     }
@@ -112,7 +112,7 @@ class RequestBillingAddress
     /**
      * @return string|null
      */
-    public function getHouseNumberSuffix(): ?string
+    public function getHouseNumberSuffix()
     {
         return $this->houseNumberSuffix;
     }
@@ -120,7 +120,7 @@ class RequestBillingAddress
     /**
      * @return string|null
      */
-    public function getStateCode(): ?string
+    public function getStateCode()
     {
         return $this->stateCode;
     }
@@ -128,7 +128,7 @@ class RequestBillingAddress
     /**
      * @return string|null
      */
-    public function getStreet(): ?string
+    public function getStreet()
     {
         return $this->street;
     }
@@ -136,7 +136,7 @@ class RequestBillingAddress
     /**
      * @return string|null
      */
-    public function getStreetInfo(): ?string
+    public function getStreetInfo()
     {
         return $this->streetInfo;
     }
@@ -144,7 +144,7 @@ class RequestBillingAddress
     /**
      * @return string|null
      */
-    public function getZip(): ?string
+    public function getZip()
     {
         return $this->zip;
     }

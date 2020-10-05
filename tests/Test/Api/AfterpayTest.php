@@ -34,7 +34,7 @@ class AfterpayTest extends AbstractTestCase
      */
     private $orderLineBuilder;
 
-    protected function setUp(): void
+    protected function setUp()
     {
         parent::setUp();
 
@@ -48,7 +48,7 @@ class AfterpayTest extends AbstractTestCase
      * @throws ErrorResponse
      * @throws ReflectionException
      */
-    public function testMakePaymentRequest(): void
+    public function testMakePaymentRequest()
     {
         $this->paymentRequestBuilder->setAction('payment');
         $this->paymentRequestBuilder->header()->setBusinessId($this->credentials['businessId']);

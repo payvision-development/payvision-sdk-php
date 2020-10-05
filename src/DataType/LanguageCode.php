@@ -223,7 +223,7 @@ class LanguageCode extends AbstractCode implements DataType
      * @param string $languageCode
      * @throws DataTypeException
      */
-    public function set(string $languageCode = null): void
+    public function set(string $languageCode = null)
     {
         if ($languageCode !== null && !\array_key_exists($languageCode, $this->getConstants())) {
             throw new DataTypeException(
@@ -238,7 +238,7 @@ class LanguageCode extends AbstractCode implements DataType
     /**
      * @return string|null
      */
-    public function get(): ?string
+    public function get()
     {
         return $this->languageCode;
     }

@@ -25,7 +25,7 @@ class PayPalTest extends AbstractTestCase
      */
     private $paymentRequestBuilder;
 
-    protected function setUp(): void
+    protected function setUp()
     {
         parent::setUp();
 
@@ -38,7 +38,7 @@ class PayPalTest extends AbstractTestCase
      * @throws ErrorResponse
      * @throws ReflectionException
      */
-    public function testMakePaymentRequest(): void
+    public function testMakePaymentRequest()
     {
         $this->paymentRequestBuilder->setAction('payment');
         $this->paymentRequestBuilder->header()->setBusinessId($this->credentials['businessId']);

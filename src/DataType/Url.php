@@ -37,7 +37,7 @@ class Url implements DataType
     /**
      * @return string|null
      */
-    public function get(): ?string
+    public function get()
     {
         return $this->url;
     }

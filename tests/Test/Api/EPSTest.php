@@ -11,9 +11,9 @@ namespace Payvision\SDK\Test\Api;
 
 class EPSTest extends AbstractPaymentTest
 {
-    public const BRAND_ID = 3030;
+    const BRAND_ID = 3030;
 
-    protected function prepareFakePaymentRequest(): void
+    protected function prepareFakePaymentRequest()
     {
         parent::prepareFakePaymentRequest();
 

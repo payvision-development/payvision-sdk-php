@@ -114,7 +114,7 @@ class ResponseCheckout
     /**
      * @return OneClick|null
      */
-    public function getOneClick(): ?OneClick
+    public function getOneClick()
     {
         return $this->oneClick;
     }
@@ -122,7 +122,7 @@ class ResponseCheckout
     /**
      * @return bool|null
      */
-    public function getThreeDSecure(): ?bool
+    public function getThreeDSecure()
     {
         return $this->threeDSecure;
     }
@@ -130,7 +130,7 @@ class ResponseCheckout
     /**
      * @return string|null
      */
-    public function getTokenize(): ?string
+    public function getTokenize()
     {
         return $this->tokenize;
     }

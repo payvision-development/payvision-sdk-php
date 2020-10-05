@@ -18,7 +18,7 @@ class LanguageCodeTest extends TestCase
     /**
      * @throws DataTypeException
      */
-    public function testNullValue(): void
+    public function testNullValue()
     {
         self::assertNull((new LanguageCode(null))->get());
     }
@@ -26,7 +26,7 @@ class LanguageCodeTest extends TestCase
     /**
      * @throws DataTypeException
      */
-    public function testKnownCountry(): void
+    public function testKnownCountry()
     {
         $languageCode = new LanguageCode('nl');
         self::assertSame('nl', $languageCode->get());
@@ -35,7 +35,7 @@ class LanguageCodeTest extends TestCase
     /**
      * @throws DataTypeException
      */
-    public function testUnknownCountry(): void
+    public function testUnknownCountry()
     {
         $this->expectException(DataTypeException::class);
         $this->expectExceptionCode(DataTypeException::UNKNOWN_LANGUAGE);

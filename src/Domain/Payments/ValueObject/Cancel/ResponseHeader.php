@@ -48,7 +48,7 @@ class ResponseHeader
     /**
      * @return string|null
      */
-    public function getRequestCode(): ?string
+    public function getRequestCode()
     {
         return $this->requestCode;
     }

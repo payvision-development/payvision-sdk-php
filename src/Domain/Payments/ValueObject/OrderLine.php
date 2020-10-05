@@ -128,7 +128,7 @@ class OrderLine
     /**
      * @return float|null
      */
-    public function getTotalAmount(): ?float
+    public function getTotalAmount()
     {
         return $this->totalAmount;
     }

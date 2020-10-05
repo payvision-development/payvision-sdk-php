@@ -13,22 +13,22 @@ namespace Payvision\SDK\Domain\Payments\ValueObject\Refund;
 
 class Response
 {
-    public const TIMEOUT = 4;
-    public const PENDING_MERCHANT = 3;
-    public const PENDING = 2;
-    public const WAITING = 1;
-    public const OK = 0;
-    public const INPUT_ERROR = -1;
-    public const FAILED = -2;
-    public const FAILED_RETRY = -3;
-    public const DECLINED = -4;
-    public const DECLINED_RETRY = -5;
-    public const SECURITY_ERROR = -6;
-    public const INTERNAL_SERVER_ERROR = -7;
-    public const BUSINESS_RULE_ERROR = -8;
-    public const FRAUD = -9;
-    public const CUSTOMER_PROCESSING_ERROR = -10;
-    public const REFERRALS = -11;
+    const TIMEOUT = 4;
+    const PENDING_MERCHANT = 3;
+    const PENDING = 2;
+    const WAITING = 1;
+    const OK = 0;
+    const INPUT_ERROR = -1;
+    const FAILED = -2;
+    const FAILED_RETRY = -3;
+    const DECLINED = -4;
+    const DECLINED_RETRY = -5;
+    const SECURITY_ERROR = -6;
+    const INTERNAL_SERVER_ERROR = -7;
+    const BUSINESS_RULE_ERROR = -8;
+    const FRAUD = -9;
+    const CUSTOMER_PROCESSING_ERROR = -10;
+    const REFERRALS = -11;
 
     /**
      * @var ResponseBody

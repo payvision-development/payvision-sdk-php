@@ -50,7 +50,7 @@ class RequestBody
     /**
      * @return Order|null
      */
-    public function getOrder(): ?Order
+    public function getOrder()
     {
         return $this->order;
     }

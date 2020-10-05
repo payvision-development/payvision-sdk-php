@@ -15,10 +15,10 @@ use Payvision\SDK\Domain\Paymentlinks\ValueObject\BasicResponseHeader;
 
 class Response
 {
-    public const SUCCESS = 0;
-    public const INPUT_ERROR = -1;
-    public const BAD_REQUEST = -1;
-    public const UNEXPECTED_ERROR = -7;
+    const SUCCESS = 0;
+    const INPUT_ERROR = -1;
+    const BAD_REQUEST = -1;
+    const UNEXPECTED_ERROR = -7;
 
     /**
      * @var ResponseBody

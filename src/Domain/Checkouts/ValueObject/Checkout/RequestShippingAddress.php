@@ -98,7 +98,7 @@ class RequestShippingAddress
     /**
      * @return string|null
      */
-    public function getCity(): ?string
+    public function getCity()
     {
         return $this->city;
     }
@@ -106,7 +106,7 @@ class RequestShippingAddress
     /**
      * @return string|null
      */
-    public function getCountryCode(): ?string
+    public function getCountryCode()
     {
         return $this->countryCode;
     }
@@ -114,7 +114,7 @@ class RequestShippingAddress
     /**
      * @return Customer|null
      */
-    public function getCustomer(): ?Customer
+    public function getCustomer()
     {
         return $this->customer;
     }
@@ -122,7 +122,7 @@ class RequestShippingAddress
     /**
      * @return string|null
      */
-    public function getHouseNumber(): ?string
+    public function getHouseNumber()
     {
         return $this->houseNumber;
     }
@@ -130,7 +130,7 @@ class RequestShippingAddress
     /**
      * @return string|null
      */
-    public function getHouseNumberSuffix(): ?string
+    public function getHouseNumberSuffix()
     {
         return $this->houseNumberSuffix;
     }
@@ -138,7 +138,7 @@ class RequestShippingAddress
     /**
      * @return string|null
      */
-    public function getStateCode(): ?string
+    public function getStateCode()
     {
         return $this->stateCode;
     }
@@ -146,7 +146,7 @@ class RequestShippingAddress
     /**
      * @return string|null
      */
-    public function getStreet(): ?string
+    public function getStreet()
     {
         return $this->street;
     }
@@ -154,7 +154,7 @@ class RequestShippingAddress
     /**
      * @return string|null
      */
-    public function getStreetInfo(): ?string
+    public function getStreetInfo()
     {
         return $this->streetInfo;
     }
@@ -162,7 +162,7 @@ class RequestShippingAddress
     /**
      * @return string|null
      */
-    public function getZip(): ?string
+    public function getZip()
     {
         return $this->zip;
     }

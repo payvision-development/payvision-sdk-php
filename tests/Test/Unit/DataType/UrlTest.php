@@ -18,7 +18,7 @@ class UrlTest extends TestCase
     /**
      * @throws DataTypeException
      */
-    public function testNullValue(): void
+    public function testNullValue()
     {
         self::assertNull((new Url(null))->get());
     }
@@ -28,7 +28,7 @@ class UrlTest extends TestCase
      * @throws DataTypeException
      * @dataProvider validUrlDataProvider()
      */
-    public function testValidUrl(string $input): void
+    public function testValidUrl(string $input)
     {
         $url = new Url($input);
         self::assertSame($input, $url->get());
@@ -39,7 +39,7 @@ class UrlTest extends TestCase
      * @throws DataTypeException
      * @dataProvider invalidUrlDataProvider()
      */
-    public function testInvalidUrl(string $input): void
+    public function testInvalidUrl(string $input)
     {
         $this->expectException(DataTypeException::class);
         $this->expectExceptionCode(DataTypeException::INVALID_URL);

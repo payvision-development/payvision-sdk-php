@@ -31,7 +31,7 @@ class EventDecoratorTest extends TestCase
      */
     private $mockedEvent;
 
-    protected function setUp(): void
+    protected function setUp()
     {
         $this->mockedEvent = $this->getMockBuilder(Event::class)
             ->disableOriginalConstructor()
@@ -46,7 +46,7 @@ class EventDecoratorTest extends TestCase
      * @throws WebhookException
      * @dataProvider payloadDataProvider
      */
-    public function testEventTypeShouldBeCorrect(string $payloadClassName, string $expectedType): void
+    public function testEventTypeShouldBeCorrect(string $payloadClassName, string $expectedType)
     {
         $this->mockedEvent->method('getPayload')
             ->willReturn(
@@ -61,7 +61,7 @@ class EventDecoratorTest extends TestCase
     /**
      * @throws WebhookException
      */
-    public function testUnkownPayloadShouldThrowException(): void
+    public function testUnkownPayloadShouldThrowException()
     {
         $this->mockedEvent->method('getPayload')
             ->willReturn(
@@ -83,7 +83,7 @@ class EventDecoratorTest extends TestCase
      * @throws WebhookException
      * @dataProvider payloadDataProvider
      */
-    public function testExceptionShouldBeThrownForIncorrectPayload(string $payloadClassName, string $validType): void
+    public function testExceptionShouldBeThrownForIncorrectPayload(string $payloadClassName, string $validType)
     {
         $this->mockedEvent->method('getPayload')
             ->willReturn(

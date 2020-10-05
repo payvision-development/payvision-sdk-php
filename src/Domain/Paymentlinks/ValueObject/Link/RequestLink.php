@@ -72,7 +72,7 @@ class RequestLink
     /**
      * @return string|null
      */
-    public function getDuration(): ?string
+    public function getDuration()
     {
         return $this->duration;
     }
@@ -80,7 +80,7 @@ class RequestLink
     /**
      * @return string|null
      */
-    public function getExpirationTime(): ?string
+    public function getExpirationTime()
     {
         return $this->expirationTime;
     }

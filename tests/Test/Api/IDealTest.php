@@ -11,9 +11,9 @@ namespace Payvision\SDK\Test\Api;
 
 class IDealTest extends AbstractPaymentTest
 {
-    public const BRAND_ID = 3010;
+    const BRAND_ID = 3010;
 
-    protected function prepareFakePaymentRequest(): void
+    protected function prepareFakePaymentRequest()
     {
         parent::prepareFakePaymentRequest();
 

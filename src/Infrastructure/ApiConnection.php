@@ -171,7 +171,7 @@ class ApiConnection implements Connection
         array $jsonRequest,
         array $jsonResponse,
         RequestHeaderCollection $requestHeaderCollection
-    ): void {
+    ) {
         $debugData = \sprintf(
             '%1$s%2$sRequest:%1$s%3$s%1$sResponse:%1$s%4$s%1$s',
             \PHP_EOL,
@@ -198,7 +198,7 @@ class ApiConnection implements Connection
      * @param Request $request
      * @throws ApiException
      */
-    private function validateResponseClasses(Request $request): void
+    private function validateResponseClasses(Request $request)
     {
         if ($request->getResponseObjectTypes() === []) {
             throw new ApiException(

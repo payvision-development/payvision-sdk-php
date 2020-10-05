@@ -33,7 +33,7 @@ class PaymentLinksTest extends AbstractTestCase
      */
     private $cancelRequestBuilder;
 
-    protected function setUp(): void
+    protected function setUp()
     {
         parent::setUp();
 
@@ -82,7 +82,7 @@ class PaymentLinksTest extends AbstractTestCase
      * @throws ReflectionException
      * @depends testMakePaymentLinkRequest
      */
-    public function testGetPaymentLinkStatus(LinkResponse $response): void
+    public function testGetPaymentLinkStatus(LinkResponse $response)
     {
         $apiRequest = RequestBuilder::getLinkStatus(
             $response->getBody()->getLink()->getLinkId(),
@@ -104,7 +104,7 @@ class PaymentLinksTest extends AbstractTestCase
      * @throws ReflectionException
      * @depends testMakePaymentLinkRequest
      */
-    public function testCancelPaymentLink(LinkResponse $response): void
+    public function testCancelPaymentLink(LinkResponse $response)
     {
         $this->cancelRequestBuilder->header()->setBusinessId($this->credentials['businessId']);
         $cancelRequest = $this->cancelRequestBuilder->build();

@@ -18,7 +18,7 @@ class AmountTest extends TestCase
     /**
      * @throws DataTypeException
      */
-    public function testNullValue(): void
+    public function testNullValue()
     {
         self::assertNull((new NonNegativeAmount(null))->get());
     }
@@ -26,7 +26,7 @@ class AmountTest extends TestCase
     /**
      * @throws DataTypeException
      */
-    public function testPositiveAmount(): void
+    public function testPositiveAmount()
     {
         $amount = new NonNegativeAmount(10.50);
         self::assertEquals(10.50, $amount->get());
@@ -36,7 +36,7 @@ class AmountTest extends TestCase
     /**
      * @throws DataTypeException
      */
-    public function testNegativeAmount(): void
+    public function testNegativeAmount()
     {
         $this->expectException(DataTypeException::class);
         $this->expectExceptionCode(DataTypeException::AMOUNT_CANNOT_BE_NEGATIVE);

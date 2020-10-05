@@ -80,7 +80,7 @@ class RequestTransaction
     /**
      * @return string|null
      */
-    public function getInvoiceId(): ?string
+    public function getInvoiceId()
     {
         return $this->invoiceId;
     }

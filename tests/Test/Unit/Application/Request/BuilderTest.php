@@ -39,7 +39,7 @@ class BuilderTest extends TestCase
      */
     private $orderLineBuilder;
 
-    protected function setUp(): void
+    protected function setUp()
     {
         $this->paymentRequestBuilder = new PaymentRequestBuilder();
         $this->orderLineBuilder = new OrderLineBuilder();
@@ -48,7 +48,7 @@ class BuilderTest extends TestCase
     /**
      * @throws ReflectionException
      */
-    public function testBasicReflection(): void
+    public function testBasicReflection()
     {
         $card = new PaymentRequestCard('001', 10, 2020, 'Foo', '123', '456');
         $result = Builder::toArray($card);
@@ -65,7 +65,7 @@ class BuilderTest extends TestCase
     /**
      * @throws ReflectionException
      */
-    public function testNestedReflection(): void
+    public function testNestedReflection()
     {
         $requestObject = new PaymentRequest(
             PaymentRequest::ACTION_PAYMENT,
@@ -95,7 +95,7 @@ class BuilderTest extends TestCase
     /**
      * @throws ReflectionException
      */
-    public function testPaymentRequest(): void
+    public function testPaymentRequest()
     {
         self::assertEquals([
             'header' =>
@@ -148,7 +148,7 @@ class BuilderTest extends TestCase
     /**
      * @throws ReflectionException
      */
-    public function testCheckoutRequest(): void
+    public function testCheckoutRequest()
     {
         self::assertEquals([
             'header' =>

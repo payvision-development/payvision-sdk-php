@@ -14,7 +14,7 @@ use PHPUnit\Framework\TestCase;
 
 class RequestHeaderCollectionTest extends TestCase
 {
-    public function testAddRequestHeaderCollectionSuccessfully(): void
+    public function testAddRequestHeaderCollectionSuccessfully()
     {
         $requestHeaders = new RequestHeaderCollection();
         self::assertEquals(0, $requestHeaders->count());

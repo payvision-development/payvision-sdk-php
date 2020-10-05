@@ -13,8 +13,8 @@ namespace Payvision\SDK\Domain\Paymentlinks\ValueObject\Link;
 
 class RequestTransaction
 {
-    public const AUTHORIZATION_MODE_AUTHORIZE = 'authorize';
-    public const AUTHORIZATION_MODE_PAYMENT = 'payment';
+    const AUTHORIZATION_MODE_AUTHORIZE = 'authorize';
+    const AUTHORIZATION_MODE_PAYMENT = 'payment';
 
     /**
      * @var float
@@ -131,7 +131,7 @@ class RequestTransaction
     /**
      * @return string|null
      */
-    public function getCountryCode(): ?string
+    public function getCountryCode()
     {
         return $this->countryCode;
     }
@@ -139,7 +139,7 @@ class RequestTransaction
     /**
      * @return string|null
      */
-    public function getDescriptor(): ?string
+    public function getDescriptor()
     {
         return $this->descriptor;
     }
@@ -147,7 +147,7 @@ class RequestTransaction
     /**
      * @return string|null
      */
-    public function getInvoiceId(): ?string
+    public function getInvoiceId()
     {
         return $this->invoiceId;
     }
@@ -155,7 +155,7 @@ class RequestTransaction
     /**
      * @return int|null
      */
-    public function getStoreId(): ?int
+    public function getStoreId()
     {
         return $this->storeId;
     }
@@ -163,7 +163,7 @@ class RequestTransaction
     /**
      * @return string|null
      */
-    public function getType(): ?string
+    public function getType()
     {
         return $this->type;
     }

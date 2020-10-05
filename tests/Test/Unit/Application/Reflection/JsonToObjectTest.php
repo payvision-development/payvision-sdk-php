@@ -36,7 +36,7 @@ class JsonToObjectTest extends TestCase
      * @throws BuilderException
      * @throws ReflectionException
      */
-    public function testBuildPaymentResponse(): void
+    public function testBuildPaymentResponse()
     {
         $targetObject = PaymentResponse::class;
         $jsonData = [
@@ -106,7 +106,7 @@ class JsonToObjectTest extends TestCase
      * @throws BuilderException
      * @throws ReflectionException
      */
-    public function testArrayInTargetClass(): void
+    public function testArrayInTargetClass()
     {
         /** @var ObjectWithArray $result */
         $result = JsonToObject::build(
@@ -124,7 +124,7 @@ class JsonToObjectTest extends TestCase
      * @throws BuilderException
      * @throws ReflectionException
      */
-    public function testTypedArrayInTargetClass(): void
+    public function testTypedArrayInTargetClass()
     {
         /** @var ObjectWithTypedArray $result */
         $result = JsonToObject::build(
@@ -142,7 +142,7 @@ class JsonToObjectTest extends TestCase
      * @throws BuilderException
      * @throws ReflectionException
      */
-    public function testArrayWithObjectsInTargetClass(): void
+    public function testArrayWithObjectsInTargetClass()
     {
         $data = [
             0 => ["name" => "Bar"],
@@ -167,7 +167,7 @@ class JsonToObjectTest extends TestCase
      * @throws BuilderException
      * @throws ReflectionException
      */
-    public function testArrayWithObjectsFromDifferentNamespaceInTargetClass(): void
+    public function testArrayWithObjectsFromDifferentNamespaceInTargetClass()
     {
         $barData = [
             0 => ["name" => "Bar 1"],
@@ -192,7 +192,7 @@ class JsonToObjectTest extends TestCase
      * @throws BuilderException
      * @throws ReflectionException
      */
-    public function testArrayWithObjectsFromDifferentNamespacesInTargetClass(): void
+    public function testArrayWithObjectsFromDifferentNamespacesInTargetClass()
     {
         $barData = [
             0 => ["name" => "Bar 1"],
@@ -225,7 +225,7 @@ class JsonToObjectTest extends TestCase
      * @throws BuilderException
      * @throws ReflectionException
      */
-    public function testAdvancedUseCase(): void
+    public function testAdvancedUseCase()
     {
         // This is a use case from a real situation:
         $json = \json_decode('{

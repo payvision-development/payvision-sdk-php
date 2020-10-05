@@ -112,7 +112,7 @@ class RequestBank
     /**
      * @return string|null
      */
-    public function getAccountHolderName(): ?string
+    public function getAccountHolderName()
     {
         return $this->accountHolderName;
     }
@@ -120,7 +120,7 @@ class RequestBank
     /**
      * @return string|null
      */
-    public function getAccountNumber(): ?string
+    public function getAccountNumber()
     {
         return $this->accountNumber;
     }
@@ -128,7 +128,7 @@ class RequestBank
     /**
      * @return string|null
      */
-    public function getBankCode(): ?string
+    public function getBankCode()
     {
         return $this->bankCode;
     }
@@ -136,7 +136,7 @@ class RequestBank
     /**
      * @return string|null
      */
-    public function getBic(): ?string
+    public function getBic()
     {
         return $this->bic;
     }
@@ -144,7 +144,7 @@ class RequestBank
     /**
      * @return string|null
      */
-    public function getCountryCode(): ?string
+    public function getCountryCode()
     {
         return $this->countryCode;
     }
@@ -152,7 +152,7 @@ class RequestBank
     /**
      * @return \Payvision\SDK\DataType\Date|null
      */
-    public function getDateCollection(): ?\Payvision\SDK\DataType\Date
+    public function getDateCollection()
     {
         return $this->dateCollection;
     }
@@ -160,7 +160,7 @@ class RequestBank
     /**
      * @return \Payvision\SDK\DataType\Date|null
      */
-    public function getDateMandateSigned(): ?\Payvision\SDK\DataType\Date
+    public function getDateMandateSigned()
     {
         return $this->dateMandateSigned;
     }
@@ -168,7 +168,7 @@ class RequestBank
     /**
      * @return string|null
      */
-    public function getIban(): ?string
+    public function getIban()
     {
         return $this->iban;
     }
@@ -176,7 +176,7 @@ class RequestBank
     /**
      * @return int|null
      */
-    public function getIssuerId(): ?int
+    public function getIssuerId()
     {
         return $this->issuerId;
     }
@@ -184,7 +184,7 @@ class RequestBank
     /**
      * @return string|null
      */
-    public function getMandateId(): ?string
+    public function getMandateId()
     {
         return $this->mandateId;
     }
@@ -192,7 +192,7 @@ class RequestBank
     /**
      * @return string|null
      */
-    public function getName(): ?string
+    public function getName()
     {
         return $this->name;
     }

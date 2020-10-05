@@ -64,7 +64,7 @@ class Error
     /**
      * @return string|null
      */
-    public function getDetailedMessage(): ?string
+    public function getDetailedMessage()
     {
         return $this->detailedMessage;
     }

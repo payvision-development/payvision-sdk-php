@@ -18,7 +18,7 @@ class XMLIssuerRepositoryTest extends TestCase
     /**
      * @throws RepositoryException
      */
-    public function testGetAllWithNonExistingFile(): void
+    public function testGetAllWithNonExistingFile()
     {
         $repository = new XMLIssuerRepository('/path/to/non/existing/file.xml');
         $this->expectException(RepositoryException::class);
@@ -29,7 +29,7 @@ class XMLIssuerRepositoryTest extends TestCase
     /**
      * @throws RepositoryException
      */
-    public function testGetAllWithExistingFile(): void
+    public function testGetAllWithExistingFile()
     {
         $repository = new XMLIssuerRepository(__DIR__ . '/../../../etc/brands.xml');
         $results = $repository->getAll();

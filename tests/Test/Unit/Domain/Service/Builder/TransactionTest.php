@@ -20,12 +20,12 @@ class TransactionTest extends TestCase
      */
     protected $builder;
 
-    protected function setUp(): void
+    protected function setUp()
     {
         $this->builder = new PaymentRequestTransactionBuilder();
     }
 
-    public function testSimpleTransaction(): void
+    public function testSimpleTransaction()
     {
         $transaction = $this->builder
             ->setTrackingCode('ABC 123')
@@ -42,7 +42,7 @@ class TransactionTest extends TestCase
         self::assertSame('http://www.example.com', $transaction->getReturnUrl());
     }
 
-    public function testReset(): void
+    public function testReset()
     {
         // First build a transaction with brand ID and return URL:
         $this->builder
@@ -64,21 +64,21 @@ class TransactionTest extends TestCase
         self::assertNull($transaction->getReturnUrl());
     }
 
-    public function testNegativeAmount(): void
+    public function testNegativeAmount()
     {
         $this->markTestSkipped('Data validation is not yet implemented in generated builders');
         $this->expectException(DataTypeException::class);
         $this->builder->setAmount(-1.00);
     }
 
-    public function testUnknownSource(): void
+    public function testUnknownSource()
     {
         $this->markTestSkipped('Data validation is not yet implemented in generated builders');
         $this->expectException(DataTypeException::class);
         $this->builder->setSource('XX');
     }
 
-    public function testUnknownType(): void
+    public function testUnknownType()
     {
         $this->markTestSkipped('Data validation is not yet implemented in generated builders');
         $this->expectException(DataTypeException::class);

@@ -11,9 +11,9 @@ namespace Payvision\SDK\Test\Api;
 
 class SofortTest extends AbstractPaymentTest
 {
-    public const BRAND_ID = 3020;
+    const BRAND_ID = 3020;
 
-    protected function prepareFakePaymentRequest(): void
+    protected function prepareFakePaymentRequest()
     {
         parent::prepareFakePaymentRequest();
 

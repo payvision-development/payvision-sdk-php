@@ -184,7 +184,7 @@ class RequestTransaction
     /**
      * @return string|null
      */
-    public function getReturnUrl(): ?string
+    public function getReturnUrl()
     {
         return $this->returnUrl;
     }
@@ -192,7 +192,7 @@ class RequestTransaction
     /**
      * @return bool|null
      */
-    public function getTokenize(): ?bool
+    public function getTokenize()
     {
         return $this->tokenize;
     }
@@ -200,7 +200,7 @@ class RequestTransaction
     /**
      * @return string|null
      */
-    public function getToken(): ?string
+    public function getToken()
     {
         return $this->token;
     }
@@ -208,7 +208,7 @@ class RequestTransaction
     /**
      * @return int|null
      */
-    public function getStoreId(): ?int
+    public function getStoreId()
     {
         return $this->storeId;
     }
@@ -216,7 +216,7 @@ class RequestTransaction
     /**
      * @return string|null
      */
-    public function getSource(): ?string
+    public function getSource()
     {
         return $this->source;
     }
@@ -224,7 +224,7 @@ class RequestTransaction
     /**
      * @return int|null
      */
-    public function getPayTimeout(): ?int
+    public function getPayTimeout()
     {
         return $this->payTimeout;
     }
@@ -232,7 +232,7 @@ class RequestTransaction
     /**
      * @return string|null
      */
-    public function getPurchaseId(): ?string
+    public function getPurchaseId()
     {
         return $this->purchaseId;
     }
@@ -240,7 +240,7 @@ class RequestTransaction
     /**
      * @return int|null
      */
-    public function getBrandId(): ?int
+    public function getBrandId()
     {
         return $this->brandId;
     }
@@ -248,7 +248,7 @@ class RequestTransaction
     /**
      * @return string|null
      */
-    public function getNotifyUrl(): ?string
+    public function getNotifyUrl()
     {
         return $this->notifyUrl;
     }
@@ -256,7 +256,7 @@ class RequestTransaction
     /**
      * @return string|null
      */
-    public function getLanguageCode(): ?string
+    public function getLanguageCode()
     {
         return $this->languageCode;
     }
@@ -264,7 +264,7 @@ class RequestTransaction
     /**
      * @return string|null
      */
-    public function getInvoiceId(): ?string
+    public function getInvoiceId()
     {
         return $this->invoiceId;
     }
@@ -272,7 +272,7 @@ class RequestTransaction
     /**
      * @return string|null
      */
-    public function getDescriptor(): ?string
+    public function getDescriptor()
     {
         return $this->descriptor;
     }
@@ -280,7 +280,7 @@ class RequestTransaction
     /**
      * @return string|null
      */
-    public function getCountryCode(): ?string
+    public function getCountryCode()
     {
         return $this->countryCode;
     }
@@ -288,7 +288,7 @@ class RequestTransaction
     /**
      * @return string|null
      */
-    public function getType(): ?string
+    public function getType()
     {
         return $this->type;
     }

@@ -25,12 +25,12 @@ class PaymentTest extends TestCase
      */
     private $builder;
 
-    protected function setUp(): void
+    protected function setUp()
     {
         $this->builder = new PaymentRequestBuilder();
     }
 
-    public function testValidPaymentObject(): void
+    public function testValidPaymentObject()
     {
         $paymentObject = $this->builder
             ->setHeader(new PaymentRequestHeader('abc123'))
@@ -45,7 +45,7 @@ class PaymentTest extends TestCase
         self::assertSame(PaymentRequest::ACTION_PAYMENT, $paymentObject->getAction());
     }
 
-    public function testInvalidPaymentObject(): void
+    public function testInvalidPaymentObject()
     {
         $this->markTestSkipped('Data validation is not yet implemented in generated builders');
         $this->expectException(DataTypeException::class);
@@ -54,7 +54,7 @@ class PaymentTest extends TestCase
             ->build();
     }
 
-    public function testMissingParameters(): void
+    public function testMissingParameters()
     {
         $this->markTestSkipped('Data validation is not yet implemented in generated builders');
         $this->expectException(BuilderException::class);

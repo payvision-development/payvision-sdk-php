@@ -53,7 +53,7 @@ class CheckoutTest extends AbstractTestCase
      * @throws ReflectionException
      * @depends testCallToCheckoutEndpointReturnsCheckoutResponseObject
      */
-    public function testCheckoutStatusIsPending(array $input): void
+    public function testCheckoutStatusIsPending(array $input)
     {
         $apiRequest = RequestBuilder::getCheckoutStatus($input['checkoutId'], $this->credentials['businessId']);
         /** @var StatusResponse $response */

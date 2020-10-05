@@ -13,11 +13,11 @@ namespace Payvision\SDK\Domain\Checkouts\ValueObject\Status;
 
 class Response
 {
-    public const ABANDONED = 4;
-    public const PENDING = 2;
-    public const COMPLETED = 0;
-    public const INPUT_ERROR = -1;
-    public const UNEXPECTED_ERROR = -7;
+    const ABANDONED = 4;
+    const PENDING = 2;
+    const COMPLETED = 0;
+    const INPUT_ERROR = -1;
+    const UNEXPECTED_ERROR = -7;
 
     /**
      * @var ResponseBody

@@ -13,8 +13,8 @@ namespace Payvision\SDK\Domain\Checkouts\ValueObject\Checkout;
 
 class ResponseTransaction
 {
-    public const AUTHORIZATION_MODE_AUTHORIZE = 'authorize';
-    public const AUTHORIZATION_MODE_PAYMENT = 'payment';
+    const AUTHORIZATION_MODE_AUTHORIZE = 'authorize';
+    const AUTHORIZATION_MODE_PAYMENT = 'payment';
 
     /**
      * @var float

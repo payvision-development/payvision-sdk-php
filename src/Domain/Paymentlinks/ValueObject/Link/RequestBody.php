@@ -99,7 +99,7 @@ class RequestBody
     /**
      * @return BasicAddress|null
      */
-    public function getBillingAddress(): ?BasicAddress
+    public function getBillingAddress()
     {
         return $this->billingAddress;
     }
@@ -107,7 +107,7 @@ class RequestBody
     /**
      * @return BasicCustomer|null
      */
-    public function getCustomer(): ?BasicCustomer
+    public function getCustomer()
     {
         return $this->customer;
     }
@@ -115,7 +115,7 @@ class RequestBody
     /**
      * @return RequestDba|null
      */
-    public function getDba(): ?RequestDba
+    public function getDba()
     {
         return $this->dba;
     }
@@ -123,7 +123,7 @@ class RequestBody
     /**
      * @return RequestOrder|null
      */
-    public function getOrder(): ?RequestOrder
+    public function getOrder()
     {
         return $this->order;
     }
@@ -131,7 +131,7 @@ class RequestBody
     /**
      * @return BasicAddress|null
      */
-    public function getShippingAddress(): ?BasicAddress
+    public function getShippingAddress()
     {
         return $this->shippingAddress;
     }

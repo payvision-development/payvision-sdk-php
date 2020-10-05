@@ -20,7 +20,7 @@ class ValidatorTest extends TestCase
      */
     private $subject;
 
-    protected function setUp(): void
+    protected function setUp()
     {
         $this->subject = new Validator();
     }
@@ -32,7 +32,7 @@ class ValidatorTest extends TestCase
      * @throws WebhookException
      * @dataProvider validateWebhookDataProvider
      */
-    public function testValidateWebhook(string $eventSignature, string $secret, string $body): void
+    public function testValidateWebhook(string $eventSignature, string $secret, string $body)
     {
         self::assertTrue($this->subject->validateWebhook($eventSignature, $secret, $body));
     }

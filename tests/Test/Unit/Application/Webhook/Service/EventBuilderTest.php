@@ -32,7 +32,7 @@ class EventBuilderTest extends TestCase
      */
     protected $subject;
 
-    protected function setUp(): void
+    protected function setUp()
     {
         $this->mockedValidator = $this->getMockBuilder(Validator::class)->disableOriginalConstructor()->getMock();
         $this->mockedValidator->method('validateWebhook')->willReturn(true);
@@ -46,7 +46,7 @@ class EventBuilderTest extends TestCase
      * @throws BuilderException
      * @throws ReflectionException
      */
-    public function testMissingTransactionShouldThrowException(): void
+    public function testMissingTransactionShouldThrowException()
     {
         $this->expectException(WebhookException::class);
         $this->expectExceptionCode(WebhookException::UNKNOWN_PAYLOAD);
@@ -80,7 +80,7 @@ class EventBuilderTest extends TestCase
      * @throws BuilderException
      * @throws ReflectionException
      */
-    public function testBuildResponse(): void
+    public function testBuildResponse()
     {
         $responseObject = $this->subject->generateEvent(
             '{

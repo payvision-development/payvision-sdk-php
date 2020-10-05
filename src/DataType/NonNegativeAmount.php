@@ -33,7 +33,7 @@ class NonNegativeAmount implements DataType
      * @param float $amount
      * @throws DataTypeException
      */
-    public function set(float $amount = null): void
+    public function set(float $amount = null)
     {
         if ($amount < 0) {
             throw new DataTypeException(
@@ -48,7 +48,7 @@ class NonNegativeAmount implements DataType
     /**
      * @return float|null
      */
-    public function get(): ?float
+    public function get()
     {
         return $this->amount;
     }

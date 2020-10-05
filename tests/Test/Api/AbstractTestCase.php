@@ -29,7 +29,7 @@ abstract class AbstractTestCase extends TestCase
      */
     protected $debug = false;
 
-    protected function setUp(): void
+    protected function setUp()
     {
         $envFile = __DIR__ . '/../../../.env.php';
         if (!\file_exists($envFile)) {

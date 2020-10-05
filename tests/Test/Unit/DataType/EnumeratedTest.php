@@ -18,7 +18,7 @@ class EnumeratedTest extends TestCase
     /**
      * @throws DataTypeException
      */
-    public function testNullValue(): void
+    public function testNullValue()
     {
         self::assertNull((new Enumerated(null, []))->get());
     }
@@ -26,7 +26,7 @@ class EnumeratedTest extends TestCase
     /**
      * @throws DataTypeException
      */
-    public function testValidValue(): void
+    public function testValidValue()
     {
         $enum = (new Enumerated('Foo', ['Foo', 'Bar']))->get();
         self::assertSame('Foo', $enum);
@@ -35,7 +35,7 @@ class EnumeratedTest extends TestCase
     /**
      * @throws DataTypeException
      */
-    public function testInvalidValue(): void
+    public function testInvalidValue()
     {
         $this->expectException(DataTypeException::class);
         $this->expectExceptionCode(DataTypeException::VALUE_NOT_ALLOWED);

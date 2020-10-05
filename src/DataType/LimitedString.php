@@ -40,7 +40,7 @@ class LimitedString implements DataType
      * @param string $str
      * @throws DataTypeException
      */
-    private function set(string $str = null): void
+    private function set(string $str = null)
     {
         if (\strlen((string)$str) > $this->maxLength) {
             throw new DataTypeException(
@@ -55,7 +55,7 @@ class LimitedString implements DataType
     /**
      * @return string|null
      */
-    public function get(): ?string
+    public function get()
     {
         return $this->str;
     }

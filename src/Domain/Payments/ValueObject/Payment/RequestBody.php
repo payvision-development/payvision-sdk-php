@@ -131,7 +131,7 @@ class RequestBody
     /**
      * @return RequestBank|null
      */
-    public function getBank(): ?RequestBank
+    public function getBank()
     {
         return $this->bank;
     }
@@ -139,7 +139,7 @@ class RequestBody
     /**
      * @return RequestBillingAddress|null
      */
-    public function getBillingAddress(): ?RequestBillingAddress
+    public function getBillingAddress()
     {
         return $this->billingAddress;
     }
@@ -147,7 +147,7 @@ class RequestBody
     /**
      * @return RequestCard|null
      */
-    public function getCard(): ?RequestCard
+    public function getCard()
     {
         return $this->card;
     }
@@ -155,7 +155,7 @@ class RequestBody
     /**
      * @return Customer|null
      */
-    public function getCustomer(): ?Customer
+    public function getCustomer()
     {
         return $this->customer;
     }
@@ -163,7 +163,7 @@ class RequestBody
     /**
      * @return RequestDba|null
      */
-    public function getDba(): ?RequestDba
+    public function getDba()
     {
         return $this->dba;
     }
@@ -171,7 +171,7 @@ class RequestBody
     /**
      * @return RequestOption|null
      */
-    public function getOption(): ?RequestOption
+    public function getOption()
     {
         return $this->option;
     }
@@ -179,7 +179,7 @@ class RequestBody
     /**
      * @return Order|null
      */
-    public function getOrder(): ?Order
+    public function getOrder()
     {
         return $this->order;
     }
@@ -187,7 +187,7 @@ class RequestBody
     /**
      * @return RequestQr|null
      */
-    public function getQr(): ?RequestQr
+    public function getQr()
     {
         return $this->qr;
     }
@@ -195,7 +195,7 @@ class RequestBody
     /**
      * @return RequestShippingAddress|null
      */
-    public function getShippingAddress(): ?RequestShippingAddress
+    public function getShippingAddress()
     {
         return $this->shippingAddress;
     }
@@ -203,7 +203,7 @@ class RequestBody
     /**
      * @return RequestThreeDSecure|null
      */
-    public function getThreeDSecure(): ?RequestThreeDSecure
+    public function getThreeDSecure()
     {
         return $this->threeDSecure;
     }
@@ -211,7 +211,7 @@ class RequestBody
     /**
      * @return RequestWallet|null
      */
-    public function getWallet(): ?RequestWallet
+    public function getWallet()
     {
         return $this->wallet;
     }

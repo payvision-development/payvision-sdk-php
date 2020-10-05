@@ -160,7 +160,7 @@ class BasicAddress
     /**
      * @return \Payvision\SDK\DataType\Date|null
      */
-    public function getBirthDate(): ?\Payvision\SDK\DataType\Date
+    public function getBirthDate()
     {
         return $this->birthDate;
     }
@@ -168,7 +168,7 @@ class BasicAddress
     /**
      * @return string|null
      */
-    public function getCompanyName(): ?string
+    public function getCompanyName()
     {
         return $this->companyName;
     }
@@ -176,7 +176,7 @@ class BasicAddress
     /**
      * @return string|null
      */
-    public function getCustomerId(): ?string
+    public function getCustomerId()
     {
         return $this->customerId;
     }
@@ -184,7 +184,7 @@ class BasicAddress
     /**
      * @return string|null
      */
-    public function getDeviceType(): ?string
+    public function getDeviceType()
     {
         return $this->deviceType;
     }
@@ -192,7 +192,7 @@ class BasicAddress
     /**
      * @return string|null
      */
-    public function getEmail(): ?string
+    public function getEmail()
     {
         return $this->email;
     }
@@ -200,7 +200,7 @@ class BasicAddress
     /**
      * @return string|null
      */
-    public function getFamilyName(): ?string
+    public function getFamilyName()
     {
         return $this->familyName;
     }
@@ -208,7 +208,7 @@ class BasicAddress
     /**
      * @return string|null
      */
-    public function getGivenName(): ?string
+    public function getGivenName()
     {
         return $this->givenName;
     }
@@ -216,7 +216,7 @@ class BasicAddress
     /**
      * @return string|null
      */
-    public function getHttpUserAgent(): ?string
+    public function getHttpUserAgent()
     {
         return $this->httpUserAgent;
     }
@@ -224,7 +224,7 @@ class BasicAddress
     /**
      * @return string|null
      */
-    public function getIdentificationNumber(): ?string
+    public function getIdentificationNumber()
     {
         return $this->identificationNumber;
     }
@@ -232,7 +232,7 @@ class BasicAddress
     /**
      * @return int|null
      */
-    public function getIdentificationTypeId(): ?int
+    public function getIdentificationTypeId()
     {
         return $this->identificationTypeId;
     }
@@ -240,7 +240,7 @@ class BasicAddress
     /**
      * @return string|null
      */
-    public function getMobileNumber(): ?string
+    public function getMobileNumber()
     {
         return $this->mobileNumber;
     }
@@ -248,7 +248,7 @@ class BasicAddress
     /**
      * @return string|null
      */
-    public function getPhoneNumber(): ?string
+    public function getPhoneNumber()
     {
         return $this->phoneNumber;
     }
@@ -256,7 +256,7 @@ class BasicAddress
     /**
      * @return string|null
      */
-    public function getSex(): ?string
+    public function getSex()
     {
         return $this->sex;
     }
@@ -264,7 +264,7 @@ class BasicAddress
     /**
      * @return string|null
      */
-    public function getTaxNumber(): ?string
+    public function getTaxNumber()
     {
         return $this->taxNumber;
     }
@@ -272,7 +272,7 @@ class BasicAddress
     /**
      * @return int|null
      */
-    public function getType(): ?int
+    public function getType()
     {
         return $this->type;
     }

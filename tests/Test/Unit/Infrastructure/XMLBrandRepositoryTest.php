@@ -18,7 +18,7 @@ class XMLBrandRepositoryTest extends TestCase
     /**
      * @throws RepositoryException
      */
-    public function testGetAllWithNonExistingFile(): void
+    public function testGetAllWithNonExistingFile()
     {
         $repository = new XMLBrandRepository('/path/to/non/existing/file.xml');
         $this->expectException(RepositoryException::class);
@@ -29,7 +29,7 @@ class XMLBrandRepositoryTest extends TestCase
     /**
      * @throws RepositoryException
      */
-    public function testGetAllWithExistingFile(): void
+    public function testGetAllWithExistingFile()
     {
         $repository = $this->getRepository();
         $results = $repository->getAll();
@@ -49,7 +49,7 @@ class XMLBrandRepositoryTest extends TestCase
     /**
      * @throws RepositoryException
      */
-    public function testGetAllForSpecificCategory(): void
+    public function testGetAllForSpecificCategory()
     {
         $repository = $this->getRepository();
         $results = $repository->getAllForCategory(1);

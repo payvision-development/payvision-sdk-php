@@ -19,12 +19,12 @@ class BankTest extends TestCase
      */
     private $builder;
 
-    protected function setUp(): void
+    protected function setUp()
     {
         $this->builder = new BankBuilder();
     }
 
-    public function testValidBank(): void
+    public function testValidBank()
     {
         $bankObject = $this->builder
             ->setCountryCode('NL')

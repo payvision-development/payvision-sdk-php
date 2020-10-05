@@ -13,5 +13,5 @@ use Exception;
 
 class RepositoryException extends Exception
 {
-    public const FILE_NOT_FOUND = 4100;
+    const FILE_NOT_FOUND = 4100;
 }

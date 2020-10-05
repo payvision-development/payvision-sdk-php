@@ -56,7 +56,7 @@ class ApiConnectionTest extends TestCase
     /**
      * @throws ReflectionException
      */
-    protected function setUp(): void
+    protected function setUp()
     {
         $this->subject = new ApiConnection(
             'username',
@@ -87,7 +87,7 @@ class ApiConnectionTest extends TestCase
      * @throws BuilderException
      * @throws ErrorResponse
      */
-    public function testPostRequest(): void
+    public function testPostRequest()
     {
         // Setup:
         $request = $this->createApiRequestObject(Request::METHOD_POST);
@@ -139,7 +139,7 @@ class ApiConnectionTest extends TestCase
      * @throws BuilderException
      * @throws ErrorResponse
      */
-    public function testGetRequest(): void
+    public function testGetRequest()
     {
         // Setup:
         $request = $this->createApiRequestObject(Request::METHOD_GET);
@@ -182,7 +182,7 @@ class ApiConnectionTest extends TestCase
      * @throws BuilderException
      * @throws ErrorResponse
      */
-    public function testMissingResponseObject(): void
+    public function testMissingResponseObject()
     {
         // Setup:
         $request = $this->createApiRequestObject(Request::METHOD_GET, []);
@@ -205,7 +205,7 @@ class ApiConnectionTest extends TestCase
      * @throws BuilderException
      * @throws ErrorResponse
      */
-    public function testInvalidResponseShouldThrowError(): void
+    public function testInvalidResponseShouldThrowError()
     {
         // Setup:
         $request = $this->createApiRequestObject(Request::METHOD_GET, [400 => FakeResponse::class]);
@@ -236,7 +236,7 @@ class ApiConnectionTest extends TestCase
      * @throws BuilderException
      * @throws ErrorResponse
      */
-    public function testNonJsonResponseShouldThrowException(): void
+    public function testNonJsonResponseShouldThrowException()
     {
         // Setup:
         $request = $this->createApiRequestObject(Request::METHOD_GET, [400 => FakeResponse::class]);
@@ -255,7 +255,7 @@ class ApiConnectionTest extends TestCase
      * @throws BuilderException
      * @throws ErrorResponse
      */
-    public function testTolerantReader(): void
+    public function testTolerantReader()
     {
         // Setup:
         $request = $this->createApiRequestObject();
@@ -312,7 +312,7 @@ class ApiConnectionTest extends TestCase
      * @throws BuilderException
      * @throws ErrorResponse
      */
-    public function testExceptionOnMissingRequiredField(): void
+    public function testExceptionOnMissingRequiredField()
     {
         // Setup:
         $request = $this->createApiRequestObject();

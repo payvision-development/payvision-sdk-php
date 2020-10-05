@@ -96,7 +96,7 @@ class RequestOption
     /**
      * @return string|null
      */
-    public function getBrandName(): ?string
+    public function getBrandName()
     {
         return $this->brandName;
     }
@@ -104,7 +104,7 @@ class RequestOption
     /**
      * @return string|null
      */
-    public function getCartBorderColor(): ?string
+    public function getCartBorderColor()
     {
         return $this->cartBorderColor;
     }
@@ -112,7 +112,7 @@ class RequestOption
     /**
      * @return string|null
      */
-    public function getCountryRestriction(): ?string
+    public function getCountryRestriction()
     {
         return $this->countryRestriction;
     }
@@ -120,7 +120,7 @@ class RequestOption
     /**
      * @return string|null
      */
-    public function getHeaderImage(): ?string
+    public function getHeaderImage()
     {
         return $this->headerImage;
     }
@@ -128,7 +128,7 @@ class RequestOption
     /**
      * @return string|null
      */
-    public function getLocale(): ?string
+    public function getLocale()
     {
         return $this->locale;
     }
@@ -136,7 +136,7 @@ class RequestOption
     /**
      * @return int|null
      */
-    public function getMinAgeRestriction(): ?int
+    public function getMinAgeRestriction()
     {
         return $this->minAgeRestriction;
     }
@@ -144,7 +144,7 @@ class RequestOption
     /**
      * @return int|null
      */
-    public function getNoShipping(): ?int
+    public function getNoShipping()
     {
         return $this->noShipping;
     }
@@ -152,7 +152,7 @@ class RequestOption
     /**
      * @return int|null
      */
-    public function getProcessingType(): ?int
+    public function getProcessingType()
     {
         return $this->processingType;
     }
@@ -160,7 +160,7 @@ class RequestOption
     /**
      * @return int|null
      */
-    public function getQuantity(): ?int
+    public function getQuantity()
     {
         return $this->quantity;
     }

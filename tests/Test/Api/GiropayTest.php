@@ -11,9 +11,9 @@ namespace Payvision\SDK\Test\Api;
 
 class GiropayTest extends AbstractPaymentTest
 {
-    public const BRAND_ID = 3025;
+    const BRAND_ID = 3025;
 
-    protected function prepareFakePaymentRequest(): void
+    protected function prepareFakePaymentRequest()
     {
         parent::prepareFakePaymentRequest();
 

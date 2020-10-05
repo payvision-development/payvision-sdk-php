@@ -26,7 +26,7 @@ class DateTime implements DataType
     /**
      * @return string|null
      */
-    public function get(): ?string
+    public function get()
     {
         return $this->value->format('Y-m-d\TH:i:s\Z');
     }

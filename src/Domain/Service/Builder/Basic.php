@@ -35,7 +35,7 @@ abstract class Basic implements Builder
         return $object;
     }
 
-    protected function reset(): void
+    protected function reset()
     {
         $this->properties = [];
     }
@@ -68,7 +68,7 @@ abstract class Basic implements Builder
      * @param array $properties
      * @throws BuilderException
      */
-    protected function validateRequiredProperties(array $properties): void
+    protected function validateRequiredProperties(array $properties)
     {
         foreach ($properties as $property) {
             if ($this->get($property) === null) {

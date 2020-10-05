@@ -18,7 +18,7 @@ class CurrencyCodeTest extends TestCase
     /**
      * @throws DataTypeException
      */
-    public function testNullValue(): void
+    public function testNullValue()
     {
         self::assertNull((new CurrencyCode(null))->get());
     }
@@ -26,7 +26,7 @@ class CurrencyCodeTest extends TestCase
     /**
      * @throws DataTypeException
      */
-    public function testKnownCurrency(): void
+    public function testKnownCurrency()
     {
         $currency = new CurrencyCode('EUR');
         self::assertSame('EUR', $currency->get());
@@ -35,7 +35,7 @@ class CurrencyCodeTest extends TestCase
     /**
      * @throws DataTypeException
      */
-    public function testUnknownCurrency(): void
+    public function testUnknownCurrency()
     {
         $this->expectException(DataTypeException::class);
         $this->expectExceptionCode(DataTypeException::UNKNOWN_CURRENCY);
