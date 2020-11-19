@@ -17,6 +17,7 @@ use Payvision\SDK\Domain\Request;
 use Payvision\SDK\Exception\Api\ErrorResponse;
 use Payvision\SDK\Exception\ApiException;
 use Payvision\SDK\Exception\BuilderException;
+use Psr\Http\Message\ResponseInterface;
 use ReflectionException;
 
 class ApiConnection implements Connection
@@ -107,6 +108,7 @@ class ApiConnection implements Connection
      * @param RequestHeaderCollection $requestHeaderCollection
      * @return array
      * @throws ApiException
+     * @throws ErrorResponse
      */
     private function get(Request $request, RequestHeaderCollection $requestHeaderCollection): array
     {
@@ -116,19 +118,7 @@ class ApiConnection implements Connection
         );
 
         $this->lastJsonRequest = $request->getPathParams();
-        $this->lastStatusCode = $guzzleResponse->getStatusCode();
-        $contents = $guzzleResponse->getBody()->getContents();
-        $json = \json_decode($contents, true);
-
-        if (!\is_array($json)) {
-            $this->logDebugData($this->lastJsonRequest, ['_raw_response' => $contents], $requestHeaderCollection);
-            throw new ApiException(
-                \sprintf('Response is not JSON: %1$s', $contents),
-                ApiException::INVALID_RESPONSE
-            );
-        }
-
-        return $json;
+        return $this->parseJSONResponse($guzzleResponse, $requestHeaderCollection);
     }
 
     /**
@@ -136,6 +126,7 @@ class ApiConnection implements Connection
      * @param RequestHeaderCollection $requestHeaderCollection
      * @return array
      * @throws ApiException
+     * @throws ErrorResponse
      */
     private function post(Request $request, RequestHeaderCollection $requestHeaderCollection): array
     {
@@ -147,12 +138,32 @@ class ApiConnection implements Connection
         );
 
         $this->lastJsonRequest = $jsonRequest;
+        return $this->parseJSONResponse($guzzleResponse, $requestHeaderCollection);
+    }
+
+    /**
+     * @throws ApiException
+     * @throws ErrorResponse
+     */
+    private function parseJSONResponse(
+        ResponseInterface $guzzleResponse,
+        RequestHeaderCollection $requestHeaderCollection
+    ): array {
         $this->lastStatusCode = $guzzleResponse->getStatusCode();
         $contents = $guzzleResponse->getBody()->getContents();
         $json = \json_decode($contents, true);
 
         if (!\is_array($json)) {
             $this->logDebugData($this->lastJsonRequest, ['_raw_response' => $contents], $requestHeaderCollection);
+
+            if ($this->lastStatusCode >= 400) {
+                throw new ErrorResponse(
+                    $guzzleResponse,
+                    'Invalid response code received',
+                    ErrorResponse::INVALID_RESPONSE
+                );
+            }
+
             throw new ApiException(
                 \sprintf('Response is not JSON: %1$s', $contents),
                 ApiException::INVALID_RESPONSE
@@ -250,6 +261,7 @@ class ApiConnection implements Connection
      * @param Request $request
      * @param array $requestHeaders
      * @return array
+     * @throws ErrorResponse
      * @throws ApiException
      */
     private function doRequest(Request $request, array $requestHeaders = []): array
