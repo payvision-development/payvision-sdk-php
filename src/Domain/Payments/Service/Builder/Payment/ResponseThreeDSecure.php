@@ -25,12 +25,30 @@ class ResponseThreeDSecure extends Basic
     }
 
     /**
+     * @param string $authenticationResult
+     * @return ResponseThreeDSecure
+     */
+    public function setAuthenticationResult(string $authenticationResult): ResponseThreeDSecure
+    {
+        return $this->set('authenticationResult', $authenticationResult);
+    }
+
+    /**
      * @param string $enrollmentResult
      * @return ResponseThreeDSecure
      */
     public function setEnrollmentResult(string $enrollmentResult): ResponseThreeDSecure
     {
         return $this->set('enrollmentResult', $enrollmentResult);
+    }
+
+    /**
+     * @param string $flow
+     * @return ResponseThreeDSecure
+     */
+    public function setFlow(string $flow): ResponseThreeDSecure
+    {
+        return $this->set('flow', $flow);
     }
 
     /**
@@ -43,13 +61,25 @@ class ResponseThreeDSecure extends Basic
     }
 
     /**
+     * @param string $version
+     * @return ResponseThreeDSecure
+     */
+    public function setVersion(string $version): ResponseThreeDSecure
+    {
+        return $this->set('version', $version);
+    }
+
+    /**
      * @return ResponseThreeDSecureObject
      */
     protected function buildObject(): ResponseThreeDSecureObject
     {
         return new ResponseThreeDSecureObject(
+            $this->get('authenticationResult'),
             $this->get('enrollmentResult'),
-            $this->get('validationResult')
+            $this->get('flow'),
+            $this->get('validationResult'),
+            $this->get('version')
         );
     }
 }

@@ -56,6 +56,11 @@ class RequestBody
     private $shippingAddress;
 
     /**
+     * @var RequestThreeDSecure
+     */
+    private $threeDSecure;
+
+    /**
      * RequestBody constructor.
      *
      * @param RequestCheckout $checkout
@@ -66,6 +71,7 @@ class RequestBody
      * @param RequestOption $option
      * @param RequestOrder $order
      * @param RequestShippingAddress $shippingAddress
+     * @param RequestThreeDSecure $threeDSecure
      */
     public function __construct(
         RequestCheckout $checkout,
@@ -75,7 +81,8 @@ class RequestBody
         RequestDba $dba = null,
         RequestOption $option = null,
         RequestOrder $order = null,
-        RequestShippingAddress $shippingAddress = null
+        RequestShippingAddress $shippingAddress = null,
+        RequestThreeDSecure $threeDSecure = null
     ) {
         $this->checkout = $checkout;
         $this->transaction = $transaction;
@@ -85,6 +92,7 @@ class RequestBody
         $this->option = $option;
         $this->order = $order;
         $this->shippingAddress = $shippingAddress;
+        $this->threeDSecure = $threeDSecure;
     }
 
     /**
@@ -149,5 +157,13 @@ class RequestBody
     public function getShippingAddress(): ?RequestShippingAddress
     {
         return $this->shippingAddress;
+    }
+
+    /**
+     * @return RequestThreeDSecure|null
+     */
+    public function getThreeDSecure(): ?RequestThreeDSecure
+    {
+        return $this->threeDSecure;
     }
 }

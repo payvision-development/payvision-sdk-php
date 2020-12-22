@@ -49,7 +49,7 @@ The debug-property is passed through to the Guzzle Client. See
 <http://docs.guzzlephp.org/en/stable/request-options.html#debug> for more 
 information about debugging.
 
-### Creating a payment request
+### Creating a request
 
 The PHP SDK is a direct reflection of how the JSON structure of the requests
 and responses are typically built for the Payvision API.
@@ -114,6 +114,30 @@ Now we have an API Request that we can execute using our API Connection:
     $requestHeaders = []; // Optional request headers
     $apiResponse = $apiConnection->execute($apiRequest, $requestHeaders);
 
+#### About builders
+
+It is **strongly recommended** that you always use the builders provided
+by the SDK to create your objects, and never directly instantiate them. 
+The reason behind this is that the method signature of the 
+constructor call of a value object can change quite often as the API
+specification grows. This can quickly lead to backward compatible breaking
+changes in your code. Builders overcome this problem by abstracting the
+creation of value objects. And they're also a lot cleaner to work with.
+
+#### Handling an array as response
+
+Some API endpoints will not return a single object, but rather an array
+of objects. The [GET payments](https://developers.acehubpaymentservices.com/v3.3/reference#get-payment-by-tracking-code-2)
+endpoint is an example of this.
+
+In this case, where you as a developer know that you can expect an array
+as a result, you need to use the `ApiConnection::executeAndReturnArray()`-method
+instead of the `execute()`-method:
+
+    $apiRequest = RequestBuilder::getPayments($businessId, $trackingCode);
+    $apiResponses = $apiConnection->executeAndReturnArray($apiRequest);
+    $apiResponse = $apiResponses[0]; // for example
+    
 ### Handling the responses
 
 The `$apiResponse` in the above example is an object of the type that is

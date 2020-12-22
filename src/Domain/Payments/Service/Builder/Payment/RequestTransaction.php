@@ -34,15 +34,6 @@ class RequestTransaction extends Basic
     }
 
     /**
-     * @param string $trackingCode
-     * @return RequestTransaction
-     */
-    public function setTrackingCode(string $trackingCode): RequestTransaction
-    {
-        return $this->set('trackingCode', $trackingCode);
-    }
-
-    /**
      * @param string $currencyCode
      * @return RequestTransaction
      */
@@ -52,48 +43,66 @@ class RequestTransaction extends Basic
     }
 
     /**
-     * @param string $returnUrl
+     * @param string $trackingCode
      * @return RequestTransaction
      */
-    public function setReturnUrl(string $returnUrl): RequestTransaction
+    public function setTrackingCode(string $trackingCode): RequestTransaction
     {
-        return $this->set('returnUrl', $returnUrl);
+        return $this->set('trackingCode', $trackingCode);
     }
 
     /**
-     * @param bool $tokenize
+     * @param int $brandId
      * @return RequestTransaction
      */
-    public function setTokenize(bool $tokenize): RequestTransaction
+    public function setBrandId(int $brandId): RequestTransaction
     {
-        return $this->set('tokenize', $tokenize);
+        return $this->set('brandId', $brandId);
     }
 
     /**
-     * @param string $token
+     * @param string $countryCode
      * @return RequestTransaction
      */
-    public function setToken(string $token): RequestTransaction
+    public function setCountryCode(string $countryCode): RequestTransaction
     {
-        return $this->set('token', $token);
+        return $this->set('countryCode', $countryCode);
     }
 
     /**
-     * @param int $storeId
+     * @param string $descriptor
      * @return RequestTransaction
      */
-    public function setStoreId(int $storeId): RequestTransaction
+    public function setDescriptor(string $descriptor): RequestTransaction
     {
-        return $this->set('storeId', $storeId);
+        return $this->set('descriptor', $descriptor);
     }
 
     /**
-     * @param string $source
+     * @param string $invoiceId
      * @return RequestTransaction
      */
-    public function setSource(string $source): RequestTransaction
+    public function setInvoiceId(string $invoiceId): RequestTransaction
     {
-        return $this->set('source', $source);
+        return $this->set('invoiceId', $invoiceId);
+    }
+
+    /**
+     * @param string $languageCode
+     * @return RequestTransaction
+     */
+    public function setLanguageCode(string $languageCode): RequestTransaction
+    {
+        return $this->set('languageCode', $languageCode);
+    }
+
+    /**
+     * @param string $notifyUrl
+     * @return RequestTransaction
+     */
+    public function setNotifyUrl(string $notifyUrl): RequestTransaction
+    {
+        return $this->set('notifyUrl', $notifyUrl);
     }
 
     /**
@@ -115,57 +124,48 @@ class RequestTransaction extends Basic
     }
 
     /**
-     * @param int $brandId
+     * @param string $returnUrl
      * @return RequestTransaction
      */
-    public function setBrandId(int $brandId): RequestTransaction
+    public function setReturnUrl(string $returnUrl): RequestTransaction
     {
-        return $this->set('brandId', $brandId);
+        return $this->set('returnUrl', $returnUrl);
     }
 
     /**
-     * @param string $notifyUrl
+     * @param string $source
      * @return RequestTransaction
      */
-    public function setNotifyUrl(string $notifyUrl): RequestTransaction
+    public function setSource(string $source): RequestTransaction
     {
-        return $this->set('notifyUrl', $notifyUrl);
+        return $this->set('source', $source);
     }
 
     /**
-     * @param string $languageCode
+     * @param int $storeId
      * @return RequestTransaction
      */
-    public function setLanguageCode(string $languageCode): RequestTransaction
+    public function setStoreId(int $storeId): RequestTransaction
     {
-        return $this->set('languageCode', $languageCode);
+        return $this->set('storeId', $storeId);
     }
 
     /**
-     * @param string $invoiceId
+     * @param string $token
      * @return RequestTransaction
      */
-    public function setInvoiceId(string $invoiceId): RequestTransaction
+    public function setToken(string $token): RequestTransaction
     {
-        return $this->set('invoiceId', $invoiceId);
+        return $this->set('token', $token);
     }
 
     /**
-     * @param string $descriptor
+     * @param bool $tokenize
      * @return RequestTransaction
      */
-    public function setDescriptor(string $descriptor): RequestTransaction
+    public function setTokenize(bool $tokenize): RequestTransaction
     {
-        return $this->set('descriptor', $descriptor);
-    }
-
-    /**
-     * @param string $countryCode
-     * @return RequestTransaction
-     */
-    public function setCountryCode(string $countryCode): RequestTransaction
-    {
-        return $this->set('countryCode', $countryCode);
+        return $this->set('tokenize', $tokenize);
     }
 
     /**
@@ -184,21 +184,21 @@ class RequestTransaction extends Basic
     {
         return new RequestTransactionObject(
             $this->get('amount'),
-            $this->get('trackingCode'),
             $this->get('currencyCode'),
-            $this->get('returnUrl'),
-            $this->get('tokenize'),
-            $this->get('token'),
-            $this->get('storeId'),
-            $this->get('source'),
+            $this->get('trackingCode'),
+            $this->get('brandId'),
+            $this->get('countryCode'),
+            $this->get('descriptor'),
+            $this->get('invoiceId'),
+            $this->get('languageCode'),
+            $this->get('notifyUrl'),
             $this->get('payTimeout'),
             $this->get('purchaseId'),
-            $this->get('brandId'),
-            $this->get('notifyUrl'),
-            $this->get('languageCode'),
-            $this->get('invoiceId'),
-            $this->get('descriptor'),
-            $this->get('countryCode'),
+            $this->get('returnUrl'),
+            $this->get('source'),
+            $this->get('storeId'),
+            $this->get('token'),
+            $this->get('tokenize'),
             $this->get('type')
         );
     }

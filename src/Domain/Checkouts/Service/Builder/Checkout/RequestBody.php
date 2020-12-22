@@ -20,6 +20,7 @@ use Payvision\SDK\Domain\Checkouts\ValueObject\Checkout\RequestDba;
 use Payvision\SDK\Domain\Checkouts\ValueObject\Checkout\RequestOption;
 use Payvision\SDK\Domain\Checkouts\ValueObject\Checkout\RequestOrder;
 use Payvision\SDK\Domain\Checkouts\ValueObject\Checkout\RequestShippingAddress;
+use Payvision\SDK\Domain\Checkouts\ValueObject\Checkout\RequestThreeDSecure;
 use Payvision\SDK\Domain\Service\Builder\Basic;
 
 class RequestBody extends Basic
@@ -105,6 +106,15 @@ class RequestBody extends Basic
     }
 
     /**
+     * @param RequestThreeDSecure $threeDSecure
+     * @return RequestBody
+     */
+    public function setThreeDSecure(RequestThreeDSecure $threeDSecure): RequestBody
+    {
+        return $this->set('threeDSecure', $threeDSecure);
+    }
+
+    /**
      * @return RequestBodyObject
      */
     protected function buildObject(): RequestBodyObject
@@ -117,7 +127,8 @@ class RequestBody extends Basic
             $this->get('dba'),
             $this->get('option'),
             $this->get('order'),
-            $this->get('shippingAddress')
+            $this->get('shippingAddress'),
+            $this->get('threeDSecure')
         );
     }
 }

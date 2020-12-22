@@ -70,7 +70,7 @@ class BuilderTest extends TestCase
         $requestObject = new PaymentRequest(
             PaymentRequest::ACTION_PAYMENT,
             new PaymentRequestBody(
-                new PaymentRequestTransaction(1.00, 'XXX', 'EUR')
+                new PaymentRequestTransaction(1.00, 'EUR', 'XXX')
             ),
             new PaymentRequestHeader('abc123')
         );
@@ -84,8 +84,8 @@ class BuilderTest extends TestCase
             'body' => [
                 'transaction' => [
                     'amount' => 1.00,
-                    'trackingCode' => 'XXX',
                     'currencyCode' => 'EUR',
+                    'trackingCode' => 'XXX',
                 ],
             ],
             'action' => 'payment',

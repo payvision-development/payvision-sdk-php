@@ -20,6 +20,7 @@ use Payvision\SDK\Domain\Checkouts\Service\Builder\Checkout\RequestDba as Reques
 use Payvision\SDK\Domain\Checkouts\Service\Builder\Checkout\RequestOption as RequestOptionBuilder;
 use Payvision\SDK\Domain\Checkouts\Service\Builder\Checkout\RequestOrder as RequestOrderBuilder;
 use Payvision\SDK\Domain\Checkouts\Service\Builder\Composite\Checkout\RequestShippingAddress as RequestShippingAddressBuilder;
+use Payvision\SDK\Domain\Checkouts\Service\Builder\Composite\Checkout\RequestThreeDSecure as RequestThreeDSecureBuilder;
 use Payvision\SDK\Domain\Service\Builder\Basic;
 
 class RequestBody extends Basic
@@ -104,6 +105,16 @@ class RequestBody extends Basic
      */
     private $isShippingAddressBuilderTouched = false;
 
+    /**
+     * @var RequestThreeDSecureBuilder
+     */
+    private $threeDSecureBuilder;
+
+    /**
+     * @var bool
+     */
+    private $isThreeDSecureBuilderTouched = false;
+
     public function __construct()
     {
         $this->checkoutBuilder = new RequestCheckoutBuilder();
@@ -114,6 +125,7 @@ class RequestBody extends Basic
         $this->optionBuilder = new RequestOptionBuilder();
         $this->orderBuilder = new RequestOrderBuilder();
         $this->shippingAddressBuilder = new RequestShippingAddressBuilder();
+        $this->threeDSecureBuilder = new RequestThreeDSecureBuilder();
     }
 
     /**
@@ -197,6 +209,15 @@ class RequestBody extends Basic
     }
 
     /**
+     * @return RequestThreeDSecureBuilder
+     */
+    public function threeDSecure(): RequestThreeDSecureBuilder
+    {
+        $this->isThreeDSecureBuilderTouched = true;
+        return $this->threeDSecureBuilder;
+    }
+
+    /**
      * @return RequestBodyObject
      */
     protected function buildObject(): RequestBodyObject
@@ -209,7 +230,8 @@ class RequestBody extends Basic
             $this->isDbaBuilderTouched ? $this->dbaBuilder->build() : null,
             $this->isOptionBuilderTouched ? $this->optionBuilder->build() : null,
             $this->isOrderBuilderTouched ? $this->orderBuilder->build() : null,
-            $this->isShippingAddressBuilderTouched ? $this->shippingAddressBuilder->build() : null
+            $this->isShippingAddressBuilderTouched ? $this->shippingAddressBuilder->build() : null,
+            $this->isThreeDSecureBuilderTouched ? $this->threeDSecureBuilder->build() : null
         );
     }
 }

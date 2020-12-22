@@ -66,7 +66,7 @@ abstract class AbstractPaymentTest extends AbstractTestCase
      * @throws ReflectionException
      * @throws Exception
      */
-    public function testPaymentCreationSuccessful(): void
+    public function testPaymentCreationSuccessful(): PaymentResponse
     {
         $requestObject = $this->createFakePaymentRequest();
         $request = RequestBuilder::newPayment($requestObject);
@@ -76,6 +76,19 @@ abstract class AbstractPaymentTest extends AbstractTestCase
 
         self::assertInstanceOf($request->getResponseObjectByStatusCode(200), $response);
         self::assertEquals(PaymentResponse::PENDING, $response->getResult());
+
+        return $response;
+    }
+
+    /**
+     * @depends testPaymentCreationSuccessful
+     */
+    public function testGetPayments(PaymentResponse $response): void
+    {
+        $trackingCode = $response->getBody()->getTransaction()->getTrackingCode();
+
+        $request = RequestBuilder::getPayments($this->credentials['businessId'], $trackingCode);
+        $responses = $this->apiConnection->executeAndReturnArray($request);
     }
 
     /**

@@ -21,37 +21,42 @@ class RequestTransaction
     /**
      * @var string
      */
-    private $trackingCode;
-
-    /**
-     * @var string
-     */
     private $currencyCode;
 
     /**
      * @var string
      */
-    private $returnUrl;
-
-    /**
-     * @var bool
-     */
-    private $tokenize;
-
-    /**
-     * @var string
-     */
-    private $token;
+    private $trackingCode;
 
     /**
      * @var int
      */
-    private $storeId;
+    private $brandId;
 
     /**
      * @var string
      */
-    private $source;
+    private $countryCode;
+
+    /**
+     * @var string
+     */
+    private $descriptor;
+
+    /**
+     * @var string
+     */
+    private $invoiceId;
+
+    /**
+     * @var string
+     */
+    private $languageCode;
+
+    /**
+     * @var string
+     */
+    private $notifyUrl;
 
     /**
      * @var int
@@ -64,34 +69,29 @@ class RequestTransaction
     private $purchaseId;
 
     /**
+     * @var string
+     */
+    private $returnUrl;
+
+    /**
+     * @var string
+     */
+    private $source;
+
+    /**
      * @var int
      */
-    private $brandId;
+    private $storeId;
 
     /**
      * @var string
      */
-    private $notifyUrl;
+    private $token;
 
     /**
-     * @var string
+     * @var bool
      */
-    private $languageCode;
-
-    /**
-     * @var string
-     */
-    private $invoiceId;
-
-    /**
-     * @var string
-     */
-    private $descriptor;
-
-    /**
-     * @var string
-     */
-    private $countryCode;
+    private $tokenize;
 
     /**
      * @var string
@@ -102,58 +102,58 @@ class RequestTransaction
      * RequestTransaction constructor.
      *
      * @param float $amount
-     * @param string $trackingCode
      * @param string $currencyCode
-     * @param string $returnUrl
-     * @param bool $tokenize
-     * @param string $token
-     * @param int $storeId
-     * @param string $source
+     * @param string $trackingCode
+     * @param int $brandId
+     * @param string $countryCode
+     * @param string $descriptor
+     * @param string $invoiceId
+     * @param string $languageCode
+     * @param string $notifyUrl
      * @param int $payTimeout
      * @param string $purchaseId
-     * @param int $brandId
-     * @param string $notifyUrl
-     * @param string $languageCode
-     * @param string $invoiceId
-     * @param string $descriptor
-     * @param string $countryCode
+     * @param string $returnUrl
+     * @param string $source
+     * @param int $storeId
+     * @param string $token
+     * @param bool $tokenize
      * @param string $type
      */
     public function __construct(
         float $amount,
-        string $trackingCode,
         string $currencyCode,
-        string $returnUrl = null,
-        bool $tokenize = null,
-        string $token = null,
-        int $storeId = null,
-        string $source = null,
+        string $trackingCode,
+        int $brandId = null,
+        string $countryCode = null,
+        string $descriptor = null,
+        string $invoiceId = null,
+        string $languageCode = null,
+        string $notifyUrl = null,
         int $payTimeout = null,
         string $purchaseId = null,
-        int $brandId = null,
-        string $notifyUrl = null,
-        string $languageCode = null,
-        string $invoiceId = null,
-        string $descriptor = null,
-        string $countryCode = null,
+        string $returnUrl = null,
+        string $source = null,
+        int $storeId = null,
+        string $token = null,
+        bool $tokenize = null,
         string $type = null
     ) {
         $this->amount = $amount;
-        $this->trackingCode = $trackingCode;
         $this->currencyCode = $currencyCode;
-        $this->returnUrl = $returnUrl;
-        $this->tokenize = $tokenize;
-        $this->token = $token;
-        $this->storeId = $storeId;
-        $this->source = $source;
+        $this->trackingCode = $trackingCode;
+        $this->brandId = $brandId;
+        $this->countryCode = $countryCode;
+        $this->descriptor = $descriptor;
+        $this->invoiceId = $invoiceId;
+        $this->languageCode = $languageCode;
+        $this->notifyUrl = $notifyUrl;
         $this->payTimeout = $payTimeout;
         $this->purchaseId = $purchaseId;
-        $this->brandId = $brandId;
-        $this->notifyUrl = $notifyUrl;
-        $this->languageCode = $languageCode;
-        $this->invoiceId = $invoiceId;
-        $this->descriptor = $descriptor;
-        $this->countryCode = $countryCode;
+        $this->returnUrl = $returnUrl;
+        $this->source = $source;
+        $this->storeId = $storeId;
+        $this->token = $token;
+        $this->tokenize = $tokenize;
         $this->type = $type;
     }
 
@@ -168,57 +168,65 @@ class RequestTransaction
     /**
      * @return string
      */
-    public function getTrackingCode(): string
-    {
-        return $this->trackingCode;
-    }
-
-    /**
-     * @return string
-     */
     public function getCurrencyCode(): string
     {
         return $this->currencyCode;
     }
 
     /**
-     * @return string|null
+     * @return string
      */
-    public function getReturnUrl(): ?string
+    public function getTrackingCode(): string
     {
-        return $this->returnUrl;
-    }
-
-    /**
-     * @return bool|null
-     */
-    public function getTokenize(): ?bool
-    {
-        return $this->tokenize;
-    }
-
-    /**
-     * @return string|null
-     */
-    public function getToken(): ?string
-    {
-        return $this->token;
+        return $this->trackingCode;
     }
 
     /**
      * @return int|null
      */
-    public function getStoreId(): ?int
+    public function getBrandId(): ?int
     {
-        return $this->storeId;
+        return $this->brandId;
     }
 
     /**
      * @return string|null
      */
-    public function getSource(): ?string
+    public function getCountryCode(): ?string
     {
-        return $this->source;
+        return $this->countryCode;
+    }
+
+    /**
+     * @return string|null
+     */
+    public function getDescriptor(): ?string
+    {
+        return $this->descriptor;
+    }
+
+    /**
+     * @return string|null
+     */
+    public function getInvoiceId(): ?string
+    {
+        return $this->invoiceId;
+    }
+
+    /**
+     * @return string|null
+     */
+    public function getLanguageCode(): ?string
+    {
+        return $this->languageCode;
+    }
+
+    /**
+     * @return string|null
+     */
+    public function getNotifyUrl(): ?string
+    {
+        return $this->notifyUrl;
     }
 
     /**
@@ -238,51 +246,43 @@ class RequestTransaction
     }
 
     /**
+     * @return string|null
+     */
+    public function getReturnUrl(): ?string
+    {
+        return $this->returnUrl;
+    }
+
+    /**
+     * @return string|null
+     */
+    public function getSource(): ?string
+    {
+        return $this->source;
+    }
+
+    /**
      * @return int|null
      */
-    public function getBrandId(): ?int
+    public function getStoreId(): ?int
     {
-        return $this->brandId;
+        return $this->storeId;
     }
 
     /**
      * @return string|null
      */
-    public function getNotifyUrl(): ?string
+    public function getToken(): ?string
     {
-        return $this->notifyUrl;
+        return $this->token;
     }
 
     /**
-     * @return string|null
+     * @return bool|null
      */
-    public function getLanguageCode(): ?string
+    public function getTokenize(): ?bool
     {
-        return $this->languageCode;
-    }
-
-    /**
-     * @return string|null
-     */
-    public function getInvoiceId(): ?string
-    {
-        return $this->invoiceId;
-    }
-
-    /**
-     * @return string|null
-     */
-    public function getDescriptor(): ?string
-    {
-        return $this->descriptor;
-    }
-
-    /**
-     * @return string|null
-     */
-    public function getCountryCode(): ?string
-    {
-        return $this->countryCode;
+        return $this->tokenize;
     }
 
     /**

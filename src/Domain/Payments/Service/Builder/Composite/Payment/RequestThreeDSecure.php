@@ -9,16 +9,53 @@ declare(strict_types=1);
  * Warning! This file is auto-generated! Any changes made to this file will be deleted in the future!
  */
 
-namespace Payvision\SDK\Domain\Payments\Service\Builder\Payment;
+namespace Payvision\SDK\Domain\Payments\Service\Builder\Composite\Payment;
 
 use Payvision\SDK\Domain\Payments\ValueObject\Payment\RequestThreeDSecure as RequestThreeDSecureObject;
-use Payvision\SDK\Domain\Payments\ValueObject\ThreeDSecureAdditionalInfo;
-use Payvision\SDK\Domain\Payments\ValueObject\ThreeDSecureExemption;
-use Payvision\SDK\Domain\Payments\ValueObject\ThreeDSecureRecurringInfo;
+use Payvision\SDK\Domain\Payments\Service\Builder\ThreeDSecureAdditionalInfo as ThreeDSecureAdditionalInfoBuilder;
+use Payvision\SDK\Domain\Payments\Service\Builder\ThreeDSecureExemption as ThreeDSecureExemptionBuilder;
+use Payvision\SDK\Domain\Payments\Service\Builder\ThreeDSecureRecurringInfo as ThreeDSecureRecurringInfoBuilder;
 use Payvision\SDK\Domain\Service\Builder\Basic;
 
 class RequestThreeDSecure extends Basic
 {
+    /**
+     * @var ThreeDSecureAdditionalInfoBuilder
+     */
+    private $additionalInfoBuilder;
+
+    /**
+     * @var bool
+     */
+    private $isAdditionalInfoBuilderTouched = false;
+
+    /**
+     * @var ThreeDSecureExemptionBuilder
+     */
+    private $exemptionBuilder;
+
+    /**
+     * @var bool
+     */
+    private $isExemptionBuilderTouched = false;
+
+    /**
+     * @var ThreeDSecureRecurringInfoBuilder
+     */
+    private $recurringInfoBuilder;
+
+    /**
+     * @var bool
+     */
+    private $isRecurringInfoBuilderTouched = false;
+
+    public function __construct()
+    {
+        $this->additionalInfoBuilder = new ThreeDSecureAdditionalInfoBuilder();
+        $this->exemptionBuilder = new ThreeDSecureExemptionBuilder();
+        $this->recurringInfoBuilder = new ThreeDSecureRecurringInfoBuilder();
+    }
+
     /**
      * @return RequestThreeDSecureObject
      */
@@ -28,12 +65,12 @@ class RequestThreeDSecure extends Basic
     }
 
     /**
-     * @param ThreeDSecureAdditionalInfo $additionalInfo
-     * @return RequestThreeDSecure
+     * @return ThreeDSecureAdditionalInfoBuilder
      */
-    public function setAdditionalInfo(ThreeDSecureAdditionalInfo $additionalInfo): RequestThreeDSecure
+    public function additionalInfo(): ThreeDSecureAdditionalInfoBuilder
     {
-        return $this->set('additionalInfo', $additionalInfo);
+        $this->isAdditionalInfoBuilderTouched = true;
+        return $this->additionalInfoBuilder;
     }
 
     /**
@@ -73,21 +110,21 @@ class RequestThreeDSecure extends Basic
     }
 
     /**
-     * @param ThreeDSecureExemption $exemption
-     * @return RequestThreeDSecure
+     * @return ThreeDSecureExemptionBuilder
      */
-    public function setExemption(ThreeDSecureExemption $exemption): RequestThreeDSecure
+    public function exemption(): ThreeDSecureExemptionBuilder
     {
-        return $this->set('exemption', $exemption);
+        $this->isExemptionBuilderTouched = true;
+        return $this->exemptionBuilder;
     }
 
     /**
-     * @param ThreeDSecureRecurringInfo $recurringInfo
-     * @return RequestThreeDSecure
+     * @return ThreeDSecureRecurringInfoBuilder
      */
-    public function setRecurringInfo(ThreeDSecureRecurringInfo $recurringInfo): RequestThreeDSecure
+    public function recurringInfo(): ThreeDSecureRecurringInfoBuilder
     {
-        return $this->set('recurringInfo', $recurringInfo);
+        $this->isRecurringInfoBuilderTouched = true;
+        return $this->recurringInfoBuilder;
     }
 
     /**
@@ -114,13 +151,13 @@ class RequestThreeDSecure extends Basic
     protected function buildObject(): RequestThreeDSecureObject
     {
         return new RequestThreeDSecureObject(
-            $this->get('additionalInfo'),
+            $this->isAdditionalInfoBuilderTouched ? $this->additionalInfoBuilder->build() : null,
             $this->get('avv'),
             $this->get('checkEnrollment'),
             $this->get('dsTransactionId'),
             $this->get('eci'),
-            $this->get('exemption'),
-            $this->get('recurringInfo'),
+            $this->isExemptionBuilderTouched ? $this->exemptionBuilder->build() : null,
+            $this->isRecurringInfoBuilderTouched ? $this->recurringInfoBuilder->build() : null,
             $this->get('version'),
             $this->get('xid')
         );

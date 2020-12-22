@@ -22,7 +22,7 @@ use Payvision\SDK\Domain\Payments\Service\Builder\Payment\RequestOption as Reque
 use Payvision\SDK\Domain\Payments\Service\Builder\Order as OrderBuilder;
 use Payvision\SDK\Domain\Payments\Service\Builder\Payment\RequestQr as RequestQrBuilder;
 use Payvision\SDK\Domain\Payments\Service\Builder\Composite\Payment\RequestShippingAddress as RequestShippingAddressBuilder;
-use Payvision\SDK\Domain\Payments\Service\Builder\Payment\RequestThreeDSecure as RequestThreeDSecureBuilder;
+use Payvision\SDK\Domain\Payments\Service\Builder\Composite\Payment\RequestThreeDSecure as RequestThreeDSecureBuilder;
 use Payvision\SDK\Domain\Payments\Service\Builder\Payment\RequestWallet as RequestWalletBuilder;
 use Payvision\SDK\Domain\Service\Builder\Basic;
 

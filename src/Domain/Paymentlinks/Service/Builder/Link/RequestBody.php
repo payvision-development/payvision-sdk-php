@@ -12,12 +12,13 @@ declare(strict_types=1);
 namespace Payvision\SDK\Domain\Paymentlinks\Service\Builder\Link;
 
 use Payvision\SDK\Domain\Paymentlinks\ValueObject\Link\RequestBody as RequestBodyObject;
-use Payvision\SDK\Domain\Paymentlinks\ValueObject\Link\RequestTransaction;
 use Payvision\SDK\Domain\Paymentlinks\ValueObject\Link\RequestLink;
+use Payvision\SDK\Domain\Paymentlinks\ValueObject\Link\RequestTransaction;
 use Payvision\SDK\Domain\Paymentlinks\ValueObject\BasicAddress;
 use Payvision\SDK\Domain\Paymentlinks\ValueObject\BasicCustomer;
 use Payvision\SDK\Domain\Paymentlinks\ValueObject\Link\RequestDba;
 use Payvision\SDK\Domain\Paymentlinks\ValueObject\Link\RequestOrder;
+use Payvision\SDK\Domain\Paymentlinks\ValueObject\Link\RequestThreeDSecure;
 use Payvision\SDK\Domain\Service\Builder\Basic;
 
 class RequestBody extends Basic
@@ -31,21 +32,21 @@ class RequestBody extends Basic
     }
 
     /**
-     * @param RequestTransaction $transaction
-     * @return RequestBody
-     */
-    public function setTransaction(RequestTransaction $transaction): RequestBody
-    {
-        return $this->set('transaction', $transaction);
-    }
-
-    /**
      * @param RequestLink $link
      * @return RequestBody
      */
     public function setLink(RequestLink $link): RequestBody
     {
         return $this->set('link', $link);
+    }
+
+    /**
+     * @param RequestTransaction $transaction
+     * @return RequestBody
+     */
+    public function setTransaction(RequestTransaction $transaction): RequestBody
+    {
+        return $this->set('transaction', $transaction);
     }
 
     /**
@@ -94,18 +95,28 @@ class RequestBody extends Basic
     }
 
     /**
+     * @param RequestThreeDSecure $threeDSecure
+     * @return RequestBody
+     */
+    public function setThreeDSecure(RequestThreeDSecure $threeDSecure): RequestBody
+    {
+        return $this->set('threeDSecure', $threeDSecure);
+    }
+
+    /**
      * @return RequestBodyObject
      */
     protected function buildObject(): RequestBodyObject
     {
         return new RequestBodyObject(
-            $this->get('transaction'),
             $this->get('link'),
+            $this->get('transaction'),
             $this->get('billingAddress'),
             $this->get('customer'),
             $this->get('dba'),
             $this->get('order'),
-            $this->get('shippingAddress')
+            $this->get('shippingAddress'),
+            $this->get('threeDSecure')
         );
     }
 }

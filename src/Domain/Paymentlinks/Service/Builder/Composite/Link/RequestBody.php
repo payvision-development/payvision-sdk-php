@@ -12,26 +12,17 @@ declare(strict_types=1);
 namespace Payvision\SDK\Domain\Paymentlinks\Service\Builder\Composite\Link;
 
 use Payvision\SDK\Domain\Paymentlinks\ValueObject\Link\RequestBody as RequestBodyObject;
-use Payvision\SDK\Domain\Paymentlinks\Service\Builder\Link\RequestTransaction as RequestTransactionBuilder;
 use Payvision\SDK\Domain\Paymentlinks\Service\Builder\Link\RequestLink as RequestLinkBuilder;
+use Payvision\SDK\Domain\Paymentlinks\Service\Builder\Link\RequestTransaction as RequestTransactionBuilder;
 use Payvision\SDK\Domain\Paymentlinks\Service\Builder\BasicAddress as BasicAddressBuilder;
 use Payvision\SDK\Domain\Paymentlinks\Service\Builder\BasicCustomer as BasicCustomerBuilder;
 use Payvision\SDK\Domain\Paymentlinks\Service\Builder\Link\RequestDba as RequestDbaBuilder;
 use Payvision\SDK\Domain\Paymentlinks\Service\Builder\Link\RequestOrder as RequestOrderBuilder;
+use Payvision\SDK\Domain\Paymentlinks\Service\Builder\Composite\Link\RequestThreeDSecure as RequestThreeDSecureBuilder;
 use Payvision\SDK\Domain\Service\Builder\Basic;
 
 class RequestBody extends Basic
 {
-    /**
-     * @var RequestTransactionBuilder
-     */
-    private $transactionBuilder;
-
-    /**
-     * @var bool
-     */
-    private $isTransactionBuilderTouched = false;
-
     /**
      * @var RequestLinkBuilder
      */
@@ -41,6 +32,16 @@ class RequestBody extends Basic
      * @var bool
      */
     private $isLinkBuilderTouched = false;
+
+    /**
+     * @var RequestTransactionBuilder
+     */
+    private $transactionBuilder;
+
+    /**
+     * @var bool
+     */
+    private $isTransactionBuilderTouched = false;
 
     /**
      * @var BasicAddressBuilder
@@ -92,15 +93,26 @@ class RequestBody extends Basic
      */
     private $isShippingAddressBuilderTouched = false;
 
+    /**
+     * @var RequestThreeDSecureBuilder
+     */
+    private $threeDSecureBuilder;
+
+    /**
+     * @var bool
+     */
+    private $isThreeDSecureBuilderTouched = false;
+
     public function __construct()
     {
-        $this->transactionBuilder = new RequestTransactionBuilder();
         $this->linkBuilder = new RequestLinkBuilder();
+        $this->transactionBuilder = new RequestTransactionBuilder();
         $this->billingAddressBuilder = new BasicAddressBuilder();
         $this->customerBuilder = new BasicCustomerBuilder();
         $this->dbaBuilder = new RequestDbaBuilder();
         $this->orderBuilder = new RequestOrderBuilder();
         $this->shippingAddressBuilder = new BasicAddressBuilder();
+        $this->threeDSecureBuilder = new RequestThreeDSecureBuilder();
     }
 
     /**
@@ -112,21 +124,21 @@ class RequestBody extends Basic
     }
 
     /**
-     * @return RequestTransactionBuilder
-     */
-    public function transaction(): RequestTransactionBuilder
-    {
-        $this->isTransactionBuilderTouched = true;
-        return $this->transactionBuilder;
-    }
-
-    /**
      * @return RequestLinkBuilder
      */
     public function link(): RequestLinkBuilder
     {
         $this->isLinkBuilderTouched = true;
         return $this->linkBuilder;
+    }
+
+    /**
+     * @return RequestTransactionBuilder
+     */
+    public function transaction(): RequestTransactionBuilder
+    {
+        $this->isTransactionBuilderTouched = true;
+        return $this->transactionBuilder;
     }
 
     /**
@@ -175,18 +187,28 @@ class RequestBody extends Basic
     }
 
     /**
+     * @return RequestThreeDSecureBuilder
+     */
+    public function threeDSecure(): RequestThreeDSecureBuilder
+    {
+        $this->isThreeDSecureBuilderTouched = true;
+        return $this->threeDSecureBuilder;
+    }
+
+    /**
      * @return RequestBodyObject
      */
     protected function buildObject(): RequestBodyObject
     {
         return new RequestBodyObject(
-            $this->isTransactionBuilderTouched ? $this->transactionBuilder->build() : null,
             $this->isLinkBuilderTouched ? $this->linkBuilder->build() : null,
+            $this->isTransactionBuilderTouched ? $this->transactionBuilder->build() : null,
             $this->isBillingAddressBuilderTouched ? $this->billingAddressBuilder->build() : null,
             $this->isCustomerBuilderTouched ? $this->customerBuilder->build() : null,
             $this->isDbaBuilderTouched ? $this->dbaBuilder->build() : null,
             $this->isOrderBuilderTouched ? $this->orderBuilder->build() : null,
-            $this->isShippingAddressBuilderTouched ? $this->shippingAddressBuilder->build() : null
+            $this->isShippingAddressBuilderTouched ? $this->shippingAddressBuilder->build() : null,
+            $this->isThreeDSecureBuilderTouched ? $this->threeDSecureBuilder->build() : null
         );
     }
 }

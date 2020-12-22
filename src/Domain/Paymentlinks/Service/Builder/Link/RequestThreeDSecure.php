@@ -9,12 +9,12 @@ declare(strict_types=1);
  * Warning! This file is auto-generated! Any changes made to this file will be deleted in the future!
  */
 
-namespace Payvision\SDK\Domain\Payments\Service\Builder\Payment;
+namespace Payvision\SDK\Domain\Paymentlinks\Service\Builder\Link;
 
-use Payvision\SDK\Domain\Payments\ValueObject\Payment\RequestThreeDSecure as RequestThreeDSecureObject;
-use Payvision\SDK\Domain\Payments\ValueObject\ThreeDSecureAdditionalInfo;
-use Payvision\SDK\Domain\Payments\ValueObject\ThreeDSecureExemption;
-use Payvision\SDK\Domain\Payments\ValueObject\ThreeDSecureRecurringInfo;
+use Payvision\SDK\Domain\Paymentlinks\ValueObject\Link\RequestThreeDSecure as RequestThreeDSecureObject;
+use Payvision\SDK\Domain\Paymentlinks\ValueObject\ThreeDSecureAdditionalInfo;
+use Payvision\SDK\Domain\Paymentlinks\ValueObject\ThreeDSecureExemption;
+use Payvision\SDK\Domain\Paymentlinks\ValueObject\ThreeDSecureRecurringInfo;
 use Payvision\SDK\Domain\Service\Builder\Basic;
 
 class RequestThreeDSecure extends Basic
@@ -34,42 +34,6 @@ class RequestThreeDSecure extends Basic
     public function setAdditionalInfo(ThreeDSecureAdditionalInfo $additionalInfo): RequestThreeDSecure
     {
         return $this->set('additionalInfo', $additionalInfo);
-    }
-
-    /**
-     * @param string $avv
-     * @return RequestThreeDSecure
-     */
-    public function setAvv(string $avv): RequestThreeDSecure
-    {
-        return $this->set('avv', $avv);
-    }
-
-    /**
-     * @param bool $checkEnrollment
-     * @return RequestThreeDSecure
-     */
-    public function setCheckEnrollment(bool $checkEnrollment): RequestThreeDSecure
-    {
-        return $this->set('checkEnrollment', $checkEnrollment);
-    }
-
-    /**
-     * @param string $dsTransactionId
-     * @return RequestThreeDSecure
-     */
-    public function setDsTransactionId(string $dsTransactionId): RequestThreeDSecure
-    {
-        return $this->set('dsTransactionId', $dsTransactionId);
-    }
-
-    /**
-     * @param string $eci
-     * @return RequestThreeDSecure
-     */
-    public function setEci(string $eci): RequestThreeDSecure
-    {
-        return $this->set('eci', $eci);
     }
 
     /**
@@ -100,29 +64,15 @@ class RequestThreeDSecure extends Basic
     }
 
     /**
-     * @param string $xid
-     * @return RequestThreeDSecure
-     */
-    public function setXid(string $xid): RequestThreeDSecure
-    {
-        return $this->set('xid', $xid);
-    }
-
-    /**
      * @return RequestThreeDSecureObject
      */
     protected function buildObject(): RequestThreeDSecureObject
     {
         return new RequestThreeDSecureObject(
             $this->get('additionalInfo'),
-            $this->get('avv'),
-            $this->get('checkEnrollment'),
-            $this->get('dsTransactionId'),
-            $this->get('eci'),
             $this->get('exemption'),
             $this->get('recurringInfo'),
-            $this->get('version'),
-            $this->get('xid')
+            $this->get('version')
         );
     }
 }

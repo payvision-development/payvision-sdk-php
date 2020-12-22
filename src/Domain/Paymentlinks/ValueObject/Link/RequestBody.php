@@ -17,14 +17,14 @@ use Payvision\SDK\Domain\Paymentlinks\ValueObject\BasicCustomer;
 class RequestBody
 {
     /**
-     * @var RequestTransaction
-     */
-    private $transaction;
-
-    /**
      * @var RequestLink
      */
     private $link;
+
+    /**
+     * @var RequestTransaction
+     */
+    private $transaction;
 
     /**
      * @var BasicAddress
@@ -52,40 +52,40 @@ class RequestBody
     private $shippingAddress;
 
     /**
+     * @var RequestThreeDSecure
+     */
+    private $threeDSecure;
+
+    /**
      * RequestBody constructor.
      *
-     * @param RequestTransaction $transaction
      * @param RequestLink $link
+     * @param RequestTransaction $transaction
      * @param BasicAddress $billingAddress
      * @param BasicCustomer $customer
      * @param RequestDba $dba
      * @param RequestOrder $order
      * @param BasicAddress $shippingAddress
+     * @param RequestThreeDSecure $threeDSecure
      */
     public function __construct(
-        RequestTransaction $transaction,
         RequestLink $link,
+        RequestTransaction $transaction,
         BasicAddress $billingAddress = null,
         BasicCustomer $customer = null,
         RequestDba $dba = null,
         RequestOrder $order = null,
-        BasicAddress $shippingAddress = null
+        BasicAddress $shippingAddress = null,
+        RequestThreeDSecure $threeDSecure = null
     ) {
-        $this->transaction = $transaction;
         $this->link = $link;
+        $this->transaction = $transaction;
         $this->billingAddress = $billingAddress;
         $this->customer = $customer;
         $this->dba = $dba;
         $this->order = $order;
         $this->shippingAddress = $shippingAddress;
-    }
-
-    /**
-     * @return RequestTransaction
-     */
-    public function getTransaction(): RequestTransaction
-    {
-        return $this->transaction;
+        $this->threeDSecure = $threeDSecure;
     }
 
     /**
@@ -94,6 +94,14 @@ class RequestBody
     public function getLink(): RequestLink
     {
         return $this->link;
+    }
+
+    /**
+     * @return RequestTransaction
+     */
+    public function getTransaction(): RequestTransaction
+    {
+        return $this->transaction;
     }
 
     /**
@@ -134,5 +142,13 @@ class RequestBody
     public function getShippingAddress(): ?BasicAddress
     {
         return $this->shippingAddress;
+    }
+
+    /**
+     * @return RequestThreeDSecure|null
+     */
+    public function getThreeDSecure(): ?RequestThreeDSecure
+    {
+        return $this->threeDSecure;
     }
 }
