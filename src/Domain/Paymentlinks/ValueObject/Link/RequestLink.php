@@ -3,7 +3,7 @@
 declare(strict_types=1);
 
 /**
- * @copyright Copyright (c) 2018-2020 Payvision B.V. (https://www.payvision.com/)
+ * @copyright Copyright (c) 2018-2021 Payvision B.V. (https://www.payvision.com/)
  * @license see LICENCE.TXT
  *
  * Warning! This file is auto-generated! Any changes made to this file will be deleted in the future!
@@ -34,23 +34,39 @@ class RequestLink
     private $expirationTime;
 
     /**
+     * @var bool
+     */
+    private $threeDSecure;
+
+    /**
+     * @var string
+     */
+    private $tokenize;
+
+    /**
      * RequestLink constructor.
      *
      * @param int[] $brandIds
      * @param string $returnUrl
      * @param string $duration
      * @param string $expirationTime
+     * @param bool $threeDSecure
+     * @param string $tokenize
      */
     public function __construct(
         array $brandIds,
         string $returnUrl,
         string $duration = null,
-        string $expirationTime = null
+        string $expirationTime = null,
+        bool $threeDSecure = null,
+        string $tokenize = null
     ) {
         $this->brandIds = $brandIds;
         $this->returnUrl = $returnUrl;
         $this->duration = $duration;
         $this->expirationTime = $expirationTime;
+        $this->threeDSecure = $threeDSecure;
+        $this->tokenize = $tokenize;
     }
 
     /**
@@ -83,5 +99,21 @@ class RequestLink
     public function getExpirationTime(): ?string
     {
         return $this->expirationTime;
+    }
+
+    /**
+     * @return bool|null
+     */
+    public function getThreeDSecure(): ?bool
+    {
+        return $this->threeDSecure;
+    }
+
+    /**
+     * @return string|null
+     */
+    public function getTokenize(): ?string
+    {
+        return $this->tokenize;
     }
 }

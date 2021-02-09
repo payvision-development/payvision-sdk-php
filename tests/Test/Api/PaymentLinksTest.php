@@ -41,6 +41,8 @@ class PaymentLinksTest extends AbstractTestCase
         $this->cancelRequestBuilder = new CancelRequestBuilder();
     }
 
+    // phpcs:disable ObjectCalisthenics.Files.FunctionLength.ObjectCalisthenics\Sniffs\Files\FunctionLengthSniff
+
     /**
      * @return LinkResponse
      * @throws BuilderException
@@ -51,16 +53,20 @@ class PaymentLinksTest extends AbstractTestCase
     public function testMakePaymentLinkRequest(): LinkResponse
     {
         $this->linkRequestBuilder->header()->setBusinessId($this->credentials['businessId']);
-        $this->linkRequestBuilder->body()->transaction()->setStoreId(1);
         $this->linkRequestBuilder->body()->link()
             ->setReturnUrl('https://www.example.com')
-            ->setBrandIds([1010, 1011, 1020, 1030, 1050, 3010]);
+            ->setBrandIds([1010, 1011, 1020, 1030, 1050, 3010])
+            ->setThreeDSecure(false);
         $this->linkRequestBuilder->body()->transaction()
+            ->setStoreId(1)
             ->setTrackingCode($this->generateTrackingCode())
             ->setAuthorizationMode('payment')
             ->setAmount(10.00)
             ->setCurrencyCode('EUR')
-            ->setCountryCode('NL');
+            ->setCountryCode('NL')
+            ->setLanguageCode('nl')
+            ->setSource('EC')
+            ->setPurchaseId('pid' . $this->generateTrackingCode());
         $linkRequestObject = $this->linkRequestBuilder->build();
 
         $apiRequest = RequestBuilder::newLink($linkRequestObject);
@@ -73,6 +79,8 @@ class PaymentLinksTest extends AbstractTestCase
 
         return $apiResponse;
     }
+
+    // phpcs:enable ObjectCalisthenics.Files.FunctionLength.ObjectCalisthenics\Sniffs\Files\FunctionLengthSniff
 
     /**
      * @param LinkResponse $response

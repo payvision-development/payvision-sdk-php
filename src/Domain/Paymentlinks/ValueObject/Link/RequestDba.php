@@ -3,7 +3,7 @@
 declare(strict_types=1);
 
 /**
- * @copyright Copyright (c) 2018-2020 Payvision B.V. (https://www.payvision.com/)
+ * @copyright Copyright (c) 2018-2021 Payvision B.V. (https://www.payvision.com/)
  * @license see LICENCE.TXT
  *
  * Warning! This file is auto-generated! Any changes made to this file will be deleted in the future!
@@ -27,6 +27,11 @@ class RequestDba
      * @var string
      */
     private $email;
+
+    /**
+     * @var int
+     */
+    private $merchantCategoryCode;
 
     /**
      * @var string
@@ -61,6 +66,11 @@ class RequestDba
     /**
      * @var string
      */
+    private $website;
+
+    /**
+     * @var string
+     */
     private $zip;
 
     /**
@@ -69,35 +79,41 @@ class RequestDba
      * @param string $city
      * @param string $countryCode
      * @param string $email
+     * @param int $merchantCategoryCode
      * @param string $name
      * @param string $phoneNumber
      * @param string $shortName
      * @param string $stateCode
      * @param string $street
      * @param string $subMerchantId
+     * @param string $website
      * @param string $zip
      */
     public function __construct(
         string $city = null,
         string $countryCode = null,
         string $email = null,
+        int $merchantCategoryCode = null,
         string $name = null,
         string $phoneNumber = null,
         string $shortName = null,
         string $stateCode = null,
         string $street = null,
         string $subMerchantId = null,
+        string $website = null,
         string $zip = null
     ) {
         $this->city = $city;
         $this->countryCode = $countryCode;
         $this->email = $email;
+        $this->merchantCategoryCode = $merchantCategoryCode;
         $this->name = $name;
         $this->phoneNumber = $phoneNumber;
         $this->shortName = $shortName;
         $this->stateCode = $stateCode;
         $this->street = $street;
         $this->subMerchantId = $subMerchantId;
+        $this->website = $website;
         $this->zip = $zip;
     }
 
@@ -123,6 +139,14 @@ class RequestDba
     public function getEmail(): ?string
     {
         return $this->email;
+    }
+
+    /**
+     * @return int|null
+     */
+    public function getMerchantCategoryCode(): ?int
+    {
+        return $this->merchantCategoryCode;
     }
 
     /**
@@ -171,6 +195,14 @@ class RequestDba
     public function getSubMerchantId(): ?string
     {
         return $this->subMerchantId;
+    }
+
+    /**
+     * @return string|null
+     */
+    public function getWebsite(): ?string
+    {
+        return $this->website;
     }
 
     /**

@@ -3,7 +3,7 @@
 declare(strict_types=1);
 
 /**
- * @copyright Copyright (c) 2018-2020 Payvision B.V. (https://www.payvision.com/)
+ * @copyright Copyright (c) 2018-2021 Payvision B.V. (https://www.payvision.com/)
  * @license see LICENCE.TXT
  *
  * Warning! This file is auto-generated! Any changes made to this file will be deleted in the future!
@@ -47,6 +47,16 @@ class ResponseLink
     private $status;
 
     /**
+     * @var bool
+     */
+    private $threeDSecure;
+
+    /**
+     * @var string
+     */
+    private $tokenize;
+
+    /**
      * ResponseLink constructor.
      *
      * @param int[] $brandIds
@@ -54,19 +64,25 @@ class ResponseLink
      * @param string $linkId
      * @param ResponseRedirect $redirect
      * @param string $status
+     * @param bool $threeDSecure
+     * @param string $tokenize
      */
     public function __construct(
         array $brandIds,
         \Payvision\SDK\DataType\DateTime $expirationTime,
         string $linkId,
         ResponseRedirect $redirect,
-        string $status
+        string $status,
+        bool $threeDSecure = null,
+        string $tokenize = null
     ) {
         $this->brandIds = $brandIds;
         $this->expirationTime = $expirationTime;
         $this->linkId = $linkId;
         $this->redirect = $redirect;
         $this->status = $status;
+        $this->threeDSecure = $threeDSecure;
+        $this->tokenize = $tokenize;
     }
 
     /**
@@ -107,5 +123,21 @@ class ResponseLink
     public function getStatus(): string
     {
         return $this->status;
+    }
+
+    /**
+     * @return bool|null
+     */
+    public function getThreeDSecure(): ?bool
+    {
+        return $this->threeDSecure;
+    }
+
+    /**
+     * @return string|null
+     */
+    public function getTokenize(): ?string
+    {
+        return $this->tokenize;
     }
 }

@@ -89,6 +89,9 @@ abstract class AbstractPaymentTest extends AbstractTestCase
 
         $request = RequestBuilder::getPayments($this->credentials['businessId'], $trackingCode);
         $responses = $this->apiConnection->executeAndReturnArray($request);
+
+        self::assertIsArray($responses);
+        self::assertCount(1, $responses);
     }
 
     /**

@@ -3,7 +3,7 @@
 declare(strict_types=1);
 
 /**
- * @copyright Copyright (c) 2018-2020 Payvision B.V. (https://www.payvision.com/)
+ * @copyright Copyright (c) 2018-2021 Payvision B.V. (https://www.payvision.com/)
  * @license see LICENCE.TXT
  *
  * Warning! This file is auto-generated! Any changes made to this file will be deleted in the future!
@@ -61,6 +61,24 @@ class RequestLink extends Basic
     }
 
     /**
+     * @param bool $threeDSecure
+     * @return RequestLink
+     */
+    public function setThreeDSecure(bool $threeDSecure): RequestLink
+    {
+        return $this->set('threeDSecure', $threeDSecure);
+    }
+
+    /**
+     * @param string $tokenize
+     * @return RequestLink
+     */
+    public function setTokenize(string $tokenize): RequestLink
+    {
+        return $this->set('tokenize', $tokenize);
+    }
+
+    /**
      * @return RequestLinkObject
      */
     protected function buildObject(): RequestLinkObject
@@ -69,7 +87,9 @@ class RequestLink extends Basic
             $this->get('brandIds'),
             $this->get('returnUrl'),
             $this->get('duration'),
-            $this->get('expirationTime')
+            $this->get('expirationTime'),
+            $this->get('threeDSecure'),
+            $this->get('tokenize')
         );
     }
 }

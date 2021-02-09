@@ -3,7 +3,7 @@
 declare(strict_types=1);
 
 /**
- * @copyright Copyright (c) 2018-2020 Payvision B.V. (https://www.payvision.com/)
+ * @copyright Copyright (c) 2018-2021 Payvision B.V. (https://www.payvision.com/)
  * @license see LICENCE.TXT
  *
  * Warning! This file is auto-generated! Any changes made to this file will be deleted in the future!
@@ -88,6 +88,33 @@ class RequestTransaction extends Basic
     }
 
     /**
+     * @param string $languageCode
+     * @return RequestTransaction
+     */
+    public function setLanguageCode(string $languageCode): RequestTransaction
+    {
+        return $this->set('languageCode', $languageCode);
+    }
+
+    /**
+     * @param string $purchaseId
+     * @return RequestTransaction
+     */
+    public function setPurchaseId(string $purchaseId): RequestTransaction
+    {
+        return $this->set('purchaseId', $purchaseId);
+    }
+
+    /**
+     * @param string $source
+     * @return RequestTransaction
+     */
+    public function setSource(string $source): RequestTransaction
+    {
+        return $this->set('source', $source);
+    }
+
+    /**
      * @param int $storeId
      * @return RequestTransaction
      */
@@ -118,6 +145,9 @@ class RequestTransaction extends Basic
             $this->get('countryCode'),
             $this->get('descriptor'),
             $this->get('invoiceId'),
+            $this->get('languageCode'),
+            $this->get('purchaseId'),
+            $this->get('source'),
             $this->get('storeId'),
             $this->get('type')
         );

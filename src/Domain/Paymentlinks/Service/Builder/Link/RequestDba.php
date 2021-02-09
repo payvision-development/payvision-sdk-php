@@ -3,7 +3,7 @@
 declare(strict_types=1);
 
 /**
- * @copyright Copyright (c) 2018-2020 Payvision B.V. (https://www.payvision.com/)
+ * @copyright Copyright (c) 2018-2021 Payvision B.V. (https://www.payvision.com/)
  * @license see LICENCE.TXT
  *
  * Warning! This file is auto-generated! Any changes made to this file will be deleted in the future!
@@ -49,6 +49,15 @@ class RequestDba extends Basic
     public function setEmail(string $email): RequestDba
     {
         return $this->set('email', $email);
+    }
+
+    /**
+     * @param int $merchantCategoryCode
+     * @return RequestDba
+     */
+    public function setMerchantCategoryCode(int $merchantCategoryCode): RequestDba
+    {
+        return $this->set('merchantCategoryCode', $merchantCategoryCode);
     }
 
     /**
@@ -106,6 +115,15 @@ class RequestDba extends Basic
     }
 
     /**
+     * @param string $website
+     * @return RequestDba
+     */
+    public function setWebsite(string $website): RequestDba
+    {
+        return $this->set('website', $website);
+    }
+
+    /**
      * @param string $zip
      * @return RequestDba
      */
@@ -123,12 +141,14 @@ class RequestDba extends Basic
             $this->get('city'),
             $this->get('countryCode'),
             $this->get('email'),
+            $this->get('merchantCategoryCode'),
             $this->get('name'),
             $this->get('phoneNumber'),
             $this->get('shortName'),
             $this->get('stateCode'),
             $this->get('street'),
             $this->get('subMerchantId'),
+            $this->get('website'),
             $this->get('zip')
         );
     }

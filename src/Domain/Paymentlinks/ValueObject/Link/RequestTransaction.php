@@ -3,7 +3,7 @@
 declare(strict_types=1);
 
 /**
- * @copyright Copyright (c) 2018-2020 Payvision B.V. (https://www.payvision.com/)
+ * @copyright Copyright (c) 2018-2021 Payvision B.V. (https://www.payvision.com/)
  * @license see LICENCE.TXT
  *
  * Warning! This file is auto-generated! Any changes made to this file will be deleted in the future!
@@ -52,6 +52,21 @@ class RequestTransaction
     private $invoiceId;
 
     /**
+     * @var string
+     */
+    private $languageCode;
+
+    /**
+     * @var string
+     */
+    private $purchaseId;
+
+    /**
+     * @var string
+     */
+    private $source;
+
+    /**
      * @var int
      */
     private $storeId;
@@ -71,6 +86,9 @@ class RequestTransaction
      * @param string $countryCode
      * @param string $descriptor
      * @param string $invoiceId
+     * @param string $languageCode
+     * @param string $purchaseId
+     * @param string $source
      * @param int $storeId
      * @param string $type
      */
@@ -82,6 +100,9 @@ class RequestTransaction
         string $countryCode = null,
         string $descriptor = null,
         string $invoiceId = null,
+        string $languageCode = null,
+        string $purchaseId = null,
+        string $source = null,
         int $storeId = null,
         string $type = null
     ) {
@@ -92,6 +113,9 @@ class RequestTransaction
         $this->countryCode = $countryCode;
         $this->descriptor = $descriptor;
         $this->invoiceId = $invoiceId;
+        $this->languageCode = $languageCode;
+        $this->purchaseId = $purchaseId;
+        $this->source = $source;
         $this->storeId = $storeId;
         $this->type = $type;
     }
@@ -150,6 +174,30 @@ class RequestTransaction
     public function getInvoiceId(): ?string
     {
         return $this->invoiceId;
+    }
+
+    /**
+     * @return string|null
+     */
+    public function getLanguageCode(): ?string
+    {
+        return $this->languageCode;
+    }
+
+    /**
+     * @return string|null
+     */
+    public function getPurchaseId(): ?string
+    {
+        return $this->purchaseId;
+    }
+
+    /**
+     * @return string|null
+     */
+    public function getSource(): ?string
+    {
+        return $this->source;
     }
 
     /**
