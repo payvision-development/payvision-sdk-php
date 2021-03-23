@@ -2,6 +2,11 @@
 
 declare(strict_types=1);
 
+/**
+ * @copyright Copyright (c) 2018-2021 Payvision B.V. (https://www.payvision.com/)
+ * @license see LICENCE.TXT
+ */
+
 namespace Payvision\SDK\Infrastructure;
 
 use ArrayIterator;
@@ -11,7 +16,9 @@ use Traversable;
 
 class RequestHeaderCollection implements IteratorAggregate, Countable
 {
-    const HEADER_EXECUTION_MODE = 'X-AH-ExecutionMode';
+    public const HEADER_EXECUTION_MODE = 'X-AH-ExecutionMode';
+    public const HEADER_PLUGIN_NAME = 'X-AH-PluginName';
+    public const HEADER_PLUGIN_DETAILS = 'X-AH-PluginDetails';
 
     /**
      * @var string[],array<string>

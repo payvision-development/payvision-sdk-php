@@ -3,7 +3,7 @@
 declare(strict_types=1);
 
 /**
- * @copyright Copyright (c) 2018-2020 Payvision B.V. (https://www.payvision.com/)
+ * @copyright Copyright (c) 2018-2021 Payvision B.V. (https://www.payvision.com/)
  * @license see LICENCE.TXT
  */
 
@@ -19,16 +19,25 @@ class RequestHeaderCollectionTest extends TestCase
         $requestHeaders = new RequestHeaderCollection();
         self::assertEquals(0, $requestHeaders->count());
 
-        $requestHeaders->add(RequestHeaderCollection::HEADER_EXECUTION_MODE, 'test');
-        self::assertEquals(1, $requestHeaders->count());
+        $testHeaders = [
+            RequestHeaderCollection::HEADER_EXECUTION_MODE => 'test',
+            RequestHeaderCollection::HEADER_PLUGIN_NAME => 'PHP SDK',
+            RequestHeaderCollection::HEADER_PLUGIN_DETAILS => 'Version 8.1.0',
+        ];
 
+        foreach ($testHeaders as $header => $value) {
+            $requestHeaders->add($header, $value);
+        }
+
+        self::assertEquals(\count($testHeaders), $requestHeaders->count());
         foreach ($requestHeaders as $key => $value) {
-            self::assertEquals(RequestHeaderCollection::HEADER_EXECUTION_MODE, $key);
-            self::assertEquals('test', $value);
+            self::assertEquals($testHeaders[$key], $value);
         }
 
         $headers = $requestHeaders->getHeaders();
-        self::assertArrayHasKey(RequestHeaderCollection::HEADER_EXECUTION_MODE, $headers);
-        self::assertEquals('test', $headers[RequestHeaderCollection::HEADER_EXECUTION_MODE]);
+        foreach ($testHeaders as $key => $value) {
+            self::assertArrayHasKey($key, $headers);
+            self::assertEquals($value, $headers[$key]);
+        }
     }
 }

@@ -23,6 +23,7 @@ use Payvision\SDK\Exception\Api\ErrorResponse;
 use Payvision\SDK\Exception\ApiException;
 use Payvision\SDK\Exception\BuilderException;
 use Payvision\SDK\Infrastructure\ApiConnection;
+use Payvision\SDK\Infrastructure\RequestHeaderCollection;
 use Payvision\SDK\Test\Unit\Application\Response\Fake as FakeResponse;
 use PHPUnit\Framework\MockObject\MockObject;
 use PHPUnit\Framework\TestCase;
@@ -352,6 +353,18 @@ class ApiConnectionTest extends TestCase
         $this->expectException(BuilderException::class);
         $this->expectExceptionCode(BuilderException::MISSING_RESPONSE_PROPERTY);
         $this->subject->execute($request);
+    }
+
+    public function testGlobalRequestHeaders(): void
+    {
+        $this->subject->setGlobalRequestHeaders([
+            RequestHeaderCollection::HEADER_PLUGIN_NAME => 'PHP SDK',
+            RequestHeaderCollection::HEADER_PLUGIN_DETAILS => 'Version 8.1.0',
+        ]);
+        self::assertCount(2, $this->subject->getGlobalRequestHeaders());
+
+        $this->subject->addGlobalRequestHeader(RequestHeaderCollection::HEADER_EXECUTION_MODE, 'true');
+        self::assertCount(3, $this->subject->getGlobalRequestHeaders());
     }
 
     private function createApiRequestObject(

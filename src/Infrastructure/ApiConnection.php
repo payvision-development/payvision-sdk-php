@@ -46,6 +46,11 @@ class ApiConnection implements Connection
     private $lastJsonRequest;
 
     /**
+     * @var array
+     */
+    private $globalRequestHeaders = [];
+
+    /**
      * ApiConnection constructor.
      *
      * @param string $userName
@@ -79,6 +84,7 @@ class ApiConnection implements Connection
      */
     public function execute(Request $request, array $requestHeaders = [])
     {
+        $requestHeaders = \array_merge($this->globalRequestHeaders, $requestHeaders);
         $this->validateResponseClasses($request);
         $jsonResponse = $this->doRequest($request, $requestHeaders);
         return $this->handleResponse($jsonResponse, $request);
@@ -86,14 +92,16 @@ class ApiConnection implements Connection
 
     /**
      * @param Request $request
+     * @param array $requestHeaders
      * @return array
      * @throws ApiException
      * @throws BuilderException
      * @throws ErrorResponse
      */
-    public function executeAndReturnArray(Request $request): array
+    public function executeAndReturnArray(Request $request, array $requestHeaders = []): array
     {
-        $jsonResponse = $this->doRequest($request);
+        $requestHeaders = \array_merge($this->globalRequestHeaders, $requestHeaders);
+        $jsonResponse = $this->doRequest($request, $requestHeaders);
         $items = [];
 
         foreach ($jsonResponse as $item) {
@@ -101,6 +109,35 @@ class ApiConnection implements Connection
         }
 
         return $items;
+    }
+
+    /**
+     * @param array $globalRequestHeaders
+     * @return ApiConnection
+     */
+    public function setGlobalRequestHeaders(array $globalRequestHeaders = []): ApiConnection
+    {
+        $this->globalRequestHeaders = $globalRequestHeaders;
+        return $this;
+    }
+
+    /**
+     * @param string $key
+     * @param string $value
+     * @return ApiConnection
+     */
+    public function addGlobalRequestHeader(string $key, string $value): ApiConnection
+    {
+        $this->globalRequestHeaders[$key] = $value;
+        return $this;
+    }
+
+    /**
+     * @return array
+     */
+    public function getGlobalRequestHeaders(): array
+    {
+        return $this->globalRequestHeaders;
     }
 
     /**
