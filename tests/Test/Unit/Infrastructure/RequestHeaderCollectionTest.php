@@ -22,7 +22,7 @@ class RequestHeaderCollectionTest extends TestCase
         $testHeaders = [
             RequestHeaderCollection::HEADER_EXECUTION_MODE => 'test',
             RequestHeaderCollection::HEADER_PLUGIN_NAME => 'PHP SDK',
-            RequestHeaderCollection::HEADER_PLUGIN_DETAILS => 'Version 8.1.0',
+            RequestHeaderCollection::HEADER_PLUGIN_DETAILS => 'Version 8.2.0',
         ];
 
         foreach ($testHeaders as $header => $value) {

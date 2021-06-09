@@ -2,6 +2,7 @@
 <!--
   ~ @copyright Copyright (c) 2018-2019 Payvision B.V. (https://www.payvision.com/)
   ~ @license see LICENCE.TXT
+  ~ @see: https://developers.acehubpaymentservices.com/reference#brands
   -->
 <brands xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
         xsi:noNamespaceSchemaLocation="./brands.xsd">
@@ -78,11 +79,11 @@
                 <issuer id="110">
                     <description>Bunq</description>
                 </issuer>
-                <issuer id="120">
-                    <description>Moneyou</description>
-                </issuer>
                 <issuer id="130">
                     <description>Handelsbanken</description>
+                </issuer>
+                <issuer id="140">
+                    <description>Revolut</description>
                 </issuer>
             </issuers>
         </brand>

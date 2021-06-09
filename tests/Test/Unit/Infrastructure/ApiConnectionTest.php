@@ -359,7 +359,7 @@ class ApiConnectionTest extends TestCase
     {
         $this->subject->setGlobalRequestHeaders([
             RequestHeaderCollection::HEADER_PLUGIN_NAME => 'PHP SDK',
-            RequestHeaderCollection::HEADER_PLUGIN_DETAILS => 'Version 8.1.0',
+            RequestHeaderCollection::HEADER_PLUGIN_DETAILS => 'Version 8.2.0',
         ]);
         self::assertCount(2, $this->subject->getGlobalRequestHeaders());
 
